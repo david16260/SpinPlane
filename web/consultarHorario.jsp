@@ -16,178 +16,155 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+        <title>SpinPlane</title>
+
+        <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+        <meta name="viewport" content="width=device-width" />
+
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css" />
         <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css"/>
-        <link rel="stylesheet" href="../Css/consultar.css"/>
+        <link rel="stylesheet" href="Css/consultar.css"/>
         <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
         <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
         <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap4.min.js"></script>
-        <script src="https://cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"></script>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Consultar Horario</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+        <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap4.min.js"></script>
+        <link href="Css/sweetalert.css" rel="stylesheet" type="text/css"/>
+        <script src="Js/sweetalert.js" type="text/javascript"></script>
+        <script src="Js/sweetalert.min.js" type="text/javascript"></script>
+        <!-- Bootstrap core CSS     -->
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="Css/sweetalert.css" rel="stylesheet" type="text/css"/>
+        <script src="Js/sweetalert.js" type="text/javascript"></script>
+        <script src="Js/sweetalert.min.js" type="text/javascript"></script>
+
+        <!-- Animation library for notifications   -->
+        <link href="assets/css/animate.min.css" rel="stylesheet"/>
+
+        <!--  Light Bootstrap Table core CSS    -->
+        <link href="assets/css/light-bootstrap-dashboard.css?v=1.4.0" rel="stylesheet"/>
+
+
+        <!--  CSS for Demo Purpose, don't include it in your project     -->
+        <link href="assets/css/demo.css" rel="stylesheet" />
+
+
+        <!--     Fonts and icons     -->
+        <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+        <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
+        <link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
+
+        <!--  Google Maps Plugin    -->
+        <script src="assets/js/demo.js"></script>
     </head>
-    <body >
-        <style>
-            .contenedor{
-                width: 100%;
-                max-width: 1400px;
-                display: flex;
-                justify-content: center;
-                margin: auto;
-                background:#fefefe;
-                padding: 15px;
-                margin-radius:5px; 
-            }
-            body{
-                background:#ECECEC;
-            }
-            h2{
-                width:100%;
-                max-width: 300px;
-                display: flex;
-                justify-content: center;
-                margin: auto;
-                text-align: center;
-                background: #007bff;
-                border-radius:7px;
-                padding: 5px;
-                margin-bottom: 15px;
-                margin-top: 35px;
-                color: white;
-            }
-            h2:hover{
-                background: #4CA3FF;
-                color: white;
-            }
-            .verde{
-                background: green;
-                color: white;
-                border-radius:5px; 
-            }
-            .rojo{
-                background:brown;
-                color: white;
-            }
-            .overlay {
-                background: rgb(0, 0, 0, .3);
-                position: fixed;
-                top: 0;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                visibility: hidden;
-            }
+    <body>
 
-            .overlay.activado {
-                visibility: visible;
-            }
+        <div class="wrapper">
+            <div class="sidebar" data-color="purple" data-image="assets/img/sidebar-5.jpg">
 
-            h2 {
-                color: #fff;
-                text-align: center;
-                margin-top: -7px;
-            }
+                <!--
+            
+                    Tip 1: you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple"
+                    Tip 2: you can also add an image using data-image tag
+            
+                -->
 
-            .form-registro {
-                width: 40%;
-                background: #fff;
-                border-radius: 8px;
-                box-shadow: 0px 0px 5px 0px black;
-            }
+                <div class="sidebar-wrapper">
+                    <div class="logo">
+                        <a href="menuF.jsp" class="simple-text">
+                            SpinPlane
+                        </a>
+                    </div>
 
-            .tituloR {
-                background: #fff;
-                color: #fff;
-                padding: 5px;
-                text-align: center;
-                font-weight: 100;
-                font-size: 15px;
-                border-top-left-radius: 8px;
-                border-top-right-radius: 8px;
-            }
+                    <ul class="nav">
+                        <li>
+                            <a href="consultarAsistencia.jsp">
+                                <i class="pe-7s-notebook"></i>
+                                <p>Asistencia</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="consultarAula.jsp">
+                                <i class="pe-7s-culture"></i>
+                                <p>Aula</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="consultarGrupo.jsp">
+                                <i class="pe-7s-users"></i>
+                                <p>Grupo</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="consultarClase.jsp">
+                                <i class="pe-7s-news-paper"></i>
+                                <p>Clase</p>
+                            </a>
+                        </li>
+                        <li>
+                        <li>
+                            <a href="consultarNovedad.jsp">
+                                <i class="pe-7s-info"></i>
+                                <p>Novedad</p>
+                            </a>
+                        </li>
+                        <li>
+                        <li class="active">
+                            <a href="consultarHorario.jsp">
+                                <i class="pe-7s-date"></i>
+                                <p>Horario</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="consultarUsuario.jsp">
+                                <i class="pe-7s-user"></i>
+                                <p>Usuario</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
 
-            .tituloR .cerrar-registro {
-                font-size: 25px;
-                line-height: 0px;
-                display: block;
-                margin-top: -5px;
-                text-align: right;
-                color: #BBBBBB;
-            }
+            <div class="main-panel">
+                <nav class="navbar navbar-default navbar-fixed">
+                    <div class="container-fluid">
 
-            .formulario {
-                padding: 10px 30px;
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: space-between;
-            }
+                        <div class="collapse navbar-collapse">
+                            
+                            <ul class="nav navbar-nav navbar-left">
 
-            .formulario input {
-                margin-bottom: 15px;
-                padding: 5px;
-                font-size: 15px;
-            }
+                                <li>
+                                    <a href="menuF.jsp">
+                                        <i class="pe-7s-left-arrow"></i>
+                                        
+                                    </a>
 
-            .formulario .input-50 {
-                width: 45%;
-            }
+                                </li>
+                            </ul>
+                            <ul style="list-style: none;">
+                                <li>
+                                    <h2 class="text-center">Gestionar Horario</h2>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
 
-            .formulario .input-50:hover {
-                width: 46%;
-                transition: 0.5s;
-            }
-
-            .selector {
-                width: 45%;
-            }
-
-            .estilo-selector {
-                width: 100%;
-                margin-bottom: 15px;
-                height: 34px;
-                overflow: hidden;
-                background: #fff;
-                border: 1px solid grey;
-                font-size: 15px;
-                appearance: none; 
-                padding: 5px;
-            }
-
-            .estilo-selector:hover {
-                width: 103%;
-                height: 34px;
-                overflow: hidden;
-                background: #fff;
-                border: 1px solid grey;
-                font-size: 15px;
-                transition: 0.5s;
-            }
-
-            .boton {
-                width: 100%;
-            }
-
-            .btn {
-                width: 20%;
-                margin-left: 40%;
-                color: white;
-                background: #007bff;
-                border: solid 2px #fff;
-                border-radius: 5px;
-            }
-
-            .btn:hover {
-                background: #4371A3;
-                color: #fff;
-            }
-        </style>
-        <h2 class="text-center mt-20">Gestion de los Horarios</h2>
-        <div class="contenedor">
+                <div class="contenedor mt-4">
             <table id="usuario" class="table table-striped" style="width:100%">
                 <thead>
                     <tr>
@@ -282,7 +259,7 @@
                 });
             });
         </script>
-        <button class="abrir-registrar" id="abrir-registrar">Registrar</button>
+        <button class="abrir-registrar btn btn-primary" id="abrir-registrar">Registrar</button>
         <div class="overlay" id="overlay">
             <form method="POST" action="Horario" class="form-registro">
                 <div class="tituloR">
@@ -357,5 +334,25 @@
             </form>
         </div>
         <script src="Js/consutarUsuario.js" type="text/javascript"></script>
+    <footer class="footer">
+                    <div class="container-fluid">
+
+                        <p class="copyright text-center">
+                            &copy; <script>document.write(new Date().getFullYear())</script> <a href="#">SpinPlane</a>
+                        </p>
+                    </div>
+                </footer>
+
+            </div>
+        </div>
+
     </body>
+    <!--   Core JS Files   -->
+    <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
+    <script src="assets/js/light-bootstrap-dashboard.js?v=1.4.0"></script>
+
+    <!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
+    <script src="assets/js/demo.js"></script>
+
+
 </html>
