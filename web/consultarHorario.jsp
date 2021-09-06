@@ -4,6 +4,12 @@
     Author     : Sebas
 --%>
 
+<%@page import="ModeloDAO.ClaseDAO"%>
+<%@page import="ModeloVO.ClaseVO"%>
+<%@page import="ModeloDAO.AulaDAO"%>
+<%@page import="ModeloVO.AulaVO"%>
+<%@page import="ModeloDAO.GrupoDAO"%>
+<%@page import="ModeloVO.GrupoVO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="ModeloDAO.HorarioDAO"%>
 <%@page import="ModeloVO.HorarioVO"%>
@@ -63,6 +69,121 @@
             .rojo{
                 background:brown;
                 color: white;
+            }
+            .overlay {
+                background: rgb(0, 0, 0, .3);
+                position: fixed;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                visibility: hidden;
+            }
+
+            .overlay.activado {
+                visibility: visible;
+            }
+
+            h2 {
+                color: #fff;
+                text-align: center;
+                margin-top: -7px;
+            }
+
+            .form-registro {
+                width: 40%;
+                background: #fff;
+                border-radius: 8px;
+                box-shadow: 0px 0px 5px 0px black;
+            }
+
+            .tituloR {
+                background: #fff;
+                color: #fff;
+                padding: 5px;
+                text-align: center;
+                font-weight: 100;
+                font-size: 15px;
+                border-top-left-radius: 8px;
+                border-top-right-radius: 8px;
+            }
+
+            .tituloR .cerrar-registro {
+                font-size: 25px;
+                line-height: 0px;
+                display: block;
+                margin-top: -5px;
+                text-align: right;
+                color: #BBBBBB;
+            }
+
+            .formulario {
+                padding: 10px 30px;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+            }
+
+            .formulario input {
+                margin-bottom: 15px;
+                padding: 5px;
+                font-size: 15px;
+            }
+
+            .formulario .input-50 {
+                width: 45%;
+            }
+
+            .formulario .input-50:hover {
+                width: 46%;
+                transition: 0.5s;
+            }
+
+            .selector {
+                width: 45%;
+            }
+
+            .estilo-selector {
+                width: 100%;
+                margin-bottom: 15px;
+                height: 34px;
+                overflow: hidden;
+                background: #fff;
+                border: 1px solid grey;
+                font-size: 15px;
+                appearance: none; 
+                padding: 5px;
+            }
+
+            .estilo-selector:hover {
+                width: 103%;
+                height: 34px;
+                overflow: hidden;
+                background: #fff;
+                border: 1px solid grey;
+                font-size: 15px;
+                transition: 0.5s;
+            }
+
+            .boton {
+                width: 100%;
+            }
+
+            .btn {
+                width: 20%;
+                margin-left: 40%;
+                color: white;
+                background: #007bff;
+                border: solid 2px #fff;
+                border-radius: 5px;
+            }
+
+            .btn:hover {
+                background: #4371A3;
+                color: #fff;
             }
         </style>
         <h2 class="text-center mt-20">Gestion de los Horarios</h2>
@@ -161,5 +282,80 @@
                 });
             });
         </script>
+        <button class="abrir-registrar" id="abrir-registrar">Registrar</button>
+        <div class="overlay" id="overlay">
+            <form method="POST" action="Horario" class="form-registro">
+                <div class="tituloR">
+                    <a href="#" class="cerrar-registro" id="cerrar-registro"><i class="fas fa-times"></i></a>
+                    <h2>Registrar Horario</h2>
+                </div>
+                <div class="cuerpo">
+                    <div class="formulario">
+                        <input type="date" name="txtFechaInicio" required class="input-50">
+                        <input type="date" name="txtFechaFin" required class="input-50">
+                        <input type="date" name="txtDia" required class="input-50">
+                        <input type="time" name="txtHoraInicio" class="input-50">
+                        <input type="time" name="txtHoraFin" class="input-50">
+                        <input type="hidden" value="Activo" name="txtEstado">
+                        <div class="selector">
+                            <select name="txtGrupo" class="estilo-selector">
+                                <option selected>Grupo</option>
+                                <%
+                                    GrupoVO GruVO = new GrupoVO();
+                                    GrupoDAO GruDAO = new GrupoDAO(GruVO);
+                                    ArrayList< GrupoVO> listaGrupo = GruDAO.listar();
+                                    for (int i = 0; i < listaGrupo.size(); i++) {
+
+                                        GruVO = listaGrupo.get(i);
+                                %>
+                                <option value="<%=GruVO.getIdGrupo()%>"><%=GruVO.getNombre()%></option>
+                                <%
+                                    }
+                                %> 
+                            </select>
+                        </div>
+                        <div class="selector">
+                            <select name="txtAula" class="estilo-selector">
+                                <option selected>Aula</option>
+                                <%
+                                    AulaVO AulVO = new AulaVO();
+                                    AulaDAO AulDAO = new AulaDAO(AulVO);
+                                    ArrayList<AulaVO> listaAula = AulDAO.listar();
+                                    for (int i = 0; i < listaAula.size(); i++) {
+
+                                        AulVO = listaAula.get(i);
+                                %>
+                                <option value="<%=AulVO.getIdAula()%>"><%=AulVO.getNombre()%></option>
+                                <%
+                                    }
+                                %> 
+                            </select>
+                        </div>
+                        <div class="selector">
+                            <select name="txtClase" class="estilo-selector">
+                                <option selected>Clase</option>
+                                <%
+                                    ClaseVO ClaVO = new ClaseVO();
+                                    ClaseDAO ClaDAO = new ClaseDAO(ClaVO);
+                                    ArrayList<ClaseVO> listaclase = ClaDAO.listar();
+                                    for (int i = 0; i < listaclase.size(); i++) {
+
+                                        ClaVO = listaclase.get(i);
+                                %>
+                                <option value="<%=ClaVO.getIdClase()%>"><%=ClaVO.getNombre()%></option>
+                                <%
+                                    }
+                                %> 
+                            </select>
+                        </div>
+                        <div class="boton">
+                            <input type="submit" id="btn" value="Registrar" class="btn">
+                            <input type="hidden" value="1" name="opcion">
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <script src="Js/consutarUsuario.js" type="text/javascript"></script>
     </body>
 </html>

@@ -63,7 +63,7 @@
             </li>
             <li><a href="#"><i class="icono izquierda fas fa-users"></i>Grupo<i class="icono derecha fas fa-chevron-down"></i></a>
             <ul>
-                <li class=""><a href="conultarClase.jsp"><i class="icono izquierda fas fa-search"></i>Buscar Grupos</a></li>
+                <li class=""><a href="consultarGrupo.jsp"><i class="icono izquierda fas fa-search"></i>Buscar Grupos</a></li>
                 <li class=""><a href="registrarGrupo.jsp"><i class="icono izquierda fas fa-plus-circle"></i>Registrar Grupo</a></li>
             </ul>
             </li>
@@ -83,6 +83,9 @@
             <ul>
                 <li class=""><a href="consultarUsuario.jsp"><i class="icono izquierda fas fa-search"></i>Buscar Usuarios</a></li>
                 <li class=""><a href="registrarUsuario.jsp"><i class="icono izquierda fas fa-plus-circle"></i>Registrar Usuario</a></li>
+            </ul>
+                <ul>
+                    <li class=""><a href="EnviarCorreo.jsp"><i class="icono izquierda fas fa-search"></i>Envíar correo</a></li>
             </ul>
             </li>
             <li class="animation">

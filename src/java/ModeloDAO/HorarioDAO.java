@@ -51,7 +51,7 @@ public class HorarioDAO extends Conexion implements Crud {
     }
 
     @Override
-    public boolean agregarRegistro() {
+   /* public boolean agregarRegistro() {
         try{
         sql = "INSERT INTO `horario` (`idHorario`, `fechaInicio`, `fechaFin`,`dia`, `horaInicio`, `horaFin`, `estado`, `idGrupo,`idAula`,`idClase) VALUES (?,?,?,?,?,?,?,?,?,?)";
         puente = conexion.prepareStatement(sql);
@@ -61,6 +61,33 @@ public class HorarioDAO extends Conexion implements Crud {
             puente.setString(6, dia);
             puente.setString(4, horaInicio);
             puente.setString(5, horaFin);
+            puente.setString(7, estado);
+            puente.setString(8, idGrupo);
+            puente.setString(9, idAula);
+            puente.setString(10, idClase);
+            puente.executeUpdate();
+            operacion = true;
+        } catch (SQLException e) {
+            Logger.getLogger(HorarioDAO.class.getName()).log(Level.SEVERE, null, e);
+        } finally {
+            try {
+                this.cerrarConexion();
+                
+            } catch (SQLException e) {
+            }
+        }
+        return operacion;
+    }*/
+    public boolean agregarRegistro() {
+        try{
+        sql = "INSERT INTO horario (idHorario,fechaInicio,fechaFin,dia,horaInicio,horaFin,estado,idGrupo,idAula,idClase) VALUES (?,?,?,?,?,?,?,?,?,?)";
+        puente = conexion.prepareStatement(sql);
+            puente.setString(1, idHorario);
+            puente.setString(2, fechaInicio);
+            puente.setString(3, fechaFin);
+            puente.setString(4, dia);
+            puente.setString(5, horaInicio);
+            puente.setString(6, horaFin);
             puente.setString(7, estado);
             puente.setString(8, idGrupo);
             puente.setString(9, idAula);
@@ -97,7 +124,7 @@ public class HorarioDAO extends Conexion implements Crud {
             conexion= this.obtenerConexion();
             sql="SELECT * FROM horario";
             puente = conexion.prepareStatement(sql);
-            mensajero = puente.executeQuery();
+            mensajero = puente.executeQuery();  
             while (mensajero.next()) {
                 
                 HorarioVO HorVO= new HorarioVO(mensajero.getString(1),mensajero.getString(2),
@@ -121,3 +148,4 @@ public class HorarioDAO extends Conexion implements Crud {
         
     }
 }
+ 
