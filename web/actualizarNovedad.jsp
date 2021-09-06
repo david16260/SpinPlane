@@ -23,7 +23,7 @@
         <link href="Css/sweetalert.css" rel="stylesheet" type="text/css"/>
         <script src="Js/sweetalert.js" type="text/javascript"></script>
         <script src="Js/sweetalert.min.js" type="text/javascript"></script>
-        <title>Actualizar Usuario</title>
+        <title>Actualizar Novedad</title>
     </head>
     <body>
             <%

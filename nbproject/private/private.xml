@@ -3,12 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Julian/Documents/NetBeansProjects/Academia_Final-master/src/java/Controlador/AulaControlador.java</file>
-            <file>file:/C:/Users/Julian/Documents/NetBeansProjects/Academia_Final-master/src/java/ModeloVO/AulaVO.java</file>
-            <file>file:/C:/Users/Julian/Documents/NetBeansProjects/Academia_Final-master/src/java/ModeloDAO/AulaDAO.java</file>
-            <file>file:/C:/Users/Julian/Documents/NetBeansProjects/Academia_Final-master/web/consultarAula.jsp</file>
-            <file>file:/C:/Users/Julian/Documents/NetBeansProjects/Academia_Final-master/web/consultarUsuario.jsp</file>
-            <file>file:/C:/Users/Julian/Documents/NetBeansProjects/Academia_Final-master/web/assets/css/demo.css</file>
+            <file>file:/C:/Users/mjuan/OneDrive/Documentos/NetBeansProjects/SpinPlane-master/web/consultarAsistencia.jsp</file>
+            <file>file:/C:/Users/mjuan/OneDrive/Documentos/NetBeansProjects/SpinPlane-master/src/java/ModeloDAO/AsistenciaDAO.java</file>
+            <file>file:/C:/Users/mjuan/OneDrive/Documentos/NetBeansProjects/SpinPlane-master/src/java/Controlador/AsistenciaControlador.java</file>
+            <file>file:/C:/Users/mjuan/OneDrive/Documentos/NetBeansProjects/SpinPlane-master/web/actualizarAsistencia.jsp</file>
+            <file>file:/C:/Users/mjuan/OneDrive/Documentos/NetBeansProjects/SpinPlane-master/web/login.jsp</file>
         </group>
     </open-files>
 </project-private>
