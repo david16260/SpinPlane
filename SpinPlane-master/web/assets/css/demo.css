@@ -1,0 +1,251 @@
+@media (min-width: 992px){
+    .typo-line{
+        padding-left: 140px;
+        margin-bottom: 40px;
+        position: relative;
+    }
+
+    .typo-line .category{
+        transform: translateY(-50%);
+        top: 50%;
+        left: 0px;
+        position: absolute;
+    }
+}
+
+.all-icons [class*="pe-"]{
+    font-size: 40px;
+}
+.all-icons input{
+    border: 0;
+}
+.all-icons .font-icon-detail{
+    text-align: center;
+    padding: 45px 0px 30px;
+    border: 1px solid #e5e5e5;
+    border-radius: 6px;
+    margin: 15px 0;
+}
+.all-icons .font-icon-detail input{
+    margin: 25px auto 0;
+    width: 100%;
+    text-align: center;
+    display: block;
+    color: #aaa;
+    font-size: 13px;
+}
+
+#map{
+    position:relative;
+    width:100%;
+    height: calc(100% - 60px);
+}
+
+.places-buttons .btn{
+    margin-bottom: 30px
+}
+.sidebar .nav > li.active-pro{
+    position: absolute;
+    width: 100%;
+    bottom: 10px;
+}
+.sidebar .nav > li.active-pro a{
+    background: rgba(255, 255, 255, 0.14);
+    opacity: 1;
+    color: #FFFFFF;
+}
+
+.table-upgrade td:nth-child(2),
+.table-upgrade td:nth-child(3){
+    text-align: center;
+}
+
+@media all and (max-width: 991px)  {
+    .sidebar .nav > li.active-pro{
+        position: initial;
+    }
+}
+
+.cerrar{
+    background: transparent;
+    border:activeborder ;
+}
+.contenedor{
+    width: 100%;
+    max-width: 1500px;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    background:#fefefe;
+    padding: 5px;
+    margin-radius:5px; 
+}
+
+
+.section-heading {
+    text-align: center;
+    padding: 10px 5px;
+}
+.section-heading {
+    text-align: center;
+    padding: 10px 5px;
+}
+
+.section-heading h3 {
+    font-size: 32px;
+    font-weight: 700;
+    color: black;
+}
+.section-heading .line-dec {
+    width: 60px;
+    height: 3px;
+    background-color: #a43f49;
+    margin: 10px auto;
+}
+.section-heading span {
+    margin-top: 5px;
+    font-size: 16px;
+    color: #fff;
+    letter-spacing: 0.5px;
+}
+.nav li{
+    width: 100%;
+}
+.pe-7s-left-arrow{
+    font-size: 35px;
+    
+}
+.pe-7s-left-arrow:hover{
+    color: black;
+    
+}
+.service-item{
+    padding:5px 2px 5px 5px;
+    
+}
+.service-item:hover{
+    background: white;
+    color: black;
+    box-shadow:
+       inset 0 -3em 3em rgba(0,0,0,0.1),
+             0 0  0 2px rgb(255,255,255),
+             0.3em 0.3em 1em rgba(0,0,0,0.3);
+}
+
+.overlay {
+    background: rgb(0, 0, 0, .3);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+}
+
+.overlay.activado {
+    visibility: visible;
+}
+
+h2 {
+    color: black;
+    text-align: center;
+    margin-top: -7px;
+}
+
+.form-registro {
+    width: 40%;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 0px 5px 0px black;
+}
+
+.tituloR {
+    background: #fff;
+    color: black;
+    padding: 5px;
+    text-align: center;
+    font-weight: 100;
+    font-size: 15px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.tituloR .cerrar-registro {
+    font-size: 25px;
+    line-height: 0px;
+    display: block;
+    margin-top: -5px;
+    text-align: right;
+    color: #BBBBBB;
+}
+
+.formulario {
+    padding: 10px 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.formulario input {
+    margin-bottom: 15px;
+    padding: 5px;
+    font-size: 15px;
+}
+
+.formulario .input-50 {
+    width: 45%;
+}
+
+.formulario .input-50:hover {
+    width: 46%;
+    transition: 0.5s;
+}
+
+.selector {
+    width: 45%;
+}
+
+.estilo-selector {
+    width: 100%;
+    height: 34px;
+    overflow: hidden;
+    background: #fff;
+    border: 1px solid grey;
+    font-size: 15px;
+    appearance: none; 
+    padding: 5px;
+}
+
+.estilo-selector:hover {
+    width: 103%;
+    height: 34px;
+    overflow: hidden;
+    background: #fff;
+    border: 1px solid grey;
+    font-size: 15px;
+    transition: 0.5s;
+}
+
+.btn {
+    margin-left: 25%;
+    width: 50%;
+    color: white;
+    background: #007bff;
+    border: solid 2px #fff;
+    border-radius: 5px;
+}
+
+.btn:hover {
+    background: #4371A3;
+    color: #fff;
+}
+.selector{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    width: 200px;
+    margin: auto;
+}
