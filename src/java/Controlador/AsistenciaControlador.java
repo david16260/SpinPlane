@@ -67,7 +67,7 @@ public class AsistenciaControlador extends HttpServlet {
                 } else {
                     request.setAttribute("mensajeError", "La Asistencia no se actualizo corectamente");
                 }
-                request.getRequestDispatcher("registrarAsistencia.jsp").forward(request, response);
+                request.getRequestDispatcher("consultarAsistencia.jsp").forward(request, response);
                 break;
            
         }

@@ -57,7 +57,7 @@ public class AulaControlador extends HttpServlet {
                 } else {
                     request.setAttribute("mensajeError", "El Aula no se registro corectamente");
                 }
-                request.getRequestDispatcher("registrarAula.jsp").forward(request, response);
+                request.getRequestDispatcher("consultarAula.jsp").forward(request, response);
                 break;
             case 2://Actualizar Registro
                 if (auDAO.actualizarRegistro()) {
@@ -67,10 +67,19 @@ public class AulaControlador extends HttpServlet {
                 }
                 request.getRequestDispatcher("actualizarAula.jsp").forward(request, response);
                 break;
+  
+                case 3://Actualizar Estado
+                if (auDAO.cambiarEstado()) {
+                    request.setAttribute("mensajeExito", "El estado se actualizo corectamente");
+                } else {
+                    request.setAttribute("mensajeError", "El usuario no se actualizo corectamente");
+                }
+                request.getRequestDispatcher("cambiarEstadoAula.jsp").forward(request, response);
+                break;
            
         }
     }
-
+            
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -99,7 +108,8 @@ public class AulaControlador extends HttpServlet {
             throws ServletException, IOException {
         processRequest(request, response);
     }
-
+    
+ 
     /**
      * Returns a short description of the servlet.
      *

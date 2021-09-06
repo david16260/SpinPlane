@@ -77,12 +77,45 @@ public class AulaDAO extends Conexion implements Crud{
 
     @Override
     public boolean actualizarRegistro() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            sql = "UPDATE `Aula` SET `nombre`=?,`capacidad`=? where idAula =?";
+            puente = conexion.prepareStatement(sql);
+            puente.setString(1, nombre);
+            puente.setString(2, capacidad);
+            puente.setString(3, idAula);
+            puente.executeUpdate();
+            operacion = true;
+        } catch (SQLException e) {
+            Logger.getLogger(GrupoDAO.class.getName()).log(Level.SEVERE, null, e);
+        } finally {
+            try {
+                this.cerrarConexion();
+
+            } catch (SQLException e) {
+            }
+        }
+        return operacion;
     }
 
     @Override
     public boolean cambiarEstado() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            sql = "UPDATE `Aula` SET `estado`=? WHERE `idAula`=?";
+            puente = conexion.prepareStatement(sql);
+            puente.setString(1, estado);
+            puente.setString(2, idAula);
+            puente.executeUpdate();
+            operacion = true;
+        } catch (SQLException e) {
+            Logger.getLogger(GrupoDAO.class.getName()).log(Level.SEVERE, null, e);
+        } finally {
+            try {
+                this.cerrarConexion();
+
+            } catch (SQLException e) {
+            }
+        }
+        return operacion;
     }
      public  ArrayList<AulaVO> listar(){
         

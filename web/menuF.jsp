@@ -66,13 +66,13 @@
                             </a>
                         </li>
                         <li>
-                            <a href="conultarClase.jsp">
+                            <a href="consultarGrupo.jsp">
                                 <i class="pe-7s-users"></i>
                                 <p>Grupo</p>
                             </a>
                         </li>
                         <li>
-                            <a href="conultarClase.jsp">
+                            <a href="consultarClase.jsp">
                                 <i class="pe-7s-news-paper"></i>
                                 <p>Clase</p>
                             </a>

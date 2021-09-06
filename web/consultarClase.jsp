@@ -5,11 +5,10 @@
 --%>
 
 <%@page import="java.util.ArrayList"%>
-<%@page import="ModeloDAO.NovedadDAO"%>
-<%@page import="ModeloVO.NovedadVO"%>
+<%@page import="ModeloDAO.ClaseDAO"%>
+<%@page import="ModeloVO.ClaseVO"%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
 <!doctype html>
 <html lang="en">
     <head>
@@ -104,14 +103,14 @@
                                 <p>Grupo</p>
                             </a>
                         </li>
-                        <li>
-                            <a href="consultarClase.jsp">
+                        <li class="active">
+                            <a href="conultarClase.jsp">
                                 <i class="pe-7s-news-paper"></i>
                                 <p>Clase</p>
                             </a>
                         </li>
                         <li>
-                        <li  class="active">
+                        <li>
                             <a href="consultarNovedad.jsp">
                                 <i class="pe-7s-info"></i>
                                 <p>Novedad</p>
@@ -139,20 +138,20 @@
                     <div class="container-fluid">
 
                         <div class="collapse navbar-collapse">
-                            
+
                             <ul class="nav navbar-nav navbar-left">
 
                                 <li>
                                     <a href="menuF.jsp">
                                         <i class="pe-7s-left-arrow"></i>
-                                        
+
                                     </a>
 
                                 </li>
                             </ul>
                             <ul style="list-style: none;">
                                 <li>
-                                    <h2 class="text-center">Gestionar Novedad</h2>
+                                    <h2 class="text-center">Gestionar Clase</h2>
                                 </li>
                             </ul>
                         </div>
@@ -161,127 +160,114 @@
 
                 <div class="contenedor mt-4">
 
-                    <table id="usuario" class="table table-striped" style="width:150%">
-                <thead>
-                    <tr>
-                        <th>Id</th>
-                        <th>Descripcion</th>
-                        <th>Fecha Inicio</th>
-                        <th>Fecha Fin</th>
-                        <th>Tipo de Novedad</th>
-                        <th>Asistencia</th>
-                        <th>Actualizar</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <%
-                        NovedadVO NovVO = new NovedadVO();
-                        NovedadDAO NovDAO = new NovedadDAO(NovVO);
-                        ArrayList<NovedadVO> listaNovedad = NovDAO.listar();
-                        for (int i = 0; i < listaNovedad.size(); i++) {
+                    <table id="usuario" class="table table-striped" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Nombre</th>
+                                <th>Estado</th>
+                                <th>Cantidad de Sesiones</th>
+                                <th>Estado</th>
+                                <th>Actualizar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <%
+                                ClaseVO ClaVO = new ClaseVO();
+                                ClaseDAO ClaDAO = new ClaseDAO(ClaVO);
+                                ArrayList<ClaseVO> listaClase = ClaDAO.listar();
+                                for (int i = 0; i < listaClase.size(); i++) {
 
-                            NovVO = listaNovedad.get(i);
-                    %>               
-                    <tr>
-                        <td><%=NovVO.getIdNovedad()%></td>
-                        <td><%=NovVO.getDescripcion()%></td>
-                        <td><%=NovVO.getFechaInicio()%></td>
-                        <td><%=NovVO.getFechaFin()%></td>
-                        <td><%=NovVO.getIdTipoNovedad().equals("1") ? "Problema personal" : "Cita medica" %></td>
-                        <td><%=NovVO.getIdAsistencia()%></td>
-                         <td>
-                            <a class="btn btn-primary edit"href="actualizarNovedad.jsp?idnovedad=<%=NovVO.getIdNovedad()%>&descripcion=<%=NovVO.getDescripcion()%>&fechainicio=<%=NovVO.getFechaInicio()%>&fechafin=<%=NovVO.getFechaFin()%>&idtiponovedad=<%=NovVO.getIdTipoNovedad()%>&idasistencia=<%=NovVO.getIdAsistencia()%>"><i class="fas fa-pen"></i></a>
-                        </td>
-                    </tr>
-                   
-                    <%}%>  
-                    
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <th>Id</th>
-                        <th>Descripcion</th>
-                        <th>Fecha Inicio</th>
-                        <th>Fecha Fin</th>
-                        <th>Tipo de Novedad</th>
-                        <th>Asistencia</th>
-                        <th>Actualizar</th>
+                                    ClaVO = listaClase.get(i);
+                            %>               
+                            <tr>
+                                <td><%=ClaVO.getIdClase()%></td>
+                                <td><%=ClaVO.getNombre()%></td>
+                                <td>
+                                    <a class="<%=ClaVO.getEstado().equals("Activo") ? "btn btn-success  m-3" : "btn btn-danger  m-3"%>" style="padding-right: 56px;">
+                                        <%=ClaVO.getEstado()%>
+                                    </a>
+                                </td>
+                                <td class="text-center"><%=ClaVO.getCantidadSesiones()%></td> 
+                                <td>
+                                    <a class="btn btn-primary edit m-2 p-2" href="cambiarEstadoClase.jsp?idClase=<%=ClaVO.getIdClase()%>&estado=<%=ClaVO.getEstado()%>"><i class="fas fa-pen"></i></a>
 
-                    </tr>
-                </tfoot>
-            </table>
-        </div>
+                                </td>
+                                <td>
+                                    <a class="btn btn-primary edit m-2 p-2" href="actualizarClase.jsp?idClase=<%=ClaVO.getIdClase()%>&nombre=<%=ClaVO.getNombre()%>&estado=<%=ClaVO.getEstado()%>&cantidad=<%=ClaVO.getCantidadSesiones()%>"><i class="fas fa-pen"></i></a>
 
-        <script>
-            $(document).ready(function () {
-                $('#usuario').DataTable({
-                    scrollY: 400,
-                    language: {
-                        "sProcessing": "Procesando...",
-                        "sLengthMenu": "Mostrar _MENU_ registros",
-                        "sZeroRecords": "No se encontraron resultados",
-                        "sEmptyTable": "NingÃºn dato disponible en esta tabla",
-                        "sInfo": "Mostrando usuarios del _START_ al _END_ de un total de _TOTAL_ usuarios",
-                        "sInfoEmpty": "Mostrando usuarios del 0 al 0 de un total de 0 usuarios",
-                        "sInfoFiltered": "(filtrado de un total de _MAX_ usuarios)",
-                        "sInfoPostFix": "",
-                        "sSearch": "Buscar:",
-                        "sUrl": "",
-                        "sInfoThousands": ",",
-                        "sLoadingRecords": "Cargando...",
-                        "oPaginate": {
-                            "sFirst": "Primero",
-                            "sLast": "Ãšltimo",
-                            "sNext": "Siguiente",
-                            "sPrevious": "Anterior"
-                        },
-                        "oAria": {
-                            "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
-                            "sSortDescending": ": Activar para ordenar la columna de manera descendente"
-                        },
-                        "buttons": {
-                            "copy": "Copiar",
-                            "colvis": "Visibilidad"
-                        }
-                    }
-                });
-            });
-        </script>
-        <button class="abrir-registrar btn btn-primary" id="abrir-registrar">Registrar</button>
-        <div class="overlay " id="overlay">
-            <form method="POST" action="Novedad" class="form-registro">
-                <div class="tituloR">
-                    <a href="#" class="cerrar-registro" id="cerrar-registro"><i class="fas fa-times"></i></a>
-                    <h2>Registrar Novedad</h2>
+                                </td>
+
+                            </tr>
+                            <%}%>  
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>Id</th>
+                                <th>Nombre</th>
+                                <th>Estado</th>
+                                <th>Cantidad de Sesiones</th>
+                                <th>Estado</th>
+                                <th>Actualizar</th>
+                            </tr>
+                        </tfoot>
+                    </table>
                 </div>
-                <div class="cuerpo">
-                    <div class="formulario">
-                        <input type="text" name="txtDescripcion" class="descripcion" placeholder="Descripcion">
-                        <input type="date" name="txtFechaInicio" class="input-50">
-                        <input type="date" name="txtFechaFin" class="input-50">
-                        <div class="selector">
-                            <select name="txtTipoNovedad" class="estilo-selector">
-                                <option selected>Tipo de Novedad</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                            </select>
+                <script>
+                    $(document).ready(function () {
+                        $('#usuario').DataTable({
+                            scrollY: 400,
+                            language: {
+                                "sProcessing": "Procesando...",
+                                "sLengthMenu": "Mostrar _MENU_ registros",
+                                "sZeroRecords": "No se encontraron resultados",
+                                "sEmptyTable": "NingÃºn dato disponible en esta tabla",
+                                "sInfo": "Mostrando usuarios del _START_ al _END_ de un total de _TOTAL_ usuarios",
+                                "sInfoEmpty": "Mostrando usuarios del 0 al 0 de un total de 0 usuarios",
+                                "sInfoFiltered": "(filtrado de un total de _MAX_ usuarios)",
+                                "sInfoPostFix": "",
+                                "sSearch": "Buscar:",
+                                "sUrl": "",
+                                "sInfoThousands": ",",
+                                "sLoadingRecords": "Cargando...",
+                                "oPaginate": {
+                                    "sFirst": "Primero",
+                                    "sLast": "Ãšltimo",
+                                    "sNext": "Siguiente",
+                                    "sPrevious": "Anterior"
+                                },
+                                "oAria": {
+                                    "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+                                    "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                                },
+                                "buttons": {
+                                    "copy": "Copiar",
+                                    "colvis": "Visibilidad"
+                                }
+                            }
+                        });
+                    });
+                </script>
+                <button class="abrir-registrar btn btn-primary"  id="abrir-registrar">Registrar</button>
+                <div class="overlay" id="overlay">
+                    <form method="POST" action="Clase" class="form-registro">
+                        <div class="tituloR">
+                            <a href="#" class="cerrar-registro" id="cerrar-registro"><i class="fas fa-times"></i></a>
+                            <h2>Registrar Clase</h2>
                         </div>
-                        <div class="selector">
-                            <select name="txtAsistencia" class="estilo-selector">
-                                <option selected>Id Asistencia</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                            </select>
+                        <div class="cuerpo">
+                            <div class="formulario">
+                                <input type="text" name="txtNombre" placeholder="Nombre" required class="input-50">
+                                <input type="hidden" name="txtEstado" value="Activo">
+                                <input type="number" name="txtcantidadSesiones" placeholder="Cantidad de Sesiones" class="input-50">
+                                <div class="selector">
+                                    <input type="submit" id="btn" value="Registrar" class="btn">
+                                    <input type="hidden" value="1" name="opcion">
+                                </div>
+                            </div>
                         </div>
-                        <div class="boton">
-                            <input type="submit" id="btn" value="Registrar" class="btn">
-                            <input type="hidden" value="1" name="opcion">
-                        </div>
-                    </div>
+                    </form>
                 </div>
-                
-            </form>
-        </div>
                 <% if (request.getAttribute("mensajeError") != null) {%>
                 <script  type="text/javascript">
 

@@ -80,7 +80,26 @@ public class AsistenciaDAO extends Conexion implements Crud{
 
     @Override
     public boolean actualizarRegistro() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            sql = "UPDATE `asistencia` SET `asistencia`=?,`fecha`=?,`idusuario`=?,`idgrupo`=? WHERE `idAsistencia`=?";
+            puente = conexion.prepareStatement(sql);
+            puente.setString(1, asistencia);
+            puente.setString(2, fecha);
+            puente.setString(3, idUsuario);
+            puente.setString(4, idGrupo);
+            puente.setString(5, idAsistencia);
+            puente.executeUpdate();
+            operacion = true;
+        } catch (SQLException e) {
+            Logger.getLogger(GrupoDAO.class.getName()).log(Level.SEVERE, null, e);
+        } finally {
+            try {
+                this.cerrarConexion();
+
+            } catch (SQLException e) {
+            }
+        }
+        return operacion;
     }
 
     @Override

@@ -100,13 +100,13 @@
                             </a>
                         </li>
                         <li>
-                            <a href="conultarClase.jsp">
+                            <a href="consultarGrupo.jsp">
                                 <i class="pe-7s-users"></i>
                                 <p>Grupo</p>
                             </a>
                         </li>
                         <li>
-                            <a href="conultarClase.jsp">
+                            <a href="consultarClase.jsp">
                                 <i class="pe-7s-news-paper"></i>
                                 <p>Clase</p>
                             </a>
@@ -153,7 +153,7 @@
                             </ul>
                             <ul style="list-style: none;">
                                 <li>
-                                    <h2 class="text-center">Gestionar Usuario</h2>
+                                    <h2 class="text-center">Gestionar Aula</h2>
                                 </li>
                             </ul>
                         </div>
@@ -198,7 +198,7 @@
                                 <td><%=UsuVO.getCelular()%></td>
                                 <td><%=UsuVO.getTelefono()%></td>
                                 <td>
-                                    <a class="<%=UsuVO.getEstado().equals("Activo") ? "btn btn-success  m-3" : "btn btn-danger  m-3"%>" style="padding-right: 50px;">
+                                    <a class="<%=UsuVO.getEstado().equals("Activo") ? "btn btn-success  m-3" : "btn btn-danger  m-3"%>" style="padding-right: 56px;">
                                         <%=UsuVO.getEstado()%>
                                     </a>
                                 </td>
@@ -277,7 +277,7 @@
                     <form method="POST" action="Usuario" class="form-registro">
                         <div class="tituloR">
                             <a href="#" class="cerrar-registro" id="cerrar-registro"><i class="fas fa-times"></i></a>
-                            <h2>Registrar Usuario</h2>
+                            <h2 class="textReg">Registrar Usuario</h2>
                         </div>
                         <div class="cuerpo">
                             <div class="formulario">

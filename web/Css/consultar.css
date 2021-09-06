@@ -52,7 +52,7 @@
 }
 
 h2 {
-    color: #fff;
+    color: black;
     text-align: center;
     margin-top: -7px;
 }
@@ -66,7 +66,7 @@ h2 {
 
 .tituloR {
     background: #fff;
-    color: #fff;
+    color: black;
     padding: 5px;
     text-align: center;
     font-weight: 100;
@@ -107,7 +107,7 @@ h2 {
 }
 
 .selector {
-    width: 45%;
+    width: 100%;
 }
 
 .estilo-selector {
@@ -143,4 +143,7 @@ h2 {
 .btn:hover {
     background: #4371A3;
     color: #fff;
+}
+.abrir-registrar{
+    
 }
