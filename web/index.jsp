@@ -28,6 +28,7 @@
                    <div class="overlay">
                        <div class="inner">
                            <h2 class="title">Bienvenido</h2>
+                           <h1>Hola</h1>
                            <p></p>
                            <br>
                        </div>
