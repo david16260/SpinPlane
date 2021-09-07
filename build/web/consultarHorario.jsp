@@ -178,6 +178,7 @@
                         <th>Grupo</th>
                         <th>Aula</th>
                         <th>Clase</th>
+                        <th>Actualizar</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -203,7 +204,10 @@
                         <%}%>
                         <td><%=HorVO.getIdGrupo()%></td>
                         <td><%=HorVO.getIdAula()%></td>
-                        <td><%=HorVO.getIdGrupo()%></td>           
+                        <td><%=HorVO.getIdClase()%></td>
+                        <td>
+                            <a class="btn btn-info edit m-2 p-2"href="actualizarHorario.jsp?idHorario=<%=HorVO.getIdHorario()%>&fechaInicio=<%=HorVO.getFechaInicio()%>&fechaFin=<%=HorVO.getFechaFin()%>&dia=<%=HorVO.getDia()%>&horaInicio=<%=HorVO.getHoraInicio()%>&horaFin=<%=HorVO.getHoraFin()%>&estado=<%=HorVO.getEstado()%>&idGrupo=<%=HorVO.getIdGrupo()%>&idAula=<%=HorVO.getIdAula()%>&idClase=<%=HorVO.getIdClase()%> "><i class="fas fa-pen"></i></a>
+                        </td>
                     </tr>
                     <%}%>  
                 </tbody>
@@ -219,6 +223,7 @@
                         <th>Grupo</th>
                         <th>Aula</th>
                         <th>Clase</th>
+                         <th>Actualizar</th>
                     </tr>
                 </tfoot>
             </table>
