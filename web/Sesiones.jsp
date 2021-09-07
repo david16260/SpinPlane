@@ -50,12 +50,12 @@
         
         %>
         
-        <option value="<%=usuVO.getIdTipoUsuario()%>"><%=usuVO.getIdTipoUsuario()%></option>
+        <!--<option value="<%=usuVO.getIdTipoUsuario()%>"><%=usuVO.getIdTipoUsuario()%></option>-->
         
         <% }%>
                    
            
-            <h1 class="bienvenido">Bienvenido:<%=usuario%></h1>
+            <!--<h1 class="bienvenido">Bienvenido:<%=usuario%></h1>-->
           </ul>
       </nav>
        

@@ -6,7 +6,7 @@
 
 <%@page import="ModeloVO.NovedadVO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
+<%@include file="Sesiones.jsp" %>
 <!DOCTYPE html>
 <html>
     <head>

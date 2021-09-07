@@ -7,7 +7,7 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="ModeloDAO.AulaDAO"%>
 <%@page import="ModeloVO.AulaVO"%>
-
+<%@include file="Sesiones.jsp" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!doctype html>
 <html lang="en">
@@ -80,7 +80,7 @@
 
                 <div class="sidebar-wrapper">
                     <div class="logo">
-                        <a href="menuF.jsp" class="simple-text">
+                        <a href="menu.jsp" class="simple-text">
                             SpinPlane
                         </a>
                     </div>
@@ -143,7 +143,7 @@
                             <ul class="nav navbar-nav navbar-left">
 
                                 <li>
-                                    <a href="menuF.jsp">
+                                    <a href="menu.jsp">
                                         <i class="pe-7s-left-arrow"></i>
 
                                     </a>
