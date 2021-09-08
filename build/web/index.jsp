@@ -1,4 +1,4 @@
-<!doctype html>
+    <!doctype html>
 <html lang="en">
 
 <head>
@@ -239,8 +239,8 @@ https://www.tooplate.com/view/2115-marvel
                     <div class="contact-info d-flex justify-content-between align-items-center py-4 px-lg-5">
                         <div class="contact-info-item">
                             <h3 class="mb-3 text-white">Hola</h3>
-                            <p class="footer-text mb-0">(495)321-87-82</p>
-                            <p><a href="mailto:hello@company.co">SpinPlane@company.co</a></p>
+                            <p class="footer-text mb-0"></p>
+                            <p><a href="mailto:hello@company.co">SpinPlane1@gmail.com</a></p>
                         </div>
 
                         <!-- <ul class="social-links">
