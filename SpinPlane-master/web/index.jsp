@@ -1,311 +1,315 @@
-<!DOCTYPE html>
+    <!doctype html>
+<html lang="en">
 
-<html lang="">
-<title>Wavefire</title>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<link href="layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>SpinPlane</title>
+
+    <link rel="stylesheet" href="Css/bootstrap.min.css">
+    <link rel="stylesheet" href="Css/unicons.css">
+    <link rel="stylesheet" href="Css/owl.carousel.min.css">
+    <link rel="stylesheet" href="Css/owl.theme.default.min.css">
+
+    <!-- MAIN STYLE -->
+    <link rel="stylesheet" href="Css/tooplate-style.css">
+
+    <!--
+
+Tooplate 2115 Marvel
+
+https://www.tooplate.com/view/2115-marvel
+
+-->
 </head>
-<body id="top">
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
-<div class="wrapper row0">
-  <header id="header" class="hoc clear"> 
-    <!-- ################################################################################################ -->
-    <div id="logo" class="one_quarter first">
-      <h1><a href="index.html"><span>S</span>pin<span>P</span>lane</a></h1>
-    </div>
-    <div class="three_quarter">
-      <ul class="nospace clear">
-        <li class="one_third first">
-          <div class="block clear"><a href="#"><i class="fas fa-phone"></i></a> <span><strong>Give us a call:</strong> +00 (123) 456 7890</span></div>
-        </li>
-        <li class="one_third">
-          <div class="block clear"><a href="#"><i class="fas fa-envelope"></i></a> <span><strong>Send us a mail:</strong> SpinPlane@gmail.com</span></div>
-        </li>
-        <li class="one_third">
-          <div class="block clear"><a href="#"><i class="fas fa-clock"></i></a> <span><strong> Mon. - Sat.:</strong> 08.00am - 18.00pm</span></div>
-        </li>
-      </ul>
-    </div>
-    <!-- ################################################################################################ -->
-  </header>
-</div>
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
-<div class="wrapper row1">
-  <section class="hoc clear"> 
-    <!-- ################################################################################################ -->
-    <nav id="mainav">
-      <ul class="clear">
-        <li class="active"><a href="index.html">Home</a></li>
-        <li><a class="drop" href="#">Pages</a>
-          <ul>
-            <li><a href="pages/gallery.html">Gallery</a></li>
-            <li><a href="pages/full-width.html">Full Width</a></li>
-            <li><a href="pages/sidebar-left.html">Sidebar Left</a></li>
-            <li><a href="pages/sidebar-right.html">Sidebar Right</a></li>
-            <li><a href="pages/basic-grid.html">Basic Grid</a></li>
-            <li><a href="pages/font-icons.html">Font Icons</a></li>
-          </ul>
-        </li>
-        <li><a class="drop" href="#">Dropdown</a>
-          <ul>
-            <li><a href="#">Level 2</a></li>
-            <li><a class="drop" href="#">Level 2 + Drop</a>
-              <ul>
-                <li><a href="#">Level 3</a></li>
-                <li><a href="#">Level 3</a></li>
-                <li><a href="#">Level 3</a></li>
-              </ul>
-            </li>
-            <li><a href="#">Level 2</a></li>
-          </ul>
-        </li>
-        <li><a href="#">Link Text</a></li>
-        <li><a href="#">Link Text</a></li>
-        <li><a href="#">Link Text</a></li>
-        <li><a href="#">Long Link Text</a></li>
-      </ul>
+
+<body>
+
+    <!-- MENU -->
+    <nav class="navbar navbar-expand-sm navbar-light">
+        <div class="container">
+            <img src="images/LOGO4.gif" alt="Logo SpinPlane" class="logo">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a href="#about" class="nav-link"><span data-hover="Inicio">Inicio</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#resume" class="nav-link"><span data-hover="Módulos">Módulos</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#resume" class="nav-link"><span data-hover="Servicios">Servicios</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#contact" class="nav-link"><span data-hover="Contacto">Contacto</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="login.jsp" class="nav-link"><span data-hover="Iniciar sessión">Iniciar sessión</span></a>
+                    </li>
+                </ul>
+
+                <!-- <ul class="navbar-nav ml-lg-auto">
+                    <div class="ml-lg-4">
+                        <div class="color-mode d-lg-flex justify-content-center align-items-center">
+                            <i class="color-mode-icon"></i> Color mode
+                        </div>
+                    </div>
+                </ul> -->
+            </div>
+        </div>
     </nav>
-    <!-- ################################################################################################ -->
-    <div id="searchform">
-      <div>
-        <form action="#" method="post">
-          <fieldset>
-            <legend>Quick Search:</legend>
-            <input type="text" placeholder="Enter search term&hellip;">
-            <button type="submit"><i class="fas fa-search"></i></button>
-          </fieldset>
-        </form>
-      </div>
-    </div>
-    <!-- ################################################################################################ -->
-  </section>
-</div>
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
-<div class="wrapper bgded overlay" style="background-image:url('images/demo/backgrounds/01.png');">
-  <div id="pageintro" class="hoc clear"> 
-    <!-- ################################################################################################ -->
-    <article>
-      <p>Mauris placerat sem hendrerit</p>
-      <h3 class="heading">Risus aliquam vitae enim</h3>
-      <p>Eu elit lacinia porta in eget risus duis pretium tellus ac odio</p>
-      <footer><a class="btn" href="#">Nulla tristique ipsum <i class="fas fa-angle-right"></i></a></footer>
-    </article>
-    <!-- ################################################################################################ -->
-  </div>
-</div>
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
-<div class="wrapper row3">
-  <main class="hoc container clear"> 
-    <!-- main body -->
-    <!-- ################################################################################################ -->
-    <div class="sectiontitle">
-      <h6 class="heading">In quam sed quis turpis vitae</h6>
-      <p>Lectus vehicula tincidunt maecenas non dolor ac nunc malesuada</p>
-    </div>
-    <div class="group center btmspace-80">
-      <article class="one_third first"><a class="ringcon btmspace-50" href="#"><i class="fas fa-cube"></i></a>
-        <h6 class="heading">Elementum cras tempus</h6>
-        <p>Dolor nec magna accumsan tempus mauris lectus enim luctus vitae viverra a pharetra mollis diam phasellus nec dolor sed ornare.</p>
-      </article>
-      <article class="one_third"><a class="ringcon btmspace-50" href="#"><i class="fas fa-chart-pie"></i></a>
-        <h6 class="heading">Semper ipsum proin sapien</h6>
-        <p>Nam rhoncus lacus at lorem fusce tempus ut vitae metus fusce hendrerit tempus sapien suspendisse condimentum mollis ligula.</p>
-      </article>
-      <article class="one_third"><a class="ringcon btmspace-50" href="#"><i class="fas fa-paw"></i></a>
-        <h6 class="heading">Integer molestie sapien ac</h6>
-        <p>Enim integer laoreet odio sed neque vestibulum vehicula neque et ornare congue lacus nisi pharetra nisl a pharetra urna metus.</p>
-      </article>
-    </div>
-    <p class="center"><a class="btn" href="#">Consectetuer porttitor <i class="fas fa-angle-right"></i></a></p>
-    <!-- ################################################################################################ -->
-    <!-- / main body -->
-    <div class="clear"></div>
-  </main>
-</div>
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
-<div class="wrapper row2">
-  <section class="hoc container clear"> 
-    <!-- ################################################################################################ -->
-    <article class="one_third first">
-      <h6 class="heading">Vel nunc nulla nunc metus tempor vitae eu diam</h6>
-      <p>Sed placerat leo nec tincidunt aliquet ipsum mi ultrices magna eu tempor quam dolor eu sem nullam risus turpis rhoncus vel varius consequat laoreet ac neque pellentesque imperdiet sagittis velit vivamus urna ut dictum erat eu massa aliquam nunc urna ornare.</p>
-      <p class="btmspace-30">Tincidunt quis posuere id justo aenean velit ipsum tincidunt aliquet lacinia nec pharetra in purus proin auctor justo ac sem.</p>
-      <p><a class="btn" href="#">Donec rutrum justo at <i class="fas fa-angle-right"></i></a></p>
-    </article>
-    <figure class="one_third"><a class="imgover" href="#"><img src="images/demo/348x420.png" alt=""></a></figure>
-    <figure class="one_third"><a class="imgover" href="#"><img src="images/demo/348x420.png" alt=""></a></figure>
-    <!-- ################################################################################################ -->
-  </section>
-</div>
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
-<div class="wrapper row3">
-  <section class="hoc container clear"> 
-    <!-- ################################################################################################ -->
-    <div class="sectiontitle">
-      <h6 class="heading">Libero morbi tincidunt nulla sit</h6>
-      <p>Amet ipsum praesent at velit aliquam ullamcorper sem a auctor</p>
-    </div>
-    <ul class="nospace group btmspace-80 overview">
-      <li class="one_third">
-        <article><a href="#"><i class="fas fa-smile"></i></a>
-          <h6 class="heading"><a href="#">Dapibus nisi nunc vehicula</a></h6>
-          <p>Nunc quis mattis pede turpis at elit phasellus sed sem pellentesque nunc&hellip;</p>
-          <footer><a href="#">View Details <i class="fas fa-angle-right"></i></a></footer>
-        </article>
-      </li>
-      <li class="one_third">
-        <article><a href="#"><i class="fas fa-trash"></i></a>
-          <h6 class="heading"><a href="#">Dignissim consequat proin</a></h6>
-          <p>Nec odio nam in lacus ac purus dapibus pretium sed ornare eleifend tellus&hellip;</p>
-          <footer><a href="#">View Details <i class="fas fa-angle-right"></i></a></footer>
-        </article>
-      </li>
-      <li class="one_third">
-        <article><a href="#"><i class="fas fa-life-ring"></i></a>
-          <h6 class="heading"><a href="#">Aliquam mollis neque ut</a></h6>
-          <p>Ullamcorper tempor dolor tortor varius nisi id euismod risus neque curabitur&hellip;</p>
-          <footer><a href="#">View Details <i class="fas fa-angle-right"></i></a></footer>
-        </article>
-      </li>
-      <li class="one_third">
-        <article><a href="#"><i class=" fas fa-low-vision"></i></a>
-          <h6 class="heading"><a href="#">Sodales dui sit amet mi</a></h6>
-          <p>Donec cursus sapien neque gravida nulla cursus lorem ut tempor massa &hellip;</p>
-          <footer><a href="#">View Details <i class="fas fa-angle-right"></i></a></footer>
-        </article>
-      </li>
-      <li class="one_third">
-        <article><a href="#"><i class="fas fa-bug"></i></a>
-          <h6 class="heading"><a href="#">Porta libero at scelerisque</a></h6>
-          <p>Lorem ipsum et arcu mauris consequat semper vivamus lobortis consequat&hellip;</p>
-          <footer><a href="#">View Details <i class="fas fa-angle-right"></i></a></footer>
-        </article>
-      </li>
-      <li class="one_third">
-        <article><a href="#"><i class="fas fa-bicycle"></i></a>
-          <h6 class="heading"><a href="#">Purus fusce consectetuer</a></h6>
-          <p>Nisl in massa phasellus feugiat arcu sed lacinia egestas augue lorem posuere&hellip;</p>
-          <footer><a href="#">View Details</a> <i class="fas fa-angle-right"></i></footer>
-        </article>
-      </li>
-    </ul>
-    <footer class="center"><a class="btn" href="#">Vestibulum suspendisse <i class="fas fa-angle-right"></i></a></footer>
-    <!-- ################################################################################################ -->
-  </section>
-</div>
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
-<div class="wrapper row2">
-  <section class="hoc container clear"> 
-    <!-- ################################################################################################ -->
-    <div class="sectiontitle">
-      <h6 class="heading">Felis sed pretium tortor nunc quis</h6>
-      <p>Dolor in fermentum ipsum vel mi mattis venenatis vivamus</p>
-    </div>
-    <div id="latest" class="group">
-      <article class="one_third first"><a class="imgover" href="#"><img src="images/demo/348x261.png" alt=""></a>
-        <div class="excerpt">
-          <h6 class="heading">Elementum laoreet lorem donec</h6>
-          <p>Pede nam quis mauris nunc volutpat elementum sapien in hendrerit justo non nisl sed dictum libero et nisi.</p>
-          <footer><a href="#">Read More <i class="fas fa-angle-right"></i></a></footer>
+
+    <!-- ABOUT -->
+    <section class="about full-screen d-lg-flex justify-content-center align-items-center" id="about">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-7 col-md-12 col-12 d-flex align-items-center">
+                    <div class="about-text">
+
+                        <h1 class="animated animated-text">
+                            <span class="mr-2">Administra </span>
+                            <div class="animated-info">
+                                <span class="animated-item">Las clases</span>
+                                <span class="animated-item">Los espacios</span>
+                                <span class="animated-item">Los tiempos</span>
+                            </div>
+                        </h1>
+
+                        <p>Construir un horario de manera simple y funcional puede ser tedioso. Nosotros tenemos la solución</p>
+
+                        <div class="custom-btn-group mt-4">
+                            <a href="#contact" class="btn custom-btn custom-btn-bg custom-btn-link">Obtenga un presupuesto gratis</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-5 col-md-12 col-12">
+                    <div class="about-image svg">
+                        <img src="images/horario.jpg.opdownload" class="img-fluid" alt="svg image">
+                    </div>
+                </div>
+
+            </div>
         </div>
-      </article>
-      <article class="one_third"><a class="imgover" href="#"><img src="images/demo/348x261.png" alt=""></a>
-        <div class="excerpt">
-          <h6 class="heading">Vestibulum accumsan sagittis</h6>
-          <p>Orci nulla purus pellentesque risus magna vulputate vitae sodales in aliquam at tortor praesent tincidunt.</p>
-          <footer><a href="#">Read More <i class="fas fa-angle-right"></i></a></footer>
+    </section>
+
+    <!-- PROJECTS -->
+    <!--<section class="project py-5" id="project">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-11 text-center mx-auto col-12">
+
+                    <div class="col-lg-8 mx-auto">
+                        <h2>Things I have designed for digital media agencies</h2>
+                    </div>
+
+                    <div class="owl-carousel owl-theme">
+                        <div class="item">
+                            <div class="project-info">
+                                <img src="images/project/project-image01.png" class="img-fluid" alt="project image">
+                            </div>
+                        </div>
+
+                        <div class="item">
+                            <div class="project-info">
+                                <img src="images/project/project-image02.png" class="img-fluid" alt="project image">
+                            </div>
+                        </div>
+
+                        <div class="item">
+                            <div class="project-info">
+                                <img src="images/project/project-image03.png" class="img-fluid" alt="project image">
+                            </div>
+                        </div>
+
+                        <div class="item">
+                            <div class="project-info">
+                                <img src="images/project/project-image04.png" class="img-fluid" alt="project image">
+                            </div>
+                        </div>
+
+                        <div class="item">
+                            <div class="project-info">
+                                <img src="images/project/project-image05.png" class="img-fluid" alt="project image">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
         </div>
-      </article>
-      <article class="one_third"><a class="imgover" href="#"><img src="images/demo/348x261.png" alt=""></a>
-        <div class="excerpt">
-          <h6 class="heading">Lorem in odio pellentesque at</h6>
-          <p>Donec faucibus lorem ut neque pellentesque quam donec imperdiet nisl sed euismod ullamcorper tortor cras.</p>
-          <footer><a href="#">Read More <i class="fas fa-angle-right"></i></a></footer>
+    </section>-->
+
+    <!-- FEATURES -->
+    <section class="resume py-5 d-lg-flex justify-content-center align-items-center" id="resume">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-6 col-12">
+                    <h2 class="mb-4">Modulos</h2>
+
+                    <div class="timeline">
+                        <div class="timeline-wrapper">
+                            <div class="timeline-yr">
+                                <span>01</span>
+                            </div>
+                            <div class="timeline-info">
+                                <h3><span>Clase</span></h3>
+                                <p>Agrega todas las clases que ofrece tu academia.</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-wrapper">
+                            <div class="timeline-yr">
+                                <span>02</span>
+                            </div>
+                            <div class="timeline-info">
+                                <h3><span>Aula</span></h3>
+                                <p>Podras añadir las aulas o espacios donde desarrollaran las actividades.</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-wrapper">
+                            <div class="timeline-yr">
+                                <span>03</span>
+                            </div>
+                            <div class="timeline-info">
+                                <h3><span>Grupo</h3>
+                                <p>Forma grupos de usuarios que tomaran las mismas clases para una mejor organización.</p>
+                            </div>
+                        </div>
+                        
+                        
+
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-12">
+                  <h2 class="mb-4 mobile-mt-2">Servicios</h2>
+
+                    <div class="timeline">
+                        <div class="timeline-wrapper">
+                            <div class="timeline-yr">
+                                <span>02</span>
+                            </div>
+                            <div class="timeline-info">
+                                <h3><span>Horario</span></h3>
+                                <p>Crea, Organiza y gestiona los horarios que necesite tu academia</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-wrapper">
+                            <div class="timeline-yr">
+                                <span>01</span>
+                            </div>
+                            <div class="timeline-info">
+                                <h3><span>Asistencia</h3>
+                                <p>Ten un control de los estudiantes que asisten a las clases.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
-      </article>
-    </div>
-    <footer class="center"><a class="btn" href="#">Pharetra pulvinar risus <i class="fas fa-angle-right"></i></a></footer>
-    <!-- ################################################################################################ -->
-  </section>
-</div>
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
-<div class="wrapper row4">
-  <footer id="footer" class="hoc clear"> 
-    <!-- ################################################################################################ -->
-    <div class="one_third first">
-      <h6 class="heading">Nulla facilisi praesent</h6>
-      <p>Diam libero interdum at fringilla id interdum eu ante phasellus nec mauris non risus fermentum condimentum in.</p>
-      <p class="btmspace-30">Vulputate ante ut adipiscing egestas risus orci tincidunt nulla ac lacinia lacus felis et augue donec lacus [<a href="#"><i class="fas fa-arrow-right"></i></a>]</p>
-      <ul class="faico clear">
-        <li><a class="faicon-dribble" href="#"><i class="fab fa-dribbble"></i></a></li>
-        <li><a class="faicon-facebook" href="#"><i class="fab fa-facebook"></i></a></li>
-        <li><a class="faicon-google-plus" href="#"><i class="fab fa-google-plus-g"></i></a></li>
-        <li><a class="faicon-linkedin" href="#"><i class="fab fa-linkedin"></i></a></li>
-        <li><a class="faicon-twitter" href="#"><i class="fab fa-twitter"></i></a></li>
-        <li><a class="faicon-vk" href="#"><i class="fab fa-vk"></i></a></li>
-      </ul>
-    </div>
-    <div class="one_third">
-      <h6 class="heading">Aenean lobortis quam at</h6>
-      <ul class="nospace clear latestimg">
-        <li><a href="#"><img src="images/demo/100x100.png" alt=""></a></li>
-        <li><a href="#"><img src="images/demo/100x100.png" alt=""></a></li>
-        <li><a href="#"><img src="images/demo/100x100.png" alt=""></a></li>
-        <li><a href="#"><img src="images/demo/100x100.png" alt=""></a></li>
-        <li><a href="#"><img src="images/demo/100x100.png" alt=""></a></li>
-        <li><a href="#"><img src="images/demo/100x100.png" alt=""></a></li>
-      </ul>
-    </div>
-    <div class="one_third">
-      <h6 class="heading">Enim fusce venenatis laoreet</h6>
-      <p class="nospace btmspace-15">Elit sed est tortor molestie in consectetuer fringilla suscipit ut odio in.</p>
-      <form method="post" action="#">
-        <fieldset>
-          <legend>Newsletter:</legend>
-          <input class="btmspace-15" type="text" value="" placeholder="Name">
-          <input class="btmspace-15" type="text" value="" placeholder="Email">
-          <button type="submit" value="submit">Submit</button>
-        </fieldset>
-      </form>
-    </div>
-    <!-- ################################################################################################ -->
-  </footer>
-</div>
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
-<div class="wrapper row5">
-  <div id="copyright" class="hoc clear"> 
-    <!-- ################################################################################################ -->
-    <p class="fl_left">Copyright &copy; 2018 - All Rights Reserved - <a href="#">Domain Name</a></p>
-    <p class="fl_right">Template by <a target="_blank" href="https://www.os-templates.com/" title="Free Website Templates">OS Templates</a></p>
-    <!-- ################################################################################################ -->
-  </div>
-</div>
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
-<a id="backtotop" href="#top"><i class="fas fa-chevron-up"></i></a>
-<!-- JAVASCRIPTS -->
-<script src="layout/scripts/jquery.min.js"></script>
-<script src="layout/scripts/jquery.backtotop.js"></script>
-<script src="layout/scripts/jquery.mobilemenu.js"></script>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact py-5" id="contact">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-5 mr-lg-5 col-12">
+                    <div class="google-map w-100">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.2550328088837!2d-74.04093978538515!3d4.7257055965676855!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f855d7f63f73f%3A0xa80f7ca1b2a537f!2zQ3JhLiAxM0EgIyMxNDUtMjYsIFVzYXF1w6luLCBCb2dvdMOh!5e0!3m2!1ses!2sco!4v1630969037738!5m2!1ses!2sco"
+                            width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    </div>
+
+                    <div class="contact-info d-flex justify-content-between align-items-center py-4 px-lg-5">
+                        <div class="contact-info-item">
+                            <h3 class="mb-3 text-white">Hola</h3>
+                            <p class="footer-text mb-0"></p>
+                            <p><a href="mailto:hello@company.co">SpinPlane1@gmail.com</a></p>
+                        </div>
+
+                        <!-- <ul class="social-links">
+                            <li>
+                                <a href="#" class="uil uil-dribbble" data-toggle="tooltip" data-placement="left" title="Dribbble"></a>
+                            </li>
+                            <li>
+                                <a href="#" class="uil uil-instagram" data-toggle="tooltip" data-placement="left" title="Instagram"></a>
+                            </li>
+                            <li>
+                                <a href="#" class="uil uil-youtube" data-toggle="tooltip" data-placement="left" title="Youtube"></a>
+                            </li>
+                        </ul> -->
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-12">
+                    <div class="contact-form">
+                        <h2 class="mb-4">¿Interesado? Contactenos</h2>
+
+                        <form action="" method="get">
+                            <div class="row">
+                                <div class="col-lg-6 col-12">
+                                    <input type="text" class="form-control" name="name" placeholder="Nombre" id="name">
+                                </div>
+
+                                <div class="col-lg-6 col-12">
+                                    <input type="email" class="form-control" name="email" placeholder="Correo" id="email">
+                                </div>
+
+                                <div class="col-12">
+                                    <textarea name="message" rows="6" class="form-control" id="Mensaje" placeholder="Message"></textarea>
+                                </div>
+
+                                <div class="ml-lg-auto col-lg-5 col-12">
+                                    <input type="submit" class="form-control submit-btn" value="Enviar">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer py-5">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-12 col-12">
+                    <p class="copyright-text text-center">Copyright &copy; 2019 SpinPlane. Todos los derechos reservados</p>
+                    <!-- <p class="copyright-text text-center">Designed by <a rel="nofollow" href="https://www.facebook.com/tooplate">Tooplate</a></p> -->
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+    <script src="Js/jquery-3.3.1.min.js"></script>
+    <script src="Js/popper.min.js"></script>
+    <script src="Js/bootstrap.min.js"></script>
+    <script src="Js/Headroom.js"></script>
+    <script src="Js/jQuery.headroom.js"></script>
+    <script src="Js/owl.carousel.min.js"></script>
+    <script src="Js/smoothscroll.js"></script>
+    <script src="Js/custom.js"></script>
+
 </body>
+
 </html>

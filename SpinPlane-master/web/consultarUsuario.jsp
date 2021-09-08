@@ -9,7 +9,7 @@
 <%@page import="ModeloVO.UsuarioVO"%>
 <%@page import="ModeloVO.TipoUsuarioVO" %>
 <%@page import="ModeloDAO.TipoUsuarioDAO" %>
-
+<%@include file="Sesiones.jsp" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!doctype html>
 <html lang="en">
@@ -24,7 +24,7 @@
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css" />
         <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css"/>
-        <link rel="stylesheet" href="Css/consultar.css"/>
+        <link rel="stylesheet" href="Css/consultarUsuario.css"/>
         <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -81,7 +81,7 @@
 
                 <div class="sidebar-wrapper">
                     <div class="logo">
-                        <a href="menuF.jsp" class="simple-text">
+                        <a href="menu.jsp" class="simple-text">
                             SpinPlane
                         </a>
                     </div>
@@ -144,7 +144,7 @@
                             <ul class="nav navbar-nav navbar-left">
 
                                 <li>
-                                    <a href="menuF.jsp">
+                                    <a href="menu.jsp">
                                         <i class="pe-7s-left-arrow"></i>
                                         
                                     </a>
@@ -153,7 +153,7 @@
                             </ul>
                             <ul style="list-style: none;">
                                 <li>
-                                    <h2 class="text-center">Gestionar Aula</h2>
+                                    <h2 class="text-center">Gestionar Usuario</h2>
                                 </li>
                             </ul>
                         </div>
@@ -272,7 +272,7 @@
                         });
                     });
                 </script>
-                <button class="abrir-registrar btn btn-primary"  id="abrir-registrar">Registrar</button>
+                <button class="abrir-registrar btn btn-primary" id="abrir-registrar">Registrar</button>
                 <div class="overlay" id="overlay">
                     <form method="POST" action="Usuario" class="form-registro">
                         <div class="tituloR">
@@ -283,8 +283,8 @@
                             <div class="formulario">
                                 <input type="text" id="nombre" name="txtNombre" placeholder="Nombre" required class="input-50">
                                 <input type="text" id="apellido" name="txtApellido" placeholder="Apellido" required class="input-50">
-                                <div class="selector">
-                                    <select id="TipoDocumento" name="txtTipoDocumento" class="estilo-selector">
+                                <div class="selector1">
+                                    <select id="TipoDocumento" name="txtTipoDocumento" class="estilo1-selector">
                                         <option selected>Tipo de Documento</option>
                                         <option value="C.C">Cedula de Ciudadania</option>
                                         <option value="T.I">Tarjeta de Identidad</option>
@@ -297,9 +297,9 @@
                                 <input type="hidden" value="Activo" name="txtEstado" required>
                                 <input type="email" id="correo" name="txtCorreo" placeholder="Correo" required class="input-50">
                                 <input type="password" name="txtClave" placeholder="Contraseña" required class="input-50">
-                                <div class="selector">
-                                    <select name="txtRol" class="estilo-selector">
-                                        <option selected>Seleciona un opcion</option>
+                                <div class="selector1">
+                                    <select name="txtRol" class="estilo1-selector">
+                                        <option selected>Rol</option>
                                         <%
                                             TipoUsuarioDAO TipDAO = new TipoUsuarioDAO();
                                             for (TipoUsuarioVO TipVO : TipDAO.listar()) {
@@ -308,7 +308,7 @@
                                         <% }%>
                                     </select>
                                 </div>
-                                <div class="selector">
+                                <div class="selector1">
                                     <input type="submit" class="btn" id="btn" value="Registrar">
                                     <input type="hidden" value="1" name="opcion">
                                 </div>

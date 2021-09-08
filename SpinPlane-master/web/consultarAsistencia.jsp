@@ -11,7 +11,7 @@
 <%@page import="ModeloVO.UsuarioVO"%>
 <%@page import="ModeloDAO.AsistenciaDAO"%>
 <%@page import="ModeloVO.AsistenciaVO"%>
-
+<%@include file="Sesiones.jsp" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!doctype html>
 <html lang="en">
@@ -26,7 +26,7 @@
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css" />
         <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css"/>
-        <link rel="stylesheet" href="Css/consultar.css"/>
+        <link rel="stylesheet" href="Css/consultarNovedad.css"/>
         <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -83,7 +83,7 @@
 
                 <div class="sidebar-wrapper">
                     <div class="logo">
-                        <a href="menuF.jsp" class="simple-text">
+                        <a href="menu.jsp" class="simple-text">
                             SpinPlane
                         </a>
                     </div>
@@ -146,7 +146,7 @@
                             <ul class="nav navbar-nav navbar-left">
 
                                 <li>
-                                    <a href="menuF.jsp">
+                                    <a href="menu.jsp">
                                         <i class="pe-7s-left-arrow"></i>
                                         
                                     </a>
@@ -253,7 +253,7 @@
                 </div>
                 <div class="cuerpo">
                     <div class="formulario">
-                        <div class="selector">
+                        <div class="selector1">
                             <select name="txtAsistencia" class="estilo-selector">
                                 <option selected>Asistencia</option>
                                 <option value="Si">Si</option>
@@ -261,7 +261,7 @@
                             </select>
                         </div>
                         <input type="date" name="txtFecha" required class="input-50">
-                        <div class="selector">
+                        <div class="selector1">
                             <select name="txtIdUsuario" class="estilo-selector">
                                 <option selected>Usuario</option>
                                 <%
@@ -278,7 +278,7 @@
                                 %>    
                             </select>
                         </div>
-                        <div class="selector">
+                        <div class="selector1">
                             <select name="txtIdGrupo" class="estilo-selector">
                                 <option selected>Grupo</option>
                                  <%

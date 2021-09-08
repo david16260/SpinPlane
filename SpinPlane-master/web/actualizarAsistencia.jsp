@@ -6,7 +6,7 @@
 
 <%@page import="ModeloVO.NovedadVO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
+<%@include file="Sesiones.jsp" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -30,7 +30,7 @@
             String idAsistencia = request.getParameter("idAsistencia");
             String asistencia = request.getParameter("asistencia");
             String fecha = request.getParameter("fecha");
-            String usuario = request.getParameter("usuario");
+            String idusuario = request.getParameter("usuario");
             String grupo = request.getParameter("grupo");
         %>
         <section>
@@ -70,7 +70,7 @@
                             </div>
                             <div class="col-md-6">
                                 <label for="inputEmail4" class="form-label">Usuario</label>
-                                <input type="number" class="form-control" id="inputEmail4" name="txtIdUsuario" placeholder="Fecha fin" value="<%=usuario%>">
+                                <input type="number" class="form-control" id="inputEmail4" name="txtIdUsuario" placeholder="Fecha fin" value="<%=idusuario%>">
                             </div>
                             <div class="col-md-6">
                                 <label for="inputEmail4" class="form-label">Grupo</label>

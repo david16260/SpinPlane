@@ -92,7 +92,7 @@ public class UsuarioControlador extends HttpServlet {
                     miSesion.setAttribute("roles", listaRoles);
                     if (listaRoles.size()>=1) {
                          request.setAttribute("mensajeBienvenida", "Bienvenido");
-                         request.getRequestDispatcher("menuF.jsp").forward(request, response);
+                         request.getRequestDispatcher("menu.jsp").forward(request, response);
                     }else {
                     request.setAttribute("mensajeError", "Datos incorrectos");
                     request.getRequestDispatcher("login.jsp").forward(request, response);

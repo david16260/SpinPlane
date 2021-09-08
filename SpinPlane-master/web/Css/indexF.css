@@ -1,200 +1,310 @@
-* {
-    font-family: -apple-system, BlinkMacSystemFont, "San Francisco", Helvetica, Arial, sans-serif;
-  font-weight:  300; 
-  margin:  0; 
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 18/06/2021, 08:08:42 PM
+    Author     : David
+*/
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
-$primary: rgb(182,157,230); 	
-html, body {
-  height:  100vh; 
-  width:  100vw;
-  margin:  0 0; 
-  display:  flex; 
-  align-items:  flex-start; 
-  justify-content:  flex-start; 
-  background:  #f3f2f2; 
+
+body{
+    font-family: sans-serif;
 }
-h4 {
-  font-size:  24px; 
-  font-weight:  600; 
-  color:  #000; 
-  opacity:  .85; 
+
+.container{
+    min-height: 100vh;
+    width: 100%;
+    background-color: #EDEEE8;;
+    background-image: linear-gradient(135deg, #485461 0%, #EDEEE8 74%);
+    overflow-x: hidden;
+    transform-style: preserve-3d;
 }
-label {
-  font-size:  12.5px; 
-  color:  #000;
-  opacity:  .8;
-  font-weight:  400; 
+
+.navbar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    height: 3rem;
+   
 }
-form {
-  padding:  40px 30px; 
-  background:  #fefefe; 
-  display:  flex; 
-  flex-direction:  column;
-  align-items:  flex-start; 
-  padding-bottom:  20px; 
-  width:  300px; 
-  h4 {
-    margin-bottom:  20px;
-    color:  rgba(#000, .5);
-    span {
-      color:  rgba(#000, 1);
-      font-weight:  700; 
+
+.menu{
+    max-width: 72rem;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color:#fff;
+}
+
+.logo{
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 4rem;
+}
+
+.logo span{
+    font-weight: 300;
+}
+
+.ham-menu{
+    height: 4rem;
+    width: 3rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.bar{
+    width: 1.9rem;
+    height: 1.5px;
+    border-radius: 2px;
+    background-color: white;
+    transition: 0.5s;
+    position: relative;
+}
+
+.bar:before, .bar::after{
+    content: "";
+    position:absolute;
+    width: inherit;
+    height: inherit;
+    background-color: black;
+    transition: 0.5s;
+}
+
+.bar:before{
+    transform: translateY(-9px);
+}
+
+.bar:after{
+    transform: translateY(9px);
+}
+
+.main{
+    position: relative;
+    width: 100%;
+    z-index: 5;
+    background-color: white;
+    overflow: hidden;
+    transform-origin: left;
+    transform-style: preserve-3d;
+    transition: 0.5s;
+}
+
+header{
+    min-height: 100vh;
+    width: 100%;
+    background: url("../img/baile.jpg") no-repeat top center / cover;
+    position: relative;
+}
+
+.overlay{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left:0;
+    background-color: rgba(43, 51, 59, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.inner{
+    max-width: 35rem;
+    text-align: center;
+    color: #fff;
+    padding: 0 2rem;
+}
+
+.title{
+    font-size: 2.7rem;
+}
+
+.btn{
+    margin-top: 1rem;
+    padding: 0.6rem 1.8rem;
+    background-color: #1179e7;
+    border: none;
+    border-radius: 25px;
+    color: #fff;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.container.active .bar{
+    transform: rotate(360deg);
+    background-color: transparent;
+}
+
+.container.active .bar:before{
+    transform: translateY(0) rotate(45deg);
+}
+
+.container.active .bar:after{
+    transform: translateY(0) rotate(-45deg);
+}
+
+.container.active .main{
+    animation: main-animation 0.5s ease;
+    cursor: pointer;
+    transform: perspective(1300px) rotateY(20deg) translateZ(310px) scale(0.5);
+}
+
+@keyframes main-animation{
+    from{
+        transform: translate(0);
     }
-  }
-  p {
-    line-height:  155%; 
-    margin-bottom:  5px; 
-    font-size:  14px; 
-    color:  #000; 
-    opacity:  .65;
-    font-weight:  400; 
-    max-width:  200px; 
-    margin-bottom:  40px; 
-  }
-}
-a.discrete {
-    color:  rgba(#000, .4); 
-    font-size:  14px; 
-    border-bottom:  solid 1px rgba(#000, .0);
-    padding-bottom:  4px;  
-    margin-left:  auto; 
-    font-weight:  300; 
-    transition:  all .3s ease; 
-    margin-top:  40px; 
-    &:hover {
-      border-bottom:  solid 1px rgba(#000, .2);
+
+    to{
+        transform: perspective(1300px) rotateY(20deg) translateZ(310px) scale(0.5);
     }
-  }
-button {
-  -webkit-appearance:  none; 
-  width:  auto;
-  min-width:  100px;
-  border-radius:  24px; 
-  text-align:  center; 
-  padding:  15px 40px;
-  margin-top:  5px; 
-  background-color:  saturate($primary, 30%); 
-  color:  #fff; 
-  font-size:  14px;
-  margin-left:  auto; 
-  font-weight:  500; 
-  box-shadow:  0px 2px 6px -1px rgba(0,0,0,.13); 
-  border:  none;
-  transition:  all .3s ease; 
-  outline: 0; 
-  &:hover {
-    transform:  translateY(-3px);
-    box-shadow:  0 2px 6px -1px rgba($primary, .65);
-    &:active {
-      transform:  scale(.99);
+}
+
+.links{
+    position: absolute;
+    width: 30%;
+    right: 0;
+    top: 0;
+    height: 100vh;
+    z-index: 2;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+}
+
+ul{
+    list-style: none;
+}
+
+.links a{
+    text-decoration: none;
+    color: #485461;
+    padding: 0.7rem 0;
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: 0.3s;
+    opacity: 0;
+    transform: translateY(10px);
+    animation: hide 0.5s forwards ease;
+}
+
+.links a:hover{
+    color: #485461;
+}
+
+.container.active .links a{
+    animation: appear 0.5s forwards ease var(--i);
+}
+@keyframes appear{
+    from{
+        opacity: 0;
+        transform: translateY(10px);
+
     }
-  }
-}
-input {
-  font-size:  16px; 
-  padding:  20px 0px; 
-  height:  56px; 
-  border:  none; 
-  border-bottom:  solid 1px rgba(0,0,0,.1); 
-  background:  #fff; 
-  width:  280px; 
-  box-sizing:  border-box; 
-  transition:  all .3s linear; 
-  color:  #000; 
-  font-weight:  400;
-  -webkit-appearance:  none; 
-  &:focus {
-    border-bottom:  solid 1px $primary; 
-    outline: 0; 
-    box-shadow:  0 2px 6px -8px rgba($primary, .45);
-  }
-}
-.floating-label {
-  position:  relative; 
-  margin-bottom:  10px;
-  width:  100%; 
-  label {
-    position:  absolute; 
-    top: calc(50% - 7px);
-    left:  0; 
-    opacity:  0; 
-    transition:  all .3s ease; 
-    padding-left:  44px; 
-  }
-  input {
-    width:  calc(100% - 44px); 
-    margin-left:  auto;
-    display:  flex; 
-  }
-  .icon {
-    position:  absolute; 
-    top:  0; 
-    left:  0; 
-    height:  56px; 
-    width:  44px; 
-    display:  flex; 
-    svg {
-      height:  30px; 
-      width:  30px; 
-      margin:  auto;
-      opacity:  .15; 
-      transition:  all .3s ease; 
-      path {
-        transition:  all .3s ease; 
-      }
+    to{
+        opacity: 1;
+        transform: translateY(0px);
     }
-  }
-  input:not(:placeholder-shown) {
-    padding:  28px 0px 12px 0px; 
-  }
-  input:not(:placeholder-shown) + label {
-    transform:  translateY(-10px); 
-    opacity:  .7; 
-  }
-  input:valid:not(:placeholder-shown) + label + .icon {
-    svg {
-      opacity:  1; 
-      path {
-        fill:  $primary; 
-      }      
+}
+
+@keyframes hide{
+    from{
+        opacity: 1;
+        transform: translateY(0px);
     }
-  }
-  input:not(:valid):not(:focus) + label + .icon {
-    animation-name: shake-shake;
-    animation-duration: .3s;
-  }
+    to{
+        opacity: 0;
+        transform: translateY(10px);
+
+    }
 }
-$displacement:  3px; 
-@keyframes shake-shake {
-  0% { transform: translateX(-$displacement);}
-  20% { transform: translateX($displacement); }
-  40% { transform: translateX(-$displacement);}
-  60% { transform: translateX($displacement);}  
-  80% { transform: translateX(-$displacement);}
-  100% { transform: translateX(0px);}
+
+.shadow{
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    transform-style: preserve-3d;
+    transform-origin: left;
+    transition: 0.5s;
+    background-color:white;
 }
-.session {
-  display:  flex; 
-  flex-direction:  row; 
-  width:  auto; 
-  height:  auto; 
-  margin:  auto auto; 
-  background:  #ffffff; 
-  border-radius:  4px; 
-  box-shadow:  0px 2px 6px -1px rgba(0,0,0,.12);
+
+.shadow.one{
+    background: url("../img/baile.jpg") no-repeat top center / cover;
+    z-index: -1;
+    opacity: 0.35;
 }
-.left {
-  width:  220px; 
-  height:  auto; 
-  min-height:  100%; 
-  position:  relative; 
-  background-image: url("https://images.pexels.com/photos/114979/pexels-photo-114979.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
-  background-size:  cover;
-  border-top-left-radius:  4px; 
-  border-bottom-left-radius:  4px; 
-  svg {
-    height:  40px; 
-    width:  auto; 
-    margin:  20px; 
-  }
+
+.shadow.two{
+    background: url("../img/baile.jpg") no-repeat top center / cover;
+    z-index: -2;
+    opacity: 0.25;
+}
+
+.container.active .shadow.one{
+    animation: shadow-one 0.6s ease-out;
+    transform: perspective(1300px) rotateY(20deg) translateZ(215px) scale(0.5);
+}
+
+@keyframes shadow-one{
+    0%{
+        transform: translate(0);
+    }
+
+    5%{
+        transform: perspective(1300px) rotateY(20deg) translateZ(310px) scale(0.5);
+    }
+
+    100%{
+        transform: perspective(1300px) rotateY(20deg) translateZ(215px) scale(0.5);
+    }
+}
+
+.container.active .shadow.two{
+    animation: shadow-two 0.6s ease-out;
+    transform: perspective(1300px) rotateY(20deg) translateZ(120px) scale(0.5);
+}
+
+@keyframes shadow-two{
+    0%{
+        transform: translate(0);
+    }
+
+    20%{
+        transform: perspective(1300px) rotateY(20deg) translateZ(310px) scale(0.5);
+    }
+
+    100%{
+        transform: perspective(1300px) rotateY(20deg) translateZ(120px) scale(0.5);
+    }
+}
+
+.container.active .main:hover + .shadow.one{
+    transform: perspective(1300px) rotateY(20deg) translateZ(230px) scale(0.5); 
+}
+
+.container.active .main:hover{
+    transform: perspective(1300px) rotateY(20deg) translateZ(340px) scale(0.5); 
 }

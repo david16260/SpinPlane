@@ -1,239 +1,267 @@
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
-/* 
-    Created on : 14/06/2021, 03:25:28 PM
-    Author     : David
-*/
-*{
-    margin: 0;
-    padding: 0;
-    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif ;
-    box-sizing: border-box;
+* {
+  font-family: -apple-system, BlinkMacSystemFont, "San Francisco", Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  margin: 0;
 }
 
-body{
-    
+html, body {    
+  height: 100vh;
+  width: 100vw;
+  margin: 0 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  background: #f3f2f2;
 }
 
-section{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    overflow: hidden;
-    background: linear-gradient(to bottom, #f1f4f9,#dff1ff);
+h4 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #000;
+  opacity: 0.85;
 }
 
-section .entra{
-    position: absolute;
-    filter: blur(150px);
+label {
+  font-size: 12.5px;
+  color: #000;
+  opacity: 0.8;
+  font-weight: 400;
 }
 
-section .entra:nth-child(1){
-top: -350px;
-width: 600px;
-height:600px;
-background:#EDEEE8;
+form {
+  padding: 40px 30px;
+  background: #fefefe;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-bottom: 20px;
+  width: 300px;
+}
+form h4 {
+  margin-bottom: 20px;
+  color: rgba(0, 0, 0, 0.5);
+}
+form h4 span {
+  color: black;
+  font-weight: 700;
+}
+form p {
+  line-height: 155%;
+  margin-bottom: 5px;
+  font-size: 14px;
+  color: #000;
+  opacity: 0.65;
+  font-weight: 400;
+  max-width: 200px;
+  margin-bottom: 40px;
 }
 
-section .entra:nth-child(2){
-    bottom: -150px;
-    left: 100px;
-    width: 500px;
-    height:500px;
-    background:#485461;
+a.discrete {
+  color: rgba(0, 0, 0, 0.4);
+  font-size: 14px;
+  border-bottom: solid 1px rgba(0, 0, 0, 0);
+  padding-bottom: 4px;
+  margin-left: auto;
+  font-weight: 300;
+  transition: all 0.3s ease;
+  margin-top: 40px;
+}
+a.discrete:hover {
+  border-bottom: solid 1px rgba(0, 0, 0, 0.2);
 }
 
-section .entra:nth-child(3){
-    bottom: 50px;
-    right: 100px;
-    width: 300px;
-    height:300px;
-    background:#666;
+button {
+  -webkit-appearance: none;
+  width: auto;
+  min-width: 100px;
+  border-radius: 24px;
+  text-align: center;
+  padding: 15px 40px;
+  margin-top: 5px;
+  background-color: #b08bf8;
+  color: #fff;
+  font-size: 14px;
+  margin-left: auto;
+  font-weight: 500;
+  box-shadow: 0px 2px 6px -1px rgba(0, 0, 0, 0.13);
+  border: none;
+  transition: all 0.3s ease;
+  outline: 0;
+}
+button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 2px 6px -1px rgba(182, 157, 230, 0.65);
+}
+button:hover:active {
+  transform: scale(0.99);
 }
 
-.box{
-    position: relative;
+input {
+  font-size: 16px;
+  padding: 20px 0px;
+  height: 56px;
+  border: none;
+  border-bottom: solid 1px rgba(0, 0, 0, 0.1);
+  background: #fff;
+  width: 280px;
+  box-sizing: border-box;
+  transition: all 0.3s linear;
+  color: #000;
+  font-weight: 400;
+  -webkit-appearance: none;
+}
+input:focus {
+  border-bottom: solid 1px #b69de6;
+  outline: 0;
+  box-shadow: 0 2px 6px -8px rgba(182, 157, 230, 0.45);
 }
 
-.box .square{
-position:absolute;
-backdrop-filter: blur(5px);
-box-shadow: 0 25px 45px rgba(0,0,0,0.1);
-border:1px solid rgba(255, 255, 255, 0.5);
-border-right:1px solid rgba(255, 255, 255, 0.2);
-border-bottom:1px solid rgba(255, 255, 255, 0.5);
-background:rgba(255,255,255,0.1);
-border-radius: 10px;
-animation: animate 10s linear infinite;
-animation-delay: calc(-1s * var(--i));
+.floating-label {
+  position: relative;
+  margin-bottom: 10px;
+  width: 100%;
+}
+.floating-label label {
+  position: absolute;
+  top: calc(50% - 7px);
+  left: 0;
+  opacity: 0;
+  transition: all 0.3s ease;
+  padding-left: 44px;
+}
+.floating-label input {
+  width: calc(100% - 44px);
+  margin-left: auto;
+  display: flex;
+}
+.floating-label .icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 56px;
+  width: 44px;
+  display: flex;
+}
+.floating-label .icon svg {
+  height: 30px;
+  width: 30px;
+  margin: auto;
+  opacity: 0.15;
+  transition: all 0.3s ease;
+}
+.floating-label .icon svg path {
+  transition: all 0.3s ease;
+}
+.floating-label input:not(:-moz-placeholder-shown) {
+  padding: 28px 0px 12px 0px;
+}
+.floating-label input:not(:-ms-input-placeholder) {
+  padding: 28px 0px 12px 0px;
+}
+.floating-label input:not(:placeholder-shown) {
+  padding: 28px 0px 12px 0px;
+}
+.floating-label input:not(:-moz-placeholder-shown) + label {
+  transform: translateY(-10px);
+  opacity: 0.7;
+}
+.floating-label input:not(:-ms-input-placeholder) + label {
+  transform: translateY(-10px);
+  opacity: 0.7;
+}
+.floating-label input:not(:placeholder-shown) + label {
+  transform: translateY(-10px);
+  opacity: 0.7;
+}
+.floating-label input:valid:not(:-moz-placeholder-shown) + label + .icon svg {
+  opacity: 1;
+}
+.floating-label input:valid:not(:-ms-input-placeholder) + label + .icon svg {
+  opacity: 1;
+}
+.floating-label input:valid:not(:placeholder-shown) + label + .icon svg {
+  opacity: 1;
+}
+.floating-label input:valid:not(:-moz-placeholder-shown) + label + .icon svg path {
+  fill: #b69de6;
+}
+.floating-label input:valid:not(:-ms-input-placeholder) + label + .icon svg path {
+  fill: #b69de6;
+}
+.floating-label input:valid:not(:placeholder-shown) + label + .icon svg path {
+  fill: #b69de6;
+}
+.floating-label input:not(:valid):not(:focus) + label + .icon {
+  -webkit-animation-name: shake-shake;
+          animation-name: shake-shake;
+  -webkit-animation-duration: 0.3s;
+          animation-duration: 0.3s;
 }
 
-@keyframes animate{
-    0%,100%
-    {
-        transform: translateY(-40px);
-    }
-    50%
-    {
-        transform: translateY(40px);
-    }
-   
+@-webkit-keyframes shake-shake {
+  0% {
+    transform: translateX(-3px);
+  }
+  20% {
+    transform: translateX(3px);
+  }
+  40% {
+    transform: translateX(-3px);
+  }
+  60% {
+    transform: translateX(3px);
+  }
+  80% {
+    transform: translateX(-3px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
 }
 
-.box .square:nth-child(1){
-    top: -50px;
-    right: -60px;
-    width: 100px;
-    height: 100px;
+@keyframes shake-shake {
+  0% {
+    transform: translateX(-3px);
+  }
+  20% {
+    transform: translateX(3px);
+  }
+  40% {
+    transform: translateX(-3px);
+  }
+  60% {
+    transform: translateX(3px);
+  }
+  80% {
+    transform: translateX(-3px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+.session {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  height: auto;
+  margin: auto auto;
+  background: #ffffff;
+  border-radius: 4px;
+  box-shadow: 0px 2px 6px -1px rgba(0, 0, 0, 0.12);
 }
 
-.box .square:nth-child(2){
-    top: 150px;
-    left: -100px;
-    width: 120px;
-    height: 120px;
-    z-index: 2;
+.left {
+  width: 220px;
+  height: auto;
+  min-height: 100%;
+  position: relative;
+  background-image: url("https://images.pexels.com/photos/114979/pexels-photo-114979.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+  background-size: cover;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
 }
-
-.box .square:nth-child(3){
-    bottom: 50px;
-    right: -60px;
-    width: 80px;
-    height: 80px;
-    z-index: 2;
-}
-
-.box .square:nth-child(4){
-    bottom: -80px;
-    left: 100px;
-    width: 50px;
-    height: 50px;
-}
-
-.box .square:nth-child(5){
-    top: -80px;
-    left: 140px;
-    width: 60px;
-    height: 60px;
-}
-
-.container{
-    position: relative;
-    width: 400px;
-    min-height: 400px;
-    background:rgba(255,255,255,0.1);
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    backdrop-filter: blur(5px);
-    box-shadow: 0 25px 45px rgba(0,0,0,0.1);
-    border:1px solid rgba(0, 0, 0, 0.5);
-    border-right:1px solid rgba(0, 0, 0, 0.2);
-    border-bottom:1px solid rgba(0, 0, 0, 0.5);
-}
-.container2{
-    position: relative;
-    width: 400px;
-    min-height: 400px;
-    overflow-y: scroll:
-    background:rgba(255,255,255,0.1);
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    backdrop-filter: blur(5px);
-    box-shadow: 0 25px 45px rgba(0,0,0,0.1);
-    border:1px solid rgba(0, 0, 0, 0.5);
-    border-right:1px solid rgba(0, 0, 0, 0.2);
-    border-bottom:1px solid rgba(0, 0, 0, 0.5);
-}
-.form{
-    position: relative;
-    width:100%;
-    height:100%;
-    padding: 40px;
-}
-
-.form h2{
-    position: relative;
-    color: #666;
-    font-size: 24px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    margin-bottom: 40px;
-}
-
-.form h2::before{
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -10px;
-    width: 80px;
-    height: 4px;
-    background: #666;
-}
-
-.form .inputb{
-    width: 100%;
-    margin-top: 20px;
-
-}
-
-.form .inputb input{
-    width: 100%;
-    background: rgba(255, 255, 255, 0.2);
-    border: none;
-    outline: none;
-    padding: 10px 20px;
-    border-radius: 35px;
-    border:1px solid rgba(255, 255, 255, 0.5);
-    border-right:1px solid rgba(255, 255, 255, 0.2);
-    border-bottom:1px solid rgba(255, 255, 255, 0.5);
-    font-size: 16px;
-    letter-spacing: 1px;
-    color: rgb(0, 0, 0);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-}
-
-.form .inputb input::placeholder{
-    color: #666;
-}
-
-.form .inputb input[type="submit"]{
-    background: #fff;
-    color: #666;
-    max-width: 100px;
-    cursor: pointer;
-    margin-bottom: 20px;
-    font-weight: 600;
-
-}
-
-.error {
-    border-radius: 100px;
-    display: none;
-    margin-top: 20px;
-    border-radius: 13px;
-    border: 2px solid#fff;
-    background:  #fff;
-    font-weight: bold;
-    color: #666;
-    /* color: lightcoral; */
-    padding: 15px 10px;
-    padding-left: 40px;
-}
-
-.cuenta{
-    margin-top: 5px;
-    color: #666;
-}
-
-.cuenta a{
-    color: #666;
-    font-weight: 600;
+.left svg {
+  height: 40px;
+  width: auto;
+  margin: 20px;
 }
