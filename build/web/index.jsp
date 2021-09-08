@@ -44,7 +44,7 @@ https://www.tooplate.com/view/2115-marvel
                         <a href="#about" class="nav-link"><span data-hover="Inicio">Inicio</span></a>
                     </li>
                     <li class="nav-item">
-                        <a href="#resume" class="nav-link"><span data-hover="Modulos">Módulos</span></a>
+                        <a href="#resume" class="nav-link"><span data-hover="Módulos">Módulos</span></a>
                     </li>
                     <li class="nav-item">
                         <a href="#resume" class="nav-link"><span data-hover="Servicios">Servicios</span></a>
