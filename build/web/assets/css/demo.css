@@ -229,19 +229,7 @@ h2 {
     transition: 0.5s;
 }
 
-.btn {
-    margin-left: 25%;
-    width: 50%;
-    color: white;
-    background: #007bff;
-    border: solid 2px #fff;
-    border-radius: 5px;
-}
 
-.btn:hover {
-    background: #4371A3;
-    color: #fff;
-}
 .selector{
     display: flex;
     justify-content: center;

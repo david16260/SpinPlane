@@ -149,7 +149,7 @@
 
                                 </li>
                             </ul>
-                            <ul style="list-style: none;">
+                            <ul style="list-style: none; margin-top: 15px;">
                                 <li>
                                     <h2 class="text-center">Gestionar Clase</h2>
                                 </li>

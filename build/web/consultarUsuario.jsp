@@ -3,7 +3,7 @@
     Created on : 25/06/2021, 11:22:07 AM
     Author     : Sebas
 --%>
-
+<%@include file="Sesiones.jsp" %>
 <%@page import="java.util.ArrayList"%>
 <%@page import="ModeloDAO.UsuarioDAO"%>
 <%@page import="ModeloVO.UsuarioVO"%>
@@ -151,7 +151,7 @@
 
                                 </li>
                             </ul>
-                            <ul style="list-style: none;">
+                            <ul style="list-style: none; margin-top: 15px;">
                                 <li>
                                     <h2 class="text-center">Gestionar Usuario</h2>
                                 </li>

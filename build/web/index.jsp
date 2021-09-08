@@ -1,4 +1,6 @@
-    <!doctype html>
+  
+<%@include file="Sesiones.jsp" %>
+<!doctype html>
 <html lang="en">
 
 <head>
