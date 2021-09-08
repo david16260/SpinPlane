@@ -259,15 +259,15 @@
                         <input type="text" name="txtDescripcion" class="descripcion" placeholder="Descripcion">
                         <input type="date" name="txtFechaInicio" class="input-50">
                         <input type="date" name="txtFechaFin" class="input-50">
-                        <div class="selector">
-                            <select name="txtTipoNovedad" class="estilo-selector">
+                        <div class="selector1">
+                            <select name="txtTipoNovedad" class="estilo1-selector">
                                 <option selected>Tipo de Novedad</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                             </select>
                         </div>
-                        <div class="selector">
-                            <select name="txtAsistencia" class="estilo-selector">
+                        <div class="selector1">
+                            <select name="txtAsistencia" class="estilo1-selector">
                                 <option selected>Id Asistencia</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>

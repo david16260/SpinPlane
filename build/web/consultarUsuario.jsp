@@ -283,8 +283,8 @@
                             <div class="formulario">
                                 <input type="text" id="nombre" name="txtNombre" placeholder="Nombre" required class="input-50">
                                 <input type="text" id="apellido" name="txtApellido" placeholder="Apellido" required class="input-50">
-                                <div class="selector">
-                                    <select id="TipoDocumento" name="txtTipoDocumento" class="estilo-selector">
+                                <div class="selector1">
+                                    <select id="TipoDocumento" name="txtTipoDocumento" class="estilo1-selector">
                                         <option selected>Tipo de Documento</option>
                                         <option value="C.C">Cedula de Ciudadania</option>
                                         <option value="T.I">Tarjeta de Identidad</option>
@@ -297,8 +297,8 @@
                                 <input type="hidden" value="Activo" name="txtEstado" required>
                                 <input type="email" id="correo" name="txtCorreo" placeholder="Correo" required class="input-50">
                                 <input type="password" name="txtClave" placeholder="Contraseña" required class="input-50">
-                                <div class="selector">
-                                    <select name="txtRol" class="estilo-selector">
+                                <div class="selector1">
+                                    <select name="txtRol" class="estilo1-selector">
                                         <option selected>Rol</option>
                                         <%
                                             TipoUsuarioDAO TipDAO = new TipoUsuarioDAO();
@@ -308,7 +308,7 @@
                                         <% }%>
                                     </select>
                                 </div>
-                                <div class="selector">
+                                <div class="selector1">
                                     <input type="submit" class="btn" id="btn" value="Registrar">
                                     <input type="hidden" value="1" name="opcion">
                                 </div>

@@ -28,7 +28,7 @@
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css" />
         <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css"/>
-        <link rel="stylesheet" href="Css/consultar.css"/>
+        <link rel="stylesheet" href="Css/consultarUsuario.css"/>
         <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -279,8 +279,8 @@
                         <input type="time" name="txtHoraInicio" class="input-50">
                         <input type="time" name="txtHoraFin" class="input-50">
                         <input type="hidden" value="Activo" name="txtEstado">
-                        <div class="selector">
-                            <select name="txtGrupo" class="estilo-selector">
+                        <div class="selector1">
+                            <select name="txtGrupo" class="estilo1-selector">
                                 <option selected>Grupo</option>
                                 <%
                                     GrupoVO GruVO = new GrupoVO();
@@ -296,8 +296,8 @@
                                 %> 
                             </select>
                         </div>
-                        <div class="selector">
-                            <select name="txtAula" class="estilo-selector">
+                        <div class="selector1">
+                            <select name="txtAula" class="estilo1-selector">
                                 <option selected>Aula</option>
                                 <%
                                     AulaVO AulVO = new AulaVO();
@@ -313,8 +313,8 @@
                                 %> 
                             </select>
                         </div>
-                        <div class="selector">
-                            <select name="txtClase" class="estilo-selector">
+                        <div class="selector1">
+                            <select name="txtClase" class="estilo1-selector">
                                 <option selected>Clase</option>
                                 <%
                                     ClaseVO ClaVO = new ClaseVO();
