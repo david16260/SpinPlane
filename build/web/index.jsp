@@ -1,5 +1,5 @@
   
-<%@include file="Sesiones.jsp" %>
+
 <!doctype html>
 <html lang="en">
 
