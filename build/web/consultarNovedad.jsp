@@ -3,7 +3,7 @@
     Created on : 25/06/2021, 02:40:36 PM
     Author     : Sebas
 --%>
-
+<%@include file="Sesiones.jsp" %>
 <%@page import="java.util.ArrayList"%>
 <%@page import="ModeloDAO.NovedadDAO"%>
 <%@page import="ModeloVO.NovedadVO"%>
@@ -150,7 +150,7 @@
 
                                 </li>
                             </ul>
-                            <ul style="list-style: none;">
+                            <ul style="list-style: none; margin-top: 15px;">
                                 <li>
                                     <h2 class="text-center">Gestionar Novedad</h2>
                                 </li>
