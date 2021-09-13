@@ -7,22 +7,22 @@ package ModeloVO;
 
 
 public class NovedadVO {
-    private String idNovedad, descripcion, fechaInicio, fechaFin, idTipoNovedad, idAsistencia;
+    private String idNovedad, descripcion, fechaInicio, fechaFin, idTipoNovedad, idAsistencia,tipoNovedad,nombreUsuario;
 
     public NovedadVO() {
     }
 
-    public NovedadVO(String idNovedad, String descripcion, String fechaInicio, String fechaFin, String idTipoNovedad, String idAsistencia) {
+    public NovedadVO(String idNovedad, String descripcion, String fechaInicio, String fechaFin, String idTipoNovedad, String idAsistencia, String tipoNovedad, String nombreUsuario) {
         this.idNovedad = idNovedad;
         this.descripcion = descripcion;
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
         this.idTipoNovedad = idTipoNovedad;
         this.idAsistencia = idAsistencia;
+        this.tipoNovedad = tipoNovedad;
+        this.nombreUsuario = nombreUsuario;
     }
 
-    
-    
     public String getIdNovedad() {
         return idNovedad;
     }
@@ -70,5 +70,23 @@ public class NovedadVO {
     public void setIdAsistencia(String idAsistencia) {
         this.idAsistencia = idAsistencia;
     }
+
+    public String getTipoNovedad() {
+        return tipoNovedad;
+    }
+
+    public void setTipoNovedad(String tipoNovedad) {
+        this.tipoNovedad = tipoNovedad;
+    }
+
+    public String getNombreUsuario() {
+        return nombreUsuario;
+    }
+
+    public void setNombreUsuario(String nombreUsuario) {
+        this.nombreUsuario = nombreUsuario;
+    }
+
+  
     
 }

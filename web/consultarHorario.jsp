@@ -144,13 +144,13 @@
                     <div class="container-fluid">
 
                         <div class="collapse navbar-collapse">
-                            
+
                             <ul class="nav navbar-nav navbar-left">
 
                                 <li>
                                     <a href="menu.jsp">
                                         <i class="pe-7s-left-arrow"></i>
-                                        
+
                                     </a>
 
                                 </li>
@@ -165,181 +165,213 @@
                 </nav>
 
                 <div class="contenedor mt-4">
-            <table id="usuario" class="table table-striped" style="width:100%">
-                <thead>
-                    <tr>
-                        <th>Id</th>
-                        <th>Fecha Inicio</th>
-                        <th>Fecha Fin</th>
-                        <th>Dia</th>
-                        <th>Hora Inicio</th>
-                        <th>Hora Fin</th>
-                        <th>Estado</th>
-                        <th>Grupo</th>
-                        <th>Aula</th>
-                        <th>Clase</th>
-                        <th>Actualizar</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <%
-                        HorarioVO HorVO = new HorarioVO();
-                        HorarioDAO HorDAO = new HorarioDAO(HorVO);
-                        ArrayList<HorarioVO> listaHorario = HorDAO.listar();
-                        for (int i = 0; i < listaHorario.size(); i++) {
+                    <table id="usuario" class="table table-striped" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Fecha Inicio</th>
+                                <th>Fecha Fin</th>
+                                <th>Dia</th>
+                                <th>Hora Inicio</th>
+                                <th>Hora Fin</th>
+                                <th>Estado</th>
+                                <th>Grupo</th>
+                                <th>Aula</th>
+                                <th>Clase</th>
+                                <th>Actualizar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <%
+                                HorarioVO HorVO = new HorarioVO();
+                                HorarioDAO HorDAO = new HorarioDAO(HorVO);
+                                ArrayList<HorarioVO> listaHorario = HorDAO.listar();
+                                for (int i = 0; i < listaHorario.size(); i++) {
 
-                            HorVO = listaHorario.get(i);
-                    %>               
-                    <tr>
-                        <td><%=HorVO.getIdHorario()%></td>
-                        <td><%=HorVO.getFechaInicio()%></td>
-                        <td><%=HorVO.getFechaFin()%></td>
-                        <td><%=HorVO.getDia()%></td>
-                        <td><%=HorVO.getHoraInicio()%></td>
-                        <td><%=HorVO.getHoraFin()%></td>
-                        <%if (HorVO.getEstado()!="Inactivo") {%>
-                        <td class="verde text-center"><%=HorVO.getEstado()%></td>
-                        <%}else if(HorVO.getEstado()=="Inactivo"){%>
-                        <td class="rojo"><%=HorVO.getEstado()%></td>
-                        <%}%>
-                        <td><%=HorVO.getIdGrupo()%></td>
-                        <td><%=HorVO.getIdAula()%></td>
-                        <td><%=HorVO.getIdClase()%></td>
-                        <td>
-                            <a class="btn btn-info edit m-2 p-2"href="actualizarHorario.jsp?idHorario=<%=HorVO.getIdHorario()%>&fechaInicio=<%=HorVO.getFechaInicio()%>&fechaFin=<%=HorVO.getFechaFin()%>&dia=<%=HorVO.getDia()%>&horaInicio=<%=HorVO.getHoraInicio()%>&horaFin=<%=HorVO.getHoraFin()%>&estado=<%=HorVO.getEstado()%>&idGrupo=<%=HorVO.getIdGrupo()%>&idAula=<%=HorVO.getIdAula()%>&idClase=<%=HorVO.getIdClase()%> "><i class="fas fa-pen"></i></a>
-                        </td>
-                    </tr>
-                    <%}%>  
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <th>Id</th>
-                        <th>Fecha Inicio</th>
-                        <th>Fecha Fin</th>
-                        <th>Dia</th>
-                        <th>Hora Inicio</th>
-                        <th>Hora Fin</th>
-                        <th>Estado</th>
-                        <th>Grupo</th>
-                        <th>Aula</th>
-                        <th>Clase</th>
-                         <th>Actualizar</th>
-                    </tr>
-                </tfoot>
-            </table>
-        </div>
-
-        <script>
-            $(document).ready(function () {
-                $('#usuario').DataTable({
-                    scrollY: 400,
-                    language: {
-                        "sProcessing": "Procesando...",
-                        "sLengthMenu": "Mostrar _MENU_ registros",
-                        "sZeroRecords": "No se encontraron resultados",
-                        "sEmptyTable": "NingÃºn dato disponible en esta tabla",
-                        "sInfo": "Mostrando usuarios del _START_ al _END_ de un total de _TOTAL_ usuarios",
-                        "sInfoEmpty": "Mostrando usuarios del 0 al 0 de un total de 0 usuarios",
-                        "sInfoFiltered": "(filtrado de un total de _MAX_ usuarios)",
-                        "sInfoPostFix": "",
-                        "sSearch": "Buscar:",
-                        "sUrl": "",
-                        "sInfoThousands": ",",
-                        "sLoadingRecords": "Cargando...",
-                        "oPaginate": {
-                            "sFirst": "Primero",
-                            "sLast": "Ãšltimo",
-                            "sNext": "Siguiente",
-                            "sPrevious": "Anterior"
-                        },
-                        "oAria": {
-                            "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
-                            "sSortDescending": ": Activar para ordenar la columna de manera descendente"
-                        },
-                        "buttons": {
-                            "copy": "Copiar",
-                            "colvis": "Visibilidad"
-                        }
-                    }
-                });
-            });
-        </script>
-        <button class="abrir-registrar btn btn-primary" id="abrir-registrar">Registrar</button>
-        <div class="overlay" id="overlay">
-            <form method="POST" action="Horario" class="form-registro">
-                <div class="tituloR">
-                    <a href="#" class="cerrar-registro" id="cerrar-registro"><i class="fas fa-times"></i></a>
-                    <h2>Registrar Horario</h2>
+                                    HorVO = listaHorario.get(i);
+                            %>               
+                            <tr>
+                                <td><%=HorVO.getIdHorario()%></td>
+                                <td><%=HorVO.getFechaInicio()%></td>
+                                <td><%=HorVO.getFechaFin()%></td>
+                                <td><%=HorVO.getDia()%></td>
+                                <td><%=HorVO.getHoraInicio()%></td>
+                                <td><%=HorVO.getHoraFin()%></td>
+                                <%if (HorVO.getEstado() != "Inactivo") {%>
+                                <td class="verde text-center"><%=HorVO.getEstado()%></td>
+                                <%} else if (HorVO.getEstado() == "Inactivo") {%>
+                                <td class="rojo"><%=HorVO.getEstado()%></td>
+                                <%}%>
+                                <td><%=HorVO.getNombreGrupo()%></td>
+                                <td><%=HorVO.getNombreAula()%></td>
+                                <td><%=HorVO.getNombreClase()%></td>
+                                <td>
+                                    <a class="btn btn-info edit m-2 p-2"href="actualizarHorario.jsp?idHorario=<%=HorVO.getIdHorario()%>&fechaInicio=<%=HorVO.getFechaInicio()%>&fechaFin=<%=HorVO.getFechaFin()%>&dia=<%=HorVO.getDia()%>&horaInicio=<%=HorVO.getHoraInicio()%>&horaFin=<%=HorVO.getHoraFin()%>&estado=<%=HorVO.getEstado()%>&idGrupo=<%=HorVO.getIdGrupo()%>&idAula=<%=HorVO.getIdAula()%>&idClase=<%=HorVO.getIdClase()%> "><i class="fas fa-pen"></i></a>
+                                </td>
+                            </tr>
+                            <%}%>  
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>Id</th>
+                                <th>Fecha Inicio</th>
+                                <th>Fecha Fin</th>
+                                <th>Dia</th>
+                                <th>Hora Inicio</th>
+                                <th>Hora Fin</th>
+                                <th>Estado</th>
+                                <th>Grupo</th>
+                                <th>Aula</th>
+                                <th>Clase</th>
+                                <th>Actualizar</th>
+                            </tr>
+                        </tfoot>
+                    </table>
                 </div>
-                <div class="cuerpo">
-                    <div class="formulario">
-                        <input type="date" name="txtFechaInicio" required class="input-50">
-                        <input type="date" name="txtFechaFin" required class="input-50">
-                        <input type="date" name="txtDia" required class="input-50">
-                        <input type="time" name="txtHoraInicio" class="input-50">
-                        <input type="time" name="txtHoraFin" class="input-50">
-                        <input type="hidden" value="Activo" name="txtEstado">
-                        <div class="selector1">
-                            <select name="txtGrupo" class="estilo1-selector">
-                                <option selected>Grupo</option>
-                                <%
-                                    GrupoVO GruVO = new GrupoVO();
-                                    GrupoDAO GruDAO = new GrupoDAO(GruVO);
-                                    ArrayList< GrupoVO> listaGrupo = GruDAO.listar();
-                                    for (int i = 0; i < listaGrupo.size(); i++) {
 
-                                        GruVO = listaGrupo.get(i);
-                                %>
-                                <option value="<%=GruVO.getIdGrupo()%>"><%=GruVO.getNombre()%></option>
-                                <%
-                                    }
-                                %> 
-                            </select>
+                <script>
+                    $(document).ready(function () {
+                        $('#usuario').DataTable({
+                            scrollY: 400,
+                            language: {
+                                "sProcessing": "Procesando...",
+                                "sLengthMenu": "Mostrar _MENU_ registros",
+                                "sZeroRecords": "No se encontraron resultados",
+                                "sEmptyTable": "NingÃºn dato disponible en esta tabla",
+                                "sInfo": "Mostrando usuarios del _START_ al _END_ de un total de _TOTAL_ usuarios",
+                                "sInfoEmpty": "Mostrando usuarios del 0 al 0 de un total de 0 usuarios",
+                                "sInfoFiltered": "(filtrado de un total de _MAX_ usuarios)",
+                                "sInfoPostFix": "",
+                                "sSearch": "Buscar:",
+                                "sUrl": "",
+                                "sInfoThousands": ",",
+                                "sLoadingRecords": "Cargando...",
+                                "oPaginate": {
+                                    "sFirst": "Primero",
+                                    "sLast": "Ãšltimo",
+                                    "sNext": "Siguiente",
+                                    "sPrevious": "Anterior"
+                                },
+                                "oAria": {
+                                    "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+                                    "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                                },
+                                "buttons": {
+                                    "copy": "Copiar",
+                                    "colvis": "Visibilidad"
+                                }
+                            }
+                        });
+                    });
+                </script>
+                <button class="abrir-registrar btn btn-primary" id="abrir-registrar">Registrar</button>
+                <div class="overlay" id="overlay">
+                    <form method="POST" action="Horario" class="form-registro">
+                        <div class="tituloR">
+                            <a href="#" class="cerrar-registro" id="cerrar-registro"><i class="fas fa-times"></i></a>
+                            <h2>Registrar Horario</h2>
                         </div>
-                        <div class="selector1">
-                            <select name="txtAula" class="estilo1-selector">
-                                <option selected>Aula</option>
-                                <%
-                                    AulaVO AulVO = new AulaVO();
-                                    AulaDAO AulDAO = new AulaDAO(AulVO);
-                                    ArrayList<AulaVO> listaAula = AulDAO.listar();
-                                    for (int i = 0; i < listaAula.size(); i++) {
+                        <div class="cuerpo">
+                            <div class="formulario">
+                                <input type="date" name="txtFechaInicio" required class="input-50">
+                                <input type="date" name="txtFechaFin" required class="input-50">
+                                <input type="date" name="txtDia" required class="input-50">
+                                <input type="time" name="txtHoraInicio" class="input-50">
+                                <input type="time" name="txtHoraFin" class="input-50">
+                                <input type="hidden" value="Activo" name="txtEstado">
+                                <div class="selector1">
+                                    <select name="txtGrupo" class="estilo1-selector">
+                                        <option selected>Grupo</option>
+                                        <%
+                                            GrupoVO GruVO = new GrupoVO();
+                                            GrupoDAO GruDAO = new GrupoDAO(GruVO);
+                                            ArrayList< GrupoVO> listaGrupo = GruDAO.listar();
+                                            for (int i = 0; i < listaGrupo.size(); i++) {
 
-                                        AulVO = listaAula.get(i);
-                                %>
-                                <option value="<%=AulVO.getIdAula()%>"><%=AulVO.getNombre()%></option>
-                                <%
-                                    }
-                                %> 
-                            </select>
-                        </div>
-                        <div class="selector1">
-                            <select name="txtClase" class="estilo1-selector">
-                                <option selected>Clase</option>
-                                <%
-                                    ClaseVO ClaVO = new ClaseVO();
-                                    ClaseDAO ClaDAO = new ClaseDAO(ClaVO);
-                                    ArrayList<ClaseVO> listaclase = ClaDAO.listar();
-                                    for (int i = 0; i < listaclase.size(); i++) {
+                                                GruVO = listaGrupo.get(i);
+                                        %>
+                                        <option value="<%=GruVO.getIdGrupo()%>"><%=GruVO.getNombre()%></option>
+                                        <%
+                                            }
+                                        %> 
+                                    </select>
+                                </div>
+                                <div class="selector1">
+                                    <select name="txtAula" class="estilo1-selector">
+                                        <option selected>Aula</option>
+                                        <%
+                                            AulaVO AulVO = new AulaVO();
+                                            AulaDAO AulDAO = new AulaDAO(AulVO);
+                                            ArrayList<AulaVO> listaAula = AulDAO.listar();
+                                            for (int i = 0; i < listaAula.size(); i++) {
 
-                                        ClaVO = listaclase.get(i);
-                                %>
-                                <option value="<%=ClaVO.getIdClase()%>"><%=ClaVO.getNombre()%></option>
-                                <%
-                                    }
-                                %> 
-                            </select>
+                                                AulVO = listaAula.get(i);
+                                        %>
+                                        <option value="<%=AulVO.getIdAula()%>"><%=AulVO.getNombre()%></option>
+                                        <%
+                                            }
+                                        %> 
+                                    </select>
+                                </div>
+                                <div class="selector1">
+                                    <select name="txtClase" class="estilo1-selector">
+                                        <option selected>Clase</option>
+                                        <%
+                                            ClaseVO ClaVO = new ClaseVO();
+                                            ClaseDAO ClaDAO = new ClaseDAO(ClaVO);
+                                            ArrayList<ClaseVO> listaclase = ClaDAO.listar();
+                                            for (int i = 0; i < listaclase.size(); i++) {
+
+                                                ClaVO = listaclase.get(i);
+                                        %>
+                                        <option value="<%=ClaVO.getIdClase()%>"><%=ClaVO.getNombre()%></option>
+                                        <%
+                                            }
+                                        %> 
+                                    </select>
+                                </div>
+                                <div class="boton">
+                                    <input type="submit" id="btn" value="Registrar" class="btn">
+                                    <input type="hidden" value="1" name="opcion">
+                                </div>
+                            </div>
                         </div>
-                        <div class="boton">
-                            <input type="submit" id="btn" value="Registrar" class="btn">
-                            <input type="hidden" value="1" name="opcion">
-                        </div>
-                    </div>
+                    </form>
                 </div>
-            </form>
-        </div>
-        <script src="Js/consutarUsuario.js" type="text/javascript"></script>
-    <footer class="footer">
+                <% if (request.getAttribute("mensajeError") != null) {%>
+                <script  type="text/javascript">
+
+                    swal({
+                        title: "Error",
+                        text: "${mensajeError}",
+                        type: 'error',
+                        confirmButtonClass: "btn-primary",
+                        confirmButtonText: "OK",
+                        closeOnConfirm: false
+                    },
+                            function () {
+                                window.location = "actualizarHorario.jsp";
+                            });
+                </script>
+
+                <%} else if (request.getAttribute("mensajeExito") != null) {%>
+                <script  type="text/javascript">
+
+                    swal({
+                        title: "Correcto",
+                        text: "${mensajeExito}",
+                        type: 'success',
+                        confirmButtonClass: "btn-primary",
+                        confirmButtonText: "OK",
+                        closeOnConfirm: false
+                    },
+                            function () {
+                                window.location = "consultarHorario.jsp";
+                            });
+                </script>
+                <%}%>
+                <script src="Js/consutarUsuario.js" type="text/javascript"></script>
+                <footer class="footer">
                     <div class="container-fluid">
 
                         <p class="copyright text-center">

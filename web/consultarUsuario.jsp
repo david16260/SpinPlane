@@ -3,7 +3,6 @@
     Created on : 25/06/2021, 11:22:07 AM
     Author     : Sebas
 --%>
-<%@include file="Sesiones.jsp" %>
 <%@page import="java.util.ArrayList"%>
 <%@page import="ModeloDAO.UsuarioDAO"%>
 <%@page import="ModeloVO.UsuarioVO"%>
@@ -165,16 +164,13 @@
                     <table id="usuario" class="table-striped">
                         <thead>
                             <tr>
-                                <th>Id</th>
                                 <th>Nombre</th>
                                 <th>Apellido</th>
                                 <th>Tipo de Documento</th>
                                 <th>Documento</th>
                                 <th>Celular</th>
-                                <th>Telefono</th>
                                 <th>Estado</th>
-                                <th>Correo</th>
-                                <th>Clave</th>
+                                <th>Correo</th>                                
                                 <th>Tipo Usuario</th>
                                 <th>Estado</th>
                                 <th>Actualizar</th>
@@ -190,21 +186,19 @@
                                     UsuVO = listaUsuario.get(i);
                             %>               
                             <tr>
-                                <td><%=UsuVO.getUsuId()%></td>
                                 <td><%=UsuVO.getNombre()%></td>
                                 <td><%=UsuVO.getApellido()%></td>
                                 <td><%=UsuVO.getTipoDocumento()%></td>
                                 <td><%=UsuVO.getNumDocumento()%></td>
                                 <td><%=UsuVO.getCelular()%></td>
-                                <td><%=UsuVO.getTelefono()%></td>
+                                
                                 <td>
                                     <a class="<%=UsuVO.getEstado().equals("Activo") ? "btn btn-success  m-3" : "btn btn-danger  m-3"%>" style="padding-right: 56px;">
                                         <%=UsuVO.getEstado()%>
                                     </a>
                                 </td>
-                                <td><%=UsuVO.getCorreo()%></td>
-                                <td><%=UsuVO.getClave()%></td>
-                                <td><%=UsuVO.getIdTipoUsuario().equals("1") ? "Profesor" : "Estudiante"%></td>  
+                                <td><%=UsuVO.getCorreo()%></td>                                
+                                <td><%=UsuVO.getIdTipoUsuario()%></td>  
                                 <td>
                                     <a  class="btn btn-primary edit m-2 p-2"href="cambiarEstado.jsp?usuid=<%=UsuVO.getUsuId()%>&estado=<%=UsuVO.getEstado()%>"><i class="fas fa-pen"></i></a>
 
@@ -219,16 +213,14 @@
                         </tbody>
                         <tfoot>
                             <tr>
-                                <th>Id</th>
+                                
                                 <th>Nombre</th>
                                 <th>Apellido</th>
                                 <th>Tipo de Documento</th>
                                 <th>Documento</th>
-                                <th>Celular</th>
-                                <th>Telefono</th>
+                                <th>Celular</th>                                
                                 <th>Estado</th>
-                                <th>Correo</th>
-                                <th>Clave</th>
+                                <th>Correo</th>                                
                                 <th>Tipo Usuario</th>
                                 <th>Estado</th>
                                 <th>Actualizar</th>

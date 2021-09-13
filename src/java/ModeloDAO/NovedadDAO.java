@@ -117,13 +117,14 @@ public class NovedadDAO extends Conexion implements Crud{
         
         try {
             conexion= this.obtenerConexion();
-            sql="select * from novedad";
+            sql="SELECT novedad.idNovedad,novedad.descripcion,novedad.fechaInicio,novedad.fechaFin,tiponovedad.idTipoNovedad,asistencia.idAsistencia,tiponovedad.tipoNovedad,usuario.nombre FROM novedad INNER JOIN tiponovedad ON novedad.idTipoNovedad=tiponovedad.idTipoNovedad INNER JOIN asistencia ON novedad.idAsistencia=asistencia.idAsistencia INNER JOIN usuario ON asistencia.idUsuario=usuario.idUsuario;";
             puente = conexion.prepareStatement(sql);
             mensajero = puente.executeQuery();
             while (mensajero.next()) {
                 
                 NovedadVO AuVO= new NovedadVO(mensajero.getString(1),mensajero.getString(2),
-                    mensajero.getString(3), mensajero.getString(4),mensajero.getString(5),mensajero.getString(6));
+                    mensajero.getString(3), mensajero.getString(4),mensajero.getString(5),mensajero.getString(6),
+                mensajero.getString(7),mensajero.getString(8));
                 
                    listaNovedad.add(AuVO);
             }

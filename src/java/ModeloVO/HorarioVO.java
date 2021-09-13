@@ -7,12 +7,12 @@ package ModeloVO;
 
 
 public class HorarioVO {
-    private String idHorario, fechaInicio,fechaFin,dia,horaInicio,horaFin,estado,idGrupo,idAula,idClase;
+    private String idHorario, fechaInicio,fechaFin,dia,horaInicio,horaFin,estado,idGrupo,idAula,idClase,nombreGrupo,nombreAula,nombreClase;
 
     public HorarioVO() {
     }
 
-    public HorarioVO(String idHorario, String fechaInicio, String fechaFin, String dia, String horaInicio, String horaFin, String estado, String idGrupo, String idAula, String idClase) {
+    public HorarioVO(String idHorario, String fechaInicio, String fechaFin, String dia, String horaInicio, String horaFin, String estado, String idGrupo, String idAula, String idClase, String nombreGrupo, String nombreAula, String nombreClase) {
         this.idHorario = idHorario;
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
@@ -23,6 +23,9 @@ public class HorarioVO {
         this.idGrupo = idGrupo;
         this.idAula = idAula;
         this.idClase = idClase;
+        this.nombreGrupo = nombreGrupo;
+        this.nombreAula = nombreAula;
+        this.nombreClase = nombreClase;
     }
 
     public String getIdHorario() {
@@ -104,5 +107,31 @@ public class HorarioVO {
     public void setIdClase(String idClase) {
         this.idClase = idClase;
     }
+
+    public String getNombreGrupo() {
+        return nombreGrupo;
+    }
+
+    public void setNombreGrupo(String nombreGrupo) {
+        this.nombreGrupo = nombreGrupo;
+    }
+
+    public String getNombreAula() {
+        return nombreAula;
+    }
+
+    public void setNombreAula(String nombreAula) {
+        this.nombreAula = nombreAula;
+    }
+
+    public String getNombreClase() {
+        return nombreClase;
+    }
+
+    public void setNombreClase(String nombreClase) {
+        this.nombreClase = nombreClase;
+    }
+
+  
 
 }
