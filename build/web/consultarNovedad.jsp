@@ -3,7 +3,6 @@
     Created on : 25/06/2021, 02:40:36 PM
     Author     : Sebas
 --%>
-<%@include file="Sesiones.jsp" %>
 <%@page import="java.util.ArrayList"%>
 <%@page import="ModeloDAO.NovedadDAO"%>
 <%@page import="ModeloVO.NovedadVO"%>

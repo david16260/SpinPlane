@@ -27,7 +27,6 @@
         usuario = usuVO.getCorreo();
     
     }
-
 %>
 <html>
     <head>
