@@ -28,7 +28,7 @@ public class HorarioDAO extends Conexion implements Crud {
 
     private boolean operacion = false;
     private String sql;
-    private String idHorario = "", fechaInicio = "", fechaFin = "", dia = "",horaInicio = "", horaFin = "", estado = "",idGrupo="",idAula="",idClase="";
+    private String idHorario = "", fechaInicio = "", fechaFin = "", dia = "",horaInicio = "", horaFin = "", estado = "",idGrupo="",idAula="",idClase="",nombreGrupo="",nombreAula="",nombreClase="";
 
     public HorarioDAO(HorarioVO HorVO) {
         super();
@@ -44,6 +44,10 @@ public class HorarioDAO extends Conexion implements Crud {
             idGrupo = HorVO.getIdGrupo();
             idAula = HorVO.getIdAula();
             idClase = HorVO.getIdClase();
+            nombreGrupo = HorVO.getNombreGrupo();
+            nombreAula = HorVO.getNombreAula();
+            nombreClase = HorVO.getNombreClase();
+            
 
         } catch (Exception e) {
             Logger.getLogger(HorarioDAO.class.getName()).log(Level.SEVERE, null, e);
@@ -119,14 +123,15 @@ public class HorarioDAO extends Conexion implements Crud {
         
         try {
             conexion= this.obtenerConexion();
-            sql="SELECT * FROM horario";
+            sql="SELECT horario.idHorario, horario.fechaInicio,horario.fechaFin,horario.dia,horario.horaInicio,horario.horaFin,horario.estado,grupo.idgrupo,aula.idaula,clase.idclase,grupo.nombre,aula.nombre,clase.nombre FROM horario INNER JOIN grupo ON horario.idGrupo=grupo.idGrupo INNER JOIN aula ON horario.idAula=aula.idAula INNER JOIN clase ON horario.idClase=clase.idClase;";
             puente = conexion.prepareStatement(sql);
             mensajero = puente.executeQuery();  
             while (mensajero.next()) {
                 
                 HorarioVO HorVO= new HorarioVO(mensajero.getString(1),mensajero.getString(2),
                     mensajero.getString(3), mensajero.getString(4),mensajero.getString(5),mensajero.getString(6),
-                mensajero.getString(7),mensajero.getString(8),mensajero.getString(9),mensajero.getString(10));
+                mensajero.getString(7),mensajero.getString(8),mensajero.getString(9),mensajero.getString(10),
+                mensajero.getString(11),mensajero.getString(12),mensajero.getString(13));
                 
                    listaHorario.add(HorVO);
             }

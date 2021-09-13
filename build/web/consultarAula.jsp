@@ -186,7 +186,7 @@
                                 <td><%=AuVO.getNombre()%></td>
                                 <td><%=AuVO.getCapacidad()%></td>
                                 <td>
-                                    <a class="<%=AuVO.getEstado().equals("Activo") ? "btn btn-success  m-3" : "btn btn-danger  m-3"%>" style="padding-right: 56px;">
+                                    <a class="<%=AuVO.getEstado().equals("Activo") ? "btn btn-success  m-3" : "btn btn-danger  m-3"%>" style="padding-right: 10px;">
                                         <%=AuVO.getEstado()%>
                                     </a>
                                 </td>

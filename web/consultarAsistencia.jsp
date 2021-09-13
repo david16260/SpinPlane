@@ -188,8 +188,8 @@
                         <td><%=AsisVO.getIdAsistencia()%></td>
                         <td><%=AsisVO.getAsistencia()%></td>
                         <td><%=AsisVO.getFecha()%></td>
-                        <td><%=AsisVO.getIdUsuario()%></td>
-                        <td><%=AsisVO.getIdGrupo()%></td>
+                        <td><%=AsisVO.getNombreUsuario()%></td>
+                        <td><%=AsisVO.getNombreGrupo()%></td>
                         <td>
                             <a class="btn btn-info edit m-2 p-2"href="actualizarAsistencia.jsp?idAsistencia=<%=AsisVO.getIdAsistencia()%>&asistencia=<%=AsisVO.getAsistencia()%>&fecha=<%=AsisVO.getFecha()%>&usuario=<%=AsisVO.getIdUsuario()%>&grupo=<%=AsisVO.getIdGrupo()%>"><i class="fas fa-pen"></i></a>
                         </td>

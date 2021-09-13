@@ -16,38 +16,40 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-
 /**
  *
  * @author David
  */
-public class AsistenciaDAO extends Conexion implements Crud{
+public class AsistenciaDAO extends Conexion implements Crud {
 
     private Connection conexion;
     private PreparedStatement puente;
     private ResultSet mensajero;
-    
+
     private boolean operacion = false;
-    
+
     private String sql;
-    
-     private String  idAsistencia = "", asistencia = "", fecha = "", idUsuario = "", idGrupo = "";
-    
-      public AsistenciaDAO(AsistenciaVO AsiVO){
-    
-         super();
+
+    private String idAsistencia = "", asistencia = "", fecha = "", idUsuario = "", idGrupo = "", nombreUsuario = "", nombreGrupo = "";
+
+    public AsistenciaDAO(AsistenciaVO AsiVO) {
+
+        super();
         try {
             conexion = this.obtenerConexion();
             idAsistencia = AsiVO.getIdAsistencia();
-            asistencia =AsiVO.getAsistencia();
-            fecha =AsiVO.getFecha();
-            idUsuario =AsiVO.getIdUsuario();
-            idGrupo =AsiVO.getIdGrupo();
+            asistencia = AsiVO.getAsistencia();
+            fecha = AsiVO.getFecha();
+            idUsuario = AsiVO.getIdUsuario();
+            idGrupo = AsiVO.getIdGrupo();
+            nombreUsuario = AsiVO.getNombreUsuario();
+            nombreGrupo = AsiVO.getNombreGrupo();
+
         } catch (Exception e) {
             Logger.getLogger(AsistenciaDAO.class.getName()).log(Level.SEVERE, null, e);
         }
-     }
-    
+    }
+
     @Override
     public boolean agregarRegistro() {
         try {
@@ -71,7 +73,7 @@ public class AsistenciaDAO extends Conexion implements Crud{
         } finally {
             try {
                 this.cerrarConexion();
-                
+
             } catch (SQLException e) {
             }
         }
@@ -106,35 +108,36 @@ public class AsistenciaDAO extends Conexion implements Crud{
     public boolean cambiarEstado() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-     public  ArrayList<AsistenciaVO> listar(){
-        
-        ArrayList<AsistenciaVO>listaAsistencia = new ArrayList<>();
-        
-        
+
+    public ArrayList<AsistenciaVO> listar() {
+
+        ArrayList<AsistenciaVO> listaAsistencia = new ArrayList<>();
+
         try {
-            conexion= this.obtenerConexion();
-            sql="select * from asistencia";
+            conexion = this.obtenerConexion();
+            sql = "SELECT asistencia.idAsistencia, asistencia.asistencia, asistencia.fecha,usuario.idUsuario,grupo.idGrupo,usuario.nombre, grupo.nombre FROM asistencia INNER JOIN usuario ON asistencia.idUsuario = usuario.idUsuario INNER JOIN grupo ON asistencia.idGrupo = grupo.idGrupo;";
             puente = conexion.prepareStatement(sql);
             mensajero = puente.executeQuery();
             while (mensajero.next()) {
-                
-                AsistenciaVO AsisVO= new AsistenciaVO(mensajero.getString(1),mensajero.getString(2),
-                    mensajero.getString(3), mensajero.getString(4),mensajero.getString(5));
-                
-                   listaAsistencia.add(AsisVO);
+
+                AsistenciaVO AsisVO = new AsistenciaVO(mensajero.getString(1), mensajero.getString(2),
+                        mensajero.getString(3), mensajero.getString(4), mensajero.getString(5),
+                        mensajero.getString(6), mensajero.getString(7));
+
+                listaAsistencia.add(AsisVO);
             }
-        
+
         } catch (Exception e) {
-              Logger.getLogger(AsistenciaDAO.class.getName()).log(Level.SEVERE, null, e);
-        }finally {
+            Logger.getLogger(AsistenciaDAO.class.getName()).log(Level.SEVERE, null, e);
+        } finally {
             try {
                 this.cerrarConexion();
-                
+
             } catch (SQLException e) {
-              Logger.getLogger(AsistenciaDAO.class.getName()).log(Level.SEVERE, null, e);
+                Logger.getLogger(AsistenciaDAO.class.getName()).log(Level.SEVERE, null, e);
             }
         }
         return listaAsistencia;
-        
+
     }
-   }
+}

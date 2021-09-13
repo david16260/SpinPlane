@@ -149,7 +149,7 @@ public class UsuarioDAO extends Conexion implements Crud {
         try {
 
             conexion = this.obtenerConexion();
-            sql = "SELECT * FROM usuario WHERE correo=? AND clave=?";
+            sql = "SELECT * FROM usuario WHERE correo=? AND clave=? AND estado='Activo'";
             puente = conexion.prepareStatement(sql);
             puente.setString(1, correo);
             puente.setString(2, clave);
@@ -234,7 +234,7 @@ public class UsuarioDAO extends Conexion implements Crud {
 
         try {
             conexion = this.obtenerConexion();
-            sql = "select * from usuario";
+            sql = "SELECT usuario.idUsuario,usuario.nombre,usuario.apellido,usuario.tipoDocumento,usuario.documento,usuario.celular,usuario.telefono,usuario.estado,usuario.correo,usuario.clave,tipousuario.tipoUsuario FROM usuario INNER JOIN tipousuario ON usuario.idTipoUsuario=tipousuario.idTipoUsuario;";
             puente = conexion.prepareStatement(sql);
             mensajero = puente.executeQuery();
             while (mensajero.next()) {

@@ -187,8 +187,8 @@
                         <td><%=NovVO.getDescripcion()%></td>
                         <td><%=NovVO.getFechaInicio()%></td>
                         <td><%=NovVO.getFechaFin()%></td>
-                        <td><%=NovVO.getIdTipoNovedad().equals("1") ? "Problema personal" : "Cita medica" %></td>
-                        <td><%=NovVO.getIdAsistencia()%></td>
+                        <td><%=NovVO.getTipoNovedad()%></td>
+                        <td><%=NovVO.getNombreUsuario()%></td>
                          <td>
                             <a class="btn btn-primary edit"href="actualizarNovedad.jsp?idnovedad=<%=NovVO.getIdNovedad()%>&descripcion=<%=NovVO.getDescripcion()%>&fechainicio=<%=NovVO.getFechaInicio()%>&fechafin=<%=NovVO.getFechaFin()%>&idtiponovedad=<%=NovVO.getIdTipoNovedad()%>&idasistencia=<%=NovVO.getIdAsistencia()%>"><i class="fas fa-pen"></i></a>
                         </td>

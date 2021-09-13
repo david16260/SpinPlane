@@ -39,12 +39,14 @@ public class NovedadControlador extends HttpServlet {
         String descripcion = request.getParameter("txtDescripcion");    
         String fechaInicio = request.getParameter("txtFechaInicio");
         String fechaFin = request.getParameter("txtFechaFin");
-        String idTipoNovedad = request.getParameter("txtTipoNovedad");
+        String idTipoNovedad = request.getParameter("txtIdTipoNovedad");
         String idAsistencia = request.getParameter("txtAsistencia");
+        String tipoNovedad = request.getParameter("txtTipoNovedad");
+        String nombreUsuario = request.getParameter("txtNombreUsuario");
         
         int opcion = Integer.parseInt(request.getParameter("opcion"));
         
-        NovedadVO NovVO= new NovedadVO(idGrupo,descripcion, fechaInicio, fechaFin, idTipoNovedad,idAsistencia);
+        NovedadVO NovVO= new NovedadVO(idGrupo,descripcion, fechaInicio, fechaFin, idTipoNovedad,idAsistencia,tipoNovedad,nombreUsuario);
         
         NovedadDAO NovDAO = new NovedadDAO(NovVO);
         switch (opcion) {
