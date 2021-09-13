@@ -23,7 +23,7 @@
   <div class="session">
     <div class="left">
       <?xml version="1.0" encoding="UTF-8"?>
-      <svg enable-background="new 0 0 300 302.5" version="1.1" viewBox="0 0 300 302.5" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
+      <img src="images/LOGO2.gif" alt="Logo SpinPlane" class="logoLogin">
 <style type="text/css">
 	.st01{fill:#fff;}
 </style>
