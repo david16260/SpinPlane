@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en" >
 <head>
@@ -23,7 +22,7 @@
   <div class="session">
     <div class="left">
       <?xml version="1.0" encoding="UTF-8"?>
-      <svg enable-background="new 0 0 300 302.5" version="1.1" viewBox="0 0 300 302.5" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
+       
 <style type="text/css">
 	.st01{fill:#fff;}
 </style>
@@ -31,11 +30,13 @@
 </svg>      
     </div>
       <form action="Usuario" class="log-in" autocomplete="off" method="POST"> 
-      <h4><span>SpinPlane</span></h4>
-      <p>¡Bienvenido! Inicia sesión en tu cuenta:</p>
+      <img src="images/LOGO4.gif" alt="Logo SpinPlane" class="logoLogin">
+      <div class="iniciar">
+      <b><p class="letra">Inicia sesión</p></b>
+      </div>
       <div class="floating-label">
-        <input placeholder="Correo" type="email" name="txtCorreo" id="email" autocomplete="off">
-        <label for="email">Email:</label>
+          <input placeholder="Correo:" type="email" name="txtCorreo" id="email" autocomplete="off" class="input-registro">
+        <label for="email">Correo:</label>
         <div class="icon">
 <?xml version="1.0" encoding="UTF-8"?>
 <svg enable-background="new 0 0 100 100" version="1.1" viewBox="0 0 100 100" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
@@ -51,8 +52,8 @@
         </div>
       </div>
       <div class="floating-label">
-        <input placeholder="Contraseña" type="password" name="txtClave" id="password" autocomplete="off">
-        <label for="password">Password:</label>
+        <input placeholder="Contraseña:" type="password" name="txtClave" id="password" autocomplete="off" class="input-registro">
+        <label for="password">Contraseña:</label>
         <div class="icon">
           
           <?xml version="1.0" encoding="UTF-8"?>
@@ -72,10 +73,13 @@
       <ul class="error" id="error"></ul>
                             <div class="inputb">
                                 <!--<input type="submit" id="btn" value="Entrar">-->
-                                <button type="submit" >Entrar</button>
+                                
+                                <button type="submit" >Ingresar</button>
                                 <input type="hidden" value="3" name="opcion">
+
+                               
+                                
                             </div>
-      
       
     </form>
   </div>

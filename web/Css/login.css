@@ -3,15 +3,18 @@
   font-weight: 300;
   margin: 0;
 }
-
-html, body {    
+ body {    
   height: 100vh;
   width: 100vw;
   margin: 0 0;
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
-  background: #f3f2f2;
+  background-image: url("../images/FONDO1.jpg");
+  background-size: cover;
+  background-repeat:no-repeat;
+  background-position: center center;
+  
 }
 
 h4 {
@@ -35,7 +38,7 @@ form {
   flex-direction: column;
   align-items: flex-start;
   padding-bottom: 20px;
-  width: 300px;
+  width: 450px;
 }
 form h4 {
   margin-bottom: 20px;
@@ -78,7 +81,7 @@ button {
   text-align: center;
   padding: 15px 40px;
   margin-top: 5px;
-  background-color: #b08bf8;
+  background-color: #CC4979;
   color: #fff;
   font-size: 14px;
   margin-left: auto;
@@ -87,6 +90,7 @@ button {
   border: none;
   transition: all 0.3s ease;
   outline: 0;
+  margin-left: 260px;
 }
 button:hover {
   transform: translateY(-3px);
@@ -127,16 +131,19 @@ input:focus {
   left: 0;
   opacity: 0;
   transition: all 0.3s ease;
-  padding-left: 44px;
+  padding-left: 50px;
+  margin-left: -7px;
+  font-size: 15px;
 }
 .floating-label input {
   width: calc(100% - 44px);
   margin-left: auto;
   display: flex;
+  margin-top: 10px;
 }
 .floating-label .icon {
   position: absolute;
-  top: 0;
+  top: 10px;
   left: 0;
   height: 56px;
   width: 44px;
@@ -251,11 +258,11 @@ input:focus {
 }
 
 .left {
-  width: 220px;
+  width: 444px;
   height: auto;
   min-height: 100%;
   position: relative;
-  background-image: url("https://images.pexels.com/photos/114979/pexels-photo-114979.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+  background-image: url("https://img.freepik.com/vector-gratis/ilustracion-grupo-personas-o-trabajadores-oficina-sentados-alrededor-mesa-discutiendo-cuestiones-laborales-equipo-que-trabaja-proyecto-ilustracion-estilo-dibujos-animados-plana_15602-581.jpg?size=626&ext=jpg");
   background-size: cover;
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
@@ -264,4 +271,44 @@ input:focus {
   height: 40px;
   width: auto;
   margin: 20px;
+}
+.logoLogin {
+    width: 100%;
+    margin-top: -15%;
+}
+.letra{
+    
+    font-size: 30px;
+}
+.salir {
+ -webkit-appearance: none;
+  width: auto;
+  min-width: 100px;
+  border-radius: 24px;
+  text-align: center;
+  padding: 15px 40px;
+  margin-top: 5px;
+  background-color: #868686;
+  color: #fff;
+  font-size: 14px;
+  margin-left: auto;
+  font-weight: 500;
+  box-shadow: 0px 2px 6px -1px rgba(0, 0, 0, 0.13);
+  border: none;
+  transition: all 0.3s ease;
+  outline: 0;
+  text-decoration: none;
+}
+.salir:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 2px 6px -1px rgba(182, 157, 230, 0.65);
+  color: #fff;
+}
+.salir:hover:active {
+  transform: scale(0.99);
+}
+.iniciar{
+    margin-left: 33%;
+    font-size: 30x;
+    margin-top: -10%;
 }
