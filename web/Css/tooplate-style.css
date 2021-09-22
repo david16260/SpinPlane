@@ -371,7 +371,7 @@ strong {
 
 .timeline-wrapper:before {
     content: "";
-    background: #474559;
+    background: #CC4979;
     width: 3px;
     height: 100%;
     position: absolute;
@@ -389,6 +389,8 @@ strong {
 }
 
 .timeline-yr span {
+    border-radius: 100%;
+    background: #CC4979;
     color: #ffffff;
     font-size: 16px;
     font-weight: bold;
@@ -617,4 +619,25 @@ strong {
         display: inline-block;
         vertical-align: top;
     }
+}
+.funcionalidad1{
+    margin-top: 50px;
+    width: 100%
+}
+.Ventajes1{
+    width: 90%;
+    margin-left: -50px;
+}
+.logoFooter{
+    margin-top: -8.8%;
+    width: 20%
+}
+.contacto{
+    margin-top: -130px;
+}
+.intmag{
+    color: #CC4979;
+}
+.congris{
+    color: #868686;
 }

@@ -52,14 +52,7 @@ public class NovedadDAO extends Conexion implements Crud{
     public boolean agregarRegistro() {
     
         try {
-            sql = "insert into Novedad("
-                    + "idNovedad,"
-                    + "descripcion,"
-                    + "fechaInicio,"
-                    + "fechaFin,"
-                    + "idTipoNovedad,"
-                    + "idAsistencia)"
-                    + " values(?,?,?,?,?,?)";
+            sql = "call agregarNovedad(?,?,?,?,?,?)";
             puente = conexion.prepareStatement(sql);
             puente.setString(1, idNovedad);
             puente.setString(2, descripcion);
@@ -117,7 +110,7 @@ public class NovedadDAO extends Conexion implements Crud{
         
         try {
             conexion= this.obtenerConexion();
-            sql="SELECT novedad.idNovedad,novedad.descripcion,novedad.fechaInicio,novedad.fechaFin,tiponovedad.idTipoNovedad,asistencia.idAsistencia,tiponovedad.tipoNovedad,usuario.nombre FROM novedad INNER JOIN tiponovedad ON novedad.idTipoNovedad=tiponovedad.idTipoNovedad INNER JOIN asistencia ON novedad.idAsistencia=asistencia.idAsistencia INNER JOIN usuario ON asistencia.idUsuario=usuario.idUsuario;";
+            sql="call consultarNovedades;";
             puente = conexion.prepareStatement(sql);
             mensajero = puente.executeQuery();
             while (mensajero.next()) {

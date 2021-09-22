@@ -54,19 +54,7 @@ public class UsuarioDAO extends Conexion implements Crud {
     @Override
     public boolean agregarRegistro() {
         try {
-            sql = "insert into usuario("
-                    + "idUsuario,"
-                    + "nombre,"
-                    + "apellido,"
-                    + "tipoDocumento,"
-                    + "documento,"
-                    + "celular,"
-                    + "telefono,"
-                    + "estado,"
-                    + "correo,"
-                    + "clave,"
-                    + "idTipoUsuario)"
-                    + " values(?,?,?,?,?,?,?,?,?,?,?)";
+            sql = "call agregarUsuario(?,?,?,?,?,?,?,?,?,?,?)";
             puente = conexion.prepareStatement(sql);
             puente.setString(1, usuId);
             puente.setString(2, nombre);
@@ -149,7 +137,7 @@ public class UsuarioDAO extends Conexion implements Crud {
         try {
 
             conexion = this.obtenerConexion();
-            sql = "SELECT * FROM usuario WHERE correo=? AND clave=? AND estado='Activo'";
+                sql = "call iniciarSesion(?,?)";
             puente = conexion.prepareStatement(sql);
             puente.setString(1, correo);
             puente.setString(2, clave);
@@ -234,7 +222,7 @@ public class UsuarioDAO extends Conexion implements Crud {
 
         try {
             conexion = this.obtenerConexion();
-            sql = "SELECT usuario.idUsuario,usuario.nombre,usuario.apellido,usuario.tipoDocumento,usuario.documento,usuario.celular,usuario.telefono,usuario.estado,usuario.correo,usuario.clave,tipousuario.tipoUsuario FROM usuario INNER JOIN tipousuario ON usuario.idTipoUsuario=tipousuario.idTipoUsuario;";
+            sql="call consultarUsuarios;";
             puente = conexion.prepareStatement(sql);
             mensajero = puente.executeQuery();
             while (mensajero.next()) {

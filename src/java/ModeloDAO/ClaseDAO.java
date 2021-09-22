@@ -50,12 +50,7 @@ public class ClaseDAO extends Conexion implements Crud{
     @Override
     public boolean agregarRegistro() {
         try {
-            sql = "insert into clase("
-                    + "idClase,"
-                    + "nombre,"
-                    + "estado,"
-                    + "cantidadSesiones)"
-                    + " values(?,?,?,?)";
+            sql = "call agregarClase(?,?,?,?)";
             puente = conexion.prepareStatement(sql);
             puente.setString(1, idClase);
             puente.setString(2, nombre);
@@ -125,7 +120,7 @@ public class ClaseDAO extends Conexion implements Crud{
         
         try {
             conexion= this.obtenerConexion();
-            sql="select * from clase";
+            sql="call consultarClases;";
             puente = conexion.prepareStatement(sql);
             mensajero = puente.executeQuery();
             while (mensajero.next()) {

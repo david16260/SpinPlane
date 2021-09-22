@@ -39,7 +39,7 @@ public class NovedadControlador extends HttpServlet {
         String descripcion = request.getParameter("txtDescripcion");    
         String fechaInicio = request.getParameter("txtFechaInicio");
         String fechaFin = request.getParameter("txtFechaFin");
-        String idTipoNovedad = request.getParameter("txtIdTipoNovedad");
+        String idTipoNovedad = request.getParameter("txtTipoNovedad");
         String idAsistencia = request.getParameter("txtAsistencia");
         String tipoNovedad = request.getParameter("txtTipoNovedad");
         String nombreUsuario = request.getParameter("txtNombreUsuario");
