@@ -57,7 +57,7 @@ public class HorarioDAO extends Conexion implements Crud {
     @Override
     public boolean agregarRegistro() {
         try{
-        sql = "INSERT INTO horario (idHorario,fechaInicio,fechaFin,dia,horaInicio,horaFin,estado,idGrupo,idAula,idClase) VALUES (?,?,?,?,?,?,?,?,?,?)";
+        sql = "INSERT INTO horario (idHorario,fechaInicio,fechaFin,dia,horaInicio,horaFin,estado,idGrupo,idAula,idClase) VALUES (?,?,?,?,?,?,?,?,?,?);";
         puente = conexion.prepareStatement(sql);
             puente.setString(1, idHorario);
             puente.setString(2, fechaInicio);
@@ -123,7 +123,7 @@ public class HorarioDAO extends Conexion implements Crud {
         
         try {
             conexion= this.obtenerConexion();
-            sql="SELECT horario.idHorario, horario.fechaInicio,horario.fechaFin,horario.dia,horario.horaInicio,horario.horaFin,horario.estado,grupo.idgrupo,aula.idaula,clase.idclase,grupo.nombre,aula.nombre,clase.nombre FROM horario INNER JOIN grupo ON horario.idGrupo=grupo.idGrupo INNER JOIN aula ON horario.idAula=aula.idAula INNER JOIN clase ON horario.idClase=clase.idClase;";
+            sql="call consultarHorarios";
             puente = conexion.prepareStatement(sql);
             mensajero = puente.executeQuery();  
             while (mensajero.next()) {

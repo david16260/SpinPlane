@@ -61,13 +61,13 @@
                             <a href="#Funcionalidades" class="nav-link"><span data-hover="Funcionalidades">Funcionalidades</span></a>
                         </li>
                         <li class="nav-item">
-                            <a href="#Funcionalidades" class="nav-link"><span data-hover="Ventajas">Ventajas</span></a>
+                            <a href="#ventajas" class="nav-link"><span data-hover="Ventajas">Ventajas</span></a>
                         </li>
                         <li class="nav-item">
                             <a href="#contact" class="nav-link"><span data-hover="Contacto">Contacto</span></a>
                         </li>
                         <li class="nav-item">
-                            <a href="login.jsp" class="nav-link"><span data-hover="Iniciar sessión">Iniciar sesión</span></a>
+                            <a href="login.jsp" class="nav-link"><span data-hover="Iniciar sesión">Iniciar sesión</span></a>
                         </li>
                     </ul>
 
@@ -262,27 +262,38 @@
                                 <span class="mr-2">Funcionalidades </span>
                             </h1>
 
-                            <p><b>Agendamiento de horario con verificación:</b>
-                                el sistema evaluara la fecha deseada revisando que no este en una misma hora que otra clase y procederá con la acción. por lo contrario no permitirá el registro.</p>
+                            <p><b>Agendamiento de horario con verificación: </b>
+                               El sistema evaluará la fecha deseada revisando que no esté en una misma hora que otra clase y procederá con la acción. por lo contrario, no permitirá el registro.</p>
 
-                            <p><b>Creación de aulas dentro del sistema:</b>
-                                Se podra crear aulas, las cuales el administrador podra darle una funcionalidad o asignara para que sera dirigido esa aula. </p>
+                            <p><b>Creación de aulas dentro del sistema: </b>
+                                Se podrá crear aulas, las cuales el administrador podrá darle una funcionalidad o asignará para que será dirigido esa aula. </p>
 
-                            <p><b>Control de asistencia:</b> Contara con un espacio para el control de asistencia dependiendo del rol del cual este iniciando sesion.</p>
+                            <p><b>Control de asistencia: </b> Contara con un espacio para el control de asistencia dependiendo del rol del cual este iniciando sesión.</p>
 
-                            <p><b>Recuperación de contraseña mediante correo electrónico:</b>
-                                Si por cualquier caso el usuario pierde u olvida la contraseña, tendra que verificar su cuenta por medio de correo electronico.
+                            <p><b>Recuperación de contraseña mediante correo electrónico: </b>
+                                Si por cualquier caso el usuario pierde u olvida la contraseña, tendrá que verificar su cuenta por medio de correo electrónico.
                             </p>
 
-                            <p><b>Envió de informes por correo:</b>
-                                Si el adminstrador u otro rol superior crea una clase, se le informara por me correo electronico a los usuarios vinculados a esa clase.
+                            <p><b>Envío de informes por correo: </b>
+                               Si el administrador u otro rol superior crea una clase, se le informara por me correo electrónico a los usuarios vinculados a esa clase.
                             </p>
                         </div>
                     </div>
 
                     <div class="col-lg-5 col-md-12 col-12">
+                        <img class="funcionalidad1" src="images/FUNCIONALIDADES1.png" alt="Imagen representativa de funcionalidades"/>
+                    </div>
+                    
+                    <div class="col-lg-7 col-md-12 col-12 d-flex align-items-center">
+                        <img class="Ventajes1" src="images/VENTAJAS1.png" alt=""/>
+                    </div>
+                    <div class="col-lg-5 col-md-12 col-12" id="ventajas">
                         <div class="about-text">
-
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
                             <h1 class="animated animated-text">
                                 <span class="mr-2">Ventajas </span>
                             </h1>
@@ -293,21 +304,18 @@
 
                             <p>Mejora la productividad</p>
 
-                            <p>Tendra informado a los clientes que esten vinculados por correo electronico.</p>
+                            <p>Tendrá informado a los clientes que estén vinculados por correo electrónico.</p>
 
                         </div>
                     </div>
-
                 </div>
             </div>
         </section>
         <!-- CONTACT -->
+        <div class="contacto">
         <section class="contact py-5" id="contact">
             <div class="container">
                 <div class="row">
-
-
-
                     <div class="col-lg-5 mr-lg-5 col-12">
                         <div class="google-map w-100">
                             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.2550328088837!2d-74.04093978538515!3d4.7257055965676855!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f855d7f63f73f%3A0xa80f7ca1b2a537f!2zQ3JhLiAxM0EgIyMxNDUtMjYsIFVzYXF1w6luLCBCb2dvdMOh!5e0!3m2!1ses!2sco!4v1630969037738!5m2!1ses!2sco"
@@ -337,7 +345,7 @@
 
                     <div class="col-lg-6 col-12">
                         <div class="contact-form">
-                            <h2 class="mb-4">¿Interesado? Contactenos</h2>
+                            <h2 class="mb-4"><span class="intmag">¿Interesado?</span> <span class="congris">Contáctenos</span></h2>
 
                             <form action="" method="get">
                                 <div class="row">
@@ -350,7 +358,7 @@
                                     </div>
 
                                     <div class="col-12">
-                                        <textarea name="message" rows="6" class="form-control" id="Mensaje" placeholder="Message"></textarea>
+                                        <textarea name="message" rows="6" class="form-control" id="Mensaje" placeholder="Mensaje"></textarea>
                                     </div>
 
                                     <div class="ml-lg-auto col-lg-5 col-12">
@@ -364,14 +372,15 @@
                 </div>
             </div>
         </section>
-
+</div>
         <!-- FOOTER -->
         <footer class="footer py-5">
             <div class="container">
                 <div class="row">
-
                     <div class="col-lg-12 col-12">
-                        <p class="copyright-text text-center">Copyright &copy; 2019 SpinPlane. Todos los derechos reservados</p>
+                        
+                        <p class="copyright-text text-right">Copyright &copy; 2021 SpinPlane. Todos los derechos reservados</p>
+                        <img src="images/LOGO4.gif" alt="Logo SpinPlane" class="logoFooter">
                         <!-- <p class="copyright-text text-center">Designed by <a rel="nofollow" href="https://www.facebook.com/tooplate">Tooplate</a></p> -->
                     </div>
 

@@ -275,7 +275,7 @@
                             <div class="formulario">
                                 <input type="date" name="txtFechaInicio" required class="input-50">
                                 <input type="date" name="txtFechaFin" required class="input-50">
-                                <input type="date" name="txtDia" required class="input-50">
+                                <input type="text" name="txtDia" required class="input-50">
                                 <input type="time" name="txtHoraInicio" class="input-50">
                                 <input type="time" name="txtHoraFin" class="input-50">
                                 <input type="hidden" value="Activo" name="txtEstado">
