@@ -67,7 +67,7 @@
                             <a href="#contact" class="nav-link"><span data-hover="Contacto">Contacto</span></a>
                         </li>
                         <li class="nav-item">
-                            <a href="login.jsp" class="nav-link"><span data-hover="Iniciar sesión">Iniciar sesión</span></a>
+                            <a href="login.jsp" class="nav-link"><span data-hover="Iniciar sesión">Preionar</span></a>
                         </li>
                     </ul>
 
