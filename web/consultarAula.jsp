@@ -1,4 +1,4 @@
-<%-- 
+ <%-- 
     Document   : conultarClase.jsp
     Created on : 25/06/2021, 02:40:36 PM
     Author     : Yurny
@@ -249,7 +249,9 @@
                         });
                     });
                 </script>
-                <button class="abrir-registrar btn btn-primary"  id="abrir-registrar">Registrar</button>
+                
+                <center><button class="abrir-registrar btn btn-primary"  id="abrir-registrar">Registrar</button></center>
+                
                 <div class="overlay" id="overlay">
                     <form method="POST" action="Aula" class="form-registro">
                         <div class="tituloR">
@@ -258,11 +260,22 @@
                         </div>
                         <div class="cuerpo">
                             <div class="formulario">
-                                <input type="text" name="txtNomAula" placeholder="Nombre" required class="input-50">
+                                
+                                <div class="modal-body">
+                                <label for="recipient-name" class="col-form-label">Nombe Aula:</label>    
+                                <input type="text" name="txtNomAula" placeholder="Nombre" required class="form-control">
+                                </div>
+                                
+                                
                                 <input type="hidden" name="txtEstado" value="Activo">
-                                <input type="number" name="txtCapacidad" placeholder="Capacidad" class="input-50">
+                                
+                                <div class="modal-body">
+                                <label for="recipient-name" class="col-form-label">Capacidad:</label>     
+                                <input type="number" name="txtCapacidad" placeholder="Capacidad" class="form-control">
+                                </div>
+                                
                                 <div class="selector text-primary">
-                                    <input type="submit" id="btn" value="Registrar" class="btn">
+                                    <input type="submit" id="btn" value="Registrar" class="btn btn-success">
                                     <input type="hidden" value="1" name="opcion">
                                 </div>
                             </div>

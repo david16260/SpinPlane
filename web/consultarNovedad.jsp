@@ -255,25 +255,40 @@
                 </div>
                 <div class="cuerpo">
                     <div class="formulario">
-                        <input type="text" name="txtDescripcion" class="descripcion" placeholder="Descripcion">
-                        <input type="date" name="txtFechaInicio" class="input-50">
-                        <input type="date" name="txtFechaFin" class="input-50">
-                        <div class="selector1">
-                            <select name="txtTipoNovedad" class="estilo1-selector">
+                        
+                        <div class="modal-body">
+                        <label for="recipient-name" class="col-form-label">Descripción:</label>
+                        <input type="text" name="txtDescripcion" class="form-control" placeholder="Descripcion">
+                        </div>
+                        
+                        <div class="modal-body">
+                        <label for="recipient-name" class="col-form-label">Fecha inicio:</label>   
+                        <input type="date" name="txtFechaInicio" class="form-control">
+                        </div>
+                        <div class="modal-body">
+                        <label for="recipient-name" class="col-form-label">Fecha fin:</label> 
+                        <input type="date" name="txtFechaFin" class="form-control">
+                        </div>
+                        
+                        <div class="modal-body">
+                            <label for="recipient-name" class="col-form-label">Tipo de novedad:</label> 
+                            <select name="txtTipoNovedad" class="form-control">
                                 <option selected>Tipo de Novedad</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                             </select>
                         </div>
-                        <div class="selector1">
-                            <select name="txtAsistencia" class="estilo1-selector">
+                        
+                        <div class="modal-body">
+                            <label for="recipient-name" class="col-form-label">Id asistencia:</label> 
+                            <select name="txtAsistencia" class="form-control">
                                 <option selected>Id Asistencia</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                             </select>
                         </div>
                         <div class="boton">
-                            <input type="submit" id="btn" value="Registrar" class="btn">
+                            <input type="submit" id="btn" value="Registrar" class="btn btn-success">
                             <input type="hidden" value="1" name="opcion">
                         </div>
                     </div>
@@ -293,7 +308,7 @@
                         closeOnConfirm: false
                     },
                             function () {
-                                window.location = "consultarUsuario.jsp";
+                                window.location = "consultarNovedad.jsp";
                             });
                 </script>
 
@@ -309,7 +324,7 @@
                         closeOnConfirm: false
                     },
                             function () {
-                                window.location = "consultarUsuario.jsp";
+                                window.location = "consultarNovedad.jsp";
                             });
                 </script>
                 <%}%>

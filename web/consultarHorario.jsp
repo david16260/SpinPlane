@@ -273,14 +273,39 @@
                         </div>
                         <div class="cuerpo">
                             <div class="formulario">
-                                <input type="date" name="txtFechaInicio" required class="input-50">
-                                <input type="date" name="txtFechaFin" required class="input-50">
-                                <input type="text" name="txtDia" required class="input-50">
-                                <input type="time" name="txtHoraInicio" class="input-50">
-                                <input type="time" name="txtHoraFin" class="input-50">
+                                
+                                <div class="modal-body">
+                                <label for="recipient-name" class="col-form-label">Fecha inicio:</label>
+                                <input type="date" name="txtFechaInicio" required class="form-control">
+                                </div>
+                                
+                                <div class="modal-body">
+                                <label for="recipient-name" class="col-form-label">Fecha fin:</label>    
+                                <input type="date" name="txtFechaFin" required class="form-control">
+                                </div>
+                                
+                                <div class="modal-body">
+                                <label for="recipient-name" class="col-form-label">Día:</label>      
+                                <input type="text" name="txtDia" required class="form-control">
+                                </div>
+                                
+                                <div class="modal-body">
+                                <label for="recipient-name" class="col-form-label">Hora inicio:</label>      
+                                <input type="time" name="txtHoraInicio" class="form-control">
+                                </div>
+                                
+                                <div class="modal-body">
+                                <label for="recipient-name" class="col-form-label">Hora fin:</label>      
+                                <input type="time" name="txtHoraFin" class="form-control">
+                                </div>
+                                
+                                <div class="modal-body">
                                 <input type="hidden" value="Activo" name="txtEstado">
-                                <div class="selector1">
-                                    <select name="txtGrupo" class="estilo1-selector">
+                                </div>
+                                
+                                <div class="modal-body">
+                                <label for="recipient-name" class="col-form-label">Grupo:</label> 
+                                    <select name="txtGrupo" class="form-control">
                                         <option selected>Grupo</option>
                                         <%
                                             GrupoVO GruVO = new GrupoVO();
@@ -296,8 +321,10 @@
                                         %> 
                                     </select>
                                 </div>
-                                <div class="selector1">
-                                    <select name="txtAula" class="estilo1-selector">
+                                    
+                                <div class="modal-body">
+                                <label for="recipient-name" class="col-form-label">Aula:</label>     
+                                    <select name="txtAula" class="form-control">
                                         <option selected>Aula</option>
                                         <%
                                             AulaVO AulVO = new AulaVO();
@@ -313,8 +340,10 @@
                                         %> 
                                     </select>
                                 </div>
-                                <div class="selector1">
-                                    <select name="txtClase" class="estilo1-selector">
+                                    
+                                <div class="modal-body">
+                                 <label for="recipient-name" class="col-form-label">Clase:</label>      
+                                    <select name="txtClase" class="form-control">
                                         <option selected>Clase</option>
                                         <%
                                             ClaseVO ClaVO = new ClaseVO();
@@ -331,7 +360,7 @@
                                     </select>
                                 </div>
                                 <div class="boton">
-                                    <input type="submit" id="btn" value="Registrar" class="btn">
+                                    <input type="submit" id="btn" value="Registrar" class="btn btn-success">
                                     <input type="hidden" value="1" name="opcion">
                                 </div>
                             </div>

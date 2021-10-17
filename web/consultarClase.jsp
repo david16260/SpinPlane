@@ -248,7 +248,8 @@
                         });
                     });
                 </script>
-                <button class="abrir-registrar btn btn-primary"  id="abrir-registrar">Registrar</button>
+                <center><button class="abrir-registrar btn btn-primary"  id="abrir-registrar">Registrar</button></center>
+                
                 <div class="overlay" id="overlay">
                     <form method="POST" action="Clase" class="form-registro">
                         <div class="tituloR">
@@ -257,11 +258,21 @@
                         </div>
                         <div class="cuerpo">
                             <div class="formulario">
-                                <input type="text" name="txtNombre" placeholder="Nombre" required class="input-50">
+                                
+                                <div class="modal-body">
+                                <label for="recipient-name" class="col-form-label">Nombre:</label>      
+                                <input type="text" name="txtNombre" placeholder="Nombre" required class="form-control">
+                                </div>
+                                
                                 <input type="hidden" name="txtEstado" value="Activo">
-                                <input type="number" name="txtcantidadSesiones" placeholder="Cantidad de Sesiones" class="input-50">
+                                
+                                <div class="modal-body">
+                                <label for="recipient-name" class="col-form-label">Cantidad de sesiones:</label>      
+                                <input type="number" name="txtcantidadSesiones" placeholder="Cantidad de Sesiones" class="form-control">
+                                </div>
+                                
                                 <div class="selector">
-                                    <input type="submit" id="btn" value="Registrar" class="btn">
+                                    <input type="submit" id="btn" value="Registrar" class="btn btn-success">
                                     <input type="hidden" value="1" name="opcion">
                                 </div>
                             </div>

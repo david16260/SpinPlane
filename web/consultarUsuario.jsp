@@ -273,24 +273,58 @@
                         </div>
                         <div class="cuerpo">
                             <div class="formulario">
-                                <input type="text" id="nombre" name="txtNombre" placeholder="Nombre" required class="input-50">
-                                <input type="text" id="apellido" name="txtApellido" placeholder="Apellido" required class="input-50">
-                                <div class="selector1">
-                                    <select id="TipoDocumento" name="txtTipoDocumento" class="estilo1-selector">
+                                
+                                <div class="modal-body">
+                                <label for="recipient-name" class="col-form-label">Nombre:</label>          
+                                <input type="text" id="nombre" name="txtNombre" placeholder="Nombre" required class="form-control">
+                                 </div>
+                                
+                                <div class="modal-body">
+                                <label for="recipient-name" class="col-form-label">Apellido:</label>     
+                                <input type="text" id="apellido" name="txtApellido" placeholder="Apellido" required class="form-control">
+                                </div>
+                                
+                                <div class="modal-body">
+                                    <label for="recipient-name" class="col-form-label">Tipo documento:</label>
+                                    <select id="TipoDocumento" name="txtTipoDocumento" class="form-control">
                                         <option selected>Tipo de Documento</option>
                                         <option value="C.C">Cedula de Ciudadania</option>
                                         <option value="T.I">Tarjeta de Identidad</option>
                                         <option value="C.E">Cedula de Extranjeria</option>
                                     </select>
                                 </div>
-                                <input type="number" id="numeroDocumento" class="input-50" name="txtNumeroDocumento" required placeholder="Numero de Documento">
-                                <input type="number" id="celular" name="txtCelular" placeholder="Celular" required class="input-50">
-                                <input type="number" id="telefono" name="txtTelefono" placeholder="Telefono" class="input-50" >
+                                
+                                <div class="modal-body">
+                                <label for="recipient-name" class="col-form-label">Número de documento:</label>    
+                                <input type="number" id="numeroDocumento" class="form-control" name="txtNumeroDocumento" required placeholder="Numero de Documento">
+                                </div> 
+                                
+                                <div class="modal-body">
+                                <label for="recipient-name" class="col-form-label">Número de celular:</label>     
+                                <input type="number" id="celular" name="txtCelular" placeholder="Celular" required class="form-control">
+                                </div>
+                                
+                                <div class="modal-body">
+                                <label for="recipient-name" class="col-form-label">Número de teléfono:</label>     
+                                <input type="number" id="telefono" name="txtTelefono" placeholder="Telefono" class="form-control" >
+                                </div>
+                                
+                               
                                 <input type="hidden" value="Activo" name="txtEstado" required>
-                                <input type="email" id="correo" name="txtCorreo" placeholder="Correo" required class="input-50">
-                                <input type="password" name="txtClave" placeholder="Contraseña" required class="input-50">
-                                <div class="selector1">
-                                    <select name="txtRol" class="estilo1-selector">
+                                
+                                <div class="modal-body">
+                                <label for="recipient-name" class="col-form-label">Correo:</label>
+                                <input type="email" id="correo" name="txtCorreo" placeholder="Correo" required class="form-control">
+                                </div>
+                                
+                                <div class="modal-body">
+                                <label for="recipient-name" class="col-form-label">Contraseña:</label>    
+                                <input type="password" name="txtClave" placeholder="Contraseña" required class="form-control">
+                                </div>
+                                
+                                <div class="modal-body">
+                                   <label for="recipient-name" class="col-form-label">Rol:</label>  
+                                    <select name="txtRol" class="form-control">
                                         <option selected>Rol</option>
                                         <%
                                             TipoUsuarioDAO TipDAO = new TipoUsuarioDAO();
@@ -301,7 +335,7 @@
                                     </select>
                                 </div>
                                 <div class="selector1">
-                                    <input type="submit" class="btn" id="btn" value="Registrar">
+                                    <input type="submit" class="btn btn-success" id="btn" value="Registrar">
                                     <input type="hidden" value="1" name="opcion">
                                 </div>
                             </div>

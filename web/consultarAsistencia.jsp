@@ -244,7 +244,9 @@
                 });
             });
         </script>
+        
         <button class="abrir-registrar btn btn-primary"  id="abrir-registrar">Registrar</button>
+        
         <div class="overlay" id="overlay">
             <form method="POST" action="Asistencia" class="form-registro">
                 <div class="tituloR">
@@ -253,16 +255,23 @@
                 </div>
                 <div class="cuerpo">
                     <div class="formulario">
-                        <div class="selector1">
-                            <select name="txtAsistencia" class="estilo-selector">
+                        <div class="modal-body">
+                            <label for="recipient-name" class="col-form-label">Asistencia:</label>     
+                            <select name="txtAsistencia" class="form-control">
                                 <option selected>Asistencia</option>
                                 <option value="Si">Si</option>
                                 <option value="No">No</option>
                             </select>
                         </div>
-                        <input type="date" name="txtFecha" required class="input-50">
-                        <div class="selector1">
-                            <select name="txtIdUsuario" class="estilo-selector">
+                        
+                        <div class="modal-body">
+                        <label for="recipient-name" class="col-form-label">Fecha:</label>      
+                        <input type="date" name="txtFecha" required class="form-control">
+                        </div>
+                        
+                        <div class="modal-body">
+                            <label for="recipient-name" class="col-form-label">Usuario:</label>
+                            <select name="txtIdUsuario" class="form-control">
                                 <option selected>Usuario</option>
                                 <%
                                     UsuarioVO UsuVO = new  UsuarioVO();
@@ -278,8 +287,10 @@
                                 %>    
                             </select>
                         </div>
-                        <div class="selector1">
-                            <select name="txtIdGrupo" class="estilo-selector">
+                            
+                        <div class="modal-body">
+                            <label for="recipient-name" class="col-form-label">Grupo:</label>
+                            <select name="txtIdGrupo" class="form-control">
                                 <option selected>Grupo</option>
                                  <%
                                     GrupoVO GruVO = new  GrupoVO();
@@ -296,7 +307,7 @@
                             </select>
                         </div>
                         <div class="boton">
-                            <input type="submit" id="btn" value="Registrar" class="btn">
+                            <input type="submit" id="btn" value="Registrar" class="btn btn-success">
                             <input type="hidden" value="1" name="opcion">
                         </div>
                     </div>
