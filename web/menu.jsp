@@ -36,8 +36,8 @@
     </head>
     <body>
 
-        <div class="wrapper">
-            <div class="sidebar" data-color="purple" data-image="assets/img/sidebar-5.jpg">
+       <div class="wrapper">
+            <div class="sidebar" data-color="orange" data-image="assets/img/siderbar.jpeg">
 
                 <!--
             
@@ -48,8 +48,16 @@
 
                 <div class="sidebar-wrapper">
                     <div class="logo">
-                        <a href="#" class="simple-text">
-                            SpinPlane
+                        <a href="menu.jsp">
+                        <img src="images/LOGO4.gif" alt=""/>
+                        <style type="text/css">
+                            img{
+                                width: 100%;
+                                padding-left: 3%;
+                                margin-bottom: -20%;
+                                margin-top: -15%;
+                            }
+                            </style>
                         </a>
                     </div>
 

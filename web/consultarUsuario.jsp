@@ -69,7 +69,7 @@
     <body>
 
         <div class="wrapper">
-            <div class="sidebar" data-color="purple" data-image="assets/img/sidebar-5.jpg">
+            <div class="sidebar" data-color="orange" data-image="assets/img/siderbar.jpeg">
 
                 <!--
             
