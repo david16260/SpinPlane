@@ -50,7 +50,7 @@ public class UsuarioControlador extends HttpServlet {
         String correo = request.getParameter("txtCorreo");
         String clave = request.getParameter("txtClave");
         String idTipoUsuario = request.getParameter("txtRol");
-
+        
         int opcion = Integer.parseInt(request.getParameter("opcion"));
 
         //paso 2- instanciar VO
