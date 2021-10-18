@@ -10,22 +10,32 @@ package ModeloVO;
  * @author David
  */
 public class UsuarioVO {
-    private String nombre,apellido,tipoDocumento,numDocumento,celular,telefono,estado,correo,clave;
+    private String nombre,apellido,tipoDocumento,numDocumento,celular,estado,correo,clave;
     private String usuId,idTipoUsuario;
     
 
    
-    public UsuarioVO(String usuId,String nombre, String apellido, String tipoDocumento, String numDocumento, String celular, String telefono,String estado, String correo, String clave,String idTipoUsuario) {
+    public UsuarioVO(String usuId,String nombre, String apellido, String tipoDocumento, String numDocumento, String celular, String estado, String correo, String clave,String idTipoUsuario) {
         this.usuId = usuId;
         this.nombre = nombre;
         this.apellido = apellido;
         this.tipoDocumento = tipoDocumento;
         this.numDocumento = numDocumento;
         this.celular = celular;
-        this.telefono = telefono;
         this.estado = estado;
         this.correo = correo;
         this.clave = clave;
+        this.idTipoUsuario = idTipoUsuario;
+    }
+    public UsuarioVO(String usuId,String nombre, String apellido, String tipoDocumento, String numDocumento, String celular,String estado, String correo,String idTipoUsuario) {
+        this.usuId = usuId;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.tipoDocumento = tipoDocumento;
+        this.numDocumento = numDocumento;
+        this.celular = celular;
+        this.estado = estado;
+        this.correo = correo;
         this.idTipoUsuario = idTipoUsuario;
     }
 
@@ -40,8 +50,6 @@ public class UsuarioVO {
         this.usuId = usuId;
         this.idTipoUsuario = idTipoUsuario;
     }
-
-   
 
     public UsuarioVO() {
     }
@@ -95,14 +103,6 @@ public class UsuarioVO {
     public void setCelular(String celular) {
         this.celular = celular;
     }
-
-    public String getTelefono() {
-        return telefono;
-    }
-
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
-    }
     
     public String getEstado() {
         return estado;
@@ -136,4 +136,3 @@ public class UsuarioVO {
         this.idTipoUsuario = idTipoUsuario;
     }  
 }
-

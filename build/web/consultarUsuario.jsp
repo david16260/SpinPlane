@@ -213,7 +213,7 @@
                                 </td>
 
                                 <td>
-                                    <a class="btn btn-info edit m-2 p-2"href="actualizarUsuario.jsp?usuid=<%=UsuVO.getUsuId()%>&nombre=<%=UsuVO.getNombre()%>&apellido=<%=UsuVO.getApellido()%>&tipodoc=<%=UsuVO.getTipoDocumento()%>&numdoc=<%=UsuVO.getNumDocumento()%>&celular=<%=UsuVO.getCelular()%>&telefono=<%=UsuVO.getTelefono()%>&estado=<%=UsuVO.getEstado()%>&correo=<%=UsuVO.getCorreo()%>&clave=<%=UsuVO.getClave()%>&tipousu=<%=UsuVO.getIdTipoUsuario()%>"><i class="fas fa-pen"></i></a>
+                                    <a class="btn btn-info edit m-2 p-2"href="actualizarUsuario.jsp?usuid=<%=UsuVO.getUsuId()%>&nombre=<%=UsuVO.getNombre()%>&apellido=<%=UsuVO.getApellido()%>&tipodoc=<%=UsuVO.getTipoDocumento()%>&numdoc=<%=UsuVO.getNumDocumento()%>&celular=<%=UsuVO.getCelular()%>&estado=<%=UsuVO.getEstado()%>&correo=<%=UsuVO.getCorreo()%>&clave=<%=UsuVO.getClave()%>&tipousu=<%=UsuVO.getIdTipoUsuario()%>"><i class="fas fa-pen"></i></a>
                                 </td>
 
                             </tr>
@@ -312,10 +312,7 @@
                                 <input type="number" id="celular" name="txtCelular" placeholder="Celular" required class="form-control">
                                 </div>
                                 
-                                <div class="modal-body">
-                                <label for="recipient-name" class="col-form-label">Número de teléfono:</label>     
-                                <input type="number" id="telefono" name="txtTelefono" placeholder="Telefono" class="form-control" >
-                                </div>
+                             
                                 
                                
                                 <input type="hidden" value="Activo" name="txtEstado" required>
