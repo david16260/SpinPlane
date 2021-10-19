@@ -61,7 +61,7 @@ public class AsistenciaControlador extends HttpServlet {
                 } else {
                     request.setAttribute("mensajeError", "La Asistencia no se registro corectamente");
                 }
-                request.getRequestDispatcher("registrarAsistencia.jsp").forward(request, response);
+                request.getRequestDispatcher("consultarAsistencia.jsp").forward(request, response);
                 break;
             case 2://Actualizar Registro
                 if (AsisDAO.actualizarRegistro()) {

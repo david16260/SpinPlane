@@ -57,7 +57,7 @@ public class ClaseControlador extends HttpServlet {
                 } else {
                     request.setAttribute("mensajeError", "La clase no se registro corectamente");
                 }
-                request.getRequestDispatcher("registrarClase.jsp").forward(request, response);
+                request.getRequestDispatcher("consultarClase.jsp").forward(request, response);
                 break;
             case 2://Actualizar Registro
                 if (claDAO.actualizarRegistro()) {

@@ -310,7 +310,7 @@
                         closeOnConfirm: false
                     },
                             function () {
-                                window.location = "consultarUsuario.jsp";
+                                window.location = "consultarGrupo.jsp";
                             });
                 </script>
 
@@ -326,7 +326,7 @@
                         closeOnConfirm: false
                     },
                             function () {
-                                window.location = "consultarUsuario.jsp";
+                                window.location = "consultarGrupo.jsp";
                             });
                 </script>
                 <%}%>

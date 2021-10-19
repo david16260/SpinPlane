@@ -299,7 +299,7 @@
                         closeOnConfirm: false
                     },
                             function () {
-                                window.location = "consultarUsuario.jsp";
+                                window.location = "consultarClase.jsp";
                             });
                 </script>
 
@@ -315,7 +315,7 @@
                         closeOnConfirm: false
                     },
                             function () {
-                                window.location = "consultarUsuario.jsp";
+                                window.location = "consultarClase.jsp";
                             });
                 </script>
                 <%}%>
