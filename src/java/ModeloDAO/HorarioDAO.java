@@ -28,7 +28,7 @@ public class HorarioDAO extends Conexion implements Crud {
 
     private boolean operacion = false;
     private String sql;
-    private String idHorario = "", fechaInicio = "", fechaFin = "", dia = "",horaInicio = "", horaFin = "", estado = "",idGrupo="",idAula="",idClase="",nombreGrupo="",nombreAula="",nombreClase="";
+    private String idHorario = "", fechaInicio = "", fechaFin = "", dia = "",horaInicio = "", horaFin = "", estado = "",idGrupo="",idAula="",idClase="";
 
     public HorarioDAO(HorarioVO HorVO) {
         super();
@@ -44,9 +44,7 @@ public class HorarioDAO extends Conexion implements Crud {
             idGrupo = HorVO.getIdGrupo();
             idAula = HorVO.getIdAula();
             idClase = HorVO.getIdClase();
-            nombreGrupo = HorVO.getNombreGrupo();
-            nombreAula = HorVO.getNombreAula();
-            nombreClase = HorVO.getNombreClase();
+            
             
 
         } catch (Exception e) {
@@ -57,7 +55,7 @@ public class HorarioDAO extends Conexion implements Crud {
     @Override
     public boolean agregarRegistro() {
         try{
-        sql = "INSERT INTO horario (idHorario,fechaInicio,fechaFin,dia,horaInicio,horaFin,estado,idGrupo,idAula,idClase) VALUES (?,?,?,?,?,?,?,?,?,?);";
+        sql = "call agregarHorario(?,?,?,?,?,?,?,?,?,?)";
         puente = conexion.prepareStatement(sql);
             puente.setString(1, idHorario);
             puente.setString(2, fechaInicio);
