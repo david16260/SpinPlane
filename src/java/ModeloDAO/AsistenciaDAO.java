@@ -109,7 +109,10 @@ public class AsistenciaDAO extends Conexion implements Crud {
 
         try {
             conexion = this.obtenerConexion();
+
             sql = "call consultarAsistenciasA";
+
+
             puente = conexion.prepareStatement(sql);
             mensajero = puente.executeQuery();
             while (mensajero.next()) {

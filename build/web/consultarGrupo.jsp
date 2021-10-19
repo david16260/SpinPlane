@@ -81,15 +81,7 @@
                 <div class="sidebar-wrapper">
                      <div class="logo">
                         <a href="menu.jsp">
-                        <img src="images/LOGO4.gif" alt=""/>
-                        <style type="text/css">
-                            img{
-                                width: 100%;
-                                padding-left: 3%;
-                                margin-bottom: -20%;
-                                margin-top: -15%;
-                            }
-                            </style>
+                            <img src="images/LOGO4.gif" class="SpinPlane" alt=""/>
                         </a>
                     </div>
 
