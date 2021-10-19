@@ -121,7 +121,7 @@ public class HorarioDAO extends Conexion implements Crud {
         
         try {
             conexion= this.obtenerConexion();
-            sql="call consultarHorarios";
+            sql="call consultarHorariosA";
             puente = conexion.prepareStatement(sql);
             mensajero = puente.executeQuery();  
             while (mensajero.next()) {
