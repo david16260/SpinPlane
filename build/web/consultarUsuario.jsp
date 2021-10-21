@@ -276,12 +276,12 @@
                                 
                                 <div class="modal-body">
                                 <label for="recipient-name" class="col-form-label">Nombre:</label>          
-                                <input type="text" id="nombre" name="txtNombre" placeholder="Nombre" required class="form-control" minlength="3" maxlength="30">
+                                <input type="text" id="nombre" name="txtNombre" placeholder="Nombre" required class="form-control" minlength="3" maxlength="30" onkeypress="return (event.charCode >= 65 && event.charCode >= 90 && event.charCode >= 97 && event.charCode <= 122)">
                                  </div>
                                 
                                 <div class="modal-body">
                                 <label for="recipient-name" class="col-form-label">Apellido:</label>     
-                                <input type="text" id="apellido" name="txtApellido" placeholder="Apellido" required class="form-control" minlength="3" maxlength="30">
+                                <input type="text" id="apellido" name="txtApellido" placeholder="Apellido" required class="form-control" minlength="3" maxlength="30" onkeypress="return (event.charCode >= [65-90] && event.charCode >= 97 && event.charCode <= 122)">
                                 </div>
                                 
                                 <div class="modal-body">
