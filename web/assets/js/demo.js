@@ -1,5 +1,19 @@
 type = ['','info','success','warning','danger'];
 
+document.getElementById("nombre").addEventListener("input", (e) => {
+  let value = e.target.value;
+  e.target.value = value.replace(/[0-9]/, "");
+});
+
+document.getElementById("numeroDocumento").addEventListener("input", (e) => {
+  let value = e.target.value;
+  e.target.value = value.replace(/[^A-Z\d-]/g, "");
+});
+
+document.getElementById("celular").addEventListener("input", (e) => {
+  let value = e.target.value;
+  e.target.value = value.replace(/[^A-Z\d-]/g, "");
+});
 
 demo = {
     initPickColor: function(){

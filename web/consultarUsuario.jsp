@@ -276,12 +276,12 @@
                                 
                                 <div class="modal-body">
                                 <label for="recipient-name" class="col-form-label">Nombre:</label>          
-                                <input type="text" id="nombre" name="txtNombre" placeholder="Nombre" required class="form-control">
+                                <input type="text" id="nombre" name="txtNombre" placeholder="Nombre" required class="form-control" minlength="3" maxlength="30">
                                  </div>
                                 
                                 <div class="modal-body">
                                 <label for="recipient-name" class="col-form-label">Apellido:</label>     
-                                <input type="text" id="apellido" name="txtApellido" placeholder="Apellido" required class="form-control">
+                                <input type="text" id="apellido" name="txtApellido" placeholder="Apellido" required class="form-control" minlength="3" maxlength="30">
                                 </div>
                                 
                                 <div class="modal-body">
@@ -296,27 +296,22 @@
                                 
                                 <div class="modal-body">
                                 <label for="recipient-name" class="col-form-label">Número de documento:</label>    
-                                <input type="number" id="numeroDocumento" class="form-control" name="txtNumeroDocumento" required placeholder="Numero de Documento">
+                                <input type="number" id="numeroDocumento" class="form-control" name="txtNumeroDocumento" required placeholder="Numero de Documento" minlength="6" maxlength="10">
                                 </div> 
                                 
                                 <div class="modal-body">
                                 <label for="recipient-name" class="col-form-label">Número de celular:</label>     
-                                <input type="number" id="celular" name="txtCelular" placeholder="Celular" required class="form-control">
+                                <input type="number" id="celular" name="txtCelular" placeholder="Celular" required class="form-control" minlength="10" maxlength="10">
                                 </div>
-                                
-                             
-                                
-                               
                                 <input type="hidden" value="Activo" name="txtEstado" required>
-                                
                                 <div class="modal-body">
                                 <label for="recipient-name" class="col-form-label">Correo:</label>
-                                <input type="email" id="correo" name="txtCorreo" placeholder="Correo" required class="form-control">
+                                <input type="email" id="correo" name="txtCorreo" placeholder="Correo" required class="form-control" minlength="10" maxlength="30">
                                 </div>
                                 
                                 <div class="modal-body">
                                 <label for="recipient-name" class="col-form-label">Contraseña:</label>    
-                                <input type="password" name="txtClave" placeholder="Contraseña" required class="form-control">
+                                <input type="password" name="txtClave" placeholder="Contraseña" required class="form-control" minlength="8" maxlength="30">
                                 </div>
                                 
                                 <div class="modal-body">
