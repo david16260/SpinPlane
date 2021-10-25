@@ -47,18 +47,62 @@
 
                             <div class="col-md-12s">
                                 <label for="inputEmail4" class="form-label">Tipo Docuemento</label>
+                                <%
+                                    if (tipodoc.equals("C.C")) {
+                                %>   
                                 <select name="txtTipoDocumento">
                                     <option value="C.C">Cedula de Ciudadania</option>
                                     <option value="T.I">Tarjeta de Identidad</option>
                                     <option value="C.E">Cedula de Extranjera</option>
                                 </select>
+                                <%
+                                } else if (tipodoc.equals("C.E")) {
+                                %>
+                                <select name="txtTipoDocumento">
+                                    <option value="C.E">Cedula de Extranjera</option>
+                                    <option value="C.C">Cedula de Ciudadania</option>
+                                    <option value="T.I">Tarjeta de Identidad</option>
+                                </select>
+                                <%
+                                } else {
+                                %>
+                                <select name="txtTipoDocumento">
+                                    <option value="T.I">Tarjeta de Identidad</option>
+                                    <option value="C.E">Cedula de Extranjera</option>
+                                    <option value="C.C">Cedula de Ciudadania</option>
+                                </select>
+                                <%
+                                    }
+                                %>
                             </div>
                             <label for="inputEmail4" class="form-label">Tipo Usuario</label>
-                                <select name="txtRol">
-                                    <option value="1">Profesor</option>
-                                    <option value="2">Estudiante</option>
-                                    <option value="3">Administrador</option>
-                                </select>
+                            <%
+                                if (tipousu.equals("Administrador")) {
+                            %>
+                            <select name="txtRol">
+                                <option value="3">Administrador</option>
+                                <option value="1">Profesor</option>
+                                <option value="2">Estudiante</option>
+                            </select>
+                            <%
+                            } else if (tipousu.equals("Profesor")) {
+                            %>
+                            <select name="txtRol">
+                                <option value="1">Profesor</option>
+                                <option value="3">Administrador</option>
+                                <option value="2">Estudiante</option>
+                            </select>
+                            <%
+                            } else {
+                            %>
+                            <select name="txtRol">
+                                <option value="2">Estudiante</option>
+                                <option value="1">Profesor</option>
+                                <option value="3">Administrador</option>
+                            </select>
+                            <%
+                                }
+                            %>
                             <div class="col-12">
                                 <input type="submit" class="btn btn-primary  d-flex justify-conted-center m-auto" id="btn" value="Actualizar">
                                 <input type="hidden" value="2" name="opcion">

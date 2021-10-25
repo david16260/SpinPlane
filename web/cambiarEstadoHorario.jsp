@@ -48,11 +48,23 @@
                             <div class="row">
                                 <div class="col">
                                     <input type="hidden" name="txtId" placeholder="Nombre" value="<%=idHorario%>">
+                                    <%
+                                        if(estado.equals("Activo")){
+                                    %>
                                     <select class="custom-select" name="txtEstado">
-                                        <option selected>Seleciona el nuevo estado</option>
                                         <option value="Activo">Activo</option>
                                         <option value="Inactivo">Inactivo</option>
                                     </select>
+                                    <%
+                                      }else{  
+                                    %>
+                                    <select class="custom-select" name="txtEstado">
+                                        <option value="Inactivo">Inactivo</option>
+                                        <option value="Activo">Activo</option>
+                                    </select>
+                                    <%
+                                        }
+                                    %>    
                                     <center>
                                         <div class="inputb">
                                             <button class="btn btn-primary mt-3" type="submit" id="btn" >Cambiar</button>
