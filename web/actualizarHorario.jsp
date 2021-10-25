@@ -32,7 +32,6 @@
             String dia = request.getParameter("dia");
             String horaInicio = request.getParameter("horaInicio");
             String horaFin = request.getParameter("horaFin");
-            String estado = request.getParameter("estado");
             String idGrupo = request.getParameter("idGrupo");
             String idAula = request.getParameter("idAula");
             String idClase = request.getParameter("idClase");
@@ -71,7 +70,6 @@
                                 <label for="inputPassword4" class="form-label">Hora fin</label>
                                 <input type="time"class="form-control" id="inputPassword4" name="txtHoraFin" placeholder="Apellido" value="<%=horaFin%>" >
                             </div>
-                                <input type="hidden" class="form-control" id="inputPassword4" name="txtEstado" placeholder="Apellido" value="<%=estado%>" >
                             <div class="col-md-6">
                                 <label for="inputPassword4" class="form-label">Grupo</label>
                                 <input type="text"class="form-control" id="inputPassword4" name="txtGrupo" placeholder="Apellido" value="<%=idGrupo%>" >

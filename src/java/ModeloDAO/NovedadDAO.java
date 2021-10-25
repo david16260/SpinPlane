@@ -77,7 +77,7 @@ public class NovedadDAO extends Conexion implements Crud{
     @Override
     public boolean actualizarRegistro() {
         try {
-            sql = "update `novedad` set `descripcion`=?,`fechaInicio`=?,`fechaFin`=?,`idTipoNovedad`=?,`idAsistencia`=? WHERE idNovedad=?";
+            sql = "call actualizarNovedad(?,?,?,?,?,?)";
             puente = conexion.prepareStatement(sql);
             puente.setString(1, descripcion);
             puente.setString(2, fechaInicio);

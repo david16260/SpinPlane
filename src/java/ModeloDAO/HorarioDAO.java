@@ -84,18 +84,17 @@ public class HorarioDAO extends Conexion implements Crud {
     @Override
     public boolean actualizarRegistro() {
         try {
-            sql = "UPDATE `horario` SET `fechaInicio`=?,`fechaFin`=?,`dia`=?,`horaInicio`=?,`horaFin`=?,`estado`=?,`idGrupo`=?,`idAula`=?,`idClase`=? WHERE `idHorario`=?";
+            sql = "call actualizarHorario(?,?,?,?,?,?,?,?,?)";
             puente = conexion.prepareStatement(sql);
             puente.setString(1, fechaInicio);
             puente.setString(2, fechaFin);
             puente.setString(3, dia);
             puente.setString(4, horaInicio);
             puente.setString(5, horaFin);
-            puente.setString(6, estado);
-            puente.setString(7, idGrupo);
-            puente.setString(8, idAula);
-            puente.setString(9, idClase);
-            puente.setString(10, idHorario);
+            puente.setString(6, idGrupo);
+            puente.setString(7, idAula);
+            puente.setString(8, idClase);
+            puente.setString(9, idHorario);
             puente.executeUpdate();
             operacion = true;
         } catch (SQLException e) {
@@ -112,7 +111,23 @@ public class HorarioDAO extends Conexion implements Crud {
 
     @Override
     public boolean cambiarEstado() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            sql = "call cambiarEstadoHorario(?,?)";
+            puente = conexion.prepareStatement(sql);
+            puente.setString(1, estado);
+            puente.setString(2, idHorario);
+            puente.executeUpdate();
+            operacion = true;
+        } catch (SQLException e) {
+            Logger.getLogger(GrupoDAO.class.getName()).log(Level.SEVERE, null, e);
+        } finally {
+            try {
+                this.cerrarConexion();
+
+            } catch (SQLException e) {
+            }
+        }
+        return operacion;
     }
      public  ArrayList<HorarioVO> listar(){
         
@@ -121,7 +136,7 @@ public class HorarioDAO extends Conexion implements Crud {
         
         try {
             conexion= this.obtenerConexion();
-            sql="call consultarHorarios";
+            sql="call consultarHorariosA";
             puente = conexion.prepareStatement(sql);
             mensajero = puente.executeQuery();  
             while (mensajero.next()) {

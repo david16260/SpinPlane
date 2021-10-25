@@ -70,6 +70,14 @@ public class HorarioControlador extends HttpServlet {
                 }
                 request.getRequestDispatcher("actualizarHorario.jsp").forward(request, response);
                 break;
+                case 3://Actualizar Estado
+                if (HorDAO.cambiarEstado()) {
+                    request.setAttribute("mensajeExito", "El estado se actualizo corectamente");
+                } else {
+                    request.setAttribute("mensajeError", "El Horario no se actualizo corectamente");
+                }
+                request.getRequestDispatcher("cambiarEstadoHorario.jsp").forward(request, response);
+                break;
            
         }
     }

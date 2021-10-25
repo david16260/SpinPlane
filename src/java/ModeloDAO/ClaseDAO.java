@@ -73,7 +73,7 @@ public class ClaseDAO extends Conexion implements Crud{
     @Override
     public boolean actualizarRegistro() {
         try {
-            sql = "UPDATE `Clase` SET `nombre`=?,`cantidadSesiones`=? where idClase =?";
+            sql = "call actualizarClase(?,?,?)";
             puente = conexion.prepareStatement(sql);
             puente.setString(1, nombre);
             puente.setString(2, cantidadSesiones);

@@ -51,9 +51,7 @@
                                 <label for="inputEmail4" class="form-label">Nombre</label>
                                 <input type="text"id="inputEmail4" name="txtNombre"class="form-control" placeholder="Nombre" value="<%=nombre%>">
                             </div>
-                            <div class="col-md-6">
-                                <input type="hidden"class="form-control" id="inputPassword4" name="txtEstado" placeholder="Apellido" value="<%=estado%>" >
-                            </div>
+                            
                             <div class="col-md-6">
                                 <label for="inputEmail4" class="form-label">Fecha inicio</label>
                                 <input type="date" name="txtFechaInicio" id="pass"

@@ -73,7 +73,7 @@
     </head>
     <body>
 
-         <div class="wrapper">
+        <div class="wrapper">
             <div class="sidebar" data-color="orange" data-image="assets/img/siderbar.jpeg">
 
                 <!--
@@ -84,9 +84,9 @@
                 -->
 
                 <div class="sidebar-wrapper">
-                     <div class="logo">
+                    <div class="logo">
                         <a href="menu.jsp">
-                        <img src="images/LOGO4.gif" class="SpinPlane" alt=""/>
+                            <img src="images/LOGO4.gif" class="SpinPlane" alt=""/>
                         </a>
                     </div>
 
@@ -178,6 +178,7 @@
                                 <th>Grupo</th>
                                 <th>Aula</th>
                                 <th>Clase</th>
+                                <th>Estado</th>
                                 <th>Actualizar</th>
                             </tr>
                         </thead>
@@ -206,7 +207,10 @@
                                 <td><%=HorVO.getNombreAula()%></td>
                                 <td><%=HorVO.getNombreClase()%></td>
                                 <td>
-                                    <a class="btn btn-info edit m-2 p-2"href="actualizarHorario.jsp?idHorario=<%=HorVO.getIdHorario()%>&fechaInicio=<%=HorVO.getFechaInicio()%>&fechaFin=<%=HorVO.getFechaFin()%>&dia=<%=HorVO.getDia()%>&horaInicio=<%=HorVO.getHoraInicio()%>&horaFin=<%=HorVO.getHoraFin()%>&estado=<%=HorVO.getEstado()%>&idGrupo=<%=HorVO.getIdGrupo()%>&idAula=<%=HorVO.getIdAula()%>&idClase=<%=HorVO.getIdClase()%> "><i class="fas fa-pen"></i></a>
+                                    <a  class="btn btn-primary edit m-2 p-2"href="cambiarEstadoHorario.jsp?idHorario=<%=HorVO.getIdHorario()%>&estado=<%=HorVO.getEstado()%>"><i class="fas fa-pen"></i></a>
+                                </td>
+                                <td>
+                                    <a class="btn btn-info edit m-2 p-2"href="actualizarHorario.jsp?idHorario=<%=HorVO.getIdHorario()%>&fechaInicio=<%=HorVO.getFechaInicio()%>&fechaFin=<%=HorVO.getFechaFin()%>&dia=<%=HorVO.getDia()%>&horaInicio=<%=HorVO.getHoraInicio()%>&horaFin=<%=HorVO.getHoraFin()%>&idGrupo=<%=HorVO.getIdGrupo()%>&idAula=<%=HorVO.getIdAula()%>&idClase=<%=HorVO.getIdClase()%> "><i class="fas fa-pen"></i></a>
                                 </td>
                             </tr>
                             <%}%>  
@@ -223,6 +227,7 @@
                                 <th>Grupo</th>
                                 <th>Aula</th>
                                 <th>Clase</th>
+                                <th>Estado</th>
                                 <th>Actualizar</th>
                             </tr>
                         </tfoot>
@@ -273,38 +278,38 @@
                         </div>
                         <div class="cuerpo">
                             <div class="formulario">
-                                
+
                                 <div class="modal-body">
-                                <label for="recipient-name" class="col-form-label">Fecha inicio:</label>
-                                <input type="date" name="txtFechaInicio" required class="form-control">
+                                    <label for="recipient-name" class="col-form-label">Fecha inicio:</label>
+                                    <input type="date" name="txtFechaInicio" required class="form-control">
                                 </div>
-                                
+
                                 <div class="modal-body">
-                                <label for="recipient-name" class="col-form-label">Fecha fin:</label>    
-                                <input type="date" name="txtFechaFin" required class="form-control">
+                                    <label for="recipient-name" class="col-form-label">Fecha fin:</label>    
+                                    <input type="date" name="txtFechaFin" required class="form-control">
                                 </div>
-                                
+
                                 <div class="modal-body">
-                                <label for="recipient-name" class="col-form-label">Día:</label>      
-                                <input type="text" name="txtDia" required class="form-control" minlength="5" maxlength="15" onkeypress="return (event.charCode >= 65 && event.charCode >= 90 && event.charCode >= 97 && event.charCode <= 122)">
+                                    <label for="recipient-name" class="col-form-label">Día:</label>      
+                                    <input type="text" name="txtDia" required class="form-control" minlength="5" maxlength="15" onkeypress="return (event.charCode >= 65 && event.charCode >= 90 && event.charCode >= 97 && event.charCode <= 122)">
                                 </div>
-                                
+
                                 <div class="modal-body">
-                                <label for="recipient-name" class="col-form-label">Hora inicio:</label>      
-                                <input type="time" name="txtHoraInicio" class="form-control">
+                                    <label for="recipient-name" class="col-form-label">Hora inicio:</label>      
+                                    <input type="time" name="txtHoraInicio" class="form-control">
                                 </div>
-                                
+
                                 <div class="modal-body">
-                                <label for="recipient-name" class="col-form-label">Hora fin:</label>      
-                                <input type="time" name="txtHoraFin" class="form-control">
+                                    <label for="recipient-name" class="col-form-label">Hora fin:</label>      
+                                    <input type="time" name="txtHoraFin" class="form-control">
                                 </div>
-                                
+
                                 <div class="modal-body">
-                                <input type="hidden" value="Activo" name="txtEstado">
+                                    <input type="hidden" value="Activo" name="txtEstado">
                                 </div>
-                                
+
                                 <div class="modal-body">
-                                <label for="recipient-name" class="col-form-label">Grupo:</label> 
+                                    <label for="recipient-name" class="col-form-label">Grupo:</label> 
                                     <select name="txtGrupo" class="form-control">
                                         <option selected>Grupo</option>
                                         <%
@@ -321,9 +326,9 @@
                                         %> 
                                     </select>
                                 </div>
-                                    
+
                                 <div class="modal-body">
-                                <label for="recipient-name" class="col-form-label">Aula:</label>     
+                                    <label for="recipient-name" class="col-form-label">Aula:</label>     
                                     <select name="txtAula" class="form-control">
                                         <option selected>Aula</option>
                                         <%
@@ -340,9 +345,9 @@
                                         %> 
                                     </select>
                                 </div>
-                                    
+
                                 <div class="modal-body">
-                                 <label for="recipient-name" class="col-form-label">Clase:</label>      
+                                    <label for="recipient-name" class="col-form-label">Clase:</label>      
                                     <select name="txtClase" class="form-control">
                                         <option selected>Clase</option>
                                         <%

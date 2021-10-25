@@ -90,13 +90,12 @@ public class GrupoDAO extends Conexion implements Crud{
     @Override
     public boolean actualizarRegistro() {
         try {
-            sql = "UPDATE `grupo` SET `nombre`=?,`estado`=?,`fechaInicio`=?,`fechaFin`=? WHERE `idGrupo`=?";
+            sql = "call actualizarGrupo(?,?,?,?)";
             puente = conexion.prepareStatement(sql);
             puente.setString(1, nombre);
-            puente.setString(2, estado);
-            puente.setString(3, fechaInicio);
-            puente.setString(4, fechaFin);
-            puente.setString(5, idGrupo);
+            puente.setString(2, fechaInicio);
+            puente.setString(3, fechaFin);
+            puente.setString(4, idGrupo);
             puente.executeUpdate();
             operacion = true;
         } catch (SQLException e) {
