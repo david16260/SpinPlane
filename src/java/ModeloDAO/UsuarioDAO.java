@@ -8,6 +8,8 @@ package ModeloDAO;
 import ModeloVO.UsuarioVO;
 import Util.Conexion;
 import Util.Crud;
+import java.math.BigInteger;
+import java.security.MessageDigest;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -122,6 +124,21 @@ public class UsuarioDAO extends Conexion implements Crud {
         return operacion;
     }
 
+    public String getMD5(String input){
+        try {
+            MessageDigest md= MessageDigest.getInstance("MD5");
+            byte[] encrip = md.digest(input.getBytes());
+            BigInteger numero = new BigInteger(1, encrip);
+            String enString = numero.toString(16);
+            while(enString.length() < 32){
+                enString = "0" + enString;
+            }
+            return enString;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+    
     public boolean iniciarSesion(String correo, String clave) {
 
         try {
@@ -130,7 +147,7 @@ public class UsuarioDAO extends Conexion implements Crud {
                 sql = "call iniciarSesion(?,?)";
             puente = conexion.prepareStatement(sql);
             puente.setString(1, correo);
-            puente.setString(2, clave);
+            puente.setString(2, getMD5(clave));
             mensajero = puente.executeQuery();
             if (mensajero.next()) {
                 operacion = true;
