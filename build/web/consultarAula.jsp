@@ -1,7 +1,7 @@
- <%-- 
-    Document   : conultarClase.jsp
-    Created on : 25/06/2021, 02:40:36 PM
-    Author     : Yurny
+<%-- 
+   Document   : conultarClase.jsp
+   Created on : 25/06/2021, 02:40:36 PM
+   Author     : Yurny
 --%>
 
 <%@page import="java.util.ArrayList"%>
@@ -20,7 +20,7 @@
         <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
         <meta name="viewport" content="width=device-width" />
 
-         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css" />
         <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css"/>
         <link rel="stylesheet" href="Css/consultar.css"/>
         <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
@@ -68,7 +68,7 @@
     </head>
     <body>
 
-         <div class="wrapper">
+        <div class="wrapper">
             <div class="sidebar" data-color="orange" data-image="assets/img/siderbar.jpeg">
 
                 <!--
@@ -79,9 +79,9 @@
                 -->
 
                 <div class="sidebar-wrapper">
-                     <div class="logo">
+                    <div class="logo">
                         <a href="menu.jsp">
-                        <img src="images/LOGO4.gif" class="SpinPlane" alt=""/>
+                            <img src="images/LOGO4.gif" class="SpinPlane" alt=""/>
                         </a>
                     </div>
 
@@ -159,6 +159,7 @@
                     </div>
                 </nav>
 
+
                 <div class="contenedor mt-4">
 
                     <table id="usuario" class="table table-striped" style="width:100%">
@@ -191,7 +192,34 @@
                                     </a>
                                 </td>
                                 <td>
-                                    <a class="btn btn-primary edit m-2 p-2" href="cambiarEstadoAula.jsp?idAula=<%=AuVO.getIdAula()%>&estado=<%=AuVO.getEstado()%>"><i class="fas fa-pen"></i></a>
+                                    <%
+                                        String idAula = request.getParameter("idAula");
+                                        String estado = request.getParameter("estado");
+                                    %>
+
+                                    <button class="btn btn-primary" data-toggle="modal" data-target="#hola">
+                                        Launch demo modal
+                                    </button>
+
+                                    <div class="modal fade" id="hola" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    ...
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
 
                                 </td>
                                 <td>
@@ -249,31 +277,31 @@
                         });
                     });
                 </script>
-                
+
                 <center><button class="abrir-registrar btn btn-primary"  id="abrir-registrar">Registrar</button></center>
-                
+
                 <div class="overlay" id="overlay">
                     <form method="POST" action="Aula" class="form-registro">
                         <div class="tituloR">
-                        <a href="#" class="cerrar-registro" id="cerrar-registro"><i class="fas fa-times"></i></a>
-                        <h2>Registrar Aula</h2>
+                            <a href="#" class="cerrar-registro" id="cerrar-registro"><i class="fas fa-times"></i></a>
+                            <h2>Registrar Aula</h2>
                         </div>
                         <div class="cuerpo">
                             <div class="formulario">
-                                
+
                                 <div class="modal-body">
-                                <label for="recipient-name" class="col-form-label">Nombe Aula:</label>    
-                                <input type="text" name="txtNomAula" placeholder="Nombre" required class="form-control" minlength="3" maxlength="30" onkeypress="return (event.charCode >= 65 && event.charCode >= 90 && event.charCode >= 97 && event.charCode <= 122)">
+                                    <label for="recipient-name" class="col-form-label">Nombe Aula:</label>    
+                                    <input type="text" name="txtNomAula" placeholder="Nombre" required class="form-control" minlength="3" maxlength="30" onkeypress="return (event.charCode >= 65 && event.charCode >= 90 && event.charCode >= 97 && event.charCode <= 122)">
                                 </div>
-                                
-                                
+
+
                                 <input type="hidden" name="txtEstado" value="Activo">
-                                
+
                                 <div class="modal-body">
-                                <label for="recipient-name" class="col-form-label">Capacidad:</label>     
-                                <input type="number" name="txtCapacidad" placeholder="Capacidad" class="form-control">
+                                    <label for="recipient-name" class="col-form-label">Capacidad:</label>     
+                                    <input type="number" name="txtCapacidad" placeholder="Capacidad" class="form-control">
                                 </div>
-                                
+
                                 <div class="selector text-primary">
                                     <input type="submit" id="btn" value="Registrar" class="btn btn-success">
                                     <input type="hidden" value="1" name="opcion">
