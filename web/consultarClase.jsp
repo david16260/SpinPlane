@@ -67,7 +67,7 @@
     </head>
     <body>
 
-         <div class="wrapper">
+        <div class="wrapper">
             <div class="sidebar" data-color="orange" data-image="assets/img/siderbar.jpeg">
 
                 <!--
@@ -80,10 +80,14 @@
                 <div class="sidebar-wrapper">
                     <div class="logo">
                         <a href="menu.jsp">
-                        <img src="images/LOGO4.gif" class="SpinPlane" alt=""/>
+                            <img src="images/LOGO4.gif" class="SpinPlane" alt=""/>
                         </a>
                     </div>
 
+                    <%
+                        String tipoU = usuVO.getIdTipoUsuario();
+                        if (tipoU.equals("Profesor")) {
+                    %>
                     <ul class="nav">
                         <li>
                             <a href="consultarAsistencia.jsp">
@@ -103,8 +107,8 @@
                                 <p>Grupo</p>
                             </a>
                         </li>
-                        <li class="active">
-                            <a href="conultarClase.jsp">
+                        <li>
+                            <a href="consultarClase.jsp">
                                 <i class="pe-7s-news-paper"></i>
                                 <p>Clase</p>
                             </a>
@@ -123,13 +127,84 @@
                                 <p>Horario</p>
                             </a>
                         </li>
+
+                    </ul>
+                    <%} else if (tipoU.equals("Estudiante")) {%>
+                    <ul class="nav">
                         <li>
-                            <a href="consultarUsuario.jsp">
-                                <i class="pe-7s-user"></i>
-                                <p>Usuario</p>
+                            <a href="consultarAsistencia.jsp">
+                                <i class="pe-7s-notebook"></i>
+                                <p>Asistencia</p>
                             </a>
                         </li>
-                    </ul>
+                        <li>
+                            <a href="consultarGrupo.jsp">
+                                <i class="pe-7s-users"></i>
+                                <p>Grupo</p>
+                            </a>
+                        </li>
+                        <li>
+                        <li>
+                            <a href="consultarAula.jsp">
+                                <i class="pe-7s-culture"></i>
+                                <p>Aula</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="consultarClase.jsp">
+                                <i class="pe-7s-news-paper"></i>
+                                <p>Clase</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="consultarHorario.jsp">
+                                <i class="pe-7s-date"></i>
+                                <p>Horario</p>
+                            </a>
+                        </li>
+                        <%} else if (tipoU.equals("Administrador")) {%>
+                        <ul class="nav">
+                            <li>
+                                <a href="consultarAsistencia.jsp">
+                                    <i class="pe-7s-notebook"></i>
+                                    <p>Asistencia</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="consultarAula.jsp">
+                                    <i class="pe-7s-culture"></i>
+                                    <p>Aula</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="consultarGrupo.jsp">
+                                    <i class="pe-7s-users"></i>
+                                    <p>Grupo</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="consultarClase.jsp">
+                                    <i class="pe-7s-news-paper"></i>
+                                    <p>Clase</p>
+                                </a>
+                            </li>
+                            <li>
+                            <li>
+                                <a href="consultarNovedad.jsp">
+                                    <i class="pe-7s-info"></i>
+                                    <p>Novedad</p>
+                                </a>
+                            </li>
+                            <li>
+
+                            <li>
+                                <a href="consultarUsuario.jsp">
+                                    <i class="pe-7s-user"></i>
+                                    <p>Usuario</p>
+                                </a>
+                            </li>
+                        </ul>
+                        <%}%>
                 </div>
             </div>
 
@@ -167,8 +242,12 @@
                                 <th>Nombre</th>
                                 <th>Estado</th>
                                 <th>Cantidad de Sesiones</th>
+                                    <%
+                                        if (tipoU.equals("Administrador")) {
+                                    %>
                                 <th>Estado</th>
                                 <th>Actualizar</th>
+                                    <%}%>
                             </tr>
                         </thead>
                         <tbody>
@@ -189,6 +268,9 @@
                                     </a>
                                 </td>
                                 <td class="text-center"><%=ClaVO.getCantidadSesiones()%></td> 
+                                <%
+                                    if (tipoU.equals("Administrador")) {
+                                %>
                                 <td>
                                     <a class="btn btn-primary edit m-2 p-2" href="cambiarEstadoClase.jsp?idClase=<%=ClaVO.getIdClase()%>&estado=<%=ClaVO.getEstado()%>"><i class="fas fa-pen"></i></a>
 
@@ -197,7 +279,7 @@
                                     <a class="btn btn-primary edit m-2 p-2" href="actualizarClase.jsp?idClase=<%=ClaVO.getIdClase()%>&nombre=<%=ClaVO.getNombre()%>&estado=<%=ClaVO.getEstado()%>&cantidad=<%=ClaVO.getCantidadSesiones()%>"><i class="fas fa-pen"></i></a>
 
                                 </td>
-
+                                <%}%>
                             </tr>
                             <%}%>  
                         </tbody>
@@ -207,8 +289,12 @@
                                 <th>Nombre</th>
                                 <th>Estado</th>
                                 <th>Cantidad de Sesiones</th>
+                                    <%
+                                        if (tipoU.equals("Administrador")) {
+                                    %>
                                 <th>Estado</th>
                                 <th>Actualizar</th>
+                                    <%}%>
                             </tr>
                         </tfoot>
                     </table>
@@ -248,8 +334,11 @@
                         });
                     });
                 </script>
+                <%
+                    if (tipoU.equals("Administrador")) {
+                %>
                 <center><button class="abrir-registrar btn btn-primary"  id="abrir-registrar">Registrar</button></center>
-                
+
                 <div class="overlay" id="overlay">
                     <form method="POST" action="Clase" class="form-registro">
                         <div class="tituloR">
@@ -258,19 +347,19 @@
                         </div>
                         <div class="cuerpo">
                             <div class="formulario">
-                                
+
                                 <div class="modal-body">
-                                <label for="recipient-name" class="col-form-label">Nombre:</label>      
-                                <input type="text" name="txtNombre" placeholder="Nombre" required class="form-control" minlength="3" maxlength="30" onkeypress="return (event.charCode >= 65 && event.charCode >= 90 && event.charCode >= 97 && event.charCode <= 122)">
+                                    <label for="recipient-name" class="col-form-label">Nombre:</label>      
+                                    <input type="text" name="txtNombre" placeholder="Nombre" required class="form-control" minlength="3" maxlength="30" onkeypress="return (event.charCode >= 65 && event.charCode >= 90 && event.charCode >= 97 && event.charCode <= 122)">
                                 </div>
-                                
+
                                 <input type="hidden" name="txtEstado" value="Activo">
-                                
+
                                 <div class="modal-body">
-                                <label for="recipient-name" class="col-form-label">Cantidad de sesiones:</label>      
-                                <input type="number" name="txtcantidadSesiones" placeholder="Cantidad de Sesiones" class="form-control">
+                                    <label for="recipient-name" class="col-form-label">Cantidad de sesiones:</label>      
+                                    <input type="number" name="txtcantidadSesiones" placeholder="Cantidad de Sesiones" class="form-control">
                                 </div>
-                                
+
                                 <div class="selector">
                                     <input type="submit" id="btn" value="Registrar" class="btn btn-success">
                                     <input type="hidden" value="1" name="opcion">
@@ -278,6 +367,7 @@
                             </div>
                         </div>
                     </form>
+                    <%}%>
                 </div>
                 <% if (request.getAttribute("mensajeError") != null) {%>
                 <script  type="text/javascript">

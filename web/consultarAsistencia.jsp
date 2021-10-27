@@ -89,8 +89,12 @@
                         </a>
                     </div>
 
+                    <%
+                       String tipoU = usuVO.getIdTipoUsuario();
+                       if(tipoU.equals("Profesor")){
+                    %>
                     <ul class="nav">
-                        <li  class="active">
+                        <li>
                             <a href="consultarAsistencia.jsp">
                                 <i class="pe-7s-notebook"></i>
                                 <p>Asistencia</p>
@@ -103,13 +107,13 @@
                             </a>
                         </li>
                         <li>
-                            <a href="conultarClase.jsp">
+                            <a href="consultarGrupo.jsp">
                                 <i class="pe-7s-users"></i>
                                 <p>Grupo</p>
                             </a>
                         </li>
                         <li>
-                            <a href="conultarClase.jsp">
+                            <a href="consultarClase.jsp">
                                 <i class="pe-7s-news-paper"></i>
                                 <p>Clase</p>
                             </a>
@@ -128,6 +132,76 @@
                                 <p>Horario</p>
                             </a>
                         </li>
+                        
+                    </ul>
+                    <%} else if(tipoU.equals("Estudiante")){%>
+                    <ul class="nav">
+                        <li>
+                            <a href="consultarAsistencia.jsp">
+                                <i class="pe-7s-notebook"></i>
+                                <p>Asistencia</p>
+                            </a>
+                        </li>
+                    <li>
+                            <a href="consultarGrupo.jsp">
+                                <i class="pe-7s-users"></i>
+                                <p>Grupo</p>
+                            </a>
+                        </li>
+                        <li>
+                            <li>
+                            <a href="consultarAula.jsp">
+                                <i class="pe-7s-culture"></i>
+                                <p>Aula</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="consultarClase.jsp">
+                                <i class="pe-7s-news-paper"></i>
+                                <p>Clase</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="consultarHorario.jsp">
+                                <i class="pe-7s-date"></i>
+                                <p>Horario</p>
+                            </a>
+                        </li>
+                        <%}else if(tipoU.equals("Administrador")){%>
+                        <ul class="nav">
+                        <li>
+                            <a href="consultarAsistencia.jsp">
+                                <i class="pe-7s-notebook"></i>
+                                <p>Asistencia</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="consultarAula.jsp">
+                                <i class="pe-7s-culture"></i>
+                                <p>Aula</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="consultarGrupo.jsp">
+                                <i class="pe-7s-users"></i>
+                                <p>Grupo</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="consultarClase.jsp">
+                                <i class="pe-7s-news-paper"></i>
+                                <p>Clase</p>
+                            </a>
+                        </li>
+                        <li>
+                        <li>
+                            <a href="consultarNovedad.jsp">
+                                <i class="pe-7s-info"></i>
+                                <p>Novedad</p>
+                            </a>
+                        </li>
+                        <li>
+                        
                         <li>
                             <a href="consultarUsuario.jsp">
                                 <i class="pe-7s-user"></i>
@@ -135,6 +209,7 @@
                             </a>
                         </li>
                     </ul>
+                        <%}%>
                 </div>
             </div>
 
