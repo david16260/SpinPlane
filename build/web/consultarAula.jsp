@@ -85,6 +85,10 @@
                         </a>
                     </div>
 
+                    <%
+                        String tipoU = usuVO.getIdTipoUsuario();
+                        if (tipoU.equals("Profesor")) {
+                    %>
                     <ul class="nav">
                         <li>
                             <a href="consultarAsistencia.jsp">
@@ -92,7 +96,7 @@
                                 <p>Asistencia</p>
                             </a>
                         </li>
-                        <li class="active">
+                        <li>
                             <a href="consultarAula.jsp">
                                 <i class="pe-7s-culture"></i>
                                 <p>Aula</p>
@@ -124,13 +128,84 @@
                                 <p>Horario</p>
                             </a>
                         </li>
+
+                    </ul>
+                    <%} else if (tipoU.equals("Estudiante")) {%>
+                    <ul class="nav">
                         <li>
-                            <a href="consultarUsuario.jsp">
-                                <i class="pe-7s-user"></i>
-                                <p>Usuario</p>
+                            <a href="consultarAsistencia.jsp">
+                                <i class="pe-7s-notebook"></i>
+                                <p>Asistencia</p>
                             </a>
                         </li>
-                    </ul>
+                        <li>
+                            <a href="consultarGrupo.jsp">
+                                <i class="pe-7s-users"></i>
+                                <p>Grupo</p>
+                            </a>
+                        </li>
+                        <li>
+                        <li>
+                            <a href="consultarAula.jsp">
+                                <i class="pe-7s-culture"></i>
+                                <p>Aula</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="consultarClase.jsp">
+                                <i class="pe-7s-news-paper"></i>
+                                <p>Clase</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="consultarHorario.jsp">
+                                <i class="pe-7s-date"></i>
+                                <p>Horario</p>
+                            </a>
+                        </li>
+                        <%} else if (tipoU.equals("Administrador")) {%>
+                        <ul class="nav">
+                            <li>
+                                <a href="consultarAsistencia.jsp">
+                                    <i class="pe-7s-notebook"></i>
+                                    <p>Asistencia</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="consultarAula.jsp">
+                                    <i class="pe-7s-culture"></i>
+                                    <p>Aula</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="consultarGrupo.jsp">
+                                    <i class="pe-7s-users"></i>
+                                    <p>Grupo</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="consultarClase.jsp">
+                                    <i class="pe-7s-news-paper"></i>
+                                    <p>Clase</p>
+                                </a>
+                            </li>
+                            <li>
+                            <li>
+                                <a href="consultarNovedad.jsp">
+                                    <i class="pe-7s-info"></i>
+                                    <p>Novedad</p>
+                                </a>
+                            </li>
+                            <li>
+
+                            <li>
+                                <a href="consultarUsuario.jsp">
+                                    <i class="pe-7s-user"></i>
+                                    <p>Usuario</p>
+                                </a>
+                            </li>
+                        </ul>
+                        <%}%>
                 </div>
             </div>
 
@@ -168,9 +243,12 @@
                                 <th>Id</th>
                                 <th>Nombre</th>
                                 <th>Capacidad</th>
-                                <th>Estado</th>
+                                    <%
+                                        if (tipoU.equals("Administrador")) {
+                                    %>
                                 <th>Estado</th>
                                 <th>Actualizar</th>
+                                    <%}%>
                             </tr>
                         </thead>
                         <tbody>
@@ -191,41 +269,14 @@
                                         <%=AuVO.getEstado()%>
                                     </a>
                                 </td>
+                                <%
+                                    if (tipoU.equals("Administrador")) {
+                                %>
                                 <td>
-                                    <%
-                                        String idAula = request.getParameter("idAula");
-                                        String estado = request.getParameter("estado");
-                                    %>
-
-                                    <button class="btn btn-primary" data-toggle="modal" data-target="#hola">
-                                        Launch demo modal
-                                    </button>
-
-                                    <div class="modal fade" id="hola" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                        <div class="modal-dialog modal-dialog-centered" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                        <span aria-hidden="true">&times;</span>
-                                                    </button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    ...
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                    <button type="button" class="btn btn-primary">Save changes</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <a class="btn btn-info edit m-2 p-2" href="actualizarAula.jsp?idAula=<%=AuVO.getIdAula()%>&nombre=<%=AuVO.getNombre()%>&capacidad=<%=AuVO.getCapacidad()%>"><i class="fas fa-pen"></i></a>
 
                                 </td>
-                                <td>
-                                    <a class="btn btn-info edit m-2 p-2" href="actualizarAula.jsp?idAula=<%=AuVO.getIdAula()%>&nombre=<%=AuVO.getNombre()%>&capacidad=<%=AuVO.getCapacidad()%>&estado=<%=AuVO.getEstado()%>"><i class="fas fa-pen"></i></a>
-
-                                </td>
+                                <%}%>
                             </tr>
                             <%}%>  
                         </tbody>
@@ -235,8 +286,11 @@
                                 <th>Nombre</th>
                                 <th>Capacidad</th>
                                 <th>Estado</th>     
-                                <th>Estado</th>
+                                    <%
+                                        if (tipoU.equals("Administrador")) {
+                                    %>
                                 <th>Actualizar</th>
+                                    <%}%>
                             </tr>
                         </tfoot>
                     </table>
@@ -277,7 +331,9 @@
                         });
                     });
                 </script>
-
+                <%
+                    if (tipoU.equals("Administrador")) {
+                %>
                 <center><button class="abrir-registrar btn btn-primary"  id="abrir-registrar">Registrar</button></center>
 
                 <div class="overlay" id="overlay">
@@ -309,6 +365,7 @@
                             </div>
                         </div>
                     </form>
+                    <%}%>
                 </div>
                 <% if (request.getAttribute("mensajeError") != null) {%>
                 <script  type="text/javascript">
