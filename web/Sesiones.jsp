@@ -33,7 +33,8 @@
         <link rel="stylesheet" href="Css/Estilos.css">
         <link rel="stylesheet" href="Css/sesiones.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>SpinPlane</title>
+        <link rel="shortcut icon" href="images/LOGO2.gif" />
     </head>
     <body>
           <nav>

@@ -13,6 +13,7 @@
         <script src="Js/sweetalert.min.js" type="text/javascript"></script>
   <meta charset="UTF-8">
   <title>Login</title>
+  <link rel="shortcut icon" href="images/LOGO2.gif" />
   <link rel="stylesheet" href="Css/login.css">
 
 </head>

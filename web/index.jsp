@@ -19,6 +19,7 @@
         <meta name="author" content="">
 
         <title>SpinPlane</title>
+        <link rel="shortcut icon" href="images/LOGO2.gif" />
 
         <link rel="stylesheet" href="Css/bootstrap.min.css">
         <link rel="stylesheet" href="Css/unicons.css">
