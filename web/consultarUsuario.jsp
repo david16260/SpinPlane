@@ -341,7 +341,7 @@
                 </script>
                 <button class="abrir-registrar btn btn-primary" id="abrir-registrar">Registrar</button>
                 <div class="overlay" id="overlay">
-                    <form method="POST" action="Usuario" class="form-registro">
+                    <form method="POST" action="Usuario" class="form-registro" onsubmit="return validacion()"> 
                         <div class="tituloR">
                             <a href="#" class="cerrar-registro" id="cerrar-registro"><i class="fas fa-times"></i></a>
                             <h2 class="textReg">Registrar Usuario</h2>
@@ -442,6 +442,7 @@
                 </script>
                 <%}%>
                 <script src="Js/consutarUsuario.js" type="text/javascript"></script>
+                <script src="Js/campos.js"></script>
 
 
                 <footer class="footer">
