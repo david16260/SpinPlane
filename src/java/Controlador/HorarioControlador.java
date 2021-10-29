@@ -42,8 +42,8 @@ public class HorarioControlador extends HttpServlet {
         String horaFin = request.getParameter("txtHoraFin");     
         String estado = request.getParameter("txtEstado");
         String idGrupo = request.getParameter("txtGrupo");
-        String idClase = request.getParameter("txtAula");
-        String idAula = request.getParameter("txtClase");
+        String idClase = request.getParameter("txtClase");
+        String idAula = request.getParameter("txtAula");
         String nombreGrupo = request.getParameter("txtNombreGrupo");
         String nombreAula = request.getParameter("txtNombreAula");
         String nombreClase = request.getParameter("txtNombreClase");

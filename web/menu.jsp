@@ -54,8 +54,8 @@
                         </a>
                     </div>
                     <%
-                       String tipoU = usuVO.getIdTipoUsuario();
-                       if(tipoU.equals("Profesor")){
+                        String tipoU = usuVO.getIdTipoUsuario();
+                        if (tipoU.equals("Profesor")) {
                     %>
                     <ul class="nav">
                         <li>
@@ -96,9 +96,9 @@
                                 <p>Horario</p>
                             </a>
                         </li>
-                        
+
                     </ul>
-                    <%} else if(tipoU.equals("Estudiante")){%>
+                    <%} else if (tipoU.equals("Estudiante")) {%>
                     <ul class="nav">
                         <li>
                             <a href="consultarAsistencia.jsp">
@@ -106,14 +106,14 @@
                                 <p>Asistencia</p>
                             </a>
                         </li>
-                    <li>
+                        <li>
                             <a href="consultarGrupo.jsp">
                                 <i class="pe-7s-users"></i>
                                 <p>Grupo</p>
                             </a>
                         </li>
                         <li>
-                            <li>
+                        <li>
                             <a href="consultarAula.jsp">
                                 <i class="pe-7s-culture"></i>
                                 <p>Aula</p>
@@ -131,48 +131,53 @@
                                 <p>Horario</p>
                             </a>
                         </li>
-                        <%}else if(tipoU.equals("Administrador")){%>
+                        <%} else if (tipoU.equals("Administrador")) {%>
                         <ul class="nav">
-                        <li>
-                            <a href="consultarAsistencia.jsp">
-                                <i class="pe-7s-notebook"></i>
-                                <p>Asistencia</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="consultarAula.jsp">
-                                <i class="pe-7s-culture"></i>
-                                <p>Aula</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="consultarGrupo.jsp">
-                                <i class="pe-7s-users"></i>
-                                <p>Grupo</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="consultarClase.jsp">
-                                <i class="pe-7s-news-paper"></i>
-                                <p>Clase</p>
-                            </a>
-                        </li>
-                        <li>
-                        <li>
-                            <a href="consultarNovedad.jsp">
-                                <i class="pe-7s-info"></i>
-                                <p>Novedad</p>
-                            </a>
-                        </li>
-                        <li>
-                        
-                        <li>
-                            <a href="consultarUsuario.jsp">
-                                <i class="pe-7s-user"></i>
-                                <p>Usuario</p>
-                            </a>
-                        </li>
-                    </ul>
+                            <li>
+                                <a href="consultarAsistencia.jsp">
+                                    <i class="pe-7s-notebook"></i>
+                                    <p>Asistencia</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="consultarAula.jsp">
+                                    <i class="pe-7s-culture"></i>
+                                    <p>Aula</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="consultarGrupo.jsp">
+                                    <i class="pe-7s-users"></i>
+                                    <p>Grupo</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="consultarClase.jsp">
+                                    <i class="pe-7s-news-paper"></i>
+                                    <p>Clase</p>
+                                </a>
+                            </li>
+                            <li>
+                            <li>
+                                <a href="consultarNovedad.jsp">
+                                    <i class="pe-7s-info"></i>
+                                    <p>Novedad</p>
+                                </a>
+                            </li>
+                            <li>
+                            <li>
+                                <a href="consultarHorario.jsp">
+                                    <i class="pe-7s-date"></i>
+                                    <p>Horario</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="consultarUsuario.jsp">
+                                    <i class="pe-7s-user"></i>
+                                    <p>Usuario</p>
+                                </a>
+                            </li>
+                        </ul>
                         <%}%>
                 </div>
             </div>
@@ -197,6 +202,11 @@
                                     <a href="#">
                                         <form class="cerrar" method="post" action="Sesiones">
                                             <input class="cerrar" type="submit" value="Cerrar Sesion">
+                                        </form>
+                                        <form method="POST" action="Usuario">
+                                            <input type="hidden" name="txtId" value="<%=usuVO.getUsuId()%>">
+                                            <input type="submit" value="Perfil">
+                                            <input type="hidden" name="opcion" value="4">
                                         </form>
                                     </a>
                                 </li>

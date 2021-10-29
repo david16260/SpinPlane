@@ -68,7 +68,7 @@
     </head>
     <body>
 
-         <div class="wrapper">
+        <div class="wrapper">
             <div class="sidebar" data-color="orange" data-image="assets/img/siderbar.jpeg">
 
                 <!--
@@ -79,12 +79,16 @@
                 -->
 
                 <div class="sidebar-wrapper">
-                     <div class="logo">
+                    <div class="logo">
                         <a href="menu.jsp">
                             <img src="images/LOGO4.gif" class="SpinPlane" alt=""/>
                         </a>
                     </div>
 
+                    <%
+                        String tipoU = usuVO.getIdTipoUsuario();
+                        if (tipoU.equals("Profesor")) {
+                    %>
                     <ul class="nav">
                         <li>
                             <a href="consultarAsistencia.jsp">
@@ -98,7 +102,7 @@
                                 <p>Aula</p>
                             </a>
                         </li>
-                        <li class="active">
+                        <li>
                             <a href="consultarGrupo.jsp">
                                 <i class="pe-7s-users"></i>
                                 <p>Grupo</p>
@@ -124,13 +128,84 @@
                                 <p>Horario</p>
                             </a>
                         </li>
+
+                    </ul>
+                    <%} else if (tipoU.equals("Estudiante")) {%>
+                    <ul class="nav">
                         <li>
-                            <a href="consultarUsuario.jsp">
-                                <i class="pe-7s-user"></i>
-                                <p>Usuario</p>
+                            <a href="consultarAsistencia.jsp">
+                                <i class="pe-7s-notebook"></i>
+                                <p>Asistencia</p>
                             </a>
                         </li>
-                    </ul>
+                        <li>
+                            <a href="consultarGrupo.jsp">
+                                <i class="pe-7s-users"></i>
+                                <p>Grupo</p>
+                            </a>
+                        </li>
+                        <li>
+                        <li>
+                            <a href="consultarAula.jsp">
+                                <i class="pe-7s-culture"></i>
+                                <p>Aula</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="consultarClase.jsp">
+                                <i class="pe-7s-news-paper"></i>
+                                <p>Clase</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="consultarHorario.jsp">
+                                <i class="pe-7s-date"></i>
+                                <p>Horario</p>
+                            </a>
+                        </li>
+                        <%} else if (tipoU.equals("Administrador")) {%>
+                        <ul class="nav">
+                            <li>
+                                <a href="consultarAsistencia.jsp">
+                                    <i class="pe-7s-notebook"></i>
+                                    <p>Asistencia</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="consultarAula.jsp">
+                                    <i class="pe-7s-culture"></i>
+                                    <p>Aula</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="consultarGrupo.jsp">
+                                    <i class="pe-7s-users"></i>
+                                    <p>Grupo</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="consultarClase.jsp">
+                                    <i class="pe-7s-news-paper"></i>
+                                    <p>Clase</p>
+                                </a>
+                            </li>
+                            <li>
+                            <li>
+                                <a href="consultarNovedad.jsp">
+                                    <i class="pe-7s-info"></i>
+                                    <p>Novedad</p>
+                                </a>
+                            </li>
+                            <li>
+
+                            <li>
+                                <a href="consultarUsuario.jsp">
+                                    <i class="pe-7s-user"></i>
+                                    <p>Usuario</p>
+                                </a>
+                            </li>
+                        </ul>
+                        <%}%>
                 </div>
             </div>
 
@@ -139,13 +214,13 @@
                     <div class="container-fluid">
 
                         <div class="collapse navbar-collapse">
-                            
+
                             <ul class="nav navbar-nav navbar-left">
 
                                 <li>
                                     <a href="menu.jsp">
                                         <i class="pe-7s-left-arrow"></i>
-                                        
+
                                     </a>
 
                                 </li>
@@ -161,135 +236,151 @@
 
                 <div class="contenedor mt-4">
 
-                   <table id="usuario" class=" table table-striped" style="width:100%">
-                <thead>
-                    <tr>
-                        <th>Id</th>
-                        <th>Nombre</th>
-                        <th>Estado</th>
-                        <th>Fecha de Inicio</th>
-                        <th>Fecha de Fin</th>
-                        <th>Estado</th>
-                        <th>Actualizar</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <%
-                        GrupoVO GruVO = new GrupoVO();
-                        GrupoDAO GruDAO = new GrupoDAO(GruVO);
-                        ArrayList<GrupoVO> listaGrupo = GruDAO.listar();
-                        for (int i = 0; i < listaGrupo.size(); i++) {
+                    <table id="usuario" class=" table table-striped" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Nombre</th>
+                                <th>Estado</th>
+                                <th>Fecha de Inicio</th>
+                                <th>Fecha de Fin</th>
+                                <%
+                                    if (tipoU.equals("Administrador")) {
+                                %>
+                                <th>Estado</th>
+                                <th>Actualizar</th>
+                                <%}%>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <%
+                                GrupoVO GruVO = new GrupoVO();
+                                GrupoDAO GruDAO = new GrupoDAO(GruVO);
+                                ArrayList<GrupoVO> listaGrupo = GruDAO.listar();
+                                for (int i = 0; i < listaGrupo.size(); i++) {
 
-                            GruVO = listaGrupo.get(i);
-                    %>               
-                    <tr>
-                        <td><%=GruVO.getIdGrupo()%></td>
-                        <td><%=GruVO.getNombre()%></td>
-                        <td>
-                            <a class="<%=GruVO.getEstado().equals("Activo") ? "btn btn-success  m-3": "btn btn-danger  m-3" %>" style="padding-right: 50px;">
-                                <%=GruVO.getEstado()%>
-                            </a>
-                        </td>
-                        <td class="text-center"><%=GruVO.getFechaInicio()%></td> 
-                        <td class="text-center"><%=GruVO.getFechaFin()%></td> 
-                        <td>
-                            <a  class="btn btn-primary edit m-2 p-2"href="cambiarEstadoGrupo.jsp?idgrupo=<%=GruVO.getIdGrupo()%>&estado=<%=GruVO.getEstado()%>"><i class="fas fa-pen"></i></a>
+                                    GruVO = listaGrupo.get(i);
+                            %>               
+                            <tr>
+                                <td><%=GruVO.getIdGrupo()%></td>
+                                <td><%=GruVO.getNombre()%></td>
+                                <td>
+                                    <a class="<%=GruVO.getEstado().equals("Activo") ? "btn btn-success  m-3" : "btn btn-danger  m-3"%>" style="padding-right: 50px;">
+                                        <%=GruVO.getEstado()%>
+                                    </a>
+                                </td>
+                                <td class="text-center"><%=GruVO.getFechaInicio()%></td> 
+                                <td class="text-center"><%=GruVO.getFechaFin()%></td> 
+                                <%
+                                    if (tipoU.equals("Administrador")) {
+                                %>
+                                <td>
+                                    <a  class="btn btn-primary edit m-2 p-2"href="cambiarEstadoGrupo.jsp?idgrupo=<%=GruVO.getIdGrupo()%>&estado=<%=GruVO.getEstado()%>"><i class="fas fa-pen"></i></a>
 
-                        </td>
+                                </td>
 
-                        <td>
-                            <a class="btn btn-info edit m-2 p-2"href="actualizarGrupo.jsp?idgrupo=<%=GruVO.getIdGrupo()%>&nombre=<%=GruVO.getNombre()%>&inicio=<%=GruVO.getFechaInicio()%>&fin=<%=GruVO.getFechaFin()%>"><i class="fas fa-pen"></i></a>
-                        </td>
-                    </tr>
-                    <%}%>  
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <th>Id</th>
-                        <th>Nombre</th>
-                        <th>Estado</th>
-                        <th>Fecha de Inicio</th>
-                        <th>Fecha de Fin</th>
-                        <th>Estado</th>
-                        <th>Actualizar</th>
-                    </tr>
-                    
-                </tfoot>
-            </table>
-        </div>
+                                <td>
+                                    <a class="btn btn-info edit m-2 p-2"href="actualizarGrupo.jsp?idgrupo=<%=GruVO.getIdGrupo()%>&nombre=<%=GruVO.getNombre()%>&inicio=<%=GruVO.getFechaInicio()%>&fin=<%=GruVO.getFechaFin()%>"><i class="fas fa-pen"></i></a>
+                                </td>
+                                <%}%>
+                            </tr>
+                            <%}%>  
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>Id</th>
+                                <th>Nombre</th>
+                                <th>Estado</th>
+                                <th>Fecha de Inicio</th>
+                                <th>Fecha de Fin</th>
+                                <%
+                                    if (tipoU.equals("Administrador")) {
+                                %>
+                                <th>Estado</th>
+                                <th>Actualizar</th>
+                                <%}%>
+                            </tr>
 
-        <script>
-            $(document).ready(function () {
-                $('#usuario').DataTable({
-                    scrollY: 400,
-                    language: {
-                        "sProcessing": "Procesando...",
-                        "sLengthMenu": "Mostrar _MENU_ registros",
-                        "sZeroRecords": "No se encontraron resultados",
-                        "sEmptyTable": "Ningun dato disponible en esta tabla",
-                        "sInfo": "Mostrando grupos del _START_ al _END_ de un total de _TOTAL_ grupos",
-                        "sInfoEmpty": "Mostrando grupos del 0 al 0 de un total de 0 grupos",
-                        "sInfoFiltered": "(filtrado de un total de _MAX_ grupos)",
-                        "sInfoPostFix": "",
-                        "sSearch": "Buscar:",
-                        "sUrl": "",
-                        "sInfoThousands": ",",
-                        "sLoadingRecords": "Cargando...",
-                        "oPaginate": {
-                            "sFirst": "Primero",
-                            "sLast": "Ãšltimo",
-                            "sNext": "Siguiente",
-                            "sPrevious": "Anterior"
-                        },
-                        "oAria": {
-                            "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
-                            "sSortDescending": ": Activar para ordenar la columna de manera descendente"
-                        },
-                        "buttons": {
-                            "copy": "Copiar",
-                            "colvis": "Visibilidad"
-                        }
-                    }
-                });
-            });
-        </script>
-        
-        <center><button class="abrir-registrar btn btn-primary" id="abrir-registrar">Registrar</button></center>
-        
-        <div class="overlay" id="overlay">
-            <form method="POST" action="Grupo" class="form-registro">
-                <div class="tituloR">
-                    <a href="#" class="cerrar-registro" id="cerrar-registro"><i class="fas fa-times"></i></a>
-                    <h2>Registrar Grupo</h2>
+                        </tfoot>
+                    </table>
                 </div>
-                <div class="cuerpo">
-                    <div class="formulario">
-                        
-                        <div class="modal-body">
-                        <label for="recipient-name" class="col-form-label">Nombre:</label>    
-                        <input type="text" name="txtNombre" placeholder="Nombre" required class="form-control" minlength="3" maxlength="30" onkeypress="return (event.charCode >= 65 && event.charCode >= 90 && event.charCode >= 97 && event.charCode <= 122)">
+
+                <script>
+                    $(document).ready(function () {
+                        $('#usuario').DataTable({
+                            scrollY: 400,
+                            language: {
+                                "sProcessing": "Procesando...",
+                                "sLengthMenu": "Mostrar _MENU_ registros",
+                                "sZeroRecords": "No se encontraron resultados",
+                                "sEmptyTable": "Ningun dato disponible en esta tabla",
+                                "sInfo": "Mostrando grupos del _START_ al _END_ de un total de _TOTAL_ grupos",
+                                "sInfoEmpty": "Mostrando grupos del 0 al 0 de un total de 0 grupos",
+                                "sInfoFiltered": "(filtrado de un total de _MAX_ grupos)",
+                                "sInfoPostFix": "",
+                                "sSearch": "Buscar:",
+                                "sUrl": "",
+                                "sInfoThousands": ",",
+                                "sLoadingRecords": "Cargando...",
+                                "oPaginate": {
+                                    "sFirst": "Primero",
+                                    "sLast": "Ãšltimo",
+                                    "sNext": "Siguiente",
+                                    "sPrevious": "Anterior"
+                                },
+                                "oAria": {
+                                    "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+                                    "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                                },
+                                "buttons": {
+                                    "copy": "Copiar",
+                                    "colvis": "Visibilidad"
+                                }
+                            }
+                        });
+                    });
+                </script>
+                <%
+                    if (tipoU.equals("Administrador")) {
+                %>
+                <center><button class="abrir-registrar btn btn-primary" id="abrir-registrar">Registrar</button></center>
+
+                <div class="overlay" id="overlay">
+                    <form method="POST" action="Grupo" class="form-registro">
+                        <div class="tituloR">
+                            <a href="#" class="cerrar-registro" id="cerrar-registro"><i class="fas fa-times"></i></a>
+                            <h2>Registrar Grupo</h2>
                         </div>
-                        
-                        <input type="hidden" name="txtEstado" value="Activo">
-                        
-                        <div class="modal-body">
-                        <label for="recipient-name" class="col-form-label">Fecha inicio:</label>  
-                        <input type="date" name="txtFechaInicio" placeholder="Fecha de Inicio" required class="form-control">
+                        <div class="cuerpo">
+                            <div class="formulario">
+
+                                <div class="modal-body">
+                                    <label for="recipient-name" class="col-form-label">Nombre:</label>    
+                                    <input type="text" name="txtNombre" placeholder="Nombre" required class="form-control" minlength="3" maxlength="30" onkeypress="return (event.charCode >= 65 && event.charCode >= 90 && event.charCode >= 97 && event.charCode <= 122)">
+                                </div>
+
+                                <input type="hidden" name="txtEstado" value="Activo">
+
+                                <div class="modal-body">
+                                    <label for="recipient-name" class="col-form-label">Fecha inicio:</label>  
+                                    <input type="date" name="txtFechaInicio" placeholder="Fecha de Inicio" required class="form-control">
+                                </div>
+
+                                <div class="modal-body">
+                                    <label for="recipient-name" class="col-form-label">Fecha fin:</label>  
+                                    <input type="date" name="txtFechaFin" placeholder="Fecha de Fin" required class="form-control">
+                                </div>
+
+                                <div class="selector">
+                                    <input type="submit" id="btn" value="Registrar" class="btn btn-success">
+                                    <input type="hidden" value="1" name="opcion">
+                                </div>
+                            </div>
                         </div>
-                        
-                        <div class="modal-body">
-                         <label for="recipient-name" class="col-form-label">Fecha fin:</label>  
-                        <input type="date" name="txtFechaFin" placeholder="Fecha de Fin" required class="form-control">
-                        </div>
-                        
-                        <div class="selector">
-                            <input type="submit" id="btn" value="Registrar" class="btn btn-success">
-                            <input type="hidden" value="1" name="opcion">
-                        </div>
-                    </div>
+                    </form>
+                    <%} else {
+                }%>
                 </div>
-            </form>
-        </div>
                 <% if (request.getAttribute("mensajeError") != null) {%>
                 <script  type="text/javascript">
 

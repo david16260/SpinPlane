@@ -79,12 +79,16 @@
                 -->
 
                 <div class="sidebar-wrapper">
-                     <div class="logo">
+                    <div class="logo">
                         <a href="menu.jsp">
-                        <img src="images/LOGO4.gif" class="SpinPlane" alt=""/>
+                            <img src="images/LOGO4.gif" class="SpinPlane" alt=""/>
                         </a>
                     </div>
 
+                    <%
+                        String tipoU = usuVO.getIdTipoUsuario();
+                        if (tipoU.equals("Profesor")) {
+                    %>
                     <ul class="nav">
                         <li>
                             <a href="consultarAsistencia.jsp">
@@ -124,13 +128,84 @@
                                 <p>Horario</p>
                             </a>
                         </li>
-                        <li class="active">
-                            <a href="consultarUsuario.jsp">
-                                <i class="pe-7s-user"></i>
-                                <p>Usuario</p>
+
+                    </ul>
+                    <%} else if (tipoU.equals("Estudiante")) {%>
+                    <ul class="nav">
+                        <li>
+                            <a href="consultarAsistencia.jsp">
+                                <i class="pe-7s-notebook"></i>
+                                <p>Asistencia</p>
                             </a>
                         </li>
-                    </ul>
+                        <li>
+                            <a href="consultarGrupo.jsp">
+                                <i class="pe-7s-users"></i>
+                                <p>Grupo</p>
+                            </a>
+                        </li>
+                        <li>
+                        <li>
+                            <a href="consultarAula.jsp">
+                                <i class="pe-7s-culture"></i>
+                                <p>Aula</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="consultarClase.jsp">
+                                <i class="pe-7s-news-paper"></i>
+                                <p>Clase</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="consultarHorario.jsp">
+                                <i class="pe-7s-date"></i>
+                                <p>Horario</p>
+                            </a>
+                        </li>
+                        <%} else if (tipoU.equals("Administrador")) {%>
+                        <ul class="nav">
+                            <li>
+                                <a href="consultarAsistencia.jsp">
+                                    <i class="pe-7s-notebook"></i>
+                                    <p>Asistencia</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="consultarAula.jsp">
+                                    <i class="pe-7s-culture"></i>
+                                    <p>Aula</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="consultarGrupo.jsp">
+                                    <i class="pe-7s-users"></i>
+                                    <p>Grupo</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="consultarClase.jsp">
+                                    <i class="pe-7s-news-paper"></i>
+                                    <p>Clase</p>
+                                </a>
+                            </li>
+                            <li>
+                            <li>
+                                <a href="consultarNovedad.jsp">
+                                    <i class="pe-7s-info"></i>
+                                    <p>Novedad</p>
+                                </a>
+                            </li>
+                            <li>
+
+                            <li>
+                                <a href="consultarUsuario.jsp">
+                                    <i class="pe-7s-user"></i>
+                                    <p>Usuario</p>
+                                </a>
+                            </li>
+                        </ul>
+                        <%}%>
                 </div>
             </div>
 
@@ -139,13 +214,13 @@
                     <div class="container-fluid">
 
                         <div class="collapse navbar-collapse">
-                            
+
                             <ul class="nav navbar-nav navbar-left">
 
                                 <li>
                                     <a href="menu.jsp">
                                         <i class="pe-7s-left-arrow"></i>
-                                        
+
                                     </a>
 
                                 </li>
@@ -198,7 +273,7 @@
                                     </a>
                                 </td>
                                 <td><%=UsuVO.getCorreo()%></td>                                
-                                <td><%=UsuVO.getIdTipoUsuario()%></td>  
+                                <td><%=UsuVO.getTipoUsuario() %></td>  
                                 <td>
                                     <a  class="btn btn-primary edit m-2 p-2"href="cambiarEstado.jsp?usuid=<%=UsuVO.getUsuId()%>&estado=<%=UsuVO.getEstado()%>"><i class="fas fa-pen"></i></a>
 
@@ -213,7 +288,7 @@
                         </tbody>
                         <tfoot>
                             <tr>
-                                
+
                                 <th>Nombre</th>
                                 <th>Apellido</th>
                                 <th>Tipo de Documento</th>
@@ -273,49 +348,49 @@
                         </div>
                         <div class="cuerpo">
                             <div class="formulario">
-                                
+
                                 <div class="modal-body">
-                                <label for="recipient-name" class="col-form-label">Nombre:</label>          
-                                <input type="text" id="nombre" name="txtNombre" placeholder="Nombre" required class="form-control" minlength="3" maxlength="30" onkeypress="return (event.charCode >= 65 && event.charCode >= 90 && event.charCode >= 97 && event.charCode <= 122)">
-                                 </div>
-                                
-                                <div class="modal-body">
-                                <label for="recipient-name" class="col-form-label">Apellido:</label>     
-                                <input type="text" id="apellido" name="txtApellido" placeholder="Apellido" required class="form-control" minlength="3" maxlength="30" onkeypress="return (event.charCode >= [65-90] && event.charCode >= 97 && event.charCode <= 122)">
+                                    <label for="recipient-name" class="col-form-label">Nombre:</label>          
+                                    <input type="text" id="nombre" name="txtNombre" placeholder="Nombre" required class="form-control" minlength="3" maxlength="30" onkeypress="return (event.charCode >= 65 && event.charCode >= 90 && event.charCode >= 97 && event.charCode <= 122)">
                                 </div>
-                                
+
+                                <div class="modal-body">
+                                    <label for="recipient-name" class="col-form-label">Apellido:</label>     
+                                    <input type="text" id="apellido" name="txtApellido" placeholder="Apellido" required class="form-control" minlength="3" maxlength="30" onkeypress="return (event.charCode >= [65 - 90] && event.charCode >= 97 && event.charCode <= 122)">
+                                </div>
+
                                 <div class="modal-body">
                                     <label for="recipient-name" class="col-form-label">Tipo documento:</label>
-                                    <select id="TipoDocumento" name="txtTipoDocumento" class="form-control">
+                                    <select id="TipoDocumento" class="form-control" name="txtTipoDocumento" c>
                                         <option selected>Tipo de Documento</option>
                                         <option value="C.C">Cedula de Ciudadania</option>
                                         <option value="T.I">Tarjeta de Identidad</option>
                                         <option value="C.E">Cedula de Extranjeria</option>
                                     </select>
                                 </div>
-                                
+
                                 <div class="modal-body">
-                                <label for="recipient-name" class="col-form-label">Número de documento:</label>    
-                                <input type="number" id="numeroDocumento" class="form-control" name="txtNumeroDocumento" required placeholder="Numero de Documento" minlength="6" maxlength="10">
+                                    <label for="recipient-name" class="col-form-label">Número de documento:</label>    
+                                    <input type="number" id="numeroDocumento" class="form-control" name="txtNumeroDocumento" required placeholder="Numero de Documento" minlength="6" maxlength="10">
                                 </div> 
-                                
+
                                 <div class="modal-body">
-                                <label for="recipient-name" class="col-form-label">Número de celular:</label>     
-                                <input type="number" id="celular" name="txtCelular" placeholder="Celular" required class="form-control" minlength="10" maxlength="10">
+                                    <label for="recipient-name" class="col-form-label">Número de celular:</label>     
+                                    <input type="number" id="celular" name="txtCelular" placeholder="Celular" required class="form-control" minlength="10" maxlength="10">
                                 </div>
                                 <input type="hidden" value="Activo" name="txtEstado" required>
                                 <div class="modal-body">
-                                <label for="recipient-name" class="col-form-label">Correo:</label>
-                                <input type="email" id="correo" name="txtCorreo" placeholder="Correo" required class="form-control" minlength="10" maxlength="30">
+                                    <label for="recipient-name" class="col-form-label">Correo:</label>
+                                    <input type="email" id="correo" name="txtCorreo" placeholder="Correo" required class="form-control" minlength="10" maxlength="30">
                                 </div>
-                                
+
                                 <div class="modal-body">
-                                <label for="recipient-name" class="col-form-label">Contraseña:</label>    
-                                <input type="password" name="txtClave" placeholder="Contraseña" required class="form-control" minlength="8" maxlength="30">
+                                    <label for="recipient-name" class="col-form-label">Contraseña:</label>    
+                                    <input type="password" name="txtClave" placeholder="Contraseña" required class="form-control" minlength="8" maxlength="30">
                                 </div>
-                                
+
                                 <div class="modal-body">
-                                   <label for="recipient-name" class="col-form-label">Rol:</label>  
+                                    <label for="recipient-name" class="col-form-label">Rol:</label>  
                                     <select name="txtRol" class="form-control">
                                         <option selected>Rol</option>
                                         <%

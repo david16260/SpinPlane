@@ -276,7 +276,7 @@
 
                                 </td>
                                 <td>
-                                    <a class="btn btn-primary edit m-2 p-2" href="actualizarClase.jsp?idClase=<%=ClaVO.getIdClase()%>&nombre=<%=ClaVO.getNombre()%>&estado=<%=ClaVO.getEstado()%>&cantidad=<%=ClaVO.getCantidadSesiones()%>"><i class="fas fa-pen"></i></a>
+                                    <a class="btn btn-primary edit m-2 p-2" href="actualizarClase.jsp?idClase=<%=ClaVO.getIdClase()%>&nombre=<%=ClaVO.getNombre()%>&cantidad=<%=ClaVO.getCantidadSesiones()%>"><i class="fas fa-pen"></i></a>
 
                                 </td>
                                 <%}%>

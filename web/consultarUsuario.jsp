@@ -273,7 +273,7 @@
                                     </a>
                                 </td>
                                 <td><%=UsuVO.getCorreo()%></td>                                
-                                <td><%=UsuVO.getIdTipoUsuario()%></td>  
+                                <td><%=UsuVO.getTipoUsuario() %></td>  
                                 <td>
                                     <a  class="btn btn-primary edit m-2 p-2"href="cambiarEstado.jsp?usuid=<%=UsuVO.getUsuId()%>&estado=<%=UsuVO.getEstado()%>"><i class="fas fa-pen"></i></a>
 
@@ -361,7 +361,7 @@
 
                                 <div class="modal-body">
                                     <label for="recipient-name" class="col-form-label">Tipo documento:</label>
-                                    <select id="TipoDocumento" name="txtTipoDocumento" class="form-control">
+                                    <select id="TipoDocumento" class="form-control" name="txtTipoDocumento" c>
                                         <option selected>Tipo de Documento</option>
                                         <option value="C.C">Cedula de Ciudadania</option>
                                         <option value="T.I">Tarjeta de Identidad</option>

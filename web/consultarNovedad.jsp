@@ -262,7 +262,7 @@
                                 <td><%=NovVO.getTipoNovedad()%></td>
                                 <td><%=NovVO.getNombreUsuario()%></td>
                                 <td>
-                                    <a class="btn btn-primary edit"href="actualizarNovedad.jsp?idnovedad=<%=NovVO.getIdNovedad()%>&descripcion=<%=NovVO.getDescripcion()%>&fechainicio=<%=NovVO.getFechaInicio()%>&fechafin=<%=NovVO.getFechaFin()%>&idtiponovedad=<%=NovVO.getIdTipoNovedad()%>&idasistencia=<%=NovVO.getIdAsistencia()%>"><i class="fas fa-pen"></i></a>
+                                    <a class="btn btn-primary edit"href="actualizarNovedad.jsp?idnovedad=<%=NovVO.getIdNovedad()%>&descripcion=<%=NovVO.getDescripcion()%>&fechainicio=<%=NovVO.getFechaInicio()%>&fechafin=<%=NovVO.getFechaFin()%>&idtiponovedad=<%=NovVO.getIdTipoNovedad()%>&idasistencia=<%=NovVO.getIdAsistencia()%>&usuario=<%=NovVO.getNombreUsuario()%>&novedad=<%=NovVO.getTipoNovedad() %>"><i class="fas fa-pen"></i></a>
                                 </td>
                             </tr>
 

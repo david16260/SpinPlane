@@ -49,8 +49,8 @@
            
         
         %>
+        <!--<h1><%=usuVO.getUsuId() %></h1>-->
         
-        <!--<option value="<%=usuVO.getIdTipoUsuario()%>"><%=usuVO.getIdTipoUsuario()%></option>-->
         
         <% }%>
                    

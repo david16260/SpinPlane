@@ -90,6 +90,10 @@
                         </a>
                     </div>
 
+                    <%
+                        String tipoU = usuVO.getIdTipoUsuario();
+                        if (tipoU.equals("Profesor")) {
+                    %>
                     <ul class="nav">
                         <li>
                             <a href="consultarAsistencia.jsp">
@@ -123,19 +127,90 @@
                             </a>
                         </li>
                         <li>
-                        <li class="active">
+                        <li>
                             <a href="consultarHorario.jsp">
                                 <i class="pe-7s-date"></i>
                                 <p>Horario</p>
                             </a>
                         </li>
+
+                    </ul>
+                    <%} else if (tipoU.equals("Estudiante")) {%>
+                    <ul class="nav">
                         <li>
-                            <a href="consultarUsuario.jsp">
-                                <i class="pe-7s-user"></i>
-                                <p>Usuario</p>
+                            <a href="consultarAsistencia.jsp">
+                                <i class="pe-7s-notebook"></i>
+                                <p>Asistencia</p>
                             </a>
                         </li>
-                    </ul>
+                        <li>
+                            <a href="consultarGrupo.jsp">
+                                <i class="pe-7s-users"></i>
+                                <p>Grupo</p>
+                            </a>
+                        </li>
+                        <li>
+                        <li>
+                            <a href="consultarAula.jsp">
+                                <i class="pe-7s-culture"></i>
+                                <p>Aula</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="consultarClase.jsp">
+                                <i class="pe-7s-news-paper"></i>
+                                <p>Clase</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="consultarHorario.jsp">
+                                <i class="pe-7s-date"></i>
+                                <p>Horario</p>
+                            </a>
+                        </li>
+                        <%} else if (tipoU.equals("Administrador")) {%>
+                        <ul class="nav">
+                            <li>
+                                <a href="consultarAsistencia.jsp">
+                                    <i class="pe-7s-notebook"></i>
+                                    <p>Asistencia</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="consultarAula.jsp">
+                                    <i class="pe-7s-culture"></i>
+                                    <p>Aula</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="consultarGrupo.jsp">
+                                    <i class="pe-7s-users"></i>
+                                    <p>Grupo</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="consultarClase.jsp">
+                                    <i class="pe-7s-news-paper"></i>
+                                    <p>Clase</p>
+                                </a>
+                            </li>
+                            <li>
+                            <li>
+                                <a href="consultarNovedad.jsp">
+                                    <i class="pe-7s-info"></i>
+                                    <p>Novedad</p>
+                                </a>
+                            </li>
+                            <li>
+
+                            <li>
+                                <a href="consultarUsuario.jsp">
+                                    <i class="pe-7s-user"></i>
+                                    <p>Usuario</p>
+                                </a>
+                            </li>
+                        </ul>
+                        <%}%>
                 </div>
             </div>
 
@@ -178,8 +253,12 @@
                                 <th>Grupo</th>
                                 <th>Aula</th>
                                 <th>Clase</th>
+                                    <%
+                                        if (tipoU.equals("Administrador")) {
+                                    %>
                                 <th>Estado</th>
                                 <th>Actualizar</th>
+                                    <%}%>
                             </tr>
                         </thead>
                         <tbody>
@@ -206,12 +285,16 @@
                                 <td><%=HorVO.getNombreGrupo()%></td>
                                 <td><%=HorVO.getNombreAula()%></td>
                                 <td><%=HorVO.getNombreClase()%></td>
+                                <%
+                                    if (tipoU.equals("Administrador")) {
+                                %>
                                 <td>
                                     <a  class="btn btn-primary edit m-2 p-2"href="cambiarEstadoHorario.jsp?idHorario=<%=HorVO.getIdHorario()%>&estado=<%=HorVO.getEstado()%>"><i class="fas fa-pen"></i></a>
                                 </td>
                                 <td>
-                                    <a class="btn btn-info edit m-2 p-2"href="actualizarHorario.jsp?idHorario=<%=HorVO.getIdHorario()%>&fechaInicio=<%=HorVO.getFechaInicio()%>&fechaFin=<%=HorVO.getFechaFin()%>&dia=<%=HorVO.getDia()%>&horaInicio=<%=HorVO.getHoraInicio()%>&horaFin=<%=HorVO.getHoraFin()%>&idGrupo=<%=HorVO.getIdGrupo()%>&idAula=<%=HorVO.getIdAula()%>&idClase=<%=HorVO.getIdClase()%> "><i class="fas fa-pen"></i></a>
+                                    <a class="btn btn-info edit m-2 p-2"href="actualizarHorario.jsp?idHorario=<%=HorVO.getIdHorario()%>&fechaInicio=<%=HorVO.getFechaInicio()%>&fechaFin=<%=HorVO.getFechaFin()%>&dia=<%=HorVO.getDia()%>&horaInicio=<%=HorVO.getHoraInicio()%>&horaFin=<%=HorVO.getHoraFin()%>&idGrupo=<%=HorVO.getIdGrupo()%>&idAula=<%=HorVO.getIdAula()%>&idClase=<%=HorVO.getIdClase()%>&nomGrupo=<%=HorVO.getNombreGrupo() %>&nomClase=<%=HorVO.getNombreClase()%>&nomAula=<%=HorVO.getNombreAula() %>   "><i class="fas fa-pen"></i></a>
                                 </td>
+                                <%}%>
                             </tr>
                             <%}%>  
                         </tbody>
@@ -227,8 +310,12 @@
                                 <th>Grupo</th>
                                 <th>Aula</th>
                                 <th>Clase</th>
+                                    <%
+                                        if (tipoU.equals("Administrador")) {
+                                    %>
                                 <th>Estado</th>
                                 <th>Actualizar</th>
+                                <%}%>
                             </tr>
                         </tfoot>
                     </table>
@@ -269,6 +356,9 @@
                         });
                     });
                 </script>
+                <%
+                    if (tipoU.equals("Administrador")) {
+                %>
                 <button class="abrir-registrar btn btn-primary" id="abrir-registrar">Registrar</button>
                 <div class="overlay" id="overlay">
                     <form method="POST" action="Horario" class="form-registro">
@@ -371,6 +461,7 @@
                             </div>
                         </div>
                     </form>
+                                    <%}%>
                 </div>
                 <% if (request.getAttribute("mensajeError") != null) {%>
                 <script  type="text/javascript">

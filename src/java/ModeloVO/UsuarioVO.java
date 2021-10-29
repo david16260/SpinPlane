@@ -11,11 +11,11 @@ package ModeloVO;
  */
 public class UsuarioVO {
     private String nombre,apellido,tipoDocumento,numDocumento,celular,estado,correo,clave;
-    private String usuId,idTipoUsuario;
+    private String usuId,idTipoUsuario,tipoUsuario;
     
 
    
-    public UsuarioVO(String usuId,String nombre, String apellido, String tipoDocumento, String numDocumento, String celular, String estado, String correo, String clave,String idTipoUsuario) {
+    public UsuarioVO(String usuId,String nombre, String apellido, String tipoDocumento, String numDocumento, String celular, String estado, String correo, String clave,String idTipoUsuario, String tipoUsuario) {
         this.usuId = usuId;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -26,8 +26,9 @@ public class UsuarioVO {
         this.correo = correo;
         this.clave = clave;
         this.idTipoUsuario = idTipoUsuario;
+        this.tipoUsuario = tipoUsuario;
     }
-    public UsuarioVO(String usuId,String nombre, String apellido, String tipoDocumento, String numDocumento, String celular,String estado, String correo,String idTipoUsuario) {
+    public UsuarioVO(String usuId,String nombre, String apellido, String tipoDocumento, String numDocumento, String celular,String estado, String correo,String tipoUsuario) {
         this.usuId = usuId;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -36,7 +37,7 @@ public class UsuarioVO {
         this.celular = celular;
         this.estado = estado;
         this.correo = correo;
-        this.idTipoUsuario = idTipoUsuario;
+        this.tipoUsuario = tipoUsuario;
     }
 
     public UsuarioVO( String usuId,String idTipoUsuario) {
@@ -134,5 +135,14 @@ public class UsuarioVO {
 
     public void setIdTipoUsuario(String idTipoUsuario) {
         this.idTipoUsuario = idTipoUsuario;
-    }  
+    }
+
+    public String getTipoUsuario() {
+        return tipoUsuario;
+    }
+
+    public void setTipoUsuario(String tipoUsuario) {
+        this.tipoUsuario = tipoUsuario;
+    }
+    
 }
