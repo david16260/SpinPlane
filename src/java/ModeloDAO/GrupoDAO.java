@@ -70,7 +70,7 @@ public class GrupoDAO extends Conexion implements Crud{
     @Override
     public boolean cambiarEstado() {
         try {
-            sql = "UPDATE `grupo` SET `estado`=? WHERE `idGrupo`=?";
+            sql = "call cambiarEstadoGrupo(?,?)";
             puente = conexion.prepareStatement(sql);
             puente.setString(1, estado);
             puente.setString(2, idGrupo);

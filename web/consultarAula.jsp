@@ -243,7 +243,6 @@
                                 <th>Id</th>
                                 <th>Nombre</th>
                                 <th>Capacidad</th>
-                                <th>Estado</th>
                                     <%
                                         if (tipoU.equals("Administrador")) {
                                     %>
@@ -274,38 +273,7 @@
                                     if (tipoU.equals("Administrador")) {
                                 %>
                                 <td>
-                                    <%
-                                        String idAula = request.getParameter("idAula");
-                                        String estado = request.getParameter("estado");
-                                    %>
-
-                                    <button class="btn btn-primary" data-toggle="modal" data-target="#hola">
-                                        Launch demo modal
-                                    </button>
-
-                                    <div class="modal fade" id="hola" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                        <div class="modal-dialog modal-dialog-centered" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                        <span aria-hidden="true">&times;</span>
-                                                    </button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    ...
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                    <button type="button" class="btn btn-primary">Save changes</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </td>
-                                <td>
-                                    <a class="btn btn-info edit m-2 p-2" href="actualizarAula.jsp?idAula=<%=AuVO.getIdAula()%>&nombre=<%=AuVO.getNombre()%>&capacidad=<%=AuVO.getCapacidad()%>&estado=<%=AuVO.getEstado()%>"><i class="fas fa-pen"></i></a>
+                                    <a class="btn btn-info edit m-2 p-2" href="actualizarAula.jsp?idAula=<%=AuVO.getIdAula()%>&nombre=<%=AuVO.getNombre()%>&capacidad=<%=AuVO.getCapacidad()%>"><i class="fas fa-pen"></i></a>
 
                                 </td>
                                 <%}%>
@@ -321,7 +289,6 @@
                                     <%
                                         if (tipoU.equals("Administrador")) {
                                     %>
-                                <th>Estado</th>
                                 <th>Actualizar</th>
                                     <%}%>
                             </tr>

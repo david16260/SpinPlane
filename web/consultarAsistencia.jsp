@@ -267,7 +267,7 @@
                         <td><%=AsisVO.getNombreUsuario()%></td>
                         <td><%=AsisVO.getNombreGrupo()%></td>
                         <td>
-                            <a class="btn btn-info edit m-2 p-2"href="actualizarAsistencia.jsp?idAsistencia=<%=AsisVO.getIdAsistencia()%>&asistencia=<%=AsisVO.getAsistencia()%>&fecha=<%=AsisVO.getFecha()%>&usuario=<%=AsisVO.getIdUsuario()%>&grupo=<%=AsisVO.getIdGrupo()%>"><i class="fas fa-pen"></i></a>
+                            <a class="btn btn-info edit m-2 p-2"href="actualizarAsistencia.jsp?idAsistencia=<%=AsisVO.getIdAsistencia()%>&asistencia=<%=AsisVO.getAsistencia()%>&fecha=<%=AsisVO.getFecha()%>&usuario=<%=AsisVO.getNombreUsuario() %>&grupo=<%=AsisVO.getNombreGrupo()%>&idUsuario=<%=AsisVO.getIdUsuario()%>&idGrupo=<%=AsisVO.getIdGrupo() %>"><i class="fas fa-pen"></i></a>
                         </td>
                     </tr>
                     <%}%>  

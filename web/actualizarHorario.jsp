@@ -7,22 +7,61 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%@include file="Sesiones.jsp" %>
-<html>
+<html lang="en">
     <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="Css/registrarUsu.css" rel="stylesheet" type="text/css"/>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+        <title>SpinPlane</title>
+
+        <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+        <meta name="viewport" content="width=device-width" />
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css" />
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css"/>
+        <link rel="stylesheet" href="Css/consultarUsuario.css"/>
+        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
-              integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
-                integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8"
-        crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+        <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap4.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+        <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap4.min.js"></script>
         <link href="Css/sweetalert.css" rel="stylesheet" type="text/css"/>
         <script src="Js/sweetalert.js" type="text/javascript"></script>
         <script src="Js/sweetalert.min.js" type="text/javascript"></script>
-        <title>Actualizar Usuario</title>
+        <!-- Bootstrap core CSS     -->
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="Css/sweetalert.css" rel="stylesheet" type="text/css"/>
+        <script src="Js/sweetalert.js" type="text/javascript"></script>
+        <script src="Js/sweetalert.min.js" type="text/javascript"></script>
+
+        <!-- Animation library for notifications   -->
+        <link href="assets/css/animate.min.css" rel="stylesheet"/>
+
+        <!--  Light Bootstrap Table core CSS    -->
+        <link href="assets/css/light-bootstrap-dashboard.css?v=1.4.0" rel="stylesheet"/>
+
+
+        <!--  CSS for Demo Purpose, don't include it in your project     -->
+        <link href="assets/css/demo.css" rel="stylesheet" />
+        <!--  CSS for Demo Purpose, don't include it in your project     -->
+
+
+        <!--     Fonts and icons     -->
+        <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+        <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
+        <link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
+
+        <!--  Google Maps Plugin    -->
+        <script src="assets/js/demo.js"></script>
     </head>
     <body>
         <%
@@ -35,99 +74,300 @@
             String idGrupo = request.getParameter("idGrupo");
             String idAula = request.getParameter("idAula");
             String idClase = request.getParameter("idClase");
+            String nomGrupo = request.getParameter("nomGrupo");
+            String nomAula = request.getParameter("nomAula");
+            String nomClase = request.getParameter("nomClase");
         %>
-        <section>
-            <div class="entra"></div>
-            <div class="entra"></div>
-            <div class="entra"></div>
-            <div class="box">
-                <div class="container2">
-                    <div class="form">
-                        <div class="boton-volver">
-                            <a class="boton-volver" href="consultarHorario.jsp" style="font-size: 40px;"><i class="fa fa-chevron-circle-left" id="cancel"></i></a>
-                        </div>
-                        <h2 for="usu">Actualizar Horario</h2>
-                        <form class="row g-2" method="POST" action="Horario">
-                            <input type="hidden" name="txtId" placeholder="Nombre" value="<%=idHorario%>">
-                            <div class="col-md-6">
-                                <label for="inputEmail4" class="form-label">Fecha inicio</label>
-                                <input type="date" name="txtFechaInicio" id="pass"
-                                       value="<%=fechaInicio%>"
-                                       min="2021-01-01" max="2021-12-31">   
-                            </div>
-                            <div class="col-md-6">
-                                <label for="inputPassword4" class="form-label">Fecha fin</label>
-                                <input type="date" name="txtFechaFin" id="pass"
-                                       value="<%=fechaFin%>"
-                                       min="2021-01-01" max="2021-12-31"> 
-                            </div>                                                           
-                                <input type="hidden" id="inputEmail4" name="txtDia" class="form-control" placeholder="Nombre" value="<%=dia%>">
-                            <div class="col-md-6">
-                                <label for="inputPassword4" class="form-label">Hora inicio</label>
-                                <input type="time" class="form-control" id="inputPassword4" name="txtHoraInicio" placeholder="Apellido" value="<%=horaInicio%>" >
-                            </div>
-                            <div class="col-md-6">
-                                <label for="inputPassword4" class="form-label">Hora fin</label>
-                                <input type="time"class="form-control" id="inputPassword4" name="txtHoraFin" placeholder="Apellido" value="<%=horaFin%>" >
-                            </div>
-                            <div class="col-md-6">
-                                <label for="inputPassword4" class="form-label">Grupo</label>
-                                <input type="text"class="form-control" id="inputPassword4" name="txtGrupo" placeholder="Apellido" value="<%=idGrupo%>" >
-                            </div>
-                            <div class="col-md-6">
-                                <label for="inputPassword4" class="form-label">Aula</label>
-                                <input type="text"class="form-control" id="inputPassword4" name="txtAula" placeholder="Apellido" value="<%=idAula%>" >
-                            </div>
-                            <div class="col-md-6">
-                                <label for="inputPassword4" class="form-label">Clase</label>
-                                <input type="text"class="form-control" id="inputPassword4" name="txtClase" placeholder="Apellido" value="<%=idClase%>" >
-                            </div>
-                            <div class="col-12">
-                                <input type="submit" class="btn btn-primary  d-flex justify-conted-center m-auto" id="btn" value="Actualizar">
-                                <input type="hidden" value="2" name="opcion">
-                            </div>
-                        </form>
-                        <div>
-                            <% if (request.getAttribute("mensajeError") != null) {%>
-                            <script  type="text/javascript">
 
-                                swal({
-                                    title: "Error",
-                                    text: "${mensajeError}",
-                                    type: 'error',
-                                    confirmButtonClass: "btn-primary",
-                                    confirmButtonText: "OK",
-                                    closeOnConfirm: false
-                                },
-                                        function () {
-                                            window.location = "consultarHorario.jsp";
-                                        });
-                            </script>
+        <div class="wrapper">
+            <div class="sidebar" data-color="orange" data-image="assets/img/siderbar.jpeg">
 
-                            <%} else if (request.getAttribute("mensajeExito") != null) {%>
-                            <script  type="text/javascript">
+                <!--
+            
+                    Tip 1: you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple"
+                    Tip 2: you can also add an image using data-image tag
+            
+                -->
 
-                                swal({
-                                    title: "Correcto",
-                                    text: "${mensajeExito}",
-                                    type: 'success',
-                                    confirmButtonClass: "btn-primary",
-                                    confirmButtonText: "OK",
-                                    closeOnConfirm: false
-                                },
-                                        function () {
-                                            window.location = "consultarHorario.jsp";
-                                        });
-                            </script>
-                            <%}%>
-                        </div>
+                <div class="sidebar-wrapper">
+                    <div class="logo">
+                        <a href="menu.jsp">
+                            <img src="images/LOGO4.gif" class="SpinPlane" alt=""/>
+                        </a>
                     </div>
+
+                    <%
+                        String tipoU = usuVO.getIdTipoUsuario();
+                        if (tipoU.equals("Profesor")) {
+                    %>
+                    <ul class="nav">
+                        <li>
+                            <a href="consultarAsistencia.jsp">
+                                <i class="pe-7s-notebook"></i>
+                                <p>Asistencia</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="consultarAula.jsp">
+                                <i class="pe-7s-culture"></i>
+                                <p>Aula</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="consultarGrupo.jsp">
+                                <i class="pe-7s-users"></i>
+                                <p>Grupo</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="consultarClase.jsp">
+                                <i class="pe-7s-news-paper"></i>
+                                <p>Clase</p>
+                            </a>
+                        </li>
+                        <li>
+                        <li>
+                            <a href="consultarNovedad.jsp">
+                                <i class="pe-7s-info"></i>
+                                <p>Novedad</p>
+                            </a>
+                        </li>
+                        <li>
+                        <li>
+                            <a href="consultarHorario.jsp">
+                                <i class="pe-7s-date"></i>
+                                <p>Horario</p>
+                            </a>
+                        </li>
+
+                    </ul>
+                    <%} else if (tipoU.equals("Estudiante")) {%>
+                    <ul class="nav">
+                        <li>
+                            <a href="consultarAsistencia.jsp">
+                                <i class="pe-7s-notebook"></i>
+                                <p>Asistencia</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="consultarGrupo.jsp">
+                                <i class="pe-7s-users"></i>
+                                <p>Grupo</p>
+                            </a>
+                        </li>
+                        <li>
+                        <li>
+                            <a href="consultarAula.jsp">
+                                <i class="pe-7s-culture"></i>
+                                <p>Aula</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="consultarClase.jsp">
+                                <i class="pe-7s-news-paper"></i>
+                                <p>Clase</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="consultarHorario.jsp">
+                                <i class="pe-7s-date"></i>
+                                <p>Horario</p>
+                            </a>
+                        </li>
+                        <%} else if (tipoU.equals("Administrador")) {%>
+                        <ul class="nav">
+                            <li>
+                                <a href="consultarAsistencia.jsp">
+                                    <i class="pe-7s-notebook"></i>
+                                    <p>Asistencia</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="consultarAula.jsp">
+                                    <i class="pe-7s-culture"></i>
+                                    <p>Aula</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="consultarGrupo.jsp">
+                                    <i class="pe-7s-users"></i>
+                                    <p>Grupo</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="consultarClase.jsp">
+                                    <i class="pe-7s-news-paper"></i>
+                                    <p>Clase</p>
+                                </a>
+                            </li>
+                            <li>
+                            <li>
+                                <a href="consultarNovedad.jsp">
+                                    <i class="pe-7s-info"></i>
+                                    <p>Novedad</p>
+                                </a>
+                            </li>
+                            <li>
+
+                            <li>
+                                <a href="consultarUsuario.jsp">
+                                    <i class="pe-7s-user"></i>
+                                    <p>Usuario</p>
+                                </a>
+                            </li>
+                        </ul>
+                        <%}%>
                 </div>
             </div>
+
+            <div class="main-panel">
+                <nav class="navbar navbar-default navbar-fixed">
+                    <div class="container-fluid">
+
+                        <div class="collapse navbar-collapse">
+
+                            <ul class="nav navbar-nav navbar-left">
+
+                                <li>
+                                    <a href="menu.jsp">
+                                        <i class="pe-7s-left-arrow"></i>
+
+                                    </a>
+
+                                </li>
+                            </ul>
+                            <ul style="list-style: none; margin-top: 15px;">
+                                <li>
+                                    <h2 class="text-center">Gestionar Horario</h2>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+
+
+                <div class="contenedor mt-4">
+
+
+                    <form method="POST" action="Horario" class="form-registro">
+                        <div class="tituloR">
+                            <a href="consultarHorario.jsp" class="cerrar-registro" id="cerrar-registro"><i class="fas fa-times"></i></a>
+                            <h2 class="textReg">Actualizar Horario</h2>
+                        </div>
+                        <div class="cuerpo">
+                            <div class="formulario">
+                                <input type="hidden" name="txtId" value="<%=idHorario %>">
+                                <input type="hidden" name="txtAula" value="<%=idAula %>">
+                                <input type="hidden" name="txtClase" value="<%=idClase %>">
+                                <input type="hidden" name="txtGrupo" value="<%=idGrupo %>">
+                                
+                                <div class="form-group">
+                                    <label for="recipient-name" class="col-form-label">Fecha Inicio:</label>  
+                                    <input type="date" class="form-control" value="<%=fechaInicio %>" id="nombre" name="txtFechaInicio"  required >
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="recipient-name" class="col-form-label">Fecha Fin:</label>  
+                                    <input type="date" class="form-control" value="<%=fechaFin %>"  id="nombre" name="txtFechaFin" placeholder="Nombre" required >
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="recipient-name" class="col-form-label">Dia:</label>          
+                                    <input type="text" class="form-control" id="nombre" name="txtDia" value="<%=dia %>" placeholder="Nombre" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="recipient-name" class="col-form-label">Hora Inicio:</label>  
+                                    <input type="time" class="form-control" value="<%=horaInicio %>" id="nombre" name="txtHoraInicio" required >
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="recipient-name" class="col-form-label">Hora Fin:</label>  
+                                    <input type="time" class="form-control" value="<%=horaFin %>" id="nombre" name="txtHoraFin" placeholder="Nombre" required >
+                                </div>   
+                                
+                                <div class="form-group">
+                                    <label for="recipient-name" class="col-form-label">Grupo:</label>  
+                                    <input type="text" class="form-control" value="<%=nomGrupo %>" id="nombre" name="txtNombreGrupo" placeholder="Nombre" required >
+                                </div> 
+                                
+                                <div class="form-group">
+                                    <label for="recipient-name" class="col-form-label">Aula:</label>  
+                                    <input type="text" class="form-control" value="<%=nomAula %>" id="nombre" name="txtNombreAula" placeholder="Nombre" required >
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="recipient-name" class="col-form-label">Clase:</label>  
+                                    <input type="text" class="form-control" value="<%=nomClase %>" id="nombre" name="txtNombreClase" placeholder="Nombre" required >
+                                </div> 
+                                <div class="boton">
+                                    <input type="submit" id="btn" value="Actualizar" class="btn btn-success">
+                                    <input type="hidden" value="2" name="opcion">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+               
+                <% if (request.getAttribute("mensajeError") != null) {%>
+                <script  type="text/javascript">
+
+                    swal({
+                        title: "Error",
+                        text: "${mensajeError}",
+                        type: 'error',
+                        confirmButtonClass: "btn-primary",
+                        confirmButtonText: "OK",
+                        closeOnConfirm: false
+                    },
+                            function () {
+                                window.location = "consultarHorario.jsp";
+                            });
+                </script>
+
+                <%} else if (request.getAttribute("mensajeExito") != null) {%>
+                <script  type="text/javascript">
+
+                    swal({
+                        title: "Correcto",
+                        text: "${mensajeExito}",
+                        type: 'success',
+                        confirmButtonClass: "btn-primary",
+                        confirmButtonText: "OK",
+                        closeOnConfirm: false
+                    },
+                            function () {
+                                window.location = "consultarHorario.jsp";
+                            });
+                </script>
+                <%}%>
+
+
+
+                
+                <script src="Js/consutarUsuario.js" type="text/javascript"></script>
+
+
+                <footer class="footer">
+                    <div class="container-fluid">
+
+                        <p class="copyright text-center">
+                            &copy; <script>document.write(new Date().getFullYear())</script> <a href="#">SpinPlane</a>
+                        </p>
+                    </div>
+                </footer>
+
+            </div>
         </div>
-    </section>
 
-</body>
+    </body>
+    <!--   Core JS Files   -->
+    <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
+    <script src="assets/js/light-bootstrap-dashboard.js?v=1.4.0"></script>
+
+    <!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
+    <script src="assets/js/demo.js"></script>
+
+
 </html>
-
-

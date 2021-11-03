@@ -11,9 +11,10 @@
         <link href="Css/sweetalert.css" rel="stylesheet" type="text/css"/>
         <script src="Js/sweetalert.js" type="text/javascript"></script>
         <script src="Js/sweetalert.min.js" type="text/javascript"></script>
-        <meta charset="UTF-8">
-        <title>Login</title>
-        <link rel="stylesheet" href="Css/login.css">
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <link rel="shortcut icon" href="images/LOGO2.gif" />
+  <link rel="stylesheet" href="Css/login.css">
 
     </head>
     <body>

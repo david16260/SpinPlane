@@ -49,11 +49,12 @@ public class UsuarioControlador extends HttpServlet {
         String correo = request.getParameter("txtCorreo");
         String clave = request.getParameter("txtClave");
         String idTipoUsuario = request.getParameter("txtRol");
+        String tipoUsuario = request.getParameter("txtTipoUsuario");
 
         int opcion = Integer.parseInt(request.getParameter("opcion"));
 
         //paso 2- instanciar VO
-        UsuarioVO UsuVO = new UsuarioVO(usuId, nombre, apellido, tipoDocumento, numDocumento, celular, estado, correo, clave, idTipoUsuario);
+        UsuarioVO UsuVO = new UsuarioVO(usuId, nombre, apellido, tipoDocumento, numDocumento, celular, estado, correo, clave, idTipoUsuario,tipoUsuario);
 
         //instanciar DAO
         UsuarioDAO UsuDAO = new UsuarioDAO(UsuVO);
@@ -105,16 +106,15 @@ public class UsuarioControlador extends HttpServlet {
                 }
                 break;
                 case 4://Actualizar Estado
-                UsuVO = UsuDAO.ConsultarId(usuId);
+                UsuVO = UsuDAO.consultarUsuarioS(usuId);
                 if (UsuVO !=null) {
                     
-                    request.setAttribute("id", UsuVO);
-                    request.getRequestDispatcher("actualizarUsuario.jsp").forward(request, response);
-                } else {
-                     request.setAttribute("mensajeExito", "El Usuario no existe");
-                     request.getRequestDispatcher("consultarUsuario.jsp").forward(request, response);
+                    request.setAttribute("usuario", UsuVO);
+                    request.getRequestDispatcher("perfil.jsp").forward(request, response);
+                }else{
+                    request.setAttribute("mensajeExito", "Usuario");
+                     request.getRequestDispatcher("perfil.jsp").forward(request, response);
                 }
-                request.getRequestDispatcher("consultarUsuario.jsp").forward(request, response);
                 break;
                 
                case 5://Actualizar Estado
@@ -125,9 +125,7 @@ public class UsuarioControlador extends HttpServlet {
                 }
                 request.getRequestDispatcher("cambiarEstado.jsp").forward(request, response);
                 break;
-                
-               
-                         
+                                        
         }
 
         }

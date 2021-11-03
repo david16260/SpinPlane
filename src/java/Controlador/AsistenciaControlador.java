@@ -65,11 +65,11 @@ public class AsistenciaControlador extends HttpServlet {
                 break;
             case 2://Actualizar Registro
                 if (AsisDAO.actualizarRegistro()) {
-                    request.setAttribute("mensajeExito", "La Asistencia se actualizo corectamente");
+                    request.setAttribute("mensajeExito", "La asistencia se actualizo corectamente");
                 } else {
                     request.setAttribute("mensajeError", "La Asistencia no se actualizo corectamente");
                 }
-                request.getRequestDispatcher("consultarAsistencia.jsp").forward(request, response);
+                request.getRequestDispatcher("actualizarAsistencia.jsp").forward(request, response);
                 break;
            
         }
