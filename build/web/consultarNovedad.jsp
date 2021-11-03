@@ -67,7 +67,7 @@
     </head>
     <body>
 
-         <div class="wrapper">
+        <div class="wrapper">
             <div class="sidebar" data-color="orange" data-image="assets/img/siderbar.jpeg">
 
                 <!--
@@ -78,12 +78,15 @@
                 -->
 
                 <div class="sidebar-wrapper">
-                     <div class="logo">
+                    <div class="logo">
                         <a href="menu.jsp">
-                        <img src="images/LOGO4.gif" class="SpinPlane" alt=""/>
+                            <img src="images/LOGO4.gif" class="SpinPlane" alt=""/>
                         </a>
                     </div>
-
+                    <%
+                        String tipoU = usuVO.getIdTipoUsuario();
+                        if (tipoU.equals("Profesor")) {
+                    %>
                     <ul class="nav">
                         <li>
                             <a href="consultarAsistencia.jsp">
@@ -110,7 +113,7 @@
                             </a>
                         </li>
                         <li>
-                        <li  class="active">
+                        <li>
                             <a href="consultarNovedad.jsp">
                                 <i class="pe-7s-info"></i>
                                 <p>Novedad</p>
@@ -123,13 +126,83 @@
                                 <p>Horario</p>
                             </a>
                         </li>
+
+                    </ul>
+                    <%} else if (tipoU.equals("Estudiante")) {%>
+                    <ul class="nav">
                         <li>
-                            <a href="consultarUsuario.jsp">
-                                <i class="pe-7s-user"></i>
-                                <p>Usuario</p>
+                            <a href="consultarAsistencia.jsp">
+                                <i class="pe-7s-notebook"></i>
+                                <p>Asistencia</p>
                             </a>
                         </li>
-                    </ul>
+                        <li>
+                            <a href="consultarGrupo.jsp">
+                                <i class="pe-7s-users"></i>
+                                <p>Grupo</p>
+                            </a>
+                        </li>
+                        <li>
+                        <li>
+                            <a href="consultarAula.jsp">
+                                <i class="pe-7s-culture"></i>
+                                <p>Aula</p>
+                            </a>
+                        </li>
+                        <a href="consultarClase.jsp">
+                            <i class="pe-7s-news-paper"></i>
+                            <p>Clase</p>
+                        </a>
+                        </li>
+                        <li>
+                            <a href="consultarHorario.jsp">
+                                <i class="pe-7s-date"></i>
+                                <p>Horario</p>
+                            </a>
+                        </li>
+                        <%} else if (tipoU.equals("Administrador")) {%>
+                        <ul class="nav">
+                            <li>
+                                <a href="consultarAsistencia.jsp">
+                                    <i class="pe-7s-notebook"></i>
+                                    <p>Asistencia</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="consultarAula.jsp">
+                                    <i class="pe-7s-culture"></i>
+                                    <p>Aula</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="consultarGrupo.jsp">
+                                    <i class="pe-7s-users"></i>
+                                    <p>Grupo</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="consultarClase.jsp">
+                                    <i class="pe-7s-news-paper"></i>
+                                    <p>Clase</p>
+                                </a>
+                            </li>
+                            <li>
+                            <li>
+                                <a href="consultarNovedad.jsp">
+                                    <i class="pe-7s-info"></i>
+                                    <p>Novedad</p>
+                                </a>
+                            </li>
+                            <li>
+
+                            <li>
+                                <a href="consultarUsuario.jsp">
+                                    <i class="pe-7s-user"></i>
+                                    <p>Usuario</p>
+                                </a>
+                            </li>
+                        </ul>
+                        <%}%>
                 </div>
             </div>
 
@@ -138,13 +211,13 @@
                     <div class="container-fluid">
 
                         <div class="collapse navbar-collapse">
-                            
+
                             <ul class="nav navbar-nav navbar-left">
 
                                 <li>
                                     <a href="menu.jsp">
                                         <i class="pe-7s-left-arrow"></i>
-                                        
+
                                     </a>
 
                                 </li>
@@ -161,141 +234,141 @@
                 <div class="contenedor mt-4">
 
                     <table id="usuario" class="table table-striped" style="width:150%">
-                <thead>
-                    <tr>
-                        <th>Id</th>
-                        <th>Descripcion</th>
-                        <th>Fecha Inicio</th>
-                        <th>Fecha Fin</th>
-                        <th>Tipo de Novedad</th>
-                        <th>Asistencia</th>
-                        <th>Actualizar</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <%
-                        NovedadVO NovVO = new NovedadVO();
-                        NovedadDAO NovDAO = new NovedadDAO(NovVO);
-                        ArrayList<NovedadVO> listaNovedad = NovDAO.listar();
-                        for (int i = 0; i < listaNovedad.size(); i++) {
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Descripcion</th>
+                                <th>Fecha Inicio</th>
+                                <th>Fecha Fin</th>
+                                <th>Tipo de Novedad</th>
+                                <th>Asistencia</th>
+                                <th>Actualizar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <%
+                                NovedadVO NovVO = new NovedadVO();
+                                NovedadDAO NovDAO = new NovedadDAO(NovVO);
+                                ArrayList<NovedadVO> listaNovedad = NovDAO.listar();
+                                for (int i = 0; i < listaNovedad.size(); i++) {
 
-                            NovVO = listaNovedad.get(i);
-                    %>               
-                    <tr>
-                        <td><%=NovVO.getIdNovedad()%></td>
-                        <td><%=NovVO.getDescripcion()%></td>
-                        <td><%=NovVO.getFechaInicio()%></td>
-                        <td><%=NovVO.getFechaFin()%></td>
-                        <td><%=NovVO.getTipoNovedad()%></td>
-                        <td><%=NovVO.getNombreUsuario()%></td>
-                         <td>
-                            <a class="btn btn-primary edit"href="actualizarNovedad.jsp?idnovedad=<%=NovVO.getIdNovedad()%>&descripcion=<%=NovVO.getDescripcion()%>&fechainicio=<%=NovVO.getFechaInicio()%>&fechafin=<%=NovVO.getFechaFin()%>&idtiponovedad=<%=NovVO.getIdTipoNovedad()%>&idasistencia=<%=NovVO.getIdAsistencia()%>"><i class="fas fa-pen"></i></a>
-                        </td>
-                    </tr>
-                   
-                    <%}%>  
-                    
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <th>Id</th>
-                        <th>Descripcion</th>
-                        <th>Fecha Inicio</th>
-                        <th>Fecha Fin</th>
-                        <th>Tipo de Novedad</th>
-                        <th>Asistencia</th>
-                        <th>Actualizar</th>
+                                    NovVO = listaNovedad.get(i);
+                            %>               
+                            <tr>
+                                <td><%=NovVO.getIdNovedad()%></td>
+                                <td><%=NovVO.getDescripcion()%></td>
+                                <td><%=NovVO.getFechaInicio()%></td>
+                                <td><%=NovVO.getFechaFin()%></td>
+                                <td><%=NovVO.getTipoNovedad()%></td>
+                                <td><%=NovVO.getNombreUsuario()%></td>
+                                <td>
+                                    <a class="btn btn-primary edit"href="actualizarNovedad.jsp?idnovedad=<%=NovVO.getIdNovedad()%>&descripcion=<%=NovVO.getDescripcion()%>&fechainicio=<%=NovVO.getFechaInicio()%>&fechafin=<%=NovVO.getFechaFin()%>&idtiponovedad=<%=NovVO.getIdTipoNovedad()%>&idasistencia=<%=NovVO.getIdAsistencia()%>"><i class="fas fa-pen"></i></a>
+                                </td>
+                            </tr>
 
-                    </tr>
-                </tfoot>
-            </table>
-        </div>
+                            <%}%>  
 
-        <script>
-            $(document).ready(function () {
-                $('#usuario').DataTable({
-                    scrollY: 400,
-                    language: {
-                        "sProcessing": "Procesando...",
-                        "sLengthMenu": "Mostrar _MENU_ registros",
-                        "sZeroRecords": "No se encontraron resultados",
-                        "sEmptyTable": "Ningun dato disponible en esta tabla",
-                        "sInfo": "Mostrando novedades del _START_ al _END_ de un total de _TOTAL_ novedades",
-                        "sInfoEmpty": "Mostrando novedades del 0 al 0 de un total de 0 novedades",
-                        "sInfoFiltered": "(filtrado de un total de _MAX_ novedades)",
-                        "sInfoPostFix": "",
-                        "sSearch": "Buscar:",
-                        "sUrl": "",
-                        "sInfoThousands": ",",
-                        "sLoadingRecords": "Cargando...",
-                        "oPaginate": {
-                            "sFirst": "Primero",
-                            "sLast": "Ãšltimo",
-                            "sNext": "Siguiente",
-                            "sPrevious": "Anterior"
-                        },
-                        "oAria": {
-                            "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
-                            "sSortDescending": ": Activar para ordenar la columna de manera descendente"
-                        },
-                        "buttons": {
-                            "copy": "Copiar",
-                            "colvis": "Visibilidad"
-                        }
-                    }
-                });
-            });
-        </script>
-        <button class="abrir-registrar btn btn-primary" id="abrir-registrar">Registrar</button>
-        <div class="overlay " id="overlay">
-            <form method="POST" action="Novedad" class="form-registro">
-                <div class="tituloR">
-                    <a href="#" class="cerrar-registro" id="cerrar-registro"><i class="fas fa-times"></i></a>
-                    <h2>Registrar Novedad</h2>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>Id</th>
+                                <th>Descripcion</th>
+                                <th>Fecha Inicio</th>
+                                <th>Fecha Fin</th>
+                                <th>Tipo de Novedad</th>
+                                <th>Asistencia</th>
+                                <th>Actualizar</th>
+
+                            </tr>
+                        </tfoot>
+                    </table>
                 </div>
-                <div class="cuerpo">
-                    <div class="formulario">
-                        
-                        <div class="modal-body">
-                        <label for="recipient-name" class="col-form-label">Descripción:</label>
-                        <input type="text" name="txtDescripcion" class="form-control" placeholder="Descripcion">
+
+                <script>
+                    $(document).ready(function () {
+                        $('#usuario').DataTable({
+                            scrollY: 400,
+                            language: {
+                                "sProcessing": "Procesando...",
+                                "sLengthMenu": "Mostrar _MENU_ registros",
+                                "sZeroRecords": "No se encontraron resultados",
+                                "sEmptyTable": "Ningun dato disponible en esta tabla",
+                                "sInfo": "Mostrando novedades del _START_ al _END_ de un total de _TOTAL_ novedades",
+                                "sInfoEmpty": "Mostrando novedades del 0 al 0 de un total de 0 novedades",
+                                "sInfoFiltered": "(filtrado de un total de _MAX_ novedades)",
+                                "sInfoPostFix": "",
+                                "sSearch": "Buscar:",
+                                "sUrl": "",
+                                "sInfoThousands": ",",
+                                "sLoadingRecords": "Cargando...",
+                                "oPaginate": {
+                                    "sFirst": "Primero",
+                                    "sLast": "Ãšltimo",
+                                    "sNext": "Siguiente",
+                                    "sPrevious": "Anterior"
+                                },
+                                "oAria": {
+                                    "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+                                    "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                                },
+                                "buttons": {
+                                    "copy": "Copiar",
+                                    "colvis": "Visibilidad"
+                                }
+                            }
+                        });
+                    });
+                </script>
+                <button class="abrir-registrar btn btn-primary" id="abrir-registrar">Registrar</button>
+                <div class="overlay " id="overlay">
+                    <form method="POST" action="Novedad" class="form-registro">
+                        <div class="tituloR">
+                            <a href="#" class="cerrar-registro" id="cerrar-registro"><i class="fas fa-times"></i></a>
+                            <h2>Registrar Novedad</h2>
                         </div>
-                        
-                        <div class="modal-body">
-                        <label for="recipient-name" class="col-form-label">Fecha inicio:</label>   
-                        <input type="date" name="txtFechaInicio" class="form-control">
+                        <div class="cuerpo">
+                            <div class="formulario">
+
+                                <div class="modal-body">
+                                    <label for="recipient-name" class="col-form-label">Descripción:</label>
+                                    <input type="text" name="txtDescripcion" class="form-control" placeholder="Descripcion">
+                                </div>
+
+                                <div class="modal-body">
+                                    <label for="recipient-name" class="col-form-label">Fecha inicio:</label>   
+                                    <input type="date" name="txtFechaInicio" class="form-control">
+                                </div>
+                                <div class="modal-body">
+                                    <label for="recipient-name" class="col-form-label">Fecha fin:</label> 
+                                    <input type="date" name="txtFechaFin" class="form-control">
+                                </div>
+
+                                <div class="modal-body">
+                                    <label for="recipient-name" class="col-form-label">Tipo de novedad:</label> 
+                                    <select name="txtTipoNovedad" class="form-control">
+                                        <option selected>Tipo de Novedad</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                    </select>
+                                </div>
+
+                                <div class="modal-body">
+                                    <label for="recipient-name" class="col-form-label">Id asistencia:</label> 
+                                    <select name="txtAsistencia" class="form-control">
+                                        <option selected>Id Asistencia</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                    </select>
+                                </div>
+                                <div class="boton">
+                                    <input type="submit" id="btn" value="Registrar" class="btn btn-success">
+                                    <input type="hidden" value="1" name="opcion">
+                                </div>
+                            </div>
                         </div>
-                        <div class="modal-body">
-                        <label for="recipient-name" class="col-form-label">Fecha fin:</label> 
-                        <input type="date" name="txtFechaFin" class="form-control">
-                        </div>
-                        
-                        <div class="modal-body">
-                            <label for="recipient-name" class="col-form-label">Tipo de novedad:</label> 
-                            <select name="txtTipoNovedad" class="form-control">
-                                <option selected>Tipo de Novedad</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                            </select>
-                        </div>
-                        
-                        <div class="modal-body">
-                            <label for="recipient-name" class="col-form-label">Id asistencia:</label> 
-                            <select name="txtAsistencia" class="form-control">
-                                <option selected>Id Asistencia</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                            </select>
-                        </div>
-                        <div class="boton">
-                            <input type="submit" id="btn" value="Registrar" class="btn btn-success">
-                            <input type="hidden" value="1" name="opcion">
-                        </div>
-                    </div>
+
+                    </form>
                 </div>
-                
-            </form>
-        </div>
                 <% if (request.getAttribute("mensajeError") != null) {%>
                 <script  type="text/javascript">
 

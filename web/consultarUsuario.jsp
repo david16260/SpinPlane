@@ -266,7 +266,7 @@
                                 <td><%=UsuVO.getTipoDocumento()%></td>
                                 <td><%=UsuVO.getNumDocumento()%></td>
                                 <td><%=UsuVO.getCelular()%></td>
-                                
+
                                 <td>
                                     <a class="<%=UsuVO.getEstado().equals("Activo") ? "btn btn-success  m-3" : "btn btn-danger  m-3"%>" style="padding-right: 56px;">
                                         <%=UsuVO.getEstado()%>
@@ -341,58 +341,99 @@
                 </script>
                 <button class="abrir-registrar btn btn-primary" id="abrir-registrar">Registrar</button>
                 <div class="overlay" id="overlay">
-                    <form method="POST" action="Usuario" class="form-registro">
+                    <form method="POST" action="Usuario" class="form-registro needs-validation" novalidate>
                         <div class="tituloR">
                             <a href="#" class="cerrar-registro" id="cerrar-registro"><i class="fas fa-times"></i></a>
                             <h2 class="textReg">Registrar Usuario</h2>
                         </div>
                         <div class="cuerpo">
                             <div class="formulario">
-
-                                <div class="modal-body">
-                                    <label for="recipient-name" class="col-form-label">Nombre:</label>          
-                                    <input type="text" id="nombre" name="txtNombre" placeholder="Nombre" required class="form-control" minlength="3" maxlength="30" onkeypress="return (event.charCode >= 65 && event.charCode >= 90 && event.charCode >= 97 && event.charCode <= 122)">
+                                <div class="col-md-6 ">
+                                    <label for="validationTooltip01" class="form-label">Nombre:</label>
+                                    <input type="text" class="form-control"  id="validationTooltip01" name="txtNombre" placeholder="Nombre" minlength="3" maxlength="30" required>
+                                    <div class="valid-feedback">
+                                        Correcto
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Por favor ingresa el Nombre 
+                                    </div>
                                 </div>
 
-                                <div class="modal-body">
-                                    <label for="recipient-name" class="col-form-label">Apellido:</label>     
-                                    <input type="text" id="apellido" name="txtApellido" placeholder="Apellido" required class="form-control" minlength="3" maxlength="30" onkeypress="return (event.charCode >= [65 - 90] && event.charCode >= 97 && event.charCode <= 122)">
+                                <div class="col-md-6 ">
+                                    <label for="validationTooltip04" class="col-form-label">Apellido:</label>
+                                    <input type="text" class="form-control"  id="validationTooltip01" name="txtApellido" placeholder="Apellido" minlength="3" maxlength="30" required>
+                                    <div class="valid-feedback">
+                                        Correcto
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Por favor ingresa el apellido 
+                                    </div>
                                 </div>
 
-                                <div class="modal-body">
-                                    <label for="recipient-name" class="col-form-label">Tipo documento:</label>
-                                    <select id="TipoDocumento" name="txtTipoDocumento" class="form-control">
-                                        <option selected>Tipo de Documento</option>
+                                <div class="col-md-6">
+                                    <label for="validationCustom04" class="col-form-label mt-0">Tipo documento:</label>
+                                    <select  id="validationCustom04" required name="txtTipoDocumento" class="form-control">
+                                        <option selected disabled value="">Tipo de Documento</option>
                                         <option value="C.C">Cedula de Ciudadania</option>
                                         <option value="T.I">Tarjeta de Identidad</option>
                                         <option value="C.E">Cedula de Extranjeria</option>
                                     </select>
+
+                                    <div class="invalid-feedback">
+                                        Por favor selecciona el tipo documento 
+                                    </div>
+                                    <div class="valid-feedback">
+                                        Correcto
+                                    </div>
+
                                 </div>
 
-                                <div class="modal-body">
-                                    <label for="recipient-name" class="col-form-label">Número de documento:</label>    
-                                    <input type="number" id="numeroDocumento" class="form-control" name="txtNumeroDocumento" required placeholder="Numero de Documento" minlength="6" maxlength="10">
-                                </div> 
-
-                                <div class="modal-body">
-                                    <label for="recipient-name" class="col-form-label">Número de celular:</label>     
-                                    <input type="number" id="celular" name="txtCelular" placeholder="Celular" required class="form-control" minlength="10" maxlength="10">
-                                </div>
-                                <input type="hidden" value="Activo" name="txtEstado" required>
-                                <div class="modal-body">
-                                    <label for="recipient-name" class="col-form-label">Correo:</label>
-                                    <input type="email" id="correo" name="txtCorreo" placeholder="Correo" required class="form-control" minlength="10" maxlength="30">
+                                <div class="col-md-6 ">
+                                    <label for="validationTooltip01" class="form-label">Número de documento:</label>
+                                    <input type="text" class="form-control"  id="validationTooltip01" name="txtNumeroDocumento" placeholder="Numero de Documento" minlength="10" maxlength="10" required>
+                                    <div class="valid-feedback">
+                                        Correcto
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Por favor ingresa el Numero de de documento 
+                                    </div>
                                 </div>
 
-                                <div class="modal-body">
-                                    <label for="recipient-name" class="col-form-label">Contraseña:</label>    
-                                    <input type="password" name="txtClave" placeholder="Contraseña" required class="form-control" minlength="8" maxlength="30">
+                                <div class="col-md-6 ">
+                                    <label for="validationTooltip01" class="form-label">Número de celular:</label>
+                                    <input type="number" class="form-control"  id="validationTooltip01" name="txtCelular" placeholder="Celular"minlength="10" maxlength="10" required>
+                                    <div class="valid-feedback">
+                                        Correcto
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Por favor ingresa el numero de celular 
+                                    </div>
                                 </div>
 
-                                <div class="modal-body">
-                                    <label for="recipient-name" class="col-form-label">Rol:</label>  
-                                    <select name="txtRol" class="form-control">
-                                        <option selected>Rol</option>
+                                <div class="col-md-6">
+                                    <label for="validationCustomUsername" class="form-label">Correo:</label>
+                                    <div class="input-group has-validation">
+                                        <input type="email" class="form-control" id="validationCustomUsername"  minlength="10" maxlength="30" name="txtCorreo" placeholder="Correo" required>
+                                        <div class="invalid-feedback">
+                                            Por favor ingresa un correo valido
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 ">
+                                    <label for="validationTooltip01" class="form-label">Contraseña:</label>
+                                    <input type="password" name="txtClave" placeholder="Contraseña" class="form-control"  id="validationTooltip01" minlength="8" maxlength="30" required>
+                                    <div class="valid-feedback">
+                                        Correcto
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Por favor ingresa una contraseña valida 
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="validationCustom04" class="col-form-label mt-0">Rol:</label>
+                                    <select  id="validationCustom04" required name="txtRol" class="form-control">
+                                        <option selected disabled value="">Rol...</option>
                                         <%
                                             TipoUsuarioDAO TipDAO = new TipoUsuarioDAO();
                                             for (TipoUsuarioVO TipVO : TipDAO.listar()) {
@@ -400,69 +441,98 @@
                                         <option value="<%=TipVO.getIdTipoUsuario()%>"><%=TipVO.getTipoUsuario()%></option>
                                         <% }%>
                                     </select>
+                                    <div class="invalid-feedback">
+                                        Por favor selecciona el rol 
+                                    </div>
+                                    <div class="valid-feedback">
+                                        Correcto
+                                    </div>
                                 </div>
-                                <div class="selector1">
+                                <div class="col-12 mt-3">
                                     <input type="submit" class="btn btn-success" id="btn" value="Registrar">
                                     <input type="hidden" value="1" name="opcion">
                                 </div>
-                            </div>
                         </div>
-                    </form>
                 </div>
-                <% if (request.getAttribute("mensajeError") != null) {%>
-                <script  type="text/javascript">
+                <input type="hidden" value="Activo" name="txtEstado" required>
 
-                    swal({
-                        title: "Error",
-                        text: "${mensajeError}",
-                        type: 'error',
-                        confirmButtonClass: "btn-primary",
-                        confirmButtonText: "OK",
-                        closeOnConfirm: false
-                    },
-                            function () {
-                                window.location = "consultarUsuario.jsp";
-                            });
-                </script>
-
-                <%} else if (request.getAttribute("mensajeExito") != null) {%>
-                <script  type="text/javascript">
-
-                    swal({
-                        title: "Correcto",
-                        text: "${mensajeExito}",
-                        type: 'success',
-                        confirmButtonClass: "btn-primary",
-                        confirmButtonText: "OK",
-                        closeOnConfirm: false
-                    },
-                            function () {
-                                window.location = "consultarUsuario.jsp";
-                            });
-                </script>
-                <%}%>
-                <script src="Js/consutarUsuario.js" type="text/javascript"></script>
-
-
-                <footer class="footer">
-                    <div class="container-fluid">
-
-                        <p class="copyright text-center">
-                            &copy; <script>document.write(new Date().getFullYear())</script> <a href="#">SpinPlane</a>
-                        </p>
-                    </div>
-                </footer>
-
+                </form>
             </div>
+            <% if (request.getAttribute("mensajeError") != null) {%>
+            <script  type="text/javascript">
+
+                swal({
+                    title: "Error",
+                    text: "${mensajeError}",
+                    type: 'error',
+                    confirmButtonClass: "btn-primary",
+                    confirmButtonText: "OK",
+                    closeOnConfirm: false
+                },
+                        function () {
+                            window.location = "consultarUsuario.jsp";
+                        });
+            </script>
+
+            <%} else if (request.getAttribute("mensajeExito") != null) {%>
+            <script  type="text/javascript">
+
+                swal({
+                    title: "Correcto",
+                    text: "${mensajeExito}",
+                    type: 'success',
+                    confirmButtonClass: "btn-primary",
+                    confirmButtonText: "OK",
+                    closeOnConfirm: false
+                },
+                        function () {
+                            window.location = "consultarUsuario.jsp";
+                        });
+            </script>
+            <%}%>
+            <script src="Js/consutarUsuario.js" type="text/javascript"></script>
+
+
+            <footer class="footer">
+                <div class="container-fluid">
+
+                    <p class="copyright text-center">
+                        &copy; <script>document.write(new Date().getFullYear())</script> <a href="#">SpinPlane</a>
+                    </p>
+                </div>
+            </footer>
+
         </div>
+    </div>
+    <script>
+                // Example starter JavaScript for disabling form submissions if there are invalid fields
+                        (function () {
+                            'use strict'
 
-    </body>
-    <!--   Core JS Files   -->
-    <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
-    <script src="assets/js/light-bootstrap-dashboard.js?v=1.4.0"></script>
+                            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                            var forms = document.querySelectorAll('.needs-validation')
 
-    <!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
-    <script src="assets/js/demo.js"></script>
+                            // Loop over them and prevent submission
+                            Array.prototype.slice.call(forms)
+                                    .forEach(function (form) {
+                                        form.addEventListener('submit', function (event) {
+                                            if (!form.checkValidity()) {
+                                                event.preventDefault()
+                                                event.stopPropagation()
+                                            }
+
+                                            form.classList.add('was-validated')
+                                        }, false)
+                                    })
+                        })()
+    </script>
+</body>
+<!--   Core JS Files   -->
+<!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
+<script src="assets/js/light-bootstrap-dashboard.js?v=1.4.0"></script>
+
+<!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
+<script src="assets/js/demo.js"></script>
 
 
 </html>
