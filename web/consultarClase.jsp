@@ -127,6 +127,12 @@
                                 <p>Horario</p>
                             </a>
                         </li>
+                        <li>
+                            <a href="consultarHorario.jsp">
+                                <i class="pe-7s-date"></i>
+                                <p>Correo</p>
+                            </a>
+                        </li>
 
                     </ul>
                     <%} else if (tipoU.equals("Estudiante")) {%>
@@ -157,7 +163,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="consultarHorario.jsp">
+                            <a href="EnviarCorreo.jsp">
                                 <i class="pe-7s-date"></i>
                                 <p>Horario</p>
                             </a>
@@ -203,6 +209,12 @@
                                     <p>Usuario</p>
                                 </a>
                             </li>
+                            <li>
+                            <a href="EnviarCorreo.jsp">
+                                <i class="pe-7s-date"></i>
+                                <p>Correo</p>
+                            </a>
+                        </li>
                         </ul>
                         <%}%>
                 </div>

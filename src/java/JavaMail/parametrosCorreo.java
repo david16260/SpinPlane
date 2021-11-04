@@ -53,7 +53,7 @@ public class parametrosCorreo extends HttpServlet {
             resultadoEnvio = "Error al envíar el mensaje " + e.getMessage();
         }finally{
             request.setAttribute("resultado", resultadoEnvio);
-            getServletContext().getRequestDispatcher("/Correo.jsp").forward(request, response);
+            getServletContext().getRequestDispatcher("/EnviarCorreo.jsp").forward(request, response);
         }
     }
 
