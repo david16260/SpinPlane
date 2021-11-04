@@ -3,6 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
+            <file>file:/C:/Users/Julian/Documents/NetBeansProjects/SpinPlane/web/login.jsp</file>
+=======
             <file>file:/C:/Users/David/OneDrive/Documentos/NetBeansProjects/Academia/src/java/Controlador/UsuarioControlador.java</file>
             <file>file:/C:/Users/David/OneDrive/Documentos/NetBeansProjects/Academia/web/perfil.jsp</file>
             <file>file:/C:/Users/David/OneDrive/Documentos/NetBeansProjects/Academia/web/menu.jsp</file>
@@ -15,4 +18,11 @@
             <file>file:/C:/Users/Julian/Documents/NetBeansProjects/SpinPlane/web/consultarNovedad.jsp</file>
             <file>file:/C:/Users/Julian/Documents/NetBeansProjects/SpinPlane/web/menu.jsp</file>
             <file>file:/C:/Users/Julian/Documents/NetBeansProjects/SpinPlane/web/consultarClase.jsp</file>
+>>>>>>> origin/master
             <file>file:/C:/Users/Julian/Documents/NetBeansProjects/SpinPlane/web/consultarUsuario.jsp</file>
+<<<<<<< HEAD
+        </group>
+    </open-files>
+</project-private>
+=======
+>>>>>>> origin/master

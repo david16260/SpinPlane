@@ -28,6 +28,14 @@
         <title></title>
     </head>
     <body>
+        <%
+                        String tipoU = usuVO.getIdTipoUsuario();
+                        if (tipoU.equals("Estudiante")) {
+                    %>
+                    <script>
+                        window.location.href = "menu.jsp";
+                    </script>
+                    <%}%>
         <nav>
             <ul>
 
