@@ -377,12 +377,10 @@
                                 </div>
 
                                 <div class="col-md-6">
-                                    <label for="validationCustom04" class="col-form-label mt-0">Tipo documento:</label>
-                                    <select  id="validationCustom04" required name="txtTipoDocumento" class="form-control">
-                                        <option selected disabled value="">Tipo de Documento</option>
-                                <div class="modal-body">
+                                    
+                                
                                     <label for="recipient-name" class="col-form-label">Tipo documento:</label>
-                                    <select id="TipoDocumento" class="form-control" name="txtTipoDocumento" c>
+                                    <select id="TipoDocumento" class="form-control" name="txtTipoDocumento" >
                                         <option selected disabled value="">Selccione tipo documento</option>
                                         <option value="C.C">Cedula de Ciudadania</option>
                                         <option value="T.I">Tarjeta de Identidad</option>
@@ -400,7 +398,7 @@
 
                                 <div class="col-md-6 ">
                                     <label for="validationTooltip01" class="form-label">Número de documento:</label>
-                                    <input type="text" class="form-control"  id="validationTooltip01" name="txtNumeroDocumento" placeholder="Numero de Documento" minlength="10" maxlength="10" required>
+                                    <input type="text" class="form-control"  id="validationTooltip01" name="txtNumeroDocumento" placeholder="Numero de Documento" minlength="7" maxlength="10" required>
                                     <div class="valid-feedback">
                                         Correcto
                                     </div>
