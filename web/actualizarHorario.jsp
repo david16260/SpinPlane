@@ -78,7 +78,14 @@
             String nomAula = request.getParameter("nomAula");
             String nomClase = request.getParameter("nomClase");
         %>
-
+        <%
+                        String tipoU = usuVO.getIdTipoUsuario();
+                        if (tipoU.equals("Estudiante")) {
+                    %>
+                    <script>
+                        window.location.href = "menu.jsp";
+                    </script>
+                    <%}%>
         <div class="wrapper">
             <div class="sidebar" data-color="orange" data-image="assets/img/siderbar.jpeg">
 
@@ -97,7 +104,6 @@
                     </div>
 
                     <%
-                        String tipoU = usuVO.getIdTipoUsuario();
                         if (tipoU.equals("Profesor")) {
                     %>
                     <ul class="nav">

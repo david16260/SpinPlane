@@ -38,6 +38,14 @@
                     String idClase = request.getParameter("idClase");
                     String estado = request.getParameter("estado");
                 %>
+                <%
+                        String tipoU = usuVO.getIdTipoUsuario();
+                        if (tipoU.equals("Estudiante")) {
+                    %>
+                    <script>
+                        window.location.href = "menu.jsp";
+                    </script>
+                    <%}%>
                 <div class="container2">
                     <div class="form">
                         <div class="boton-volver">

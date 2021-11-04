@@ -67,7 +67,14 @@
         <script src="assets/js/demo.js"></script>
     </head>
     <body>
-
+        <%
+                        String tipoU = usuVO.getIdTipoUsuario();
+                        if (tipoU.equals("Estudiante")) {
+                    %>
+                    <script>
+                        window.location.href = "menu.jsp";
+                    </script>
+                    <%}%>
         <div class="wrapper">
             <div class="sidebar" data-color="orange" data-image="assets/img/siderbar.jpeg">
 
@@ -86,7 +93,6 @@
                     </div>
 
                     <%
-                        String tipoU = usuVO.getIdTipoUsuario();
                         if (tipoU.equals("Profesor")) {
                     %>
                     <ul class="nav">
@@ -509,6 +515,7 @@
         </div>
     </div>
     <script>
+        
                 // Example starter JavaScript for disabling form submissions if there are invalid fields
                         (function () {
                             'use strict'
