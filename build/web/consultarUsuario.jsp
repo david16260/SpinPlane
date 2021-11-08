@@ -1,7 +1,7 @@
 <%-- 
     Document   : ConsultarUsuario
     Created on : 25/06/2021, 11:22:07 AM
-    Author     : Sebas
+    Author     : Yurny B)
 --%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="ModeloDAO.UsuarioDAO"%>
