@@ -126,12 +126,6 @@
                                 <p>Horario</p>
                             </a>
                         </li>
-                        <li>
-                            <a href="consultarHorario.jsp">
-                                <i class="pe-7s-date"></i>
-                                <p>Correo</p>
-                            </a>
-                        </li>
 
                     </ul>
                     <%} else if (tipoU.equals("Estudiante")) {%>
@@ -161,9 +155,9 @@
                         </a>
                         </li>
                         <li>
-                            <a href="EnviarCorreo.jsp">
+                            <a href="consultarHorario.jsp">
                                 <i class="pe-7s-date"></i>
-                                <p>Correo</p>
+                                <p>Horario</p>
                             </a>
                         </li>
                         <%} else if (tipoU.equals("Administrador")) {%>
@@ -207,12 +201,6 @@
                                     <p>Usuario</p>
                                 </a>
                             </li>
-                            <li>
-                            <a href="EnviarCorreo.jsp">
-                                <i class="pe-7s-date"></i>
-                                <p>Correo</p>
-                            </a>
-                        </li>
                         </ul>
                         <%}%>
                 </div>
@@ -304,10 +292,10 @@
                                 "sProcessing": "Procesando...",
                                 "sLengthMenu": "Mostrar _MENU_ registros",
                                 "sZeroRecords": "No se encontraron resultados",
-                                "sEmptyTable": "Ningun dato disponible en esta tabla",
-                                "sInfo": "Mostrando novedades del _START_ al _END_ de un total de _TOTAL_ novedades",
-                                "sInfoEmpty": "Mostrando novedades del 0 al 0 de un total de 0 novedades",
-                                "sInfoFiltered": "(filtrado de un total de _MAX_ novedades)",
+                                "sEmptyTable": "NingÃºn dato disponible en esta tabla",
+                                "sInfo": "Mostrando Novedades del _START_ al _END_ de un total de _TOTAL_ Novedades",
+                                "sInfoEmpty": "Mostrando usuarios del 0 al 0 de un total de 0 Novedades",
+                                "sInfoFiltered": "(filtrado de un total de _MAX_ Novedades)",
                                 "sInfoPostFix": "",
                                 "sSearch": "Buscar:",
                                 "sUrl": "",
@@ -333,45 +321,82 @@
                 </script>
                 <button class="abrir-registrar btn btn-primary" id="abrir-registrar">Registrar</button>
                 <div class="overlay " id="overlay">
-                    <form method="POST" action="Novedad" class="form-registro">
+                    <form method="POST" action="Novedad" class="form-registro needs-validation" novalidate>
                         <div class="tituloR">
                             <a href="#" class="cerrar-registro" id="cerrar-registro"><i class="fas fa-times"></i></a>
                             <h2>Registrar Novedad</h2>
                         </div>
                         <div class="cuerpo">
                             <div class="formulario">
+                                
+                                <div class="col-md-6 ">
 
-                                <div class="modal-body">
-                                    <label for="recipient-name" class="col-form-label">Descripción:</label>
-                                    <input type="text" name="txtDescripcion" class="form-control" placeholder="Descripcion">
+                                    <label  for="validationTooltip01" class="form-label">Descripción:</label>
+                                    <input minlength="30" maxlength="60"  type="text" id="validationTooltip01" name="txtDescripcion" class="form-control" placeholder="Descripcion" required>
+                                    <div class="valid-feedback">
+                                        Correcto
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Por favor registre la descripcion  
+                                    </div>
                                 </div>
 
-                                <div class="modal-body">
-                                    <label for="recipient-name" class="col-form-label">Fecha inicio:</label>   
-                                    <input type="date" name="txtFechaInicio" class="form-control">
+                                <div class="col-md-6 ">
+
+                                    <label for="validationTooltip04" class="col-form-label">Fecha inicio:</label>
+                                    <input required type="date" name="txtFechaInicio" class="form-control"  id="validationTooltip01" placeholder="Fecha Inicio" >
+                                    <div class="valid-feedback">
+                                        Correcto
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Por favor registre la fecha inicio  
+                                    </div>
                                 </div>
-                                <div class="modal-body">
-                                    <label for="recipient-name" class="col-form-label">Fecha fin:</label> 
-                                    <input type="date" name="txtFechaFin" class="form-control">
+                                
+                                <div class="col-md-6 ">
+
+                                    <label for="validationTooltip04" class="col-form-label">Fecha fin:</label>
+                                    <input required type="date" name="txtFechaFin" class="form-control"  id="validationTooltip01" placeholder="Fecha Inicio" >
+                                    <div class="valid-feedback">
+                                        Correcto
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Por favor registre la fecha fin  
+                                    </div>
                                 </div>
 
-                                <div class="modal-body">
-                                    <label for="recipient-name" class="col-form-label">Tipo de novedad:</label> 
-                                    <select name="txtTipoNovedad" class="form-control">
-                                        <option selected>Tipo de Novedad</option>
+                                <div class="col-md-6 ">
+
+                                    <label for="validationCustom04" class="col-form-label">Tipo de novedad:</label>
+                                    <select  id="validationCustom04"  name="txtTipoNovedad" class="form-control" required>
+                                        <option selected disabled value="">Tipo de Novedad</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                     </select>
+                                    <div class="valid-feedback">
+                                        Correcto
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Por favor selecciona el tipo de novedad 
+                                    </div>
                                 </div>
+                                
+                                <div class="col-md-6 ">
 
-                                <div class="modal-body">
-                                    <label for="recipient-name" class="col-form-label">Id asistencia:</label> 
-                                    <select name="txtAsistencia" class="form-control">
-                                        <option selected>Id Asistencia</option>
+                                    <label for="validationCustom04" class="col-form-label">Id asistencia:</label>
+                                    <select  required id="validationCustom04"  name="txtAsistencia" class="form-control">
+                                        <option selected disabled value="">Id Asistencia</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                     </select>
+                                    <div class="valid-feedback">
+                                        Correcto
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Por favor selecciona el tipo de asistencia 
+                                    </div>
                                 </div>
+                      
                                 <div class="boton">
                                     <input type="submit" id="btn" value="Registrar" class="btn btn-success">
                                     <input type="hidden" value="1" name="opcion">
@@ -427,6 +452,28 @@
 
             </div>
         </div>
+        <script>
+            // Example starter JavaScript for disabling form submissions if there are invalid fields
+                    (function () {
+                        'use strict'
+
+                        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                        var forms = document.querySelectorAll('.needs-validation')
+
+                        // Loop over them and prevent submission
+                        Array.prototype.slice.call(forms)
+                                .forEach(function (form) {
+                                    form.addEventListener('submit', function (event) {
+                                        if (!form.checkValidity()) {
+                                            event.preventDefault()
+                                            event.stopPropagation()
+                                        }
+
+                                        form.classList.add('was-validated')
+                                    }, false)
+                                })
+                    })()
+</script>
 
     </body>
     <!--   Core JS Files   -->

@@ -128,12 +128,6 @@
                                 <p>Horario</p>
                             </a>
                         </li>
-                        <li>
-                            <a href="EnviarCorreo.jsp">
-                                <i class="pe-7s-date"></i>
-                                <p>Correo</p>
-                            </a>
-                        </li>
 
                     </ul>
                     <%} else if (tipoU.equals("Estudiante")) {%>
@@ -210,12 +204,6 @@
                                     <p>Usuario</p>
                                 </a>
                             </li>
-                            <li>
-                            <a href="EnviarCorreo.jsp">
-                                <i class="pe-7s-date"></i>
-                                <p>Correo</p>
-                            </a>
-                        </li>
                         </ul>
                         <%}%>
                 </div>
@@ -308,7 +296,7 @@
                     </table>
                 </div>
 
-                <script>
+               <script>
                     $(document).ready(function () {
                         $('#usuario').DataTable({
                             scrollY: 400,
@@ -317,9 +305,9 @@
                                 "sLengthMenu": "Mostrar _MENU_ registros",
                                 "sZeroRecords": "No se encontraron resultados",
                                 "sEmptyTable": "NingÃºn dato disponible en esta tabla",
-                                "sInfo": "Mostrando aulas del _START_ al _END_ de un total de _TOTAL_ aulas",
-                                "sInfoEmpty": "Mostrando aulas del 0 al 0 de un total de 0 aulas",
-                                "sInfoFiltered": "(filtrado de un total de _MAX_ aulas)",
+                                "sInfo": "Mostrando Aulas del _START_ al _END_ de un total de _TOTAL_ Aulas",
+                                "sInfoEmpty": "Mostrando usuarios del 0 al 0 de un total de 0 Aulas",
+                                "sInfoFiltered": "(filtrado de un total de _MAX_ Aulas)",
                                 "sInfoPostFix": "",
                                 "sSearch": "Buscar:",
                                 "sUrl": "",
@@ -349,7 +337,7 @@
                 <center><button class="abrir-registrar btn btn-primary"  id="abrir-registrar">Registrar</button></center>
 
                 <div class="overlay" id="overlay">
-                    <form method="POST" action="Aula" class="form-registro">
+                    <form method="POST" action="Aula" class="form-registro needs-validation" novalidate>
                         <div class="tituloR">
                             <a href="#" class="cerrar-registro" id="cerrar-registro"><i class="fas fa-times"></i></a>
                             <h2>Registrar Aula</h2>
@@ -357,22 +345,35 @@
                         <div class="cuerpo">
                             <div class="formulario">
 
-                                <div class="modal-body">
-                                    <label for="recipient-name" class="col-form-label">Nombe Aula:</label>    
-                                    <input type="text" name="txtNomAula" placeholder="Nombre" required class="form-control" minlength="3" maxlength="30" onkeypress="return (event.charCode >= 65 && event.charCode >= 90 && event.charCode >= 97 && event.charCode <= 122)">
+                                <div class="col-md-6 ">
+                                    <label for="validationTooltip01" class="col-form-label">Nombe Aula:</label>    
+                                    <input id="validationTooltip01" type="text" name="txtNomAula" placeholder="Nombre" required class="form-control" minlength="3" maxlength="30" onkeypress="return (event.charCode >= 65 && event.charCode >= 90 && event.charCode >= 97 && event.charCode <= 122)">
+                                    <div class="valid-feedback">
+                                        Correcto
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Por favor ingresa el nombre del aula 
+                                    </div>
                                 </div>
 
 
                                 <input type="hidden" name="txtEstado" value="Activo">
 
-                                <div class="modal-body">
-                                    <label for="recipient-name" class="col-form-label">Capacidad:</label>     
-                                    <input type="number" name="txtCapacidad" placeholder="Capacidad" class="form-control">
+                                <div class="col-md-6 ">
+                                    <label for="validationTooltip01" class="col-form-label">Capacidad:</label>     
+                                    <input id="validationTooltip01" type="number" name="txtCapacidad" placeholder="Capacidad" class="form-control" required>
+                                    <div class="valid-feedback">
+                                        Correcto
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Por favor ingresa una capacidad correcta 
+                                    </div>
                                 </div>
 
                                 <div class="selector text-primary">
                                     <input type="submit" id="btn" value="Registrar" class="btn btn-success">
                                     <input type="hidden" value="1" name="opcion">
+                                    
                                 </div>
                             </div>
                         </div>
@@ -425,7 +426,28 @@
 
             </div>
         </div>
+        <script>
+            // Example starter JavaScript for disabling form submissions if there are invalid fields
+                    (function () {
+                        'use strict'
 
+                        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                        var forms = document.querySelectorAll('.needs-validation')
+
+                        // Loop over them and prevent submission
+                        Array.prototype.slice.call(forms)
+                                .forEach(function (form) {
+                                    form.addEventListener('submit', function (event) {
+                                        if (!form.checkValidity()) {
+                                            event.preventDefault()
+                                            event.stopPropagation()
+                                        }
+
+                                        form.classList.add('was-validated')
+                                    }, false)
+                                })
+                    })()
+</script>
     </body>
     <!--   Core JS Files   -->
     <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->

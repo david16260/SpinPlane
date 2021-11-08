@@ -127,12 +127,6 @@
                                 <p>Horario</p>
                             </a>
                         </li>
-                        <li>
-                            <a href="consultarHorario.jsp">
-                                <i class="pe-7s-date"></i>
-                                <p>Correo</p>
-                            </a>
-                        </li>
 
                     </ul>
                     <%} else if (tipoU.equals("Estudiante")) {%>
@@ -163,7 +157,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="EnviarCorreo.jsp">
+                            <a href="consultarHorario.jsp">
                                 <i class="pe-7s-date"></i>
                                 <p>Horario</p>
                             </a>
@@ -209,12 +203,6 @@
                                     <p>Usuario</p>
                                 </a>
                             </li>
-                            <li>
-                            <a href="EnviarCorreo.jsp">
-                                <i class="pe-7s-date"></i>
-                                <p>Correo</p>
-                            </a>
-                        </li>
                         </ul>
                         <%}%>
                 </div>
@@ -311,7 +299,7 @@
                         </tfoot>
                     </table>
                 </div>
-                <script>
+               <script>
                     $(document).ready(function () {
                         $('#usuario').DataTable({
                             scrollY: 400,
@@ -320,9 +308,9 @@
                                 "sLengthMenu": "Mostrar _MENU_ registros",
                                 "sZeroRecords": "No se encontraron resultados",
                                 "sEmptyTable": "NingÃºn dato disponible en esta tabla",
-                                "sInfo": "Mostrando clases del _START_ al _END_ de un total de _TOTAL_ clases",
-                                "sInfoEmpty": "Mostrando clases del 0 al 0 de un total de 0 clases",
-                                "sInfoFiltered": "(filtrado de un total de _MAX_ clases)",
+                                "sInfo": "Mostrando Clases del _START_ al _END_ de un total de _TOTAL_ Clases",
+                                "sInfoEmpty": "Mostrando usuarios del 0 al 0 de un total de 0 Clases",
+                                "sInfoFiltered": "(filtrado de un total de _MAX_ Clases)",
                                 "sInfoPostFix": "",
                                 "sSearch": "Buscar:",
                                 "sUrl": "",
@@ -352,7 +340,7 @@
                 <center><button class="abrir-registrar btn btn-primary"  id="abrir-registrar">Registrar</button></center>
 
                 <div class="overlay" id="overlay">
-                    <form method="POST" action="Clase" class="form-registro">
+                    <form method="POST" action="Clase" class="form-registro needs-validation" novalidate>
                         <div class="tituloR">
                             <a href="#" class="cerrar-registro" id="cerrar-registro"><i class="fas fa-times"></i></a>
                             <h2>Registrar Clase</h2>
@@ -360,16 +348,28 @@
                         <div class="cuerpo">
                             <div class="formulario">
 
-                                <div class="modal-body">
-                                    <label for="recipient-name" class="col-form-label">Nombre:</label>      
-                                    <input type="text" name="txtNombre" placeholder="Nombre" required class="form-control" minlength="3" maxlength="30" onkeypress="return (event.charCode >= 65 && event.charCode >= 90 && event.charCode >= 97 && event.charCode <= 122)">
+                                <div class="col-md-6 ">
+                                    <label for="validationTooltip01" class="col-form-label">Nombre:</label>      
+                                    <input required id="validationTooltip01" type="text" name="txtNombre" placeholder="Nombre" required class="form-control" minlength="3" maxlength="30" onkeypress="return (event.charCode >= 65 && event.charCode >= 90 && event.charCode >= 97 && event.charCode <= 122)">
+                                    <div class="valid-feedback">
+                                        Correcto
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Por favor ingresa el Nombre 
+                                    </div>
                                 </div>
 
                                 <input type="hidden" name="txtEstado" value="Activo">
 
-                                <div class="modal-body">
-                                    <label for="recipient-name" class="col-form-label">Cantidad de sesiones:</label>      
-                                    <input type="number" name="txtcantidadSesiones" placeholder="Cantidad de Sesiones" class="form-control">
+                                <div class="col-md-6 ">
+                                    <label for="validationTooltip01" class="col-form-label">Cantidad de sesiones:</label>      
+                                    <input required id="validationTooltip01" type="number" name="txtcantidadSesiones" placeholder="Cantidad de Sesiones" class="form-control">
+                                    <div class="valid-feedback">
+                                        Correcto
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Por favor ingresa la cantidad 
+                                    </div>
                                 </div>
 
                                 <div class="selector">
@@ -427,7 +427,28 @@
 
             </div>
         </div>
+        <script>
+            // Example starter JavaScript for disabling form submissions if there are invalid fields
+                    (function () {
+                        'use strict'
 
+                        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                        var forms = document.querySelectorAll('.needs-validation')
+
+                        // Loop over them and prevent submission
+                        Array.prototype.slice.call(forms)
+                                .forEach(function (form) {
+                                    form.addEventListener('submit', function (event) {
+                                        if (!form.checkValidity()) {
+                                            event.preventDefault()
+                                            event.stopPropagation()
+                                        }
+
+                                        form.classList.add('was-validated')
+                                    }, false)
+                                })
+                    })()
+</script>
     </body>
     <!--   Core JS Files   -->
     <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->

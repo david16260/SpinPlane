@@ -81,7 +81,7 @@
                     Tip 2: you can also add an image using data-image tag
             
                 -->
-                
+
                 <div class="sidebar-wrapper">
                      <div class="logo">
                         <a href="menu.jsp">
@@ -130,12 +130,6 @@
                             <a href="consultarHorario.jsp">
                                 <i class="pe-7s-date"></i>
                                 <p>Horario</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="EnviarCorreo.jsp">
-                                <i class="pe-7s-date"></i>
-                                <p>Correo</p>
                             </a>
                         </li>
                         
@@ -212,12 +206,6 @@
                             <a href="consultarUsuario.jsp">
                                 <i class="pe-7s-user"></i>
                                 <p>Usuario</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="EnviarCorreo.jsp">
-                                <i class="pe-7s-date"></i>
-                                <p>Correo</p>
                             </a>
                         </li>
                     </ul>
@@ -297,70 +285,82 @@
             </table>
         </div>
 
-        <script>
-            $(document).ready(function () {
-                $('#usuario').DataTable({
-                    scrollY: 400,
-                    language: {
-                        "sProcessing": "Procesando...",
-                        "sLengthMenu": "Mostrar _MENU_ registros",
-                        "sZeroRecords": "No se encontraron resultados",
-                        "sEmptyTable": "NingÃºn dato disponible en esta tabla",
-                        "sInfo": "Mostrando Asistencias del _START_ al _END_ de un total de _TOTAL_ Asistencias",
-                        "sInfoEmpty": "Mostrando Asistencias del 0 al 0 de un total de 0 Asistencias",
-                        "sInfoFiltered": "(filtrado de un total de _MAX_ Asistencias)",
-                        "sInfoPostFix": "",
-                        "sSearch": "Buscar:",
-                        "sUrl": "",
-                        "sInfoThousands": ",",
-                        "sLoadingRecords": "Cargando...",
-                        "oPaginate": {
-                            "sFirst": "Primero",
-                            "sLast": "Ãšltimo",
-                            "sNext": "Siguiente",
-                            "sPrevious": "Anterior"
-                        },
-                        "oAria": {
-                            "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
-                            "sSortDescending": ": Activar para ordenar la columna de manera descendente"
-                        },
-                        "buttons": {
-                            "copy": "Copiar",
-                            "colvis": "Visibilidad"
-                        }
-                    }
-                });
-            });
-        </script>
+       <script>
+                    $(document).ready(function () {
+                        $('#usuario').DataTable({
+                            scrollY: 400,
+                            language: {
+                                "sProcessing": "Procesando...",
+                                "sLengthMenu": "Mostrar _MENU_ registros",
+                                "sZeroRecords": "No se encontraron resultados",
+                                "sEmptyTable": "NingÃºn dato disponible en esta tabla",
+                                "sInfo": "Mostrando Asistencias del _START_ al _END_ de un total de _TOTAL_ Asistencias",
+                                "sInfoEmpty": "Mostrando usuarios del 0 al 0 de un total de 0 Asistencias",
+                                "sInfoFiltered": "(filtrado de un total de _MAX_ Asistencias)",
+                                "sInfoPostFix": "",
+                                "sSearch": "Buscar:",
+                                "sUrl": "",
+                                "sInfoThousands": ",",
+                                "sLoadingRecords": "Cargando...",
+                                "oPaginate": {
+                                    "sFirst": "Primero",
+                                    "sLast": "Ãšltimo",
+                                    "sNext": "Siguiente",
+                                    "sPrevious": "Anterior"
+                                },
+                                "oAria": {
+                                    "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+                                    "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                                },
+                                "buttons": {
+                                    "copy": "Copiar",
+                                    "colvis": "Visibilidad"
+                                }
+                            }
+                        });
+                    });
+                </script>
         
         <button class="abrir-registrar btn btn-primary"  id="abrir-registrar">Registrar</button>
         
         <div class="overlay" id="overlay">
-            <form method="POST" action="Asistencia" class="form-registro">
+            <form method="POST" action="Asistencia" class="form-registro needs-validation" novalidate>
                 <div class="tituloR">
                     <a href="#" class="cerrar-registro" id="cerrar-registro"><i class="fas fa-times"></i></a>
                     <h2>Registrar Asistencia</h2>
                 </div>
                 <div class="cuerpo">
                     <div class="formulario">
-                        <div class="modal-body">
-                            <label for="recipient-name" class="col-form-label">Asistencia:</label>     
-                            <select name="txtAsistencia" class="form-control">
-                                <option selected>Asistencia</option>
+                        <div class="col-md-6 ">
+                            <label for="validationCustom04" class="col-form-label">Asistencia:</label>     
+                            <select id="validationCustom04" name="txtAsistencia" class="form-control">
+                                <option selected disabled value="">Asistencia</option>
                                 <option value="Si">Si</option>
                                 <option value="No">No</option>
                             </select>
+                            <div class="invalid-feedback">
+                                Por favor selecciona si o no 
+                            </div>
+                            <div class="valid-feedback">
+                                Correcto
+                            </div>
                         </div>
                         
-                        <div class="modal-body">
-                        <label for="recipient-name" class="col-form-label">Fecha:</label>      
-                        <input type="date" name="txtFecha" required class="form-control">
+                        <div class="col-md-6 ">
+                        <label for="validationTooltip01" class="col-form-label">Fecha:</label>      
+                        <input  id="validationTooltip01" type="date" name="txtFecha" required class="form-control">
+                        <div class="invalid-feedback">
+                            Por favor selecciona la fecha
+                        </div>
+                        <div class="valid-feedback">
+                            Correcto
+                        </div>
                         </div>
                         
-                        <div class="modal-body">
-                            <label for="recipient-name" class="col-form-label">Usuario:</label>
-                            <select name="txtIdUsuario" class="form-control">
-                                <option selected>Usuario</option>
+                        <div class="col-md-6 ">
+                            <label for="validationTooltip04" class="col-form-label">Usuario:</label>
+                            <select required id="validationCustom04" name="txtIdUsuario" class="form-control">
+                                <option selected disabled value="">Usuario</option>
                                 <%
                                     UsuarioVO UsuVO = new  UsuarioVO();
                                     UsuarioDAO UsuDAO = new UsuarioDAO(UsuVO);
@@ -374,12 +374,18 @@
                                   }  
                                 %>    
                             </select>
+                            <div class="invalid-feedback">
+                                Por favor selecciona el usuario 
+                            </div>
+                            <div class="valid-feedback">
+                                Correcto
+                            </div>
                         </div>
                             
-                        <div class="modal-body">
-                            <label for="recipient-name" class="col-form-label">Grupo:</label>
-                            <select name="txtIdGrupo" class="form-control">
-                                <option selected>Grupo</option>
+                        <div class="col-md-6 ">
+                            <label for="validationTooltip04" class="col-form-label">Grupo:</label>
+                            <select required id="validationCustom04" name="txtIdGrupo" class="form-control">
+                                <option selected disabled value="">Grupo</option>
                                  <%
                                     GrupoVO GruVO = new  GrupoVO();
                                     GrupoDAO GruDAO = new GrupoDAO(GruVO);
@@ -393,6 +399,12 @@
                                   }  
                                 %> 
                             </select>
+                            <div class="invalid-feedback">
+                                Por favor selecciona el grupo 
+                            </div>
+                            <div class="valid-feedback">
+                                Correcto
+                            </div>
                         </div>
                         <div class="boton">
                             <input type="submit" id="btn" value="Registrar" class="btn btn-success">
@@ -416,7 +428,28 @@
 
             </div>
         </div>
+        <script>
+            // Example starter JavaScript for disabling form submissions if there are invalid fields
+                    (function () {
+                        'use strict'
 
+                        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                        var forms = document.querySelectorAll('.needs-validation')
+
+                        // Loop over them and prevent submission
+                        Array.prototype.slice.call(forms)
+                                .forEach(function (form) {
+                                    form.addEventListener('submit', function (event) {
+                                        if (!form.checkValidity()) {
+                                            event.preventDefault()
+                                            event.stopPropagation()
+                                        }
+
+                                        form.classList.add('was-validated')
+                                    }, false)
+                                })
+                    })()
+</script>
     </body>
     <!--   Core JS Files   -->
     <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
@@ -427,4 +460,3 @@
 
 
 </html>
-
