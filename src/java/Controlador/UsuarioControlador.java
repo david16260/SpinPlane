@@ -50,11 +50,14 @@ public class UsuarioControlador extends HttpServlet {
         String clave = request.getParameter("txtClave");
         String idTipoUsuario = request.getParameter("txtRol");
         String tipoUsuario = request.getParameter("txtTipoUsuario");
+        String idGrupo = request.getParameter("txtidGrupo");
+        String grupo = request.getParameter("txtGrupo");
+        
 
         int opcion = Integer.parseInt(request.getParameter("opcion"));
 
         //paso 2- instanciar VO
-        UsuarioVO UsuVO = new UsuarioVO(usuId, nombre, apellido, tipoDocumento, numDocumento, celular, estado, correo, clave, idTipoUsuario,tipoUsuario);
+        UsuarioVO UsuVO = new UsuarioVO(usuId, nombre, apellido, tipoDocumento, numDocumento, celular, estado, correo, clave, idTipoUsuario,tipoUsuario, idGrupo,grupo);
 
         //instanciar DAO
         UsuarioDAO UsuDAO = new UsuarioDAO(UsuVO);
