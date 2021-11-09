@@ -243,6 +243,7 @@
                                 <th>Id</th>
                                 <th>Nombre</th>
                                 <th>Capacidad</th>
+                                <th>Estado</th>
                                     <%
                                         if (tipoU.equals("Administrador")) {
                                     %>
@@ -272,6 +273,31 @@
                                 <%
                                     if (tipoU.equals("Administrador")) {
                                 %>
+
+                                <td>
+                                    <%
+                                        if (AuVO.getEstado().equals("Activo")) {
+                                    %>
+                                    <form method="POST" action="Aula">
+                                        <input type="hidden" name="txtId" value="<%=AuVO.getIdAula()%>">
+                                        <input type="hidden" name="txtEstado" value="Inactivo">
+                                        <button class="btn btn-info edit m-2 p-2" type="submit"><i class="fas fa-pen"></i></button>
+                                        <input type="hidden" name="opcion" value="3">
+                                    </form>
+                                    <%
+                                    } else {
+                                    %>
+                                    <form method="POST" action="Aula">
+                                        <input type="hidden" name="txtId" value="<%=AuVO.getIdAula()%>">
+                                        <input type="hidden" name="txtEstado" value="Activo">
+                                        <button class="btn btn-info edit m-2 p-2" type="submit"><i class="fas fa-pen"></i></button>
+                                        <input type="hidden" name="opcion" value="3">
+                                    </form>
+                                    <%
+                                        }
+                                    %>
+                                </td>
+
                                 <td>
                                     <a class="btn btn-info edit m-2 p-2" href="actualizarAula.jsp?idAula=<%=AuVO.getIdAula()%>&nombre=<%=AuVO.getNombre()%>&capacidad=<%=AuVO.getCapacidad()%>"><i class="fas fa-pen"></i></a>
 
@@ -289,6 +315,7 @@
                                     <%
                                         if (tipoU.equals("Administrador")) {
                                     %>
+                                <th>Estado</th>
                                 <th>Actualizar</th>
                                     <%}%>
                             </tr>
@@ -296,7 +323,7 @@
                     </table>
                 </div>
 
-               <script>
+                <script>
                     $(document).ready(function () {
                         $('#usuario').DataTable({
                             scrollY: 400,
@@ -373,7 +400,7 @@
                                 <div class="selector text-primary">
                                     <input type="submit" id="btn" value="Registrar" class="btn btn-success">
                                     <input type="hidden" value="1" name="opcion">
-                                    
+
                                 </div>
                             </div>
                         </div>
@@ -427,27 +454,27 @@
             </div>
         </div>
         <script>
-            // Example starter JavaScript for disabling form submissions if there are invalid fields
-                    (function () {
-                        'use strict'
+                    // Example starter JavaScript for disabling form submissions if there are invalid fields
+                            (function () {
+                                'use strict'
 
-                        // Fetch all the forms we want to apply custom Bootstrap validation styles to
-                        var forms = document.querySelectorAll('.needs-validation')
+                                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                                var forms = document.querySelectorAll('.needs-validation')
 
-                        // Loop over them and prevent submission
-                        Array.prototype.slice.call(forms)
-                                .forEach(function (form) {
-                                    form.addEventListener('submit', function (event) {
-                                        if (!form.checkValidity()) {
-                                            event.preventDefault()
-                                            event.stopPropagation()
-                                        }
+                                // Loop over them and prevent submission
+                                Array.prototype.slice.call(forms)
+                                        .forEach(function (form) {
+                                            form.addEventListener('submit', function (event) {
+                                                if (!form.checkValidity()) {
+                                                    event.preventDefault()
+                                                    event.stopPropagation()
+                                                }
 
-                                        form.classList.add('was-validated')
-                                    }, false)
-                                })
-                    })()
-</script>
+                                                form.classList.add('was-validated')
+                                            }, false)
+                                        })
+                            })()
+        </script>
     </body>
     <!--   Core JS Files   -->
     <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->

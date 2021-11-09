@@ -272,7 +272,27 @@
                                     if (tipoU.equals("Administrador")) {
                                 %>
                                 <td>
-                                    <a class="btn btn-primary edit m-2 p-2" href="cambiarEstadoClase.jsp?idClase=<%=ClaVO.getIdClase()%>&estado=<%=ClaVO.getEstado()%>"><i class="fas fa-pen"></i></a>
+                                    <%
+                                        if (ClaVO.getEstado().equals("Activo")) {
+                                    %>
+                                    <form method="POST" action="Clase">
+                                        <input type="hidden" name="txtId" value="<%=ClaVO.getIdClase() %>">
+                                        <input type="hidden" name="txtEstado" value="Inactivo">
+                                        <button class="btn btn-info edit m-2 p-2" type="submit"><i class="fas fa-pen"></i></button>
+                                        <input type="hidden" name="opcion" value="3">
+                                    </form>
+                                    <%
+                                    } else {
+                                    %>
+                                    <form method="POST" action="Clase">
+                                        <input type="hidden" name="txtId" value="<%=ClaVO.getIdClase() %>">
+                                        <input type="hidden" name="txtEstado" value="Activo">
+                                        <button class="btn btn-info edit m-2 p-2" type="submit"><i class="fas fa-pen"></i></button>
+                                        <input type="hidden" name="opcion" value="3">
+                                    </form>
+                                    <%
+                                        }
+                                    %>
 
                                 </td>
                                 <td>

@@ -277,11 +277,9 @@
                                 <td><%=HorVO.getDia()%></td>
                                 <td><%=HorVO.getHoraInicio()%></td>
                                 <td><%=HorVO.getHoraFin()%></td>
-                                <%if (HorVO.getEstado() != "Inactivo") {%>
-                                <td class="verde text-center"><%=HorVO.getEstado()%></td>
-                                <%} else if (HorVO.getEstado() == "Inactivo") {%>
-                                <td class="rojo"><%=HorVO.getEstado()%></td>
-                                <%}%>
+                                <td><a class="<%=HorVO.getEstado().equals("Activo") ? "btn btn-success  m-5" : "btn btn-danger  m-5"%>" style="padding-right: 10px;">
+                                        <%=HorVO.getEstado()%>
+                                    </a></td>
                                 <td><%=HorVO.getNombreGrupo()%></td>
                                 <td><%=HorVO.getNombreAula()%></td>
                                 <td><%=HorVO.getNombreClase()%></td>
@@ -289,7 +287,27 @@
                                     if (tipoU.equals("Administrador")) {
                                 %>
                                 <td>
-                                    <a  class="btn btn-primary edit m-2 p-2"href="cambiarEstadoHorario.jsp?idHorario=<%=HorVO.getIdHorario()%>&estado=<%=HorVO.getEstado()%>"><i class="fas fa-pen"></i></a>
+                                    <%
+                                        if (HorVO.getEstado().equals("Activo")) {
+                                    %>
+                                    <form method="POST" action="Horario">
+                                        <input type="hidden" name="txtId" value="<%=HorVO.getIdHorario() %>">
+                                        <input type="hidden" name="txtEstado" value="Inactivo">
+                                        <button class="btn btn-info edit m-2 p-2" type="submit"><i class="fas fa-pen"></i></button>
+                                        <input type="hidden" name="opcion" value="3">
+                                    </form>
+                                    <%
+                                    } else {
+                                    %>
+                                    <form method="POST" action="Horario">
+                                        <input type="hidden" name="txtId" value="<%=HorVO.getIdHorario() %>">
+                                        <input type="hidden" name="txtEstado" value="Activo">
+                                        <button class="btn btn-info edit m-2 p-2" type="submit"><i class="fas fa-pen"></i></button>
+                                        <input type="hidden" name="opcion" value="3">
+                                    </form>
+                                    <%
+                                        }
+                                    %>
                                 </td>
                                 <td>
                                     <a class="btn btn-info edit m-2 p-2"href="actualizarHorario.jsp?idHorario=<%=HorVO.getIdHorario()%>&fechaInicio=<%=HorVO.getFechaInicio()%>&fechaFin=<%=HorVO.getFechaFin()%>&dia=<%=HorVO.getDia()%>&horaInicio=<%=HorVO.getHoraInicio()%>&horaFin=<%=HorVO.getHoraFin()%>&idGrupo=<%=HorVO.getIdGrupo()%>&idAula=<%=HorVO.getIdAula()%>&idClase=<%=HorVO.getIdClase()%>&nomGrupo=<%=HorVO.getNombreGrupo() %>&nomClase=<%=HorVO.getNombreClase()%>&nomAula=<%=HorVO.getNombreAula() %>   "><i class="fas fa-pen"></i></a>

@@ -76,7 +76,7 @@ public class HorarioControlador extends HttpServlet {
                 } else {
                     request.setAttribute("mensajeError", "El Horario no se actualizo corectamente");
                 }
-                request.getRequestDispatcher("cambiarEstadoHorario.jsp").forward(request, response);
+                request.getRequestDispatcher("consultarHorario.jsp").forward(request, response);
                 break;
            
         }

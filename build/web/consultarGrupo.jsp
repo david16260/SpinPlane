@@ -244,12 +244,12 @@
                                 <th>Estado</th>
                                 <th>Fecha de Inicio</th>
                                 <th>Fecha de Fin</th>
-                                <%
-                                    if (tipoU.equals("Administrador")) {
-                                %>
+                                    <%
+                                        if (tipoU.equals("Administrador")) {
+                                    %>
                                 <th>Estado</th>
                                 <th>Actualizar</th>
-                                <%}%>
+                                    <%}%>
                             </tr>
                         </thead>
                         <tbody>
@@ -275,8 +275,27 @@
                                     if (tipoU.equals("Administrador")) {
                                 %>
                                 <td>
-                                    <a  class="btn btn-primary edit m-2 p-2"href="cambiarEstadoGrupo.jsp?idgrupo=<%=GruVO.getIdGrupo()%>&estado=<%=GruVO.getEstado()%>"><i class="fas fa-pen"></i></a>
-
+                                    <%
+                                        if (GruVO.getEstado().equals("Activo")) {
+                                    %>
+                                    <form method="POST" action="Grupo">
+                                        <input type="hidden" name="txtId" value="<%=GruVO.getIdGrupo()%>">
+                                        <input type="hidden" name="txtEstado" value="Inactivo">
+                                        <button class="btn btn-info edit m-2 p-2" type="submit"><i class="fas fa-pen"></i></button>
+                                        <input type="hidden" name="opcion" value="3">
+                                    </form>
+                                    <%
+                                    } else {
+                                    %>
+                                    <form method="POST" action="Grupo">
+                                        <input type="hidden" name="txtId" value="<%=GruVO.getIdGrupo()%>">
+                                        <input type="hidden" name="txtEstado" value="Activo">
+                                        <button class="btn btn-info edit m-2 p-2" type="submit"><i class="fas fa-pen"></i></button>
+                                        <input type="hidden" name="opcion" value="3">
+                                    </form>
+                                    <%
+                                        }
+                                    %>
                                 </td>
 
                                 <td>
@@ -293,12 +312,12 @@
                                 <th>Estado</th>
                                 <th>Fecha de Inicio</th>
                                 <th>Fecha de Fin</th>
-                                <%
-                                    if (tipoU.equals("Administrador")) {
-                                %>
+                                    <%
+                                        if (tipoU.equals("Administrador")) {
+                                    %>
                                 <th>Estado</th>
                                 <th>Actualizar</th>
-                                <%}%>
+                                    <%}%>
                             </tr>
 
                         </tfoot>
@@ -397,7 +416,7 @@
                         </div>
                     </form>
                     <%} else {
-                }%>
+                        }%>
                 </div>
                 <% if (request.getAttribute("mensajeError") != null) {%>
                 <script  type="text/javascript">
@@ -446,27 +465,27 @@
             </div>
         </div>
         <script>
-            // Example starter JavaScript for disabling form submissions if there are invalid fields
-                    (function () {
-                        'use strict'
+                    // Example starter JavaScript for disabling form submissions if there are invalid fields
+                            (function () {
+                                'use strict'
 
-                        // Fetch all the forms we want to apply custom Bootstrap validation styles to
-                        var forms = document.querySelectorAll('.needs-validation')
+                                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                                var forms = document.querySelectorAll('.needs-validation')
 
-                        // Loop over them and prevent submission
-                        Array.prototype.slice.call(forms)
-                                .forEach(function (form) {
-                                    form.addEventListener('submit', function (event) {
-                                        if (!form.checkValidity()) {
-                                            event.preventDefault()
-                                            event.stopPropagation()
-                                        }
+                                // Loop over them and prevent submission
+                                Array.prototype.slice.call(forms)
+                                        .forEach(function (form) {
+                                            form.addEventListener('submit', function (event) {
+                                                if (!form.checkValidity()) {
+                                                    event.preventDefault()
+                                                    event.stopPropagation()
+                                                }
 
-                                        form.classList.add('was-validated')
-                                    }, false)
-                                })
-                    })()
-</script>
+                                                form.classList.add('was-validated')
+                                            }, false)
+                                        })
+                            })()
+        </script>
     </body>
     <!--   Core JS Files   -->
     <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->

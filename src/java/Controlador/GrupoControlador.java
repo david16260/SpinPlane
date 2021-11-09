@@ -66,7 +66,7 @@ public class GrupoControlador extends HttpServlet {
                 } else {
                     request.setAttribute("mensajeError", "El usuario no se actualizo corectamente");
                 }
-                request.getRequestDispatcher("cambiarEstadoGrupo.jsp").forward(request, response);
+                request.getRequestDispatcher("consultarGrupo.jsp").forward(request, response);
                 break;
            
         }
