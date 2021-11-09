@@ -1,7 +1,7 @@
 <%-- 
     Document   : conultarClase.jsp
     Created on : 25/06/2021, 02:40:36 PM
-    Author     : Sebas
+    Author     : Yurny
 --%>
 
 <%@page import="java.util.ArrayList"%>

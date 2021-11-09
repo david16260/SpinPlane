@@ -247,7 +247,7 @@
                 <div class="contenedor mt-4">
 
 
-                    <form method="POST" action="Grupo" class="form-registro">
+                    <form method="POST" action="Grupo" class="form-registro needs-validation" novalidate>
                         <div class="tituloR">
                             <a href="consultarGrupo.jsp" class="cerrar-registro" id="cerrar-registro"><i class="fas fa-times"></i></a>
                             <h2 class="textReg">Actualizar Grupo</h2>
@@ -256,19 +256,37 @@
                             <div class="formulario">
                                 <input type="hidden" name="txtId" value="<%=idGrupo %>">
                                 
-                                <div class="form-group">
-                                    <label for="recipient-name" class="col-form-label">Nombre:</label>          
-                                    <input type="text" class="form-control" id="nombre" name="txtNombre" value="<%=nombre %>" placeholder="Nombre" required>
+                                <div class="col-md-6 ">
+                                    <label for="validationTooltip01" class="col-form-label">Nombre:</label>          
+                                    <input type="text" class="form-control" id="validationTooltip01" name="txtNombre" value="<%=nombre %>" placeholder="Nombre" required>
+                                    <div class="valid-feedback">
+                                        Correcto
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Por favor ingresa el Nombre 
+                                    </div>
                                 </div>
                                 
-                                <div class="form-group">
-                                    <label for="recipient-name" class="col-form-label">Fecha Inicio:</label>  
-                                    <input type="date" class="form-control" value="<%=inicio %>" id="nombre" name="txtFechaInicio" placeholder="Nombre" required >
+                                <div class="col-md-6 ">
+                                    <label for="validationTooltip01" class="col-form-label">Fecha Inicio:</label>  
+                                    <input type="date" class="form-control" value="<%=inicio %>" id="validationTooltip01" name="txtFechaInicio" placeholder="Nombre" required >
+                                    <div class="valid-feedback">
+                                        Correcto
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Por favor ingresa la fecha de inicio 
+                                    </div>
                                 </div>
 
-                                <div class="form-group">
-                                    <label for="recipient-name" class="col-form-label">Fecha Fin:</label>   
-                                    <input type="date" id="numeroDocumento" value="<%=fin %>" class="form-control" name="txtFechaFin" required >
+                                <div class="col-md-6 ">
+                                    <label for="validationTooltip01" class="col-form-label">Fecha Fin:</label>   
+                                    <input type="date" id="validationTooltip01" value="<%=fin %>" class="form-control" name="txtFechaFin" required >
+                                    <div class="valid-feedback">
+                                        Correcto
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Por favor ingresa la fecha de fin 
+                                    </div>
                                 </div>
 
                                 
@@ -332,6 +350,28 @@
 
             </div>
         </div>
+        <script>
+            // Example starter JavaScript for disabling form submissions if there are invalid fields
+                    (function () {
+                        'use strict'
+
+                        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                        var forms = document.querySelectorAll('.needs-validation')
+
+                        // Loop over them and prevent submission
+                        Array.prototype.slice.call(forms)
+                                .forEach(function (form) {
+                                    form.addEventListener('submit', function (event) {
+                                        if (!form.checkValidity()) {
+                                            event.preventDefault()
+                                            event.stopPropagation()
+                                        }
+
+                                        form.classList.add('was-validated')
+                                    }, false)
+                                })
+                    })()
+</script>     
 
     </body>
     <!--   Core JS Files   -->
