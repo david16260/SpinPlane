@@ -237,8 +237,7 @@
 
                     <table id="usuario" class="table table-striped" style="width:100%">
                         <thead>
-                            <tr>
-                                <th>Id</th>
+                            <tr>                                
                                 <th>Nombre</th>
                                 <th>Estado</th>
                                 <th>Cantidad de Sesiones</th>
@@ -259,8 +258,7 @@
 
                                     ClaVO = listaClase.get(i);
                             %>               
-                            <tr>
-                                <td><%=ClaVO.getIdClase()%></td>
+                            <tr>                               
                                 <td><%=ClaVO.getNombre()%></td>
                                 <td>
                                     <a class="<%=ClaVO.getEstado().equals("Activo") ? "btn btn-success  m-3" : "btn btn-danger  m-3"%>" style="padding-right: 56px;">
@@ -304,8 +302,7 @@
                             <%}%>  
                         </tbody>
                         <tfoot>
-                            <tr>
-                                <th>Id</th>
+                            <tr>                                
                                 <th>Nombre</th>
                                 <th>Estado</th>
                                 <th>Cantidad de Sesiones</th>

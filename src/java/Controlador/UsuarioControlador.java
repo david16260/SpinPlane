@@ -124,9 +124,9 @@ public class UsuarioControlador extends HttpServlet {
                 if (UsuDAO.cambiarEstado()) {
                     request.setAttribute("mensajeExito", "El estado se actualizo corectamente");
                 } else {
-                    request.setAttribute("mensajeError", "El usuario no se actualizo corectamente");
+                    request.setAttribute("mensajeError", "El estado no se actualizo corectamente");
                 }
-                request.getRequestDispatcher("cambiarEstado.jsp").forward(request, response);
+                request.getRequestDispatcher("consultarUsuario.jsp").forward(request, response);
                 break;
                                         
         }

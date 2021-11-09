@@ -238,8 +238,7 @@
 
                     <table id="usuario" class=" table table-striped" style="width:100%">
                         <thead>
-                            <tr>
-                                <th>Id</th>
+                            <tr>                                
                                 <th>Nombre</th>
                                 <th>Estado</th>
                                 <th>Fecha de Inicio</th>
@@ -261,8 +260,7 @@
 
                                     GruVO = listaGrupo.get(i);
                             %>               
-                            <tr>
-                                <td><%=GruVO.getIdGrupo()%></td>
+                            <tr>                                
                                 <td><%=GruVO.getNombre()%></td>
                                 <td>
                                     <a class="<%=GruVO.getEstado().equals("Activo") ? "btn btn-success  m-3" : "btn btn-danger  m-3"%>" style="padding-right: 50px;">
@@ -306,8 +304,7 @@
                             <%}%>  
                         </tbody>
                         <tfoot>
-                            <tr>
-                                <th>Id</th>
+                            <tr>                                
                                 <th>Nombre</th>
                                 <th>Estado</th>
                                 <th>Fecha de Inicio</th>

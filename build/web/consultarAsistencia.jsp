@@ -83,15 +83,15 @@
                 -->
 
                 <div class="sidebar-wrapper">
-                     <div class="logo">
+                    <div class="logo">
                         <a href="menu.jsp">
-                        <img src="images/LOGO4.gif" class="SpinPlane" alt=""/>
+                            <img src="images/LOGO4.gif" class="SpinPlane" alt=""/>
                         </a>
                     </div>
 
                     <%
-                       String tipoU = usuVO.getIdTipoUsuario();
-                       if(tipoU.equals("Profesor")){
+                        String tipoU = usuVO.getIdTipoUsuario();
+                        if (tipoU.equals("Profesor")) {
                     %>
                     <ul class="nav">
                         <li>
@@ -132,9 +132,9 @@
                                 <p>Horario</p>
                             </a>
                         </li>
-                        
+
                     </ul>
-                    <%} else if(tipoU.equals("Estudiante")){%>
+                    <%} else if (tipoU.equals("Estudiante")) {%>
                     <ul class="nav">
                         <li>
                             <a href="consultarAsistencia.jsp">
@@ -142,14 +142,14 @@
                                 <p>Asistencia</p>
                             </a>
                         </li>
-                    <li>
+                        <li>
                             <a href="consultarGrupo.jsp">
                                 <i class="pe-7s-users"></i>
                                 <p>Grupo</p>
                             </a>
                         </li>
                         <li>
-                            <li>
+                        <li>
                             <a href="consultarAula.jsp">
                                 <i class="pe-7s-culture"></i>
                                 <p>Aula</p>
@@ -167,48 +167,48 @@
                                 <p>Horario</p>
                             </a>
                         </li>
-                        <%}else if(tipoU.equals("Administrador")){%>
+                        <%} else if (tipoU.equals("Administrador")) {%>
                         <ul class="nav">
-                        <li>
-                            <a href="consultarAsistencia.jsp">
-                                <i class="pe-7s-notebook"></i>
-                                <p>Asistencia</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="consultarAula.jsp">
-                                <i class="pe-7s-culture"></i>
-                                <p>Aula</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="consultarGrupo.jsp">
-                                <i class="pe-7s-users"></i>
-                                <p>Grupo</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="consultarClase.jsp">
-                                <i class="pe-7s-news-paper"></i>
-                                <p>Clase</p>
-                            </a>
-                        </li>
-                        <li>
-                        <li>
-                            <a href="consultarNovedad.jsp">
-                                <i class="pe-7s-info"></i>
-                                <p>Novedad</p>
-                            </a>
-                        </li>
-                        <li>
-                        
-                        <li>
-                            <a href="consultarUsuario.jsp">
-                                <i class="pe-7s-user"></i>
-                                <p>Usuario</p>
-                            </a>
-                        </li>
-                    </ul>
+                            <li>
+                                <a href="consultarAsistencia.jsp">
+                                    <i class="pe-7s-notebook"></i>
+                                    <p>Asistencia</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="consultarAula.jsp">
+                                    <i class="pe-7s-culture"></i>
+                                    <p>Aula</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="consultarGrupo.jsp">
+                                    <i class="pe-7s-users"></i>
+                                    <p>Grupo</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="consultarClase.jsp">
+                                    <i class="pe-7s-news-paper"></i>
+                                    <p>Clase</p>
+                                </a>
+                            </li>
+                            <li>
+                            <li>
+                                <a href="consultarNovedad.jsp">
+                                    <i class="pe-7s-info"></i>
+                                    <p>Novedad</p>
+                                </a>
+                            </li>
+                            <li>
+
+                            <li>
+                                <a href="consultarUsuario.jsp">
+                                    <i class="pe-7s-user"></i>
+                                    <p>Usuario</p>
+                                </a>
+                            </li>
+                        </ul>
                         <%}%>
                 </div>
             </div>
@@ -218,13 +218,13 @@
                     <div class="container-fluid">
 
                         <div class="collapse navbar-collapse">
-                            
+
                             <ul class="nav navbar-nav navbar-left">
 
                                 <li>
                                     <a href="menu.jsp">
                                         <i class="pe-7s-left-arrow"></i>
-                                        
+
                                     </a>
 
                                 </li>
@@ -241,51 +241,50 @@
                 <div class="contenedor mt-2">
 
                     <table id="usuario" class="table table-striped" style="width:100%">
-                <thead>
-                    <tr>
-                        <th>Id</th>
-                        <th>Asistencia</th>
-                        <th>Fecha</th>
-                        <th>Usuario</th>
-                        <th>Grupo</th>
-                        <th>Actualizar</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <%
-                        AsistenciaVO AsisVO = new AsistenciaVO();
-                        AsistenciaDAO AsisDAO = new AsistenciaDAO(AsisVO);
-                        ArrayList<AsistenciaVO> listaAsistencia = AsisDAO.listar();
-                        for (int i = 0; i < listaAsistencia.size(); i++) {
+                        <thead>
+                            <tr>
+                                <th>Usuario</th>
+                                <th>Grupo</th>
+                                <th>Fecha</th>
+                                <th>Asistencia</th>
+                                <th>Actualizar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <%
+                                AsistenciaVO AsisVO = new AsistenciaVO();
+                                AsistenciaDAO AsisDAO = new AsistenciaDAO(AsisVO);
+                                ArrayList<AsistenciaVO> listaAsistencia = AsisDAO.listar();
+                                for (int i = 0; i < listaAsistencia.size(); i++) {
 
-                            AsisVO = listaAsistencia.get(i);
-                    %>               
-                    <tr>
-                        <td><%=AsisVO.getIdAsistencia()%></td>
-                        <td><%=AsisVO.getAsistencia()%></td>
-                        <td><%=AsisVO.getFecha()%></td>
-                        <td><%=AsisVO.getNombreUsuario()%></td>
-                        <td><%=AsisVO.getNombreGrupo()%></td>
-                        <td>
-                            <a class="btn btn-info edit m-2 p-2"href="actualizarAsistencia.jsp?idAsistencia=<%=AsisVO.getIdAsistencia()%>&asistencia=<%=AsisVO.getAsistencia()%>&fecha=<%=AsisVO.getFecha()%>&usuario=<%=AsisVO.getNombreUsuario() %>&grupo=<%=AsisVO.getNombreGrupo()%>&idUsuario=<%=AsisVO.getIdUsuario()%>&idGrupo=<%=AsisVO.getIdGrupo() %>"><i class="fas fa-pen"></i></a>
-                        </td>
-                    </tr>
-                    <%}%>  
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <th>Id</th>
-                        <th>Asistencia</th>
-                        <th>Fecha</th>
-                        <th>Usuario</th>
-                        <th>Grupo</th>
-                        <th>Actualizar</th>
-                    </tr>
-                </tfoot>
-            </table>
-        </div>
+                                    AsisVO = listaAsistencia.get(i);
+                            %>               
+                            <tr>
+                                <td><%=AsisVO.getNombreUsuario()%></td>
+                                <td><%=AsisVO.getNombreGrupo()%></td>
+                                <td><%=AsisVO.getFecha()%></td>
+                                <td><a class="<%=AsisVO.getAsistencia().equals("Si") ? "btn btn-success  m-3" : "btn btn-danger  m-3"%>" style="padding-right: 56px;">
+                                        <%=AsisVO.getAsistencia()%>
+                                    </a></td>                                                                       
+                                <td>
+                                    <a class="btn btn-info edit m-2 p-2"href="actualizarAsistencia.jsp?idAsistencia=<%=AsisVO.getIdAsistencia()%>&asistencia=<%=AsisVO.getAsistencia()%>&fecha=<%=AsisVO.getFecha()%>&usuario=<%=AsisVO.getNombreUsuario()%>&grupo=<%=AsisVO.getNombreGrupo()%>&idUsuario=<%=AsisVO.getIdUsuario()%>&idGrupo=<%=AsisVO.getIdGrupo()%>"><i class="fas fa-pen"></i></a>
+                                </td>
+                            </tr>
+                            <%}%>  
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>Usuario</th>
+                                <th>Grupo</th>
+                                <th>Fecha</th>
+                                <th>Asistencia</th>
+                                <th>Actualizar</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
 
-       <script>
+                <script>
                     $(document).ready(function () {
                         $('#usuario').DataTable({
                             scrollY: 400,
@@ -320,101 +319,101 @@
                         });
                     });
                 </script>
-        
-        <button class="abrir-registrar btn btn-primary"  id="abrir-registrar">Registrar</button>
-        
-        <div class="overlay" id="overlay">
-            <form method="POST" action="Asistencia" class="form-registro needs-validation" novalidate>
-                <div class="tituloR">
-                    <a href="#" class="cerrar-registro" id="cerrar-registro"><i class="fas fa-times"></i></a>
-                    <h2>Registrar Asistencia</h2>
-                </div>
-                <div class="cuerpo">
-                    <div class="formulario">
-                        <div class="col-md-6 ">
-                            <label for="validationCustom04" class="col-form-label">Asistencia:</label>     
-                            <select id="validationCustom04" name="txtAsistencia" class="form-control">
-                                <option selected disabled value="">Asistencia</option>
-                                <option value="Si">Si</option>
-                                <option value="No">No</option>
-                            </select>
-                            <div class="invalid-feedback">
-                                Por favor selecciona si o no 
-                            </div>
-                            <div class="valid-feedback">
-                                Correcto
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-6 ">
-                        <label for="validationTooltip01" class="col-form-label">Fecha:</label>      
-                        <input  id="validationTooltip01" type="date" name="txtFecha" required class="form-control">
-                        <div class="invalid-feedback">
-                            Por favor selecciona la fecha
-                        </div>
-                        <div class="valid-feedback">
-                            Correcto
-                        </div>
-                        </div>
-                        
-                        <div class="col-md-6 ">
-                            <label for="validationTooltip04" class="col-form-label">Usuario:</label>
-                            <select required id="validationCustom04" name="txtIdUsuario" class="form-control">
-                                <option selected disabled value="">Usuario</option>
-                                <%
-                                    UsuarioVO UsuVO = new  UsuarioVO();
-                                    UsuarioDAO UsuDAO = new UsuarioDAO(UsuVO);
-                                    ArrayList< UsuarioVO> listaUsuario = UsuDAO.listar();
-                                    for (int i = 0; i < listaUsuario.size(); i++) {
 
-                                        UsuVO = listaUsuario.get(i);
-                                %>
-                                <option value="<%=UsuVO.getUsuId()%>"><%=UsuVO.getApellido()%></option>
-                                <%
-                                  }  
-                                %>    
-                            </select>
-                            <div class="invalid-feedback">
-                                Por favor selecciona el usuario 
-                            </div>
-                            <div class="valid-feedback">
-                                Correcto
-                            </div>
-                        </div>
-                            
-                        <div class="col-md-6 ">
-                            <label for="validationTooltip04" class="col-form-label">Grupo:</label>
-                            <select required id="validationCustom04" name="txtIdGrupo" class="form-control">
-                                <option selected disabled value="">Grupo</option>
-                                 <%
-                                    GrupoVO GruVO = new  GrupoVO();
-                                    GrupoDAO GruDAO = new GrupoDAO(GruVO);
-                                    ArrayList< GrupoVO> listaGrupo = GruDAO.listar();
-                                    for (int i = 0; i < listaGrupo.size(); i++) {
+                <button class="abrir-registrar btn btn-primary"  id="abrir-registrar">Registrar</button>
 
-                                        GruVO = listaGrupo.get(i);
-                                %>
-                                <option value="<%=GruVO.getIdGrupo()%>"><%=GruVO.getNombre()%></option>
-                                <%
-                                  }  
-                                %> 
-                            </select>
-                            <div class="invalid-feedback">
-                                Por favor selecciona el grupo 
-                            </div>
-                            <div class="valid-feedback">
-                                Correcto
+                <div class="overlay" id="overlay">
+                    <form method="POST" action="Asistencia" class="form-registro needs-validation" novalidate>
+                        <div class="tituloR">
+                            <a href="#" class="cerrar-registro" id="cerrar-registro"><i class="fas fa-times"></i></a>
+                            <h2>Registrar Asistencia</h2>
+                        </div>
+                        <div class="cuerpo">
+                            <div class="formulario">
+                                <div class="col-md-6 ">
+                                    <label for="validationCustom04" class="col-form-label">Asistencia:</label>     
+                                    <select id="validationCustom04" name="txtAsistencia" class="form-control">
+                                        <option selected disabled value="">Asistencia</option>
+                                        <option value="Si">Si</option>
+                                        <option value="No">No</option>
+                                    </select>
+                                    <div class="invalid-feedback">
+                                        Por favor selecciona si o no 
+                                    </div>
+                                    <div class="valid-feedback">
+                                        Correcto
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 ">
+                                    <label for="validationTooltip01" class="col-form-label">Fecha:</label>      
+                                    <input  id="validationTooltip01" type="date" name="txtFecha" required class="form-control">
+                                    <div class="invalid-feedback">
+                                        Por favor selecciona la fecha
+                                    </div>
+                                    <div class="valid-feedback">
+                                        Correcto
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 ">
+                                    <label for="validationTooltip04" class="col-form-label">Usuario:</label>
+                                    <select required id="validationCustom04" name="txtIdUsuario" class="form-control">
+                                        <option selected disabled value="">Usuario</option>
+                                        <%
+                                            UsuarioVO UsuVO = new UsuarioVO();
+                                            UsuarioDAO UsuDAO = new UsuarioDAO(UsuVO);
+                                            ArrayList< UsuarioVO> listaUsuario = UsuDAO.listar();
+                                            for (int i = 0; i < listaUsuario.size(); i++) {
+
+                                                UsuVO = listaUsuario.get(i);
+                                        %>
+                                        <option value="<%=UsuVO.getUsuId()%>"><%=UsuVO.getApellido()%></option>
+                                        <%
+                                            }
+                                        %>    
+                                    </select>
+                                    <div class="invalid-feedback">
+                                        Por favor selecciona el usuario 
+                                    </div>
+                                    <div class="valid-feedback">
+                                        Correcto
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 ">
+                                    <label for="validationTooltip04" class="col-form-label">Grupo:</label>
+                                    <select required id="validationCustom04" name="txtIdGrupo" class="form-control">
+                                        <option selected disabled value="">Grupo</option>
+                                        <%
+                                            GrupoVO GruVO = new GrupoVO();
+                                            GrupoDAO GruDAO = new GrupoDAO(GruVO);
+                                            ArrayList< GrupoVO> listaGrupo = GruDAO.listar();
+                                            for (int i = 0; i < listaGrupo.size(); i++) {
+
+                                                GruVO = listaGrupo.get(i);
+                                        %>
+                                        <option value="<%=GruVO.getIdGrupo()%>"><%=GruVO.getNombre()%></option>
+                                        <%
+                                            }
+                                        %> 
+                                    </select>
+                                    <div class="invalid-feedback">
+                                        Por favor selecciona el grupo 
+                                    </div>
+                                    <div class="valid-feedback">
+                                        Correcto
+                                    </div>
+                                </div>
+                                <div class="boton">
+                                    <input type="submit" id="btn" value="Registrar" class="btn btn-success">
+                                    <input type="hidden" value="1" name="opcion">
+                                </div>
                             </div>
                         </div>
-                        <div class="boton">
-                            <input type="submit" id="btn" value="Registrar" class="btn btn-success">
-                            <input type="hidden" value="1" name="opcion">
-                        </div>
-                    </div>
+                    </form>
                 </div>
-            </form>
-        </div>
-        <script src="Js/consutarUsuario.js" type="text/javascript"></script>
+                <script src="Js/consutarUsuario.js" type="text/javascript"></script>
 
 
                 <footer class="footer">
@@ -429,27 +428,27 @@
             </div>
         </div>
         <script>
-            // Example starter JavaScript for disabling form submissions if there are invalid fields
-                    (function () {
-                        'use strict'
+                    // Example starter JavaScript for disabling form submissions if there are invalid fields
+                            (function () {
+                                'use strict'
 
-                        // Fetch all the forms we want to apply custom Bootstrap validation styles to
-                        var forms = document.querySelectorAll('.needs-validation')
+                                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                                var forms = document.querySelectorAll('.needs-validation')
 
-                        // Loop over them and prevent submission
-                        Array.prototype.slice.call(forms)
-                                .forEach(function (form) {
-                                    form.addEventListener('submit', function (event) {
-                                        if (!form.checkValidity()) {
-                                            event.preventDefault()
-                                            event.stopPropagation()
-                                        }
+                                // Loop over them and prevent submission
+                                Array.prototype.slice.call(forms)
+                                        .forEach(function (form) {
+                                            form.addEventListener('submit', function (event) {
+                                                if (!form.checkValidity()) {
+                                                    event.preventDefault()
+                                                    event.stopPropagation()
+                                                }
 
-                                        form.classList.add('was-validated')
-                                    }, false)
-                                })
-                    })()
-</script>
+                                                form.classList.add('was-validated')
+                                            }, false)
+                                        })
+                            })()
+        </script>
     </body>
     <!--   Core JS Files   -->
     <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->

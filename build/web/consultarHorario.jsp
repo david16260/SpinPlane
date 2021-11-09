@@ -242,17 +242,16 @@
                 <div class="contenedor mt-4">
                     <table id="usuario" class="table table-striped" style="width:100%">
                         <thead>
-                            <tr>
-                                <th>Id</th>
+                            <tr>     
+                                <th>Grupo</th>
+                                <th>Aula</th>
+                                <th>Clase</th>
                                 <th>Fecha Inicio</th>
                                 <th>Fecha Fin</th>
                                 <th>Dia</th>
                                 <th>Hora Inicio</th>
                                 <th>Hora Fin</th>
-                                <th>Estado</th>
-                                <th>Grupo</th>
-                                <th>Aula</th>
-                                <th>Clase</th>
+                                <th>Estado</th>                                
                                     <%
                                         if (tipoU.equals("Administrador")) {
                                     %>
@@ -270,8 +269,10 @@
 
                                     HorVO = listaHorario.get(i);
                             %>               
-                            <tr>
-                                <td><%=HorVO.getIdHorario()%></td>
+                            <tr>                
+                                <td><%=HorVO.getNombreGrupo()%></td>
+                                <td><%=HorVO.getNombreAula()%></td>
+                                <td><%=HorVO.getNombreClase()%></td>
                                 <td><%=HorVO.getFechaInicio()%></td>
                                 <td><%=HorVO.getFechaFin()%></td>
                                 <td><%=HorVO.getDia()%></td>
@@ -279,10 +280,7 @@
                                 <td><%=HorVO.getHoraFin()%></td>
                                 <td><a class="<%=HorVO.getEstado().equals("Activo") ? "btn btn-success  m-5" : "btn btn-danger  m-5"%>" style="padding-right: 10px;">
                                         <%=HorVO.getEstado()%>
-                                    </a></td>
-                                <td><%=HorVO.getNombreGrupo()%></td>
-                                <td><%=HorVO.getNombreAula()%></td>
-                                <td><%=HorVO.getNombreClase()%></td>
+                                    </a></td>                                
                                 <%
                                     if (tipoU.equals("Administrador")) {
                                 %>
@@ -317,23 +315,22 @@
                             <%}%>  
                         </tbody>
                         <tfoot>
-                            <tr>
-                                <th>Id</th>
+                            <tr>     
+                                <th>Grupo</th>
+                                <th>Aula</th>
+                                <th>Clase</th>
                                 <th>Fecha Inicio</th>
                                 <th>Fecha Fin</th>
                                 <th>Dia</th>
                                 <th>Hora Inicio</th>
                                 <th>Hora Fin</th>
-                                <th>Estado</th>
-                                <th>Grupo</th>
-                                <th>Aula</th>
-                                <th>Clase</th>
+                                <th>Estado</th>                                
                                     <%
                                         if (tipoU.equals("Administrador")) {
                                     %>
                                 <th>Estado</th>
                                 <th>Actualizar</th>
-                                <%}%>
+                                    <%}%>
                             </tr>
                         </tfoot>
                     </table>

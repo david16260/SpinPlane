@@ -109,7 +109,7 @@ public class UsuarioDAO extends Conexion implements Crud {
     @Override
     public boolean cambiarEstado() {
         try {
-            sql = "UPDATE `usuario` SET `estado`=? WHERE `idUsuario`=?";
+            sql = "call cambiarEstadoUsuario(?,?)";
             puente = conexion.prepareStatement(sql);
             puente.setString(1, estado);
             puente.setString(2, usuId);

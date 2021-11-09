@@ -291,8 +291,27 @@
                                 <td><%=UsuVO.getTipoUsuario()%></td>  
                                 <td><%=UsuVO.getGrupo()%></td>
                                 <td>
-                                    <a  class="btn btn-primary edit m-2 p-2"href="cambiarEstado.jsp?usuid=<%=UsuVO.getUsuId()%>&estado=<%=UsuVO.getEstado()%>"><i class="fas fa-pen"></i></a>
-
+                                    <%
+                                        if (UsuVO.getEstado().equals("Activo")) {
+                                    %>
+                                    <form method="POST" action="Usuario">
+                                        <input type="hidden" name="txtId" value="<%=UsuVO.getUsuId() %>">
+                                        <input type="hidden" name="txtEstado" value="Inactivo">
+                                        <button class="btn btn-info edit m-2 p-2" type="submit"><i class="fas fa-pen"></i></button>
+                                        <input type="hidden" name="opcion" value="5">
+                                    </form>
+                                    <%
+                                    } else {
+                                    %>
+                                    <form method="POST" action="Usuario">
+                                        <input type="hidden" name="txtId" value="<%=UsuVO.getUsuId() %>">
+                                        <input type="hidden" name="txtEstado" value="Activo">
+                                        <button class="btn btn-info edit m-2 p-2" type="submit"><i class="fas fa-pen"></i></button>
+                                        <input type="hidden" name="opcion" value="5">
+                                    </form>
+                                    <%
+                                        }
+                                    %>
                                 </td>
 
                                 <td>
@@ -479,7 +498,7 @@
 
                                                 GruVO = listaGrupo.get(i);
                                         %>
-                                        <option value="<%=GruVO.getIdGrupo() %>"><%=GruVO.getNombre() %></option>
+                                        <option value="<%=GruVO.getIdGrupo()%>"><%=GruVO.getNombre()%></option>
                                         <% }%>
                                     </select>
                                     <div class="invalid-feedback">

@@ -235,13 +235,12 @@
 
                     <table id="usuario" class="table table-striped" style="width:150%">
                         <thead>
-                            <tr>
-                                <th>Id</th>
+                            <tr>  
+                                <th>Estudiante</th>
+                                <th>Tipo de Novedad</th>
                                 <th>Descripcion</th>
                                 <th>Fecha Inicio</th>
                                 <th>Fecha Fin</th>
-                                <th>Tipo de Novedad</th>
-                                <th>Asistencia</th>
                                 <th>Actualizar</th>
                             </tr>
                         </thead>
@@ -254,15 +253,14 @@
 
                                     NovVO = listaNovedad.get(i);
                             %>               
-                            <tr>
-                                <td><%=NovVO.getIdNovedad()%></td>
+                            <tr>   
+                                <td><%=NovVO.getNombreUsuario()%></td>
+                                <td><%=NovVO.getTipoNovedad()%></td>
                                 <td><%=NovVO.getDescripcion()%></td>
                                 <td><%=NovVO.getFechaInicio()%></td>
-                                <td><%=NovVO.getFechaFin()%></td>
-                                <td><%=NovVO.getTipoNovedad()%></td>
-                                <td><%=NovVO.getNombreUsuario()%></td>
+                                <td><%=NovVO.getFechaFin()%></td>                                                                
                                 <td>
-                                    <a class="btn btn-primary edit"href="actualizarNovedad.jsp?idnovedad=<%=NovVO.getIdNovedad()%>&descripcion=<%=NovVO.getDescripcion()%>&fechainicio=<%=NovVO.getFechaInicio()%>&fechafin=<%=NovVO.getFechaFin()%>&idtiponovedad=<%=NovVO.getIdTipoNovedad()%>&idasistencia=<%=NovVO.getIdAsistencia()%>&usuario=<%=NovVO.getNombreUsuario()%>&novedad=<%=NovVO.getTipoNovedad() %>"><i class="fas fa-pen"></i></a>
+                                    <a class="btn btn-primary edit"href="actualizarNovedad.jsp?idnovedad=<%=NovVO.getIdNovedad()%>&descripcion=<%=NovVO.getDescripcion()%>&fechainicio=<%=NovVO.getFechaInicio()%>&fechafin=<%=NovVO.getFechaFin()%>&idtiponovedad=<%=NovVO.getIdTipoNovedad()%>&idasistencia=<%=NovVO.getIdAsistencia()%>&usuario=<%=NovVO.getNombreUsuario()%>&novedad=<%=NovVO.getTipoNovedad()%>"><i class="fas fa-pen"></i></a>
                                 </td>
                             </tr>
 
@@ -270,15 +268,13 @@
 
                         </tbody>
                         <tfoot>
-                            <tr>
-                                <th>Id</th>
+                            <tr>                                
+                                <th>Estudiante</th>
+                                <th>Tipo de Novedad</th>
                                 <th>Descripcion</th>
                                 <th>Fecha Inicio</th>
                                 <th>Fecha Fin</th>
-                                <th>Tipo de Novedad</th>
-                                <th>Asistencia</th>
                                 <th>Actualizar</th>
-
                             </tr>
                         </tfoot>
                     </table>
@@ -328,7 +324,7 @@
                         </div>
                         <div class="cuerpo">
                             <div class="formulario">
-                                
+
                                 <div class="col-md-6 ">
 
                                     <label  for="validationTooltip01" class="form-label">Descripción:</label>
@@ -352,7 +348,7 @@
                                         Por favor registre la fecha inicio  
                                     </div>
                                 </div>
-                                
+
                                 <div class="col-md-6 ">
 
                                     <label for="validationTooltip04" class="col-form-label">Fecha fin:</label>
@@ -380,7 +376,7 @@
                                         Por favor selecciona el tipo de novedad 
                                     </div>
                                 </div>
-                                
+
                                 <div class="col-md-6 ">
 
                                     <label for="validationCustom04" class="col-form-label">Id asistencia:</label>
@@ -396,7 +392,7 @@
                                         Por favor selecciona el tipo de asistencia 
                                     </div>
                                 </div>
-                      
+
                                 <div class="boton">
                                     <input type="submit" id="btn" value="Registrar" class="btn btn-success">
                                     <input type="hidden" value="1" name="opcion">
@@ -453,27 +449,27 @@
             </div>
         </div>
         <script>
-            // Example starter JavaScript for disabling form submissions if there are invalid fields
-                    (function () {
-                        'use strict'
+                    // Example starter JavaScript for disabling form submissions if there are invalid fields
+                            (function () {
+                                'use strict'
 
-                        // Fetch all the forms we want to apply custom Bootstrap validation styles to
-                        var forms = document.querySelectorAll('.needs-validation')
+                                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                                var forms = document.querySelectorAll('.needs-validation')
 
-                        // Loop over them and prevent submission
-                        Array.prototype.slice.call(forms)
-                                .forEach(function (form) {
-                                    form.addEventListener('submit', function (event) {
-                                        if (!form.checkValidity()) {
-                                            event.preventDefault()
-                                            event.stopPropagation()
-                                        }
+                                // Loop over them and prevent submission
+                                Array.prototype.slice.call(forms)
+                                        .forEach(function (form) {
+                                            form.addEventListener('submit', function (event) {
+                                                if (!form.checkValidity()) {
+                                                    event.preventDefault()
+                                                    event.stopPropagation()
+                                                }
 
-                                        form.classList.add('was-validated')
-                                    }, false)
-                                })
-                    })()
-</script>
+                                                form.classList.add('was-validated')
+                                            }, false)
+                                        })
+                            })()
+        </script>
 
     </body>
     <!--   Core JS Files   -->

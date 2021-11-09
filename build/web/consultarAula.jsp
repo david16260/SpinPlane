@@ -239,8 +239,7 @@
 
                     <table id="usuario" class="table table-striped" style="width:100%">
                         <thead>
-                            <tr>
-                                <th>Id</th>
+                            <tr>                               
                                 <th>Nombre</th>
                                 <th>Capacidad</th>
                                 <th>Estado</th>
@@ -261,8 +260,7 @@
 
                                     AuVO = listaAula.get(i);
                             %>               
-                            <tr>
-                                <td><%=AuVO.getIdAula()%></td>
+                            <tr>                                
                                 <td><%=AuVO.getNombre()%></td>
                                 <td><%=AuVO.getCapacidad()%></td>
                                 <td>
@@ -307,8 +305,7 @@
                             <%}%>  
                         </tbody>
                         <tfoot>
-                            <tr>
-                                <th>Id</th>
+                            <tr>                                
                                 <th>Nombre</th>
                                 <th>Capacidad</th>
                                 <th>Estado</th>     
