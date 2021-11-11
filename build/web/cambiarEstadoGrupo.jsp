@@ -35,8 +35,8 @@
                     String estado = request.getParameter("estado");
                 %>
                 <%
-                        String tipoU = usuVO.getIdTipoUsuario();
-                        if (tipoU.equals("Estudiante")) {
+                    String tipoU = usuVO.getIdTipoUsuario();
+                        if (tipoU.equals("Estudiante")|| tipoU.equals("Profesor")) {
                     %>
                     <script>
                         window.location.href = "menu.jsp";

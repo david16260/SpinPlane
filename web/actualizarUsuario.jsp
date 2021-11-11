@@ -31,6 +31,14 @@
             String tipodoc = request.getParameter("tipodoc");
             String tipousu = request.getParameter("tipousu");
         %>
+        <%
+                    String tipoU = usuVO.getIdTipoUsuario();
+                        if (tipoU.equals("Estudiante")|| tipoU.equals("Profesor")) {
+                    %>
+                    <script>
+                        window.location.href = "menu.jsp";
+                    </script>
+                    <%}%>
         <section>
             <div class="entra"></div>
             <div class="entra"></div>

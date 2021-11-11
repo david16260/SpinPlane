@@ -79,12 +79,19 @@
             <div class="sidebar" data-color="orange" data-image="assets/img/siderbar.jpeg">
 
                 <!--
-            
+                
                     Tip 1: you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple"
                     Tip 2: you can also add an image using data-image tag
             
                 -->
-
+                <%
+                    String tipoU = usuVO.getIdTipoUsuario();
+                        if (tipoU.equals("Estudiante")|| tipoU.equals("Profesor")) {
+                    %>
+                    <script>
+                        window.location.href = "menu.jsp";
+                    </script>
+                    <%}%>
                 <div class="sidebar-wrapper">
                     <div class="logo">
                         <a href="menu.jsp">
@@ -93,7 +100,7 @@
                     </div>
 
                     <%
-                        String tipoU = usuVO.getIdTipoUsuario();
+                        
                         if (tipoU.equals("Profesor")) {
                     %>
                     <ul class="nav">

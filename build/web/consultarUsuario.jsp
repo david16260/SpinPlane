@@ -138,10 +138,17 @@
                     </ul>
                     <%} else if (tipoU.equals("Estudiante")) {%>
                     <ul class="nav">
+                        
                         <li>
                             <a href="consultarAsistencia.jsp">
                                 <i class="pe-7s-notebook"></i>
                                 <p>Asistencia</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="consultarAula.jsp">
+                                <i class="pe-7s-culture"></i>
+                                <p>Aula</p>
                             </a>
                         </li>
                         <li>
@@ -151,18 +158,19 @@
                             </a>
                         </li>
                         <li>
-                        <li>
-                            <a href="consultarAula.jsp">
-                                <i class="pe-7s-culture"></i>
-                                <p>Aula</p>
-                            </a>
-                        </li>
-                        <li>
                             <a href="consultarClase.jsp">
                                 <i class="pe-7s-news-paper"></i>
                                 <p>Clase</p>
                             </a>
                         </li>
+                        <li>
+                        <li>
+                            <a href="consultarNovedad.jsp">
+                                <i class="pe-7s-info"></i>
+                                <p>Novedad</p>
+                            </a>
+                        </li>
+                        <li>
                         <li>
                             <a href="consultarHorario.jsp">
                                 <i class="pe-7s-date"></i>
@@ -195,14 +203,19 @@
                                     <p>Clase</p>
                                 </a>
                             </li>
-                            <li>
+                           
                             <li>
                                 <a href="consultarNovedad.jsp">
                                     <i class="pe-7s-info"></i>
                                     <p>Novedad</p>
                                 </a>
                             </li>
-                            <li>
+                           <li>
+                            <a href="consultarHorario.jsp">
+                                <i class="pe-7s-date"></i>
+                                <p>Horario</p>
+                            </a>
+                        </li>
 
                             <li>
                                 <a href="consultarUsuario.jsp">
@@ -211,11 +224,11 @@
                                 </a>
                             </li>
                             <li>
-                            <a href="EnviarCorreo.jsp">
-                                <i class="pe-7s-date"></i>
-                                <p>Correo</p>
-                            </a>
-                        </li>
+                                <a href="EnviarCorreo.jsp">
+                                    <i class="pe-7s-date"></i>
+                                    <p>Correo</p>
+                                </a>
+                            </li>
                         </ul>
                         <%}%>
                 </div>

@@ -103,16 +103,15 @@
                             </a>
                         </li>
                         <li>
-                            <a href="consultarGrupo.jsp">
-                                <i class="pe-7s-users"></i>
-                                <p>Grupo</p>
-                            </a>
-                        </li>
-                        <li>
-                        <li>
                             <a href="consultarAula.jsp">
                                 <i class="pe-7s-culture"></i>
                                 <p>Aula</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="consultarGrupo.jsp">
+                                <i class="pe-7s-users"></i>
+                                <p>Grupo</p>
                             </a>
                         </li>
                         <li>
@@ -122,11 +121,20 @@
                             </a>
                         </li>
                         <li>
-                            <a href="consultarHorario.jsp">
-                                <i class="pe-7s-date"></i>
-                                <p>Correo</p>
+                        <li>
+                            <a href="consultarNovedad.jsp">
+                                <i class="pe-7s-info"></i>
+                                <p>Novedad</p>
                             </a>
                         </li>
+                        <li>
+                        <li>
+                            <a href="consultarHorario.jsp">
+                                <i class="pe-7s-date"></i>
+                                <p>Horario</p>
+                            </a>
+                        </li>
+                        
                         <%} else if (tipoU.equals("Administrador")) {%>
                         <ul class="nav">
                             <li>

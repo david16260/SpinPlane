@@ -79,7 +79,14 @@
                     Tip 2: you can also add an image using data-image tag
             
                 -->
-
+                <%
+                        String tipoU = usuVO.getIdTipoUsuario();
+                        if (tipoU.equals("Estudiante")|| tipoU.equals("Profesor")) {
+                    %>
+                    <script>
+                        window.location.href = "menu.jsp";
+                    </script>
+                    <%}%>
                 <div class="sidebar-wrapper">
                     <div class="logo">
                         <a href="menu.jsp">
@@ -88,8 +95,7 @@
                     </div>
 
                     <%
-                        String tipoU = usuVO.getIdTipoUsuario();
-                        if (tipoU.equals("Profesor")) {
+                        if (tipoU.equals("Estudiante")&& tipoU.equals("Profesor")) {
                     %>
                     <ul class="nav">
                         <li>
@@ -355,14 +361,14 @@
 
             </div>
         </div>
-
-    </body>
-    <!--   Core JS Files   -->
+<!--   Core JS Files   -->
     <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
     <script src="assets/js/light-bootstrap-dashboard.js?v=1.4.0"></script>
 
     <!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
     <script src="assets/js/demo.js"></script>
+    </body>
+    
 
 
 </html>

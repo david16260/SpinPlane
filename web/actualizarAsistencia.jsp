@@ -84,7 +84,14 @@
                     Tip 2: you can also add an image using data-image tag
             
                 -->
-
+                <%
+                        String tipoU = usuVO.getIdTipoUsuario();
+                        if (tipoU.equals("Estudiante")) {
+                    %>
+                    <script>
+                        window.location.href = "menu.jsp";
+                    </script>
+                    <%}%>
                 <div class="sidebar-wrapper">
                     <div class="logo">
                         <a href="menu.jsp">

@@ -81,17 +81,17 @@
                     Tip 2: you can also add an image using data-image tag
             
                 -->
-                
+
                 <div class="sidebar-wrapper">
-                     <div class="logo">
+                    <div class="logo">
                         <a href="menu.jsp">
-                        <img src="images/LOGO4.gif" class="SpinPlane" alt=""/>
+                            <img src="images/LOGO4.gif" class="SpinPlane" alt=""/>
                         </a>
                     </div>
 
                     <%
-                       String tipoU = usuVO.getIdTipoUsuario();
-                       if(tipoU.equals("Profesor")){
+                        String tipoU = usuVO.getIdTipoUsuario();
+                        if (tipoU.equals("Profesor")) {
                     %>
                     <ul class="nav">
                         <li>
@@ -138,43 +138,10 @@
                                 <p>Correo</p>
                             </a>
                         </li>
-                        
+
                     </ul>
-                    <%} else if(tipoU.equals("Estudiante")){%>
+                    <%} else if (tipoU.equals("Estudiante")) {%>
                     <ul class="nav">
-                        <li>
-                            <a href="consultarAsistencia.jsp">
-                                <i class="pe-7s-notebook"></i>
-                                <p>Asistencia</p>
-                            </a>
-                        </li>
-                    <li>
-                            <a href="consultarGrupo.jsp">
-                                <i class="pe-7s-users"></i>
-                                <p>Grupo</p>
-                            </a>
-                        </li>
-                        <li>
-                            <li>
-                            <a href="consultarAula.jsp">
-                                <i class="pe-7s-culture"></i>
-                                <p>Aula</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="consultarClase.jsp">
-                                <i class="pe-7s-news-paper"></i>
-                                <p>Clase</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="consultarHorario.jsp">
-                                <i class="pe-7s-date"></i>
-                                <p>Horario</p>
-                            </a>
-                        </li>
-                        <%}else if(tipoU.equals("Administrador")){%>
-                        <ul class="nav">
                         <li>
                             <a href="consultarAsistencia.jsp">
                                 <i class="pe-7s-notebook"></i>
@@ -207,20 +174,65 @@
                             </a>
                         </li>
                         <li>
-                        
                         <li>
-                            <a href="consultarUsuario.jsp">
-                                <i class="pe-7s-user"></i>
-                                <p>Usuario</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="EnviarCorreo.jsp">
+                            <a href="consultarHorario.jsp">
                                 <i class="pe-7s-date"></i>
-                                <p>Correo</p>
+                                <p>Horario</p>
                             </a>
                         </li>
-                    </ul>
+                        <%} else if (tipoU.equals("Administrador")) {%>
+                        <ul class="nav">
+                            <li>
+                                <a href="consultarAsistencia.jsp">
+                                    <i class="pe-7s-notebook"></i>
+                                    <p>Asistencia</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="consultarAula.jsp">
+                                    <i class="pe-7s-culture"></i>
+                                    <p>Aula</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="consultarGrupo.jsp">
+                                    <i class="pe-7s-users"></i>
+                                    <p>Grupo</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="consultarClase.jsp">
+                                    <i class="pe-7s-news-paper"></i>
+                                    <p>Clase</p>
+                                </a>
+                            </li>
+                           
+                            <li>
+                                <a href="consultarNovedad.jsp">
+                                    <i class="pe-7s-info"></i>
+                                    <p>Novedad</p>
+                                </a>
+                            </li>
+                           <li>
+                            <a href="consultarHorario.jsp">
+                                <i class="pe-7s-date"></i>
+                                <p>Horario</p>
+                            </a>
+                        </li>
+
+                            <li>
+                                <a href="consultarUsuario.jsp">
+                                    <i class="pe-7s-user"></i>
+                                    <p>Usuario</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="EnviarCorreo.jsp">
+                                    <i class="pe-7s-date"></i>
+                                    <p>Correo</p>
+                                </a>
+                            </li>
+                        </ul>
                         <%}%>
                 </div>
             </div>
@@ -230,13 +242,13 @@
                     <div class="container-fluid">
 
                         <div class="collapse navbar-collapse">
-                            
+
                             <ul class="nav navbar-nav navbar-left">
 
                                 <li>
                                     <a href="menu.jsp">
                                         <i class="pe-7s-left-arrow"></i>
-                                        
+
                                     </a>
 
                                 </li>
@@ -253,156 +265,170 @@
                 <div class="contenedor mt-2">
 
                     <table id="usuario" class="table table-striped" style="width:100%">
-                <thead>
-                    <tr>
-                        <th>Id</th>
-                        <th>Asistencia</th>
-                        <th>Fecha</th>
-                        <th>Usuario</th>
-                        <th>Grupo</th>
-                        <th>Actualizar</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <%
-                        AsistenciaVO AsisVO = new AsistenciaVO();
-                        AsistenciaDAO AsisDAO = new AsistenciaDAO(AsisVO);
-                        ArrayList<AsistenciaVO> listaAsistencia = AsisDAO.listar();
-                        for (int i = 0; i < listaAsistencia.size(); i++) {
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Asistencia</th>
+                                <th>Fecha</th>
+                                <th>Usuario</th>
+                                <th>Grupo</th>
+                                    <%
+                                        if (tipoU.equals("Administrador")) {
+                                    %>
+                                <th>Estado</th>
+                                <th>Actualizar</th>
+                                    <%}%>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <%
+                                AsistenciaVO AsisVO = new AsistenciaVO();
+                                AsistenciaDAO AsisDAO = new AsistenciaDAO(AsisVO);
+                                ArrayList<AsistenciaVO> listaAsistencia = AsisDAO.listar();
+                                for (int i = 0; i < listaAsistencia.size(); i++) {
 
-                            AsisVO = listaAsistencia.get(i);
-                    %>               
-                    <tr>
-                        <td><%=AsisVO.getIdAsistencia()%></td>
-                        <td><%=AsisVO.getAsistencia()%></td>
-                        <td><%=AsisVO.getFecha()%></td>
-                        <td><%=AsisVO.getNombreUsuario()%></td>
-                        <td><%=AsisVO.getNombreGrupo()%></td>
-                        <td>
-                            <a class="btn btn-info edit m-2 p-2"href="actualizarAsistencia.jsp?idAsistencia=<%=AsisVO.getIdAsistencia()%>&asistencia=<%=AsisVO.getAsistencia()%>&fecha=<%=AsisVO.getFecha()%>&usuario=<%=AsisVO.getNombreUsuario() %>&grupo=<%=AsisVO.getNombreGrupo()%>&idUsuario=<%=AsisVO.getIdUsuario()%>&idGrupo=<%=AsisVO.getIdGrupo() %>"><i class="fas fa-pen"></i></a>
-                        </td>
-                    </tr>
-                    <%}%>  
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <th>Id</th>
-                        <th>Asistencia</th>
-                        <th>Fecha</th>
-                        <th>Usuario</th>
-                        <th>Grupo</th>
-                        <th>Actualizar</th>
-                    </tr>
-                </tfoot>
-            </table>
-        </div>
-
-        <script>
-            $(document).ready(function () {
-                $('#usuario').DataTable({
-                    scrollY: 400,
-                    language: {
-                        "sProcessing": "Procesando...",
-                        "sLengthMenu": "Mostrar _MENU_ registros",
-                        "sZeroRecords": "No se encontraron resultados",
-                        "sEmptyTable": "NingÃºn dato disponible en esta tabla",
-                        "sInfo": "Mostrando Asistencias del _START_ al _END_ de un total de _TOTAL_ Asistencias",
-                        "sInfoEmpty": "Mostrando Asistencias del 0 al 0 de un total de 0 Asistencias",
-                        "sInfoFiltered": "(filtrado de un total de _MAX_ Asistencias)",
-                        "sInfoPostFix": "",
-                        "sSearch": "Buscar:",
-                        "sUrl": "",
-                        "sInfoThousands": ",",
-                        "sLoadingRecords": "Cargando...",
-                        "oPaginate": {
-                            "sFirst": "Primero",
-                            "sLast": "Ãšltimo",
-                            "sNext": "Siguiente",
-                            "sPrevious": "Anterior"
-                        },
-                        "oAria": {
-                            "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
-                            "sSortDescending": ": Activar para ordenar la columna de manera descendente"
-                        },
-                        "buttons": {
-                            "copy": "Copiar",
-                            "colvis": "Visibilidad"
-                        }
-                    }
-                });
-            });
-        </script>
-        
-        <button class="abrir-registrar btn btn-primary"  id="abrir-registrar">Registrar</button>
-        
-        <div class="overlay" id="overlay">
-            <form method="POST" action="Asistencia" class="form-registro">
-                <div class="tituloR">
-                    <a href="#" class="cerrar-registro" id="cerrar-registro"><i class="fas fa-times"></i></a>
-                    <h2>Registrar Asistencia</h2>
-                </div>
-                <div class="cuerpo">
-                    <div class="formulario">
-                        <div class="modal-body">
-                            <label for="recipient-name" class="col-form-label">Asistencia:</label>     
-                            <select name="txtAsistencia" class="form-control">
-                                <option selected>Asistencia</option>
-                                <option value="Si">Si</option>
-                                <option value="No">No</option>
-                            </select>
-                        </div>
-                        
-                        <div class="modal-body">
-                        <label for="recipient-name" class="col-form-label">Fecha:</label>      
-                        <input type="date" name="txtFecha" required class="form-control">
-                        </div>
-                        
-                        <div class="modal-body">
-                            <label for="recipient-name" class="col-form-label">Usuario:</label>
-                            <select name="txtIdUsuario" class="form-control">
-                                <option selected>Usuario</option>
+                                    AsisVO = listaAsistencia.get(i);
+                            %>               
+                            <tr>
+                                <td><%=AsisVO.getIdAsistencia()%></td>
+                                <td><%=AsisVO.getAsistencia()%></td>
+                                <td><%=AsisVO.getFecha()%></td>
+                                <td><%=AsisVO.getNombreUsuario()%></td>
+                                <td><%=AsisVO.getNombreGrupo()%></td>
                                 <%
-                                    UsuarioVO UsuVO = new  UsuarioVO();
-                                    UsuarioDAO UsuDAO = new UsuarioDAO(UsuVO);
-                                    ArrayList< UsuarioVO> listaUsuario = UsuDAO.listar();
-                                    for (int i = 0; i < listaUsuario.size(); i++) {
-
-                                        UsuVO = listaUsuario.get(i);
+                                    if (tipoU.equals("Administrador")) {
                                 %>
-                                <option value="<%=UsuVO.getUsuId()%>"><%=UsuVO.getApellido()%></option>
-                                <%
-                                  }  
-                                %>    
-                            </select>
-                        </div>
-                            
-                        <div class="modal-body">
-                            <label for="recipient-name" class="col-form-label">Grupo:</label>
-                            <select name="txtIdGrupo" class="form-control">
-                                <option selected>Grupo</option>
-                                 <%
-                                    GrupoVO GruVO = new  GrupoVO();
-                                    GrupoDAO GruDAO = new GrupoDAO(GruVO);
-                                    ArrayList< GrupoVO> listaGrupo = GruDAO.listar();
-                                    for (int i = 0; i < listaGrupo.size(); i++) {
-
-                                        GruVO = listaGrupo.get(i);
-                                %>
-                                <option value="<%=GruVO.getIdGrupo()%>"><%=GruVO.getNombre()%></option>
-                                <%
-                                  }  
-                                %> 
-                            </select>
-                        </div>
-                        <div class="boton">
-                            <input type="submit" id="btn" value="Registrar" class="btn btn-success">
-                            <input type="hidden" value="1" name="opcion">
-                        </div>
-                    </div>
+                                <td>
+                                    <a class="btn btn-info edit m-2 p-2"href="actualizarAsistencia.jsp?idAsistencia=<%=AsisVO.getIdAsistencia()%>&asistencia=<%=AsisVO.getAsistencia()%>&fecha=<%=AsisVO.getFecha()%>&usuario=<%=AsisVO.getNombreUsuario()%>&grupo=<%=AsisVO.getNombreGrupo()%>&idUsuario=<%=AsisVO.getIdUsuario()%>&idGrupo=<%=AsisVO.getIdGrupo()%>"><i class="fas fa-pen"></i></a>
+                                </td>
+                                <%}%>
+                            </tr>
+                            <%}%>  
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>Id</th>
+                                <th>Asistencia</th>
+                                <th>Fecha</th>
+                                <th>Usuario</th>
+                                <th>Grupo</th>
+                                    <%
+                                        if (tipoU.equals("Administrador")) {
+                                    %>
+                                <th>Estado</th>
+                                <th>Actualizar</th>
+                                    <%}%>
+                            </tr>
+                        </tfoot>
+                    </table>
                 </div>
-            </form>
-        </div>
-        <script src="Js/consutarUsuario.js" type="text/javascript"></script>
+
+                <script>
+                    $(document).ready(function () {
+                        $('#usuario').DataTable({
+                            scrollY: 400,
+                            language: {
+                                "sProcessing": "Procesando...",
+                                "sLengthMenu": "Mostrar _MENU_ registros",
+                                "sZeroRecords": "No se encontraron resultados",
+                                "sEmptyTable": "NingÃºn dato disponible en esta tabla",
+                                "sInfo": "Mostrando Asistencias del _START_ al _END_ de un total de _TOTAL_ Asistencias",
+                                "sInfoEmpty": "Mostrando Asistencias del 0 al 0 de un total de 0 Asistencias",
+                                "sInfoFiltered": "(filtrado de un total de _MAX_ Asistencias)",
+                                "sInfoPostFix": "",
+                                "sSearch": "Buscar:",
+                                "sUrl": "",
+                                "sInfoThousands": ",",
+                                "sLoadingRecords": "Cargando...",
+                                "oPaginate": {
+                                    "sFirst": "Primero",
+                                    "sLast": "Ãšltimo",
+                                    "sNext": "Siguiente",
+                                    "sPrevious": "Anterior"
+                                },
+                                "oAria": {
+                                    "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+                                    "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                                },
+                                "buttons": {
+                                    "copy": "Copiar",
+                                    "colvis": "Visibilidad"
+                                }
+                            }
+                        });
+                    });
+                </script>
+
+                <button class="abrir-registrar btn btn-primary"  id="abrir-registrar">Registrar</button>
+
+                <div class="overlay" id="overlay">
+                    <form method="POST" action="Asistencia" class="form-registro">
+                        <div class="tituloR">
+                            <a href="#" class="cerrar-registro" id="cerrar-registro"><i class="fas fa-times"></i></a>
+                            <h2>Registrar Asistencia</h2>
+                        </div>
+                        <div class="cuerpo">
+                            <div class="formulario">
+                                <div class="modal-body">
+                                    <label for="recipient-name" class="col-form-label">Asistencia:</label>     
+                                    <select name="txtAsistencia" class="form-control">
+                                        <option selected>Asistencia</option>
+                                        <option value="Si">Si</option>
+                                        <option value="No">No</option>
+                                    </select>
+                                </div>
+
+                                <div class="modal-body">
+                                    <label for="recipient-name" class="col-form-label">Fecha:</label>      
+                                    <input type="date" name="txtFecha" required class="form-control">
+                                </div>
+
+                                <div class="modal-body">
+                                    <label for="recipient-name" class="col-form-label">Usuario:</label>
+                                    <select name="txtIdUsuario" class="form-control">
+                                        <option selected>Usuario</option>
+                                        <%
+                                            UsuarioVO UsuVO = new UsuarioVO();
+                                            UsuarioDAO UsuDAO = new UsuarioDAO(UsuVO);
+                                            ArrayList< UsuarioVO> listaUsuario = UsuDAO.listar();
+                                            for (int i = 0; i < listaUsuario.size(); i++) {
+
+                                                UsuVO = listaUsuario.get(i);
+                                        %>
+                                        <option value="<%=UsuVO.getUsuId()%>"><%=UsuVO.getApellido()%></option>
+                                        <%
+                                            }
+                                        %>    
+                                    </select>
+                                </div>
+
+                                <div class="modal-body">
+                                    <label for="recipient-name" class="col-form-label">Grupo:</label>
+                                    <select name="txtIdGrupo" class="form-control">
+                                        <option selected>Grupo</option>
+                                        <%
+                                            GrupoVO GruVO = new GrupoVO();
+                                            GrupoDAO GruDAO = new GrupoDAO(GruVO);
+                                            ArrayList< GrupoVO> listaGrupo = GruDAO.listar();
+                                            for (int i = 0; i < listaGrupo.size(); i++) {
+
+                                                GruVO = listaGrupo.get(i);
+                                        %>
+                                        <option value="<%=GruVO.getIdGrupo()%>"><%=GruVO.getNombre()%></option>
+                                        <%
+                                            }
+                                        %> 
+                                    </select>
+                                </div>
+                                <div class="boton">
+                                    <input type="submit" id="btn" value="Registrar" class="btn btn-success">
+                                    <input type="hidden" value="1" name="opcion">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <script src="Js/consutarUsuario.js" type="text/javascript"></script>
 
 
                 <footer class="footer">

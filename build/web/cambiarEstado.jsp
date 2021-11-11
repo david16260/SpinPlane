@@ -34,6 +34,14 @@
         </nav>
 
         <section>
+            <%
+                    String tipoU = usuVO.getIdTipoUsuario();
+                        if (tipoU.equals("Estudiante")|| tipoU.equals("Profesor")) {
+                    %>
+                    <script>
+                        window.location.href = "menu.jsp";
+                    </script>
+                    <%}%>
                 <%
                     String usuid = request.getParameter("usuid");
                     String estado = request.getParameter("estado");
