@@ -211,9 +211,7 @@
                     if (UsuVO != null) {
 
                 %>
-                <div class="preloader">
-
-                </div>
+              
                 <!-- ============================================================== -->
                 <!-- Main wrapper - style you can find in pages.scss -->
                 <!-- ============================================================== -->
@@ -235,6 +233,7 @@
                             <!-- Start Page Content -->
                             <!-- ============================================================== -->
                             <!-- Row -->
+                            
                             <div class="row">
                                 <!-- Column -->
                                 <div class="col-lg-4 col-xlg-3">
@@ -255,48 +254,33 @@
                                         <div class="card-body">
                                             <form class="form-horizontal form-material mx-2">
                                                 <div class="form-group">
-                                                    <label class="col-md-12">Nombres</label>
-                                                    <div class="col-md-12">
-                                                        <h4 class="form-control form-control-line"><%=UsuVO.getNombre()%> <%=UsuVO.getApellido()%></h4>
-                                                    </div>
+                                                    <label class="col-md-12">Nombres</label>                                                    
+                                                        <h4 class="form-control m-l-15 form-control-line"><%=UsuVO.getNombre()%> <%=UsuVO.getApellido()%></h4>        
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="example-email" class="col-md-12">Tipo de identificación</label>
-                                                    <div class="col-md-12">
-                                                        <h4 class="form-control form-control-line"><%=UsuVO.getTipoDocumento()%></h4>
-                                                    </div>
+                                                    <label for="example-email" class="col-md-12">Tipo de identificación</label>                                                    
+                                                        <h4 class="form-control m-l-15 form-control-line"><%=UsuVO.getTipoDocumento()%></h4>                                                    
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="example-email" class="col-md-12">Número de identificación</label>
-                                                    <div class="col-md-12">
-                                                        <h4 class="form-control form-control-line"><%=UsuVO.getNumDocumento()%></h4>
-                                                    </div>
+                                                    <label for="example-email" class="col-md-12">Número de identificación</label>                                                    
+                                                        <h4 class="form-control m-l-15 form-control-line"><%=UsuVO.getNumDocumento()%></h4>                                                    
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="example-email" class="col-md-12">Correo</label>
-                                                    <div class="col-md-12">
-                                                        <h4 class="form-control form-control-line"><%=UsuVO.getCorreo()%></h4>
-                                                    </div>
+                                                    <label for="example-email" class="col-md-12">Correo</label>                                                    
+                                                        <h4 class="form-control m-l-15 form-control-line"><%=UsuVO.getCorreo()%></h4>                                                    
                                                 </div>
                                                     <div class="form-group">
-                                                    <label for="example-email" class="col-md-12">Teléfono</label>
-                                                    <div class="col-md-12">
-                                                        <h4 class="form-control form-control-line"><%=UsuVO.getCelular()%></h4>
-                                                    </div>
+                                                    <label for="example-email" class="col-md-12">Teléfono</label>                                                    
+                                                        <h4 class="form-control m-l-15 form-control-line"><%=UsuVO.getCelular()%></h4>                                                    
                                                 </div>
                                                 <div class="form-group">
-                                                    <label class="col-md-12">Contraseña</label>
-                                                    <div class="col-md-12">
+                                                    <label class="col-md-12">Contraseña</label>                                                    
                                                         <input type="password" value="<%=UsuVO.getClave()%>"
-                                                               class="form-control form-control-line" readonly="">
-                                                    </div>
-                                                </div>
-                                                
-                                                
-                                              
+                                                               class="form-control m-l-15 form-control-line" readonly="">                                                    
+                                                </div>                                                                                                                                              
                                                 <div class="form-group">
                                                     <div class="col-sm-12">
-                                                        <button class="btn btn-success">Update Profile</button>
+                                                        <button class="btn btn-success">Actualizar</button>
                                                     </div>
                                                 </div>
                                             </form>
