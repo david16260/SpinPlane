@@ -4,6 +4,12 @@
     Author     : Sebas
 --%>
 
+<%@page import="ModeloDAO.ClaseDAO"%>
+<%@page import="ModeloVO.ClaseVO"%>
+<%@page import="ModeloDAO.AulaDAO"%>
+<%@page import="ModeloVO.AulaVO"%>
+<%@page import="ModeloDAO.GrupoDAO"%>
+<%@page import="ModeloVO.GrupoVO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%@include file="Sesiones.jsp" %>
@@ -290,13 +296,22 @@
                                 </div>
                                 
                                 <div class="col-md-6 ">
-                                    <label for="validationTooltip01" class="col-form-label">Dia:</label>          
-                                    <input type="text" class="form-control" id="validationTooltip01" name="txtDia" value="<%=dia %>" placeholder="Nombre" required>
+                                    <label for="validationCustom04" class="col-form-label">Dia:</label> 
+                                    <select required id="validationCustom04" name="txtDia" class="form-control">
+                                        <option value="<%=dia%>"><%=dia%></option>
+
+                                        <option value="Lunes">Lunes</option>
+                                        <option value="Martes">Martes</option>
+                                        <option value="Miercoles">Miercoles</option>
+                                        <option value="Jueves">Jueves</option>
+                                        <option value="Viernes">Viernes</option>
+
+                                    </select>
                                     <div class="valid-feedback">
                                         Correcto
                                     </div>
                                     <div class="invalid-feedback">
-                                        Por favor registre el dia 
+                                        Por favor selecciona el Dia 
                                     </div>
                                 </div>
                                 
@@ -323,35 +338,77 @@
                                 </div>   
                                 
                                 <div class="col-md-6 ">
-                                    <label for="validationTooltip01" class="col-form-label">Grupo:</label>  
-                                    <input type="text" class="form-control" value="<%=nomGrupo %>" id="validationTooltip01" name="txtNombreGrupo" placeholder="Nombre" required >
+                                    <label for="validationCustom04" class="col-form-label">Grupo:</label> 
+                                    <select required id="validationCustom04" name="txtGrupo" class="form-control">
+                                        <option value="<%=idGrupo%>"><%=nomGrupo%></option>
+                                        <%
+                                            GrupoVO GruVO = new GrupoVO();
+                                            GrupoDAO GruDAO = new GrupoDAO(GruVO);
+                                            ArrayList< GrupoVO> listaGrupo = GruDAO.listar();
+                                            for (int i = 0; i < listaGrupo.size(); i++) {
+
+                                                GruVO = listaGrupo.get(i);
+                                        %>
+                                        <option value="<%=GruVO.getIdGrupo()%>"><%=GruVO.getNombre()%></option>
+                                        <%
+                                            }
+                                        %> 
+                                    </select>
                                     <div class="valid-feedback">
                                         Correcto
                                     </div>
                                     <div class="invalid-feedback">
-                                        Por favor registre el grupo  
-                                    </div>
-                                </div> 
-                                
-                                <div class="col-md-6 ">
-                                    <label for="validationTooltip01" class="col-form-label">Aula:</label>  
-                                    <input type="text" class="form-control" value="<%=nomAula %>" id="validationTooltip01" name="txtNombreAula" placeholder="Nombre" required >
-                                    <div class="valid-feedback">
-                                        Correcto
-                                    </div>
-                                    <div class="invalid-feedback">
-                                        Por favor registre el aula 
+                                        Por favor selecciona el Grupo 
                                     </div>
                                 </div>
                                 
                                 <div class="col-md-6 ">
-                                    <label for="validationTooltip01" class="col-form-label">Clase:</label>  
-                                    <input type="text" class="form-control" value="<%=nomClase %>" id="validationTooltip01" name="txtNombreClase" placeholder="Nombre" required >
+                                    <label for="validationCustom04" class="col-form-label">Aula:</label>     
+                                    <select required id="validationCustom04" name="txtAula" class="form-control">
+                                        <option value="<%=idAula%>"><%=nomAula%></option>
+                                        <%
+                                            AulaVO AulVO = new AulaVO();
+                                            AulaDAO AulDAO = new AulaDAO(AulVO);
+                                            ArrayList<AulaVO> listaAula = AulDAO.listar();
+                                            for (int i = 0; i < listaAula.size(); i++) {
+
+                                                AulVO = listaAula.get(i);
+                                        %>
+                                        <option value="<%=AulVO.getIdAula()%>"><%=AulVO.getNombre()%></option>
+                                        <%
+                                            }
+                                        %> 
+                                    </select>
                                     <div class="valid-feedback">
                                         Correcto
                                     </div>
                                     <div class="invalid-feedback">
-                                        Por favor registre la clase  
+                                        Por favor selecciona el Aula 
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6 ">
+                                    <label for="validationCustom04" class="col-form-label">Clase:</label>      
+                                    <select required id="validationCustom04" name="txtClase" class="form-control">
+                                        <option selected disabled value="<%=idClase%>"><%=nomClase%></option>
+                                        <%
+                                            ClaseVO ClaVO = new ClaseVO();
+                                            ClaseDAO ClaDAO = new ClaseDAO(ClaVO);
+                                            ArrayList<ClaseVO> listaclase = ClaDAO.listar();
+                                            for (int i = 0; i < listaclase.size(); i++) {
+
+                                                ClaVO = listaclase.get(i);
+                                        %>
+                                        <option value="<%=ClaVO.getIdClase()%>"><%=ClaVO.getNombre()%></option>
+                                        <%
+                                            }
+                                        %> 
+                                    </select>
+                                    <div class="valid-feedback">
+                                        Correcto
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Por favor selecciona la clase 
                                     </div>
                                 </div> 
                                 <div class="boton">

@@ -77,7 +77,7 @@ public class UsuarioControlador extends HttpServlet {
                 } else {
                     request.setAttribute("mensajeError", "El usuario no se actualizo corectamente");
                 }
-                request.getRequestDispatcher("actualizarUsuario.jsp").forward(request, response);
+                request.getRequestDispatcher("consultarUsuario.jsp").forward(request, response);
                 break;
             case 3://Iniciar Session
                 if (UsuDAO.iniciarSesion(correo, clave)) {

@@ -259,7 +259,7 @@
                                 
                                 <div class="col-md-6 ">
                                     <label for="validationTooltip01" class="col-form-label">Estudiante:</label>          
-                                    <input type="text" class="form-control"  id="validationTooltip01" name="txtNombre" value="<%=estudiante %>" placeholder="Nombre" required>
+                                    <input type="text" class="form-control"  id="validationTooltip01" name="txtNombre" value="<%=estudiante %>" placeholder="Nombre" readonly="" required>
                                     <div class="invalid-feedback">
                                         Por favor selecciona el estudiante 
                                     </div>
@@ -270,7 +270,7 @@
                                 
                                 <div class="col-md-6 ">
                                     <label for="validationTooltip01" class="col-form-label">Grupo:</label>  
-                                    <input type="text" class="form-control" value="<%=grupo %>"  id="validationTooltip01" name="txtNombre" placeholder="Nombre" required >
+                                    <input type="text" class="form-control" value="<%=grupo %>" readonly="" id="validationTooltip01" name="txtNombre" placeholder="Nombre" required >
                                     <div class="invalid-feedback">
                                         Por favor selecciona el grupo 
                                     </div>
@@ -295,7 +295,7 @@
 
                                 <div class="col-md-6 ">
                                     <label for="validationTooltip01" class="col-form-label">Fecha:</label>    
-                                    <input type="date" id="validationTooltip01" value="<%=fehca %>" class="form-control" name="txtFecha" required >
+                                    <input type="date" id="validationTooltip01" readonly="" value="<%=fehca %>" class="form-control" name="txtFecha" required >
                                     <div class="invalid-feedback">
                                         Por favor selecciona la fecha 
                                     </div>

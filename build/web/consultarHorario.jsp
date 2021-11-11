@@ -281,15 +281,15 @@
                                 <td><a class="<%=HorVO.getEstado().equals("Activo") ? "btn btn-success  m-5" : "btn btn-danger  m-5"%>" style="padding-right: 10px;">
                                         <%=HorVO.getEstado()%>
                                     </a></td>                                
-                                <%
-                                    if (tipoU.equals("Administrador")) {
-                                %>
+                                    <%
+                                        if (tipoU.equals("Administrador")) {
+                                    %>
                                 <td>
                                     <%
                                         if (HorVO.getEstado().equals("Activo")) {
                                     %>
                                     <form method="POST" action="Horario">
-                                        <input type="hidden" name="txtId" value="<%=HorVO.getIdHorario() %>">
+                                        <input type="hidden" name="txtId" value="<%=HorVO.getIdHorario()%>">
                                         <input type="hidden" name="txtEstado" value="Inactivo">
                                         <button class="btn btn-info edit m-2 p-2" type="submit"><i class="fas fa-pen"></i></button>
                                         <input type="hidden" name="opcion" value="3">
@@ -298,7 +298,7 @@
                                     } else {
                                     %>
                                     <form method="POST" action="Horario">
-                                        <input type="hidden" name="txtId" value="<%=HorVO.getIdHorario() %>">
+                                        <input type="hidden" name="txtId" value="<%=HorVO.getIdHorario()%>">
                                         <input type="hidden" name="txtEstado" value="Activo">
                                         <button class="btn btn-info edit m-2 p-2" type="submit"><i class="fas fa-pen"></i></button>
                                         <input type="hidden" name="opcion" value="3">
@@ -308,7 +308,7 @@
                                     %>
                                 </td>
                                 <td>
-                                    <a class="btn btn-info edit m-2 p-2"href="actualizarHorario.jsp?idHorario=<%=HorVO.getIdHorario()%>&fechaInicio=<%=HorVO.getFechaInicio()%>&fechaFin=<%=HorVO.getFechaFin()%>&dia=<%=HorVO.getDia()%>&horaInicio=<%=HorVO.getHoraInicio()%>&horaFin=<%=HorVO.getHoraFin()%>&idGrupo=<%=HorVO.getIdGrupo()%>&idAula=<%=HorVO.getIdAula()%>&idClase=<%=HorVO.getIdClase()%>&nomGrupo=<%=HorVO.getNombreGrupo() %>&nomClase=<%=HorVO.getNombreClase()%>&nomAula=<%=HorVO.getNombreAula() %>   "><i class="fas fa-pen"></i></a>
+                                    <a class="btn btn-info edit m-2 p-2"href="actualizarHorario.jsp?idHorario=<%=HorVO.getIdHorario()%>&fechaInicio=<%=HorVO.getFechaInicio()%>&fechaFin=<%=HorVO.getFechaFin()%>&dia=<%=HorVO.getDia()%>&horaInicio=<%=HorVO.getHoraInicio()%>&horaFin=<%=HorVO.getHoraFin()%>&idGrupo=<%=HorVO.getIdGrupo()%>&idAula=<%=HorVO.getIdAula()%>&idClase=<%=HorVO.getIdClase()%>&nomGrupo=<%=HorVO.getNombreGrupo()%>&nomClase=<%=HorVO.getNombreClase()%>&nomAula=<%=HorVO.getNombreAula()%>   "><i class="fas fa-pen"></i></a>
                                 </td>
                                 <%}%>
                             </tr>
@@ -336,7 +336,7 @@
                     </table>
                 </div>
 
-               <script>
+                <script>
                     $(document).ready(function () {
                         $('#usuario').DataTable({
                             scrollY: 400,
@@ -407,13 +407,22 @@
                                 </div>
 
                                 <div class="col-md-6 ">
-                                    <label for="validationTooltip04" class="col-form-label">Día:</label>
-                                    <input type="date" name="txtDia" required class="form-control" id="validationTooltip01" minlength="5" maxlength="15" onkeypress="return (event.charCode >= 65 && event.charCode >= 90 && event.charCode >= 97 && event.charCode <= 122)">
+                                    <label for="validationCustom04" class="col-form-label">Dia:</label> 
+                                    <select required id="validationCustom04" name="txtDia" class="form-control">
+                                        <option selected disabled value="">Dia...</option>
+
+                                        <option value="Lunes">Lunes</option>
+                                        <option value="Martes">Martes</option>
+                                        <option value="Miercoles">Miercoles</option>
+                                        <option value="Jueves">Jueves</option>
+                                        <option value="Viernes">Viernes</option>
+
+                                    </select>
                                     <div class="valid-feedback">
                                         Correcto
                                     </div>
                                     <div class="invalid-feedback">
-                                        Por favor registre el dia  
+                                        Por favor selecciona el Dia 
                                     </div>
                                 </div>
 
@@ -526,7 +535,7 @@
                             </div>
                         </div>
                     </form>
-                                    <%}%>
+                    <%}%>
                 </div>
                 <% if (request.getAttribute("mensajeError") != null) {%>
                 <script  type="text/javascript">
@@ -572,28 +581,28 @@
 
             </div>
         </div>
-<script>
-                // Example starter JavaScript for disabling form submissions if there are invalid fields
-                        (function () {
-                            'use strict'
+        <script>
+                    // Example starter JavaScript for disabling form submissions if there are invalid fields
+                            (function () {
+                                'use strict'
 
-                            // Fetch all the forms we want to apply custom Bootstrap validation styles to
-                            var forms = document.querySelectorAll('.needs-validation')
+                                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                                var forms = document.querySelectorAll('.needs-validation')
 
-                            // Loop over them and prevent submission
-                            Array.prototype.slice.call(forms)
-                                    .forEach(function (form) {
-                                        form.addEventListener('submit', function (event) {
-                                            if (!form.checkValidity()) {
-                                                event.preventDefault()
-                                                event.stopPropagation()
-                                            }
+                                // Loop over them and prevent submission
+                                Array.prototype.slice.call(forms)
+                                        .forEach(function (form) {
+                                            form.addEventListener('submit', function (event) {
+                                                if (!form.checkValidity()) {
+                                                    event.preventDefault()
+                                                    event.stopPropagation()
+                                                }
 
-                                            form.classList.add('was-validated')
-                                        }, false)
-                                    })
-                        })()
-    </script>
+                                                form.classList.add('was-validated')
+                                            }, false)
+                                        })
+                            })()
+        </script>
     </body>
     <!--   Core JS Files   -->
     <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->

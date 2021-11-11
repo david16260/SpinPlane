@@ -30,7 +30,7 @@ public class UsuarioVO {
         this.grupo = grupo;
     }
 
-    public UsuarioVO(String usuId, String nombre, String apellido, String tipoDocumento, String numDocumento, String celular, String estado, String correo, String tipoUsuario, String idGrupo, String grupo) {
+    public UsuarioVO(String usuId, String nombre, String apellido, String tipoDocumento, String numDocumento, String celular, String estado, String correo, String idTipoUsuario, String tipoUsuario, String idGrupo, String grupo) {
         this.usuId = usuId;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -40,6 +40,7 @@ public class UsuarioVO {
         this.estado = estado;
         this.correo = correo;
         this.tipoUsuario = tipoUsuario;
+        this.idTipoUsuario = idTipoUsuario;
         this.idGrupo = idGrupo;
         this.grupo = grupo;
     }

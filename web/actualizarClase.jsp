@@ -255,25 +255,24 @@
                             <div class="formulario">
                                 <input type="hidden" name="txtId" value="<%=idClase %>">
                                 
-                                <div class="formulario">
-                                    <label for="validationTooltip01" class="col-form-label">Nombre:</label>          
-                                    <input type="text" class="form-control" id="validationTooltip01" name="txtNombre" value="<%=nombre %>" placeholder="Nombre" required>
+                               <div class="col-md-6 ">
+                                    <label for="validationTooltip01" class="col-form-label">Nombre Aula:</label>    
+                                    <input id="validationTooltip01" type="text" name="txtNombre" value="<%=nombre%>" placeholder="Nombre" required class="form-control" minlength="3" maxlength="30" onkeypress="return (event.charCode >= 65 && event.charCode >= 90 && event.charCode >= 97 && event.charCode <= 122)">
                                     <div class="valid-feedback">
                                         Correcto
                                     </div>
                                     <div class="invalid-feedback">
-                                        Por favor ingresa el Nombre 
+                                        Por favor ingresa el nombre de la clase 
                                     </div>
                                 </div>
-                                
-                                <div class="formulario">
-                                    <label for="validationTooltip01" class="col-form-label">Cantidad de sesiones:</label>  
-                                    <input type="number" class="form-control" value="<%=cantidad %>" id="validationTooltip01" name="txtcantidadSesiones" placeholder="Nombre" required >
+                                <div class="col-md-6 ">
+                                    <label for="validationTooltip01" class="col-form-label">Cantidad de sesiones:</label>     
+                                    <input id="validationTooltip01" type="number" name="txtcantidadSesiones " value="<%=cantidad %>" placeholder="Capacidad" class="form-control">
                                     <div class="valid-feedback">
                                         Correcto
                                     </div>
                                     <div class="invalid-feedback">
-                                        Por favor ingresa la cantidad 
+                                        Por favor ingresa una cantidad de sesiones correcta 
                                     </div>
                                 </div>
                              

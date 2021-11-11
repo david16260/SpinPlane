@@ -87,11 +87,12 @@ public class UsuarioDAO extends Conexion implements Crud {
     @Override
     public boolean actualizarRegistro() {
         try {
-            sql = "call actualizarUsuarioA(?,?,?)";
+            sql = "call actualizarUsuarioA(?,?,?,?)";
             puente = conexion.prepareStatement(sql);
             puente.setString(1, tipoDocumento);
             puente.setString(2, idTipoUsuario);
-            puente.setString(3, usuId);
+            puente.setString(3, idGrupo);
+            puente.setString(4, usuId);
             puente.executeUpdate();
             operacion = true;
         } catch (SQLException e) {
@@ -217,7 +218,7 @@ public class UsuarioDAO extends Conexion implements Crud {
                 UsuarioVO UsuVO = new UsuarioVO(mensajero.getString(1), mensajero.getString(2),
                         mensajero.getString(3), mensajero.getString(4), mensajero.getString(5), mensajero.getString(6),
                         mensajero.getString(7), mensajero.getString(8), mensajero.getString(9), mensajero.getString(10),
-                        mensajero.getString(11));
+                        mensajero.getString(11),mensajero.getString(12));
                 listaUsuario.add(UsuVO);
             }
 

@@ -258,7 +258,7 @@
                                 
                                 <div class="col-md-6 ">
                                     <label for="validationTooltip01" class="col-form-label">Estuadiante:</label>  
-                                    <input type="text" class="form-control" value="<%=nomUsuario %>" id="validationTooltip01" name="txtNombreUsuario"  required >
+                                    <input type="text" class="form-control" readonly="" value="<%=nomUsuario %>" id="validationTooltip01" name="txtNombreUsuario"  required >
                                     <div class="valid-feedback">
                                         Correcto
                                     </div>
@@ -269,7 +269,7 @@
                                 
                                 <div class="col-md-6 ">
                                     <label for="validationTooltip01" class="col-form-label">Tipo de Novedad:</label>  
-                                    <input type="text" class="form-control" value="<%=novedad %>"  id="validationTooltip01" name="txtTipoNovedad" placeholder="Nombre" required >
+                                    <input type="text" class="form-control" readonly="" value="<%=novedad %>"  id="validationTooltip01" name="txtTipoNovedad" placeholder="Nombre" required >
                                     <div class="valid-feedback">
                                         Correcto
                                     </div>
@@ -290,8 +290,8 @@
                                 </div>
                                 
                                 <div class="col-md-6 ">
-                                    <label for="validationTooltip01" class="col-form-label">Fecha Inicio:</label>  
-                                    <input type="date" class="form-control" value="<%=fechainicio %>" id="validationTooltip01" name="txtFechaInicio"  required >
+                                    <label for="validationTooltip01" rea  class="col-form-label">Fecha Inicio:</label>  
+                                    <input type="date" class="form-control" readonly="" value="<%=fechainicio %>" id="validationTooltip01" name="txtFechaInicio"  required >
                                     <div class="valid-feedback">
                                         Correcto
                                     </div>
@@ -302,7 +302,7 @@
                                 
                                 <div class="col-md-6 ">
                                     <label for="validationTooltip01" class="col-form-label">Fecha fin:</label>  
-                                    <input type="date" class="form-control" value="<%=fechafin %>" id="validationTooltip01" name="txtFechaFin" placeholder="Nombre" required >
+                                    <input type="date" class="form-control" readonly="" value="<%=fechafin %>" id="validationTooltip01" name="txtFechaFin" placeholder="Nombre" required >
                                     <div class="valid-feedback">
                                         Correcto
                                     </div>
