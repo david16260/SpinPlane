@@ -83,8 +83,7 @@
                             <img src="images/LOGO4.gif" class="SpinPlane" alt=""/>
                         </a>
                     </div>
-
-                    <%
+<%
                         String tipoU = usuVO.getIdTipoUsuario();
                         if (tipoU.equals("Profesor")) {
                     %>
@@ -127,11 +126,11 @@
                                 <p>Horario</p>
                             </a>
                         </li>
+                        
 
                     </ul>
                     <%} else if (tipoU.equals("Estudiante")) {%>
                     <ul class="nav">
-                        
                         <li>
                             <a href="consultarAsistencia.jsp">
                                 <i class="pe-7s-notebook"></i>
@@ -170,6 +169,7 @@
                                 <p>Horario</p>
                             </a>
                         </li>
+                        
                         <%} else if (tipoU.equals("Administrador")) {%>
                         <ul class="nav">
                             <li>
@@ -196,20 +196,20 @@
                                     <p>Clase</p>
                                 </a>
                             </li>
-                           
+                            <li>
                             <li>
                                 <a href="consultarNovedad.jsp">
                                     <i class="pe-7s-info"></i>
                                     <p>Novedad</p>
                                 </a>
                             </li>
-                           <li>
-                            <a href="consultarHorario.jsp">
-                                <i class="pe-7s-date"></i>
-                                <p>Horario</p>
-                            </a>
-                        </li>
-
+                            <li>
+                            <li>
+                                <a href="consultarHorario.jsp">
+                                    <i class="pe-7s-date"></i>
+                                    <p>Horario</p>
+                                </a>
+                            </li>
                             <li>
                                 <a href="consultarUsuario.jsp">
                                     <i class="pe-7s-user"></i>
@@ -217,11 +217,11 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="EnviarCorreo.jsp">
-                                    <i class="pe-7s-date"></i>
-                                    <p>Correo</p>
-                                </a>
-                            </li>
+                            <a href="EnviarCorreo.jsp">
+                                <i class="pe-7s-date"></i>
+                                <p>Correo</p>
+                            </a>
+                        </li>
                         </ul>
                         <%}%>
                 </div>
