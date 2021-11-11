@@ -88,16 +88,16 @@
             <div class="entra"></div>
             <div class="entra"></div>
             <div class="entra"></div>
-            <div class="box">
+            <div class="box"></div>
                 <div class="container2">
-                    <div class="form">
+                    <div class="form"></div>
                         <div class="boton-volver">
                             <a class="boton-volver" href="consultarUsuario.jsp" style="font-size: 40px;"><i class="fa fa-chevron-circle-left" id="cancel"></i></a>
                         </div>
                         
                         <form class="row g-3" method="POST" action="Usuario">
                             <input type="hidden" name="txtId" placeholder="Nombre" value="<%=usuid%>">
-
+                        </form>
         <div class="wrapper">
             <div class="sidebar" data-color="orange" data-image="assets/img/siderbar.jpeg">
 
@@ -247,7 +247,7 @@
               
             <div class="main-panel">
                 <nav class="navbar navbar-default navbar-fixed">
-                    <div class="container-fluid">
+                    <div class="container">
 
                         <div class="collapse navbar-collapse">
 
