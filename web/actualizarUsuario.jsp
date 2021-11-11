@@ -263,7 +263,7 @@
                             </ul>
                             <ul style="list-style: none; margin-top: 15px;">
                                 <li>
-                                    <h2 class="text-center">Actualizar Usuario</h2>
+                                    <h2 class="text-center">Gestionar Usuario</h2>
                                 </li>
                             </ul>
                         </div>
@@ -275,7 +275,10 @@
 
 
                     <form method="POST" action="Usuario" class="form-registro needs-validation" novalidate>
-                        
+                        <div class="tituloR">
+                            <a href="consultarUsuario.jsp" class="cerrar-registro" id="cerrar-registro"><i class="fas fa-times"></i></a>
+                            <h2 class="textReg">Actualizar Usuario</h2>
+                        </div>
                         <div class="cuerpo">
                             <div class="formulario">
                                 <input type="hidden" name="txtId" value="<%=usuid%>">

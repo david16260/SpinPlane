@@ -262,7 +262,6 @@
                     <table id="usuario" class="table table-striped" style="width:100%">
                         <thead>
                             <tr>
-                                <th>Id</th>
                                 <th>Asistencia</th>
                                 <th>Fecha</th>
                                 <th>Usuario</th>
@@ -284,7 +283,6 @@
                                     AsisVO = listaAsistencia.get(i);
                             %>               
                             <tr>
-                                <td><%=AsisVO.getIdAsistencia()%></td>
                                 <td><%=AsisVO.getAsistencia()%></td>
                                 <td><%=AsisVO.getFecha()%></td>
                                 <td><%=AsisVO.getNombreUsuario()%></td>
@@ -293,7 +291,7 @@
                                     if (tipoU.equals("Administrador")) {
                                 %>
                                 <td>
-                                    <a class="btn btn-info edit m-2 p-2"href="actualizarAsistencia.jsp?idAsistencia=<%=AsisVO.getIdAsistencia()%>&asistencia=<%=AsisVO.getAsistencia()%>&fecha=<%=AsisVO.getFecha()%>&usuario=<%=AsisVO.getNombreUsuario()%>&grupo=<%=AsisVO.getNombreGrupo()%>&idUsuario=<%=AsisVO.getIdUsuario()%>&idGrupo=<%=AsisVO.getIdGrupo()%>"><i class="fas fa-pen"></i></a>
+                                    <a class="btn btn-info edit m-6 p-2"href="actualizarAsistencia.jsp?idAsistencia=<%=AsisVO.getIdAsistencia()%>&asistencia=<%=AsisVO.getAsistencia()%>&fecha=<%=AsisVO.getFecha()%>&usuario=<%=AsisVO.getNombreUsuario()%>&grupo=<%=AsisVO.getNombreGrupo()%>&idUsuario=<%=AsisVO.getIdUsuario()%>&idGrupo=<%=AsisVO.getIdGrupo()%>"><i class="fas fa-pen"></i></a>
                                 </td>
                                 <%}%>
                             </tr>
@@ -301,7 +299,6 @@
                         </tbody>
                         <tfoot>
                             <tr>
-                                <th>Id</th>
                                 <th>Asistencia</th>
                                 <th>Fecha</th>
                                 <th>Usuario</th>
@@ -309,7 +306,6 @@
                                     <%
                                         if (tipoU.equals("Administrador")) {
                                     %>
-                                <th>Estado</th>
                                 <th>Actualizar</th>
                                     <%}%>
                             </tr>
