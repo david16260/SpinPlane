@@ -3,6 +3,7 @@
     Created on : 25/06/2021, 11:22:07 AM
     Author     : Yurny B)
 --%>
+<%@include file="Sesiones.jsp" %>
 <%@page import="ModeloVO.GrupoVO"%>
 <%@page import="ModeloDAO.GrupoDAO"%>
 <%@page import="java.util.ArrayList"%>
@@ -10,7 +11,6 @@
 <%@page import="ModeloVO.UsuarioVO"%>
 <%@page import="ModeloVO.TipoUsuarioVO" %>
 <%@page import="ModeloDAO.TipoUsuarioDAO" %>
-<%@include file="Sesiones.jsp" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!doctype html>
 <html lang="en">
@@ -70,8 +70,8 @@
     </head>
     <body>
         <%
-            String tipoU = usuVO.getIdTipoUsuario();
-            if (tipoU.equals("Estudiante")) {
+            String tipoUs = usuVO.getIdTipoUsuario();
+            if (tipoUs.equals("Estudiante")) {
         %>
         <script>
             window.location.href = "menu.jsp";

@@ -77,14 +77,14 @@
             String grupo = request.getParameter("grupo");
         %>
         <%
-                    String tipoU = usuVO.getIdTipoUsuario();
-                        if (tipoU.equals("Estudiante")|| tipoU.equals("Profesor")) {
+                    String tipoUs = usuVO.getIdTipoUsuario();
+                        if (tipoUs.equals("Estudiante")|| tipoUs.equals("Profesor")) {
                     %>
                     <script>
                         window.location.href = "menu.jsp";
                     </script>
                     <%}%>
-        <section>
+                    <section> 
             <div class="entra"></div>
             <div class="entra"></div>
             <div class="entra"></div>
@@ -94,7 +94,7 @@
                         <div class="boton-volver">
                             <a class="boton-volver" href="consultarUsuario.jsp" style="font-size: 40px;"><i class="fa fa-chevron-circle-left" id="cancel"></i></a>
                         </div>
-                        <h2 for="usu">Actualizar Usuario</h2>
+                        
                         <form class="row g-3" method="POST" action="Usuario">
                             <input type="hidden" name="txtId" placeholder="Nombre" value="<%=usuid%>">
 
@@ -244,7 +244,7 @@
                         <%}%>
                 </div>
             </div>
-
+              
             <div class="main-panel">
                 <nav class="navbar navbar-default navbar-fixed">
                     <div class="container-fluid">
@@ -263,7 +263,7 @@
                             </ul>
                             <ul style="list-style: none; margin-top: 15px;">
                                 <li>
-                                    <h2 class="text-center">Gestionar Usuario</h2>
+                                    <h2 class="text-center">Actualizar Usuario</h2>
                                 </li>
                             </ul>
                         </div>
@@ -275,10 +275,7 @@
 
 
                     <form method="POST" action="Usuario" class="form-registro needs-validation" novalidate>
-                        <div class="tituloR">
-                            <a href="consultarUsuario.jsp" class="cerrar-registro" id="cerrar-registro"><i class="fas fa-times"></i></a>
-                            <h2 class="textReg">Actualizar Usuario</h2>
-                        </div>
+                        
                         <div class="cuerpo">
                             <div class="formulario">
                                 <input type="hidden" name="txtId" value="<%=usuid%>">
@@ -417,6 +414,7 @@
                 </footer>
 
             </div>
+                
         </div>
         <script>
 

@@ -85,8 +85,8 @@
             
                 -->
                 <%
-                        String tipoU = usuVO.getIdTipoUsuario();
-                        if (tipoU.equals("Estudiante")) {
+                        String tipoUs = usuVO.getIdTipoUsuario();
+                        if (tipoUs.equals("Estudiante")) {
                     %>
                     <script>
                         window.location.href = "menu.jsp";
