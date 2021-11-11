@@ -269,7 +269,6 @@
                                     <%
                                         if (tipoU.equals("Administrador")) {
                                     %>
-                                <th>Estado</th>
                                 <th>Actualizar</th>
                                     <%}%>
                             </tr>
