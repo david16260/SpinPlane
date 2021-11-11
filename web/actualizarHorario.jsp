@@ -269,9 +269,6 @@
                         <div class="cuerpo">
                             <div class="formulario">
                                 <input type="hidden" name="txtId" value="<%=idHorario %>">
-                                <input type="hidden" name="txtAula" value="<%=idAula %>">
-                                <input type="hidden" name="txtClase" value="<%=idClase %>">
-                                <input type="hidden" name="txtGrupo" value="<%=idGrupo %>">
                                 
                                 <div class="col-md-6 ">
                                     <label for="validationTooltip01" class="col-form-label">Fecha Inicio:</label>  
@@ -390,7 +387,7 @@
                                 <div class="col-md-6 ">
                                     <label for="validationCustom04" class="col-form-label">Clase:</label>      
                                     <select required id="validationCustom04" name="txtClase" class="form-control">
-                                        <option selected disabled value="<%=idClase%>"><%=nomClase%></option>
+                                        <option value="<%=idClase%>"><%=nomClase%></option>
                                         <%
                                             ClaseVO ClaVO = new ClaseVO();
                                             ClaseDAO ClaDAO = new ClaseDAO(ClaVO);
