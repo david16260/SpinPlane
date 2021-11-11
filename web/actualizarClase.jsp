@@ -246,7 +246,7 @@
                 <div class="contenedor mt-4">
 
 
-                    <form method="POST" action="Clase" class="form-registro">
+                    <form method="POST" action="Clase" class="form-registro needs-validation" novalidate>
                         <div class="tituloR">
                             <a href="consultarClase.jsp" class="cerrar-registro" id="cerrar-registro"><i class="fas fa-times"></i></a>
                             <h2 class="textReg">Actualizar Clase</h2>
@@ -255,14 +255,25 @@
                             <div class="formulario">
                                 <input type="hidden" name="txtId" value="<%=idClase %>">
                                 
-                                <div class="form-group">
-                                    <label for="recipient-name" class="col-form-label">Nombre:</label>          
-                                    <input type="text" class="form-control" id="nombre" name="txtNombre" value="<%=nombre %>" placeholder="Nombre" required>
+                               <div class="col-md-6 ">
+                                    <label for="validationTooltip01" class="col-form-label">Nombre Aula:</label>    
+                                    <input id="validationTooltip01" type="text" name="txtNombre" value="<%=nombre%>" placeholder="Nombre" required class="form-control" minlength="3" maxlength="30" onkeypress="return (event.charCode >= 65 && event.charCode >= 90 && event.charCode >= 97 && event.charCode <= 122)">
+                                    <div class="valid-feedback">
+                                        Correcto
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Por favor ingresa el nombre de la clase 
+                                    </div>
                                 </div>
-                                
-                                <div class="form-group">
-                                    <label for="recipient-name" class="col-form-label">Cantidad de sesiones:</label>  
-                                    <input type="number" class="form-control" value="<%=cantidad %>" id="nombre" name="txtcantidadSesiones" placeholder="Nombre" required >
+                                <div class="col-md-6 ">
+                                    <label for="validationTooltip01" class="col-form-label">Cantidad de sesiones:</label>     
+                                    <input id="validationTooltip01" type="number" name="txtcantidadSesiones " value="<%=cantidad %>" placeholder="Capacidad" class="form-control">
+                                    <div class="valid-feedback">
+                                        Correcto
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Por favor ingresa una cantidad de sesiones correcta 
+                                    </div>
                                 </div>
                              
                                 <div class="boton">
@@ -325,6 +336,28 @@
 
             </div>
         </div>
+        <script>
+            // Example starter JavaScript for disabling form submissions if there are invalid fields
+                    (function () {
+                        'use strict'
+
+                        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                        var forms = document.querySelectorAll('.needs-validation')
+
+                        // Loop over them and prevent submission
+                        Array.prototype.slice.call(forms)
+                                .forEach(function (form) {
+                                    form.addEventListener('submit', function (event) {
+                                        if (!form.checkValidity()) {
+                                            event.preventDefault()
+                                            event.stopPropagation()
+                                        }
+
+                                        form.classList.add('was-validated')
+                                    }, false)
+                                })
+                    })()
+</script>
 
     </body>
     <!--   Core JS Files   -->

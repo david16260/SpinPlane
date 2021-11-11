@@ -252,7 +252,7 @@
                 <div class="contenedor mt-4">
 
 
-                    <form method="POST" action="Novedad" class="form-registro">
+                    <form method="POST" action="Novedad" class="form-registro needs-validation" novalidate>
                         <div class="tituloR">
                             <a href="consultarNovedad.jsp" class="cerrar-registro" id="cerrar-registro"><i class="fas fa-times"></i></a>
                             <h2 class="textReg">Actualizar Novedad</h2>
@@ -263,29 +263,59 @@
                                 <input type="hidden" name="txtAsistencia" value="<%=idasistencia %>">
                                 <input type="hidden" name="txtTipoNovedad" value="<%=idtiponovedad %>">
                                 
-                                <div class="form-group">
-                                    <label for="recipient-name" class="col-form-label">Estuadiante:</label>  
-                                    <input type="text" class="form-control" value="<%=nomUsuario %>" id="nombre" name="txtNombreUsuario" readonly="" required >
+                                <div class="col-md-6 ">
+                                    <label for="validationTooltip01" class="col-form-label">Estuadiante:</label>  
+                                    <input type="text" class="form-control" readonly="" value="<%=nomUsuario %>" id="validationTooltip01" name="txtNombreUsuario"  required >
+                                    <div class="valid-feedback">
+                                        Correcto
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Por favor selecciona el nombre de el Estudiante 
+                                    </div>
                                 </div>
                                 
-                                <div class="form-group">
-                                    <label for="recipient-name" class="col-form-label">Tipo de Novedad:</label>  
-                                    <input type="text" class="form-control" value="<%=novedad %>" readonly="" id="nombre" name="txtTipoNovedad" placeholder="Nombre" required >
+                                <div class="col-md-6 ">
+                                    <label for="validationTooltip01" class="col-form-label">Tipo de Novedad:</label>  
+                                    <input type="text" class="form-control" readonly="" value="<%=novedad %>"  id="validationTooltip01" name="txtTipoNovedad" placeholder="Nombre" required >
+                                    <div class="valid-feedback">
+                                        Correcto
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Por favor selecciona el tipo de novedad 
+                                    </div>
                                 </div>
                                 
-                                <div class="form-group">
-                                    <label for="recipient-name" class="col-form-label">Descripción:</label>          
-                                    <input type="text" class="form-control" id="nombre" name="txtDescripcion" value="<%=descripcion %>" placeholder="Nombre" required>
+                                <div class="col-md-6 ">
+                                    <label for="validationTooltip01" class="col-form-label">Descripción:</label>          
+                                    <input type="text" class="form-control" id="validationTooltip01" name="txtDescripcion" value="<%=descripcion %>" placeholder="Nombre" required>
+                                    <div class="valid-feedback">
+                                        Correcto
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Por favor registre la descripcion  
+                                    </div>
                                 </div>
                                 
-                                <div class="form-group">
-                                    <label for="recipient-name" class="col-form-label">Fecha Inicio:</label>  
-                                    <input type="date" class="form-control" value="<%=fechainicio %>" id="nombre" name="txtFechaInicio" readonly="" required >
+                                <div class="col-md-6 ">
+                                    <label for="validationTooltip01" rea  class="col-form-label">Fecha Inicio:</label>  
+                                    <input type="date" class="form-control" readonly="" value="<%=fechainicio %>" id="validationTooltip01" name="txtFechaInicio"  required >
+                                    <div class="valid-feedback">
+                                        Correcto
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Por favor registre la fecha inicio  
+                                    </div>
                                 </div>
                                 
-                                <div class="form-group">
-                                    <label for="recipient-name" class="col-form-label">Fecha fin:</label>  
-                                    <input type="date" class="form-control" value="<%=fechafin %>" id="nombre" name="txtFechaFin" placeholder="Nombre" required >
+                                <div class="col-md-6 ">
+                                    <label for="validationTooltip01" class="col-form-label">Fecha fin:</label>  
+                                    <input type="date" class="form-control" readonly="" value="<%=fechafin %>" id="validationTooltip01" name="txtFechaFin" placeholder="Nombre" required >
+                                    <div class="valid-feedback">
+                                        Correcto
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Por favor registre la fecha fin  
+                                    </div>
                                 </div>
                                 
      
@@ -350,6 +380,29 @@
 
             </div>
         </div>
+        <script>
+
+            // Example starter JavaScript for disabling form submissions if there are invalid fields
+                    (function () {
+                        'use strict'
+
+                        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                        var forms = document.querySelectorAll('.needs-validation')
+
+                        // Loop over them and prevent submission
+                        Array.prototype.slice.call(forms)
+                                .forEach(function (form) {
+                                    form.addEventListener('submit', function (event) {
+                                        if (!form.checkValidity()) {
+                                            event.preventDefault()
+                                            event.stopPropagation()
+                                        }
+
+                                        form.classList.add('was-validated')
+                                    }, false)
+                                })
+                    })()
+</script>
 
     </body>
     <!--   Core JS Files   -->

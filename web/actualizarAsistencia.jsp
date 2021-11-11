@@ -1,7 +1,7 @@
 <%-- 
     Document   : actualizarAsistencia
     Created on : Sep 6, 2021, 11:32:32 AM
-    Author     : Julian
+    Author     : Yurny
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -252,7 +252,7 @@
                 <div class="contenedor mt-4">
 
 
-                    <form method="POST" action="Asistencia" class="form-registro">
+                    <form method="POST" action="Asistencia" class="form-registro needs-validation" novalidate>
                         <div class="tituloR">
                             <a href="consultarAsistencia.jsp" class="cerrar-registro" id="cerrar-registro"><i class="fas fa-times"></i></a>
                             <h2 class="textReg">Actualizar Asistencia</h2>
@@ -264,27 +264,51 @@
                                 <input type="hidden" name="txtIdUsuario" value="<%=idUsuario %>">
                                 <input type="hidden" name="txtIdGrupo" value="<%=idGrupo %>">
                                 
-                                <div class="form-group">
-                                    <label for="recipient-name" class="col-form-label">Estudiante:</label>          
-                                    <input type="text" class="form-control" id="nombre" name="txtNombre" value="<%=estudiante %>" placeholder="Nombre" required readonly="">
+                                <div class="col-md-6 ">
+                                    <label for="validationTooltip01" class="col-form-label">Estudiante:</label>          
+                                    <input type="text" class="form-control"  id="validationTooltip01" name="txtNombre" value="<%=estudiante %>" placeholder="Nombre" readonly="" required>
+                                    <div class="invalid-feedback">
+                                        Por favor selecciona el estudiante 
+                                    </div>
+                                    <div class="valid-feedback">
+                                        Correcto
+                                    </div>
                                 </div>
                                 
-                                <div class="form-group">
-                                    <label for="recipient-name" class="col-form-label">Grupo:</label>  
-                                    <input type="text" class="form-control" value="<%=grupo %>" id="nombre" name="txtNombre" placeholder="Nombre" required readonly="">
+                                <div class="col-md-6 ">
+                                    <label for="validationTooltip01" class="col-form-label">Grupo:</label>  
+                                    <input type="text" class="form-control" value="<%=grupo %>" readonly="" id="validationTooltip01" name="txtNombre" placeholder="Nombre" required >
+                                    <div class="invalid-feedback">
+                                        Por favor selecciona el grupo 
+                                    </div>
+                                    <div class="valid-feedback">
+                                        Correcto
+                                    </div>
                                 </div>
 
-                                <div class="form-group">
-                                    <label for="recipient-name" class="col-form-label">Asistencia:</label>
-                                    <select id="TipoDocumento" name="txtAsistencia" class="form-control">
+                                <div class="col-md-6 ">
+                                    <label for="validationCustom04" class="col-form-label">Asistencia:</label>
+                                    <select  id="validationCustom04" name="txtAsistencia" class="form-control">
                                         <option value="Si">Si</option>
                                         <option value="No">No</option>
                                     </select>
+                                    <div class="invalid-feedback">
+                                        Por favor selecciona asistencia 
+                                    </div>
+                                    <div class="valid-feedback">
+                                        Correcto
+                                    </div>
                                 </div>
 
-                                <div class="form-group">
-                                    <label for="recipient-name" class="col-form-label">Fecha:</label>    
-                                    <input type="date" id="numeroDocumento" value="<%=fehca %>" class="form-control" name="txtFecha" required readonly>
+                                <div class="col-md-6 ">
+                                    <label for="validationTooltip01" class="col-form-label">Fecha:</label>    
+                                    <input type="date" id="validationTooltip01" readonly="" value="<%=fehca %>" class="form-control" name="txtFecha" required >
+                                    <div class="invalid-feedback">
+                                        Por favor selecciona la fecha 
+                                    </div>
+                                    <div class="valid-feedback">
+                                        Correcto
+                                    </div>
                                 </div> 
                                 <div class="boton">
                                     <input type="submit" id="btn" value="Actualizar" class="btn btn-success">
@@ -346,6 +370,28 @@
 
             </div>
         </div>
+        <script>
+            // Example starter JavaScript for disabling form submissions if there are invalid fields
+                    (function () {
+                        'use strict'
+
+                        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                        var forms = document.querySelectorAll('.needs-validation')
+
+                        // Loop over them and prevent submission
+                        Array.prototype.slice.call(forms)
+                                .forEach(function (form) {
+                                    form.addEventListener('submit', function (event) {
+                                        if (!form.checkValidity()) {
+                                            event.preventDefault()
+                                            event.stopPropagation()
+                                        }
+
+                                        form.classList.add('was-validated')
+                                    }, false)
+                                })
+                    })()
+</script>
 
     </body>
     <!--   Core JS Files   -->

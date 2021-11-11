@@ -68,7 +68,7 @@ public class HorarioControlador extends HttpServlet {
                 } else {
                     request.setAttribute("mensajeError", "El horario no se actualizo corectamente");
                 }
-                request.getRequestDispatcher("actualizarHorario.jsp").forward(request, response);
+                request.getRequestDispatcher("consultarHorario.jsp").forward(request, response);
                 break;
                 case 3://Actualizar Estado
                 if (HorDAO.cambiarEstado()) {
@@ -76,7 +76,7 @@ public class HorarioControlador extends HttpServlet {
                 } else {
                     request.setAttribute("mensajeError", "El Horario no se actualizo corectamente");
                 }
-                request.getRequestDispatcher("cambiarEstadoHorario.jsp").forward(request, response);
+                request.getRequestDispatcher("consultarHorario.jsp").forward(request, response);
                 break;
            
         }

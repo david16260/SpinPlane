@@ -119,7 +119,7 @@ public class GrupoDAO extends Conexion implements Crud{
         
         try {
             conexion= this.obtenerConexion();
-            sql="call consultarGrupos;";
+            sql="call consultarGruposA;";
             puente = conexion.prepareStatement(sql);
             mensajero = puente.executeQuery();
             while (mensajero.next()) {

@@ -50,11 +50,14 @@ public class UsuarioControlador extends HttpServlet {
         String clave = request.getParameter("txtClave");
         String idTipoUsuario = request.getParameter("txtRol");
         String tipoUsuario = request.getParameter("txtTipoUsuario");
+        String idGrupo = request.getParameter("txtidGrupo");
+        String grupo = request.getParameter("txtGrupo");
+        
 
         int opcion = Integer.parseInt(request.getParameter("opcion"));
 
         //paso 2- instanciar VO
-        UsuarioVO UsuVO = new UsuarioVO(usuId, nombre, apellido, tipoDocumento, numDocumento, celular, estado, correo, clave, idTipoUsuario,tipoUsuario);
+        UsuarioVO UsuVO = new UsuarioVO(usuId, nombre, apellido, tipoDocumento, numDocumento, celular, estado, correo, clave, idTipoUsuario,tipoUsuario, idGrupo,grupo);
 
         //instanciar DAO
         UsuarioDAO UsuDAO = new UsuarioDAO(UsuVO);
@@ -74,7 +77,7 @@ public class UsuarioControlador extends HttpServlet {
                 } else {
                     request.setAttribute("mensajeError", "El usuario no se actualizo corectamente");
                 }
-                request.getRequestDispatcher("actualizarUsuario.jsp").forward(request, response);
+                request.getRequestDispatcher("consultarUsuario.jsp").forward(request, response);
                 break;
             case 3://Iniciar Session
                 if (UsuDAO.iniciarSesion(correo, clave)) {
@@ -121,9 +124,9 @@ public class UsuarioControlador extends HttpServlet {
                 if (UsuDAO.cambiarEstado()) {
                     request.setAttribute("mensajeExito", "El estado se actualizo corectamente");
                 } else {
-                    request.setAttribute("mensajeError", "El usuario no se actualizo corectamente");
+                    request.setAttribute("mensajeError", "El estado no se actualizo corectamente");
                 }
-                request.getRequestDispatcher("cambiarEstado.jsp").forward(request, response);
+                request.getRequestDispatcher("consultarUsuario.jsp").forward(request, response);
                 break;
                                         
         }

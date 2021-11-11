@@ -1,8 +1,10 @@
 <%-- 
     Document   : ConsultarUsuario
     Created on : 25/06/2021, 11:22:07 AM
-    Author     : Sebas
+    Author     : Yurny B)
 --%>
+<%@page import="ModeloVO.GrupoVO"%>
+<%@page import="ModeloDAO.GrupoDAO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="ModeloDAO.UsuarioDAO"%>
 <%@page import="ModeloVO.UsuarioVO"%>
@@ -68,13 +70,13 @@
     </head>
     <body>
         <%
-                        String tipoU = usuVO.getIdTipoUsuario();
-                        if (tipoU.equals("Estudiante")) {
-                    %>
-                    <script>
-                        window.location.href = "menu.jsp";
-                    </script>
-                    <%}%>
+            String tipoU = usuVO.getIdTipoUsuario();
+            if (tipoU.equals("Estudiante")) {
+        %>
+        <script>
+            window.location.href = "menu.jsp";
+        </script>
+        <%}%>
         <div class="wrapper">
             <div class="sidebar" data-color="orange" data-image="assets/img/siderbar.jpeg">
 
@@ -272,6 +274,7 @@
                                 <th>Estado</th>
                                 <th>Correo</th>                                
                                 <th>Tipo Usuario</th>
+                                <th>Grupo</th>
                                 <th>Estado</th>
                                 <th>Actualizar</th>
                             </tr>
@@ -298,14 +301,34 @@
                                     </a>
                                 </td>
                                 <td><%=UsuVO.getCorreo()%></td>                                
-                                <td><%=UsuVO.getTipoUsuario() %></td>  
+                                <td><%=UsuVO.getTipoUsuario()%></td>  
+                                <td><%=UsuVO.getGrupo()%></td>
                                 <td>
-                                    <a  class="btn btn-primary edit m-2 p-2"href="cambiarEstado.jsp?usuid=<%=UsuVO.getUsuId()%>&estado=<%=UsuVO.getEstado()%>"><i class="fas fa-pen"></i></a>
-
+                                    <%
+                                        if (UsuVO.getEstado().equals("Activo")) {
+                                    %>
+                                    <form method="POST" action="Usuario">
+                                        <input type="hidden" name="txtId" value="<%=UsuVO.getUsuId() %>">
+                                        <input type="hidden" name="txtEstado" value="Inactivo">
+                                        <button class="btn btn-info edit m-2 p-2" type="submit"><i class="fas fa-pen"></i></button>
+                                        <input type="hidden" name="opcion" value="5">
+                                    </form>
+                                    <%
+                                    } else {
+                                    %>
+                                    <form method="POST" action="Usuario">
+                                        <input type="hidden" name="txtId" value="<%=UsuVO.getUsuId() %>">
+                                        <input type="hidden" name="txtEstado" value="Activo">
+                                        <button class="btn btn-info edit m-2 p-2" type="submit"><i class="fas fa-pen"></i></button>
+                                        <input type="hidden" name="opcion" value="5">
+                                    </form>
+                                    <%
+                                        }
+                                    %>
                                 </td>
 
                                 <td>
-                                    <a class="btn btn-info edit m-2 p-2"href="actualizarUsuario.jsp?usuid=<%=UsuVO.getUsuId()%>&tipodoc=<%=UsuVO.getTipoDocumento()%>&tipousu=<%=UsuVO.getIdTipoUsuario()%>"><i class="fas fa-pen"></i></a>
+                                    <a class="btn btn-info edit m-2 p-2"href="actualizarUsuario.jsp?usuid=<%=UsuVO.getUsuId()%>&tipodoc=<%=UsuVO.getTipoDocumento()%>&idTipousu=<%=UsuVO.getIdTipoUsuario()%>&tipoUsuario=<%=UsuVO.getTipoUsuario()%>&idGrupo=<%=UsuVO.getIdGrupo()%>&grupo=<%=UsuVO.getGrupo()%>"><i class="fas fa-pen"></i></a>
                                 </td>
 
                             </tr>
@@ -322,6 +345,7 @@
                                 <th>Estado</th>
                                 <th>Correo</th>                                
                                 <th>Tipo Usuario</th>
+                                <th>Grupo</th>
                                 <th>Estado</th>
                                 <th>Actualizar</th>
                             </tr>
@@ -335,12 +359,12 @@
                             scrollY: 400,
                             language: {
                                 "sProcessing": "Procesando...",
-                                "sLengthMenu": "Mostrar _MENU_ registros",
+                                "sLengthMenu": "Mostrar MENU registros",
                                 "sZeroRecords": "No se encontraron resultados",
                                 "sEmptyTable": "NingÃºn dato disponible en esta tabla",
-                                "sInfo": "Mostrando usuarios del _START_ al _END_ de un total de _TOTAL_ usuarios",
+                                "sInfo": "Mostrando usuarios del START al END de un total de TOTAL usuarios",
                                 "sInfoEmpty": "Mostrando usuarios del 0 al 0 de un total de 0 usuarios",
-                                "sInfoFiltered": "(filtrado de un total de _MAX_ usuarios)",
+                                "sInfoFiltered": "(filtrado de un total de MAX usuarios)",
                                 "sInfoPostFix": "",
                                 "sSearch": "Buscar:",
                                 "sUrl": "",
@@ -396,8 +420,8 @@
                                 </div>
 
                                 <div class="col-md-6">
-                                    
-                                
+
+
                                     <label for="recipient-name" class="col-form-label">Tipo documento:</label>
                                     <select id="TipoDocumento" class="form-control" name="txtTipoDocumento" >
                                         <option selected disabled value="">Selccione tipo documento</option>
@@ -475,92 +499,114 @@
                                         Correcto
                                     </div>
                                 </div>
+                                <div class="col-md-6">
+                                    <label for="validationCustom04" class="col-form-label mt-0">Grupo:</label>
+                                    <select  id="validationCustom04" required name="txtidGrupo" class="form-control">
+                                        <option selected disabled value="">Grupo...</option>
+                                        <%
+                                            GrupoVO GruVO = new GrupoVO();
+                                            GrupoDAO GruDAO = new GrupoDAO(GruVO);
+                                            ArrayList<GrupoVO> listaGrupo = GruDAO.listar();
+                                            for (int i = 0; i < listaGrupo.size(); i++) {
+
+                                                GruVO = listaGrupo.get(i);
+                                        %>
+                                        <option value="<%=GruVO.getIdGrupo()%>"><%=GruVO.getNombre()%></option>
+                                        <% }%>
+                                    </select>
+                                    <div class="invalid-feedback">
+                                        Por favor selecciona el grupo 
+                                    </div>
+                                    <div class="valid-feedback">
+                                        Correcto
+                                    </div>
+                                </div>
                                 <div class="col-12 mt-3">
                                     <input type="submit" class="btn btn-success" id="btn" value="Registrar">
                                     <input type="hidden" value="1" name="opcion">
                                 </div>
+                            </div>
                         </div>
-                </div>
-                <input type="hidden" value="Activo" name="txtEstado" required>
+                        <input type="hidden" value="Activo" name="txtEstado" required>
 
-                </form>
+                    </form>
+                </div>
+                <% if (request.getAttribute("mensajeError") != null) {%>
+                <script  type="text/javascript">
+
+                    swal({
+                        title: "Error",
+                        text: "${mensajeError}",
+                        type: 'error',
+                        confirmButtonClass: "btn-primary",
+                        confirmButtonText: "OK",
+                        closeOnConfirm: false
+                    },
+                            function () {
+                                window.location = "consultarUsuario.jsp";
+                            });
+                </script>
+
+                <%} else if (request.getAttribute("mensajeExito") != null) {%>
+                <script  type="text/javascript">
+
+                    swal({
+                        title: "Correcto",
+                        text: "${mensajeExito}",
+                        type: 'success',
+                        confirmButtonClass: "btn-primary",
+                        confirmButtonText: "OK",
+                        closeOnConfirm: false
+                    },
+                            function () {
+                                window.location = "consultarUsuario.jsp";
+                            });
+                </script>
+                <%}%>
+                <script src="Js/consutarUsuario.js" type="text/javascript"></script>
+
+
+                <footer class="footer">
+                    <div class="container-fluid">
+
+                        <p class="copyright text-center">
+                            &copy; <script>document.write(new Date().getFullYear())</script> <a href="#">SpinPlane</a>
+                        </p>
+                    </div>
+                </footer>
+
             </div>
-            <% if (request.getAttribute("mensajeError") != null) {%>
-            <script  type="text/javascript">
-
-                swal({
-                    title: "Error",
-                    text: "${mensajeError}",
-                    type: 'error',
-                    confirmButtonClass: "btn-primary",
-                    confirmButtonText: "OK",
-                    closeOnConfirm: false
-                },
-                        function () {
-                            window.location = "consultarUsuario.jsp";
-                        });
-            </script>
-
-            <%} else if (request.getAttribute("mensajeExito") != null) {%>
-            <script  type="text/javascript">
-
-                swal({
-                    title: "Correcto",
-                    text: "${mensajeExito}",
-                    type: 'success',
-                    confirmButtonClass: "btn-primary",
-                    confirmButtonText: "OK",
-                    closeOnConfirm: false
-                },
-                        function () {
-                            window.location = "consultarUsuario.jsp";
-                        });
-            </script>
-            <%}%>
-            <script src="Js/consutarUsuario.js" type="text/javascript"></script>
-
-
-            <footer class="footer">
-                <div class="container-fluid">
-
-                    <p class="copyright text-center">
-                        &copy; <script>document.write(new Date().getFullYear())</script> <a href="#">SpinPlane</a>
-                    </p>
-                </div>
-            </footer>
-
         </div>
-    </div>
-    <script>
-        
-                // Example starter JavaScript for disabling form submissions if there are invalid fields
-                        (function () {
-                            'use strict'
+        <script>
 
-                            // Fetch all the forms we want to apply custom Bootstrap validation styles to
-                            var forms = document.querySelectorAll('.needs-validation')
+                    // Example starter JavaScript for disabling form submissions if there are invalid fields
+                            (function () {
+                                'use strict'
 
-                            // Loop over them and prevent submission
-                            Array.prototype.slice.call(forms)
-                                    .forEach(function (form) {
-                                        form.addEventListener('submit', function (event) {
-                                            if (!form.checkValidity()) {
-                                                event.preventDefault()
-                                                event.stopPropagation()
-                                            }
+                                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                                var forms = document.querySelectorAll('.needs-validation')
 
-                                            form.classList.add('was-validated')
-                                        }, false)
-                                    })
-                        })()
-    </script>
-</body>
-<!--   Core JS Files   -->
-<!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
-<script src="assets/js/light-bootstrap-dashboard.js?v=1.4.0"></script>
+                                // Loop over them and prevent submission
+                                Array.prototype.slice.call(forms)
+                                        .forEach(function (form) {
+                                            form.addEventListener('submit', function (event) {
+                                                if (!form.checkValidity()) {
+                                                    event.preventDefault()
+                                                    event.stopPropagation()
+                                                }
 
-<!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
-<script src="assets/js/demo.js"></script>
+                                                form.classList.add('was-validated')
+                                            }, false)
+                                        })
+                            })()
+        </script>
+    </body>
+    <!--   Core JS Files   -->
+    <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
+    <script src="assets/js/light-bootstrap-dashboard.js?v=1.4.0"></script>
+
+    <!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
+    <script src="assets/js/demo.js"></script>
 
 
 </html>

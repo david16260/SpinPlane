@@ -71,9 +71,9 @@ public class ClaseControlador extends HttpServlet {
                 if (claDAO.cambiarEstado()) {
                     request.setAttribute("mensajeExito", "El estado se actualizo corectamente");
                 } else {
-                    request.setAttribute("mensajeError", "El usuario no se actualizo corectamente");
+                    request.setAttribute("mensajeError", "El estado no se actualizo corectamente");
                 }
-                request.getRequestDispatcher("cambiarEstadoClase.jsp").forward(request, response);
+                request.getRequestDispatcher("consultarClase.jsp").forward(request, response);
                 break;
            
         }

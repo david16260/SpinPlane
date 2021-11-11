@@ -74,7 +74,7 @@ public class AulaControlador extends HttpServlet {
                 } else {
                     request.setAttribute("mensajeError", "El usuario no se actualizo corectamente");
                 }
-                request.getRequestDispatcher("cambiarEstadoAula.jsp").forward(request, response);
+                request.getRequestDispatcher("consultarAula.jsp").forward(request, response);
                 break;
            
         }

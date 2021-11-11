@@ -1,7 +1,7 @@
 <%-- 
     Document   : conultarClase.jsp
     Created on : 25/06/2021, 02:40:36 PM
-    Author     : Sebas
+    Author     : Yurny
 --%>
 
 <%@page import="java.util.ArrayList"%>
@@ -132,13 +132,6 @@
                                 <p>Horario</p>
                             </a>
                         </li>
-                        <li>
-                            <a href="EnviarCorreo.jsp">
-                                <i class="pe-7s-date"></i>
-                                <p>Correo</p>
-                            </a>
-                        </li>
-
                     </ul>
                     <%} else if (tipoU.equals("Estudiante")) {%>
                     <ul class="nav">
@@ -230,6 +223,7 @@
                                 <a href="EnviarCorreo.jsp">
                                     <i class="pe-7s-date"></i>
                                     <p>Correo</p>
+
                                 </a>
                             </li>
                         </ul>
@@ -322,7 +316,6 @@
                         </tfoot>
                     </table>
                 </div>
-
                 <script>
                     $(document).ready(function () {
                         $('#usuario').DataTable({
@@ -442,7 +435,28 @@
 
             </div>
         </div>
+        <script>
+                    // Example starter JavaScript for disabling form submissions if there are invalid fields
+                            (function () {
+                                'use strict'
 
+                                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                                var forms = document.querySelectorAll('.needs-validation')
+
+                                // Loop over them and prevent submission
+                                Array.prototype.slice.call(forms)
+                                        .forEach(function (form) {
+                                            form.addEventListener('submit', function (event) {
+                                                if (!form.checkValidity()) {
+                                                    event.preventDefault()
+                                                    event.stopPropagation()
+                                                }
+
+                                                form.classList.add('was-validated')
+                                            }, false)
+                                        })
+                            })()
+        </script>
     </body>
     <!--   Core JS Files   -->
     <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
@@ -453,4 +467,3 @@
 
 
 </html>
-

@@ -133,12 +133,6 @@
                                 <p>Horario</p>
                             </a>
                         </li>
-                        <li>
-                            <a href="consultarHorario.jsp">
-                                <i class="pe-7s-date"></i>
-                                <p>Correo</p>
-                            </a>
-                        </li>
 
                     </ul>
                     <%} else if (tipoU.equals("Estudiante")) {%>
@@ -168,14 +162,6 @@
                                 <p>Clase</p>
                             </a>
                         </li>
-                        <li>
-                        <li>
-                            <a href="consultarNovedad.jsp">
-                                <i class="pe-7s-info"></i>
-                                <p>Novedad</p>
-                            </a>
-                        </li>
-                        <li>
                         <li>
                             <a href="consultarHorario.jsp">
                                 <i class="pe-7s-date"></i>
@@ -268,17 +254,16 @@
                 <div class="contenedor mt-4">
                     <table id="usuario" class="table table-striped" style="width:100%">
                         <thead>
-                            <tr>
-                                <th>Id</th>
+                            <tr>     
+                                <th>Grupo</th>
+                                <th>Aula</th>
+                                <th>Clase</th>
                                 <th>Fecha Inicio</th>
                                 <th>Fecha Fin</th>
                                 <th>Dia</th>
                                 <th>Hora Inicio</th>
                                 <th>Hora Fin</th>
-                                <th>Estado</th>
-                                <th>Grupo</th>
-                                <th>Aula</th>
-                                <th>Clase</th>
+                                <th>Estado</th>                                
                                     <%
                                         if (tipoU.equals("Administrador")) {
                                     %>
@@ -296,52 +281,68 @@
 
                                     HorVO = listaHorario.get(i);
                             %>               
-                            <tr>
-                                <td><%=HorVO.getIdHorario()%></td>
+                            <tr>                
+                                <td><%=HorVO.getNombreGrupo()%></td>
+                                <td><%=HorVO.getNombreAula()%></td>
+                                <td><%=HorVO.getNombreClase()%></td>
                                 <td><%=HorVO.getFechaInicio()%></td>
                                 <td><%=HorVO.getFechaFin()%></td>
                                 <td><%=HorVO.getDia()%></td>
                                 <td><%=HorVO.getHoraInicio()%></td>
                                 <td><%=HorVO.getHoraFin()%></td>
-                                <%if (HorVO.getEstado() != "Inactivo") {%>
-                                <td class="verde text-center"><%=HorVO.getEstado()%></td>
-                                <%} else if (HorVO.getEstado() == "Inactivo") {%>
-                                <td class="rojo"><%=HorVO.getEstado()%></td>
-                                <%}%>
-                                <td><%=HorVO.getNombreGrupo()%></td>
-                                <td><%=HorVO.getNombreAula()%></td>
-                                <td><%=HorVO.getNombreClase()%></td>
-                                <%
-                                    if (tipoU.equals("Administrador")) {
-                                %>
+                                <td><a class="<%=HorVO.getEstado().equals("Activo") ? "btn btn-success  m-5" : "btn btn-danger  m-5"%>" style="padding-right: 10px;">
+                                        <%=HorVO.getEstado()%>
+                                    </a></td>                                
+                                    <%
+                                        if (tipoU.equals("Administrador")) {
+                                    %>
                                 <td>
-                                    <a  class="btn btn-primary edit m-2 p-2"href="cambiarEstadoHorario.jsp?idHorario=<%=HorVO.getIdHorario()%>&estado=<%=HorVO.getEstado()%>"><i class="fas fa-pen"></i></a>
+                                    <%
+                                        if (HorVO.getEstado().equals("Activo")) {
+                                    %>
+                                    <form method="POST" action="Horario">
+                                        <input type="hidden" name="txtId" value="<%=HorVO.getIdHorario()%>">
+                                        <input type="hidden" name="txtEstado" value="Inactivo">
+                                        <button class="btn btn-info edit m-2 p-2" type="submit"><i class="fas fa-pen"></i></button>
+                                        <input type="hidden" name="opcion" value="3">
+                                    </form>
+                                    <%
+                                    } else {
+                                    %>
+                                    <form method="POST" action="Horario">
+                                        <input type="hidden" name="txtId" value="<%=HorVO.getIdHorario()%>">
+                                        <input type="hidden" name="txtEstado" value="Activo">
+                                        <button class="btn btn-info edit m-2 p-2" type="submit"><i class="fas fa-pen"></i></button>
+                                        <input type="hidden" name="opcion" value="3">
+                                    </form>
+                                    <%
+                                        }
+                                    %>
                                 </td>
                                 <td>
-                                    <a class="btn btn-info edit m-2 p-2"href="actualizarHorario.jsp?idHorario=<%=HorVO.getIdHorario()%>&fechaInicio=<%=HorVO.getFechaInicio()%>&fechaFin=<%=HorVO.getFechaFin()%>&dia=<%=HorVO.getDia()%>&horaInicio=<%=HorVO.getHoraInicio()%>&horaFin=<%=HorVO.getHoraFin()%>&idGrupo=<%=HorVO.getIdGrupo()%>&idAula=<%=HorVO.getIdAula()%>&idClase=<%=HorVO.getIdClase()%>&nomGrupo=<%=HorVO.getNombreGrupo() %>&nomClase=<%=HorVO.getNombreClase()%>&nomAula=<%=HorVO.getNombreAula() %>   "><i class="fas fa-pen"></i></a>
+                                    <a class="btn btn-info edit m-2 p-2"href="actualizarHorario.jsp?idHorario=<%=HorVO.getIdHorario()%>&fechaInicio=<%=HorVO.getFechaInicio()%>&fechaFin=<%=HorVO.getFechaFin()%>&dia=<%=HorVO.getDia()%>&horaInicio=<%=HorVO.getHoraInicio()%>&horaFin=<%=HorVO.getHoraFin()%>&idGrupo=<%=HorVO.getIdGrupo()%>&idAula=<%=HorVO.getIdAula()%>&idClase=<%=HorVO.getIdClase()%>&nomGrupo=<%=HorVO.getNombreGrupo()%>&nomClase=<%=HorVO.getNombreClase()%>&nomAula=<%=HorVO.getNombreAula()%>   "><i class="fas fa-pen"></i></a>
                                 </td>
                                 <%}%>
                             </tr>
                             <%}%>  
                         </tbody>
                         <tfoot>
-                            <tr>
-                                <th>Id</th>
+                            <tr>     
+                                <th>Grupo</th>
+                                <th>Aula</th>
+                                <th>Clase</th>
                                 <th>Fecha Inicio</th>
                                 <th>Fecha Fin</th>
                                 <th>Dia</th>
                                 <th>Hora Inicio</th>
                                 <th>Hora Fin</th>
-                                <th>Estado</th>
-                                <th>Grupo</th>
-                                <th>Aula</th>
-                                <th>Clase</th>
+                                <th>Estado</th>                                
                                     <%
                                         if (tipoU.equals("Administrador")) {
                                     %>
                                 <th>Estado</th>
                                 <th>Actualizar</th>
-                                <%}%>
+                                    <%}%>
                             </tr>
                         </tfoot>
                     </table>
@@ -356,9 +357,9 @@
                                 "sLengthMenu": "Mostrar _MENU_ registros",
                                 "sZeroRecords": "No se encontraron resultados",
                                 "sEmptyTable": "NingÃºn dato disponible en esta tabla",
-                                "sInfo": "Mostrando usuarios del _START_ al _END_ de un total de _TOTAL_ usuarios",
-                                "sInfoEmpty": "Mostrando usuarios del 0 al 0 de un total de 0 usuarios",
-                                "sInfoFiltered": "(filtrado de un total de _MAX_ usuarios)",
+                                "sInfo": "Mostrando Horarios del _START_ al _END_ de un total de _TOTAL_ Horarios",
+                                "sInfoEmpty": "Mostrando usuarios del 0 al 0 de un total de 0 Horarios",
+                                "sInfoFiltered": "(filtrado de un total de _MAX_ Horarios)",
                                 "sInfoPostFix": "",
                                 "sSearch": "Buscar:",
                                 "sUrl": "",
@@ -387,7 +388,7 @@
                 %>
                 <button class="abrir-registrar btn btn-primary" id="abrir-registrar">Registrar</button>
                 <div class="overlay" id="overlay">
-                    <form method="POST" action="Horario" class="form-registro">
+                    <form method="POST" action="Horario" class="form-registro needs-validation" novalidate>
                         <div class="tituloR">
                             <a href="#" class="cerrar-registro" id="cerrar-registro"><i class="fas fa-times"></i></a>
                             <h2>Registrar Horario</h2>
@@ -395,39 +396,80 @@
                         <div class="cuerpo">
                             <div class="formulario">
 
-                                <div class="modal-body">
-                                    <label for="recipient-name" class="col-form-label">Fecha inicio:</label>
-                                    <input type="date" name="txtFechaInicio" required class="form-control">
+                                <div class="col-md-6 ">
+                                    <label for="validationTooltip04" class="col-form-label">Fecha inicio:</label>
+                                    <input type="date" name="txtFechaInicio" required class="form-control" id="validationTooltip01">
+                                    <div class="valid-feedback">
+                                        Correcto
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Por favor registre la fecha de inicio  
+                                    </div>
                                 </div>
 
-                                <div class="modal-body">
-                                    <label for="recipient-name" class="col-form-label">Fecha fin:</label>    
-                                    <input type="date" name="txtFechaFin" required class="form-control">
+                                <div class="col-md-6 ">
+                                    <label for="validationTooltip04" class="col-form-label">Fecha fin:</label>
+                                    <input type="date" name="txtFechaFin" required class="form-control" id="validationTooltip01">
+                                    <div class="valid-feedback">
+                                        Correcto
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Por favor registre la fecha de fin  
+                                    </div>
                                 </div>
 
-                                <div class="modal-body">
-                                    <label for="recipient-name" class="col-form-label">Día:</label>      
-                                    <input type="text" name="txtDia" required class="form-control" minlength="5" maxlength="15" onkeypress="return (event.charCode >= 65 && event.charCode >= 90 && event.charCode >= 97 && event.charCode <= 122)">
+                                <div class="col-md-6 ">
+                                    <label for="validationCustom04" class="col-form-label">Dia:</label> 
+                                    <select required id="validationCustom04" name="txtDia" class="form-control">
+                                        <option selected disabled value="">Dia...</option>
+
+                                        <option value="Lunes">Lunes</option>
+                                        <option value="Martes">Martes</option>
+                                        <option value="Miercoles">Miercoles</option>
+                                        <option value="Jueves">Jueves</option>
+                                        <option value="Viernes">Viernes</option>
+
+                                    </select>
+                                    <div class="valid-feedback">
+                                        Correcto
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Por favor selecciona el Dia 
+                                    </div>
                                 </div>
 
-                                <div class="modal-body">
-                                    <label for="recipient-name" class="col-form-label">Hora inicio:</label>      
-                                    <input type="time" name="txtHoraInicio" class="form-control">
+                                <div class="col-md-6 ">
+                                    <label for="validationTooltip04" class="col-form-label">Hora inicio:</label>
+                                    <input type="date"  name="txtHoraInicio" required class="form-control" id="validationTooltip01" >
+                                    <div class="valid-feedback">
+                                        Correcto
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Por favor registre la hora de inicio 
+                                    </div>
                                 </div>
 
-                                <div class="modal-body">
-                                    <label for="recipient-name" class="col-form-label">Hora fin:</label>      
-                                    <input type="time" name="txtHoraFin" class="form-control">
+                                <div class="col-md-6 ">
+                                    <label for="validationTooltip04" class="col-form-label">Hora fin:</label>
+                                    <input type="date"  name="txtHoraFin" required class="form-control" id="validationTooltip01" >
+                                    <div class="valid-feedback">
+                                        Correcto
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Por favor registre la hora de fin 
+                                    </div>
                                 </div>
 
-                                <div class="modal-body">
+
+
+                                <div class="col-md-6 ">
                                     <input type="hidden" value="Activo" name="txtEstado">
                                 </div>
 
-                                <div class="modal-body">
-                                    <label for="recipient-name" class="col-form-label">Grupo:</label> 
-                                    <select name="txtGrupo" class="form-control">
-                                        <option selected>Grupo</option>
+                                <div class="col-md-6 ">
+                                    <label for="validationCustom04" class="col-form-label">Grupo:</label> 
+                                    <select required id="validationCustom04" name="txtGrupo" class="form-control">
+                                        <option selected disabled value="">Grupo</option>
                                         <%
                                             GrupoVO GruVO = new GrupoVO();
                                             GrupoDAO GruDAO = new GrupoDAO(GruVO);
@@ -441,12 +483,18 @@
                                             }
                                         %> 
                                     </select>
+                                    <div class="valid-feedback">
+                                        Correcto
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Por favor selecciona el Grupo 
+                                    </div>
                                 </div>
 
-                                <div class="modal-body">
-                                    <label for="recipient-name" class="col-form-label">Aula:</label>     
-                                    <select name="txtAula" class="form-control">
-                                        <option selected>Aula</option>
+                                <div class="col-md-6 ">
+                                    <label for="validationCustom04" class="col-form-label">Aula:</label>     
+                                    <select required id="validationCustom04" name="txtAula" class="form-control">
+                                        <option selected disabled value="">Aula</option>
                                         <%
                                             AulaVO AulVO = new AulaVO();
                                             AulaDAO AulDAO = new AulaDAO(AulVO);
@@ -460,12 +508,18 @@
                                             }
                                         %> 
                                     </select>
+                                    <div class="valid-feedback">
+                                        Correcto
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Por favor selecciona el Aula 
+                                    </div>
                                 </div>
 
-                                <div class="modal-body">
-                                    <label for="recipient-name" class="col-form-label">Clase:</label>      
-                                    <select name="txtClase" class="form-control">
-                                        <option selected>Clase</option>
+                                <div class="col-md-6 ">
+                                    <label for="validationCustom04" class="col-form-label">Clase:</label>      
+                                    <select required id="validationCustom04" name="txtClase" class="form-control">
+                                        <option selected disabled value="">Clase</option>
                                         <%
                                             ClaseVO ClaVO = new ClaseVO();
                                             ClaseDAO ClaDAO = new ClaseDAO(ClaVO);
@@ -479,6 +533,12 @@
                                             }
                                         %> 
                                     </select>
+                                    <div class="valid-feedback">
+                                        Correcto
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Por favor selecciona la clase 
+                                    </div>
                                 </div>
                                 <div class="boton">
                                     <input type="submit" id="btn" value="Registrar" class="btn btn-success">
@@ -487,7 +547,7 @@
                             </div>
                         </div>
                     </form>
-                                    <%}%>
+                    <%}%>
                 </div>
                 <% if (request.getAttribute("mensajeError") != null) {%>
                 <script  type="text/javascript">
@@ -533,7 +593,28 @@
 
             </div>
         </div>
+        <script>
+                    // Example starter JavaScript for disabling form submissions if there are invalid fields
+                            (function () {
+                                'use strict'
 
+                                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                                var forms = document.querySelectorAll('.needs-validation')
+
+                                // Loop over them and prevent submission
+                                Array.prototype.slice.call(forms)
+                                        .forEach(function (form) {
+                                            form.addEventListener('submit', function (event) {
+                                                if (!form.checkValidity()) {
+                                                    event.preventDefault()
+                                                    event.stopPropagation()
+                                                }
+
+                                                form.classList.add('was-validated')
+                                            }, false)
+                                        })
+                            })()
+        </script>
     </body>
     <!--   Core JS Files   -->
     <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->

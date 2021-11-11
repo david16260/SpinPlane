@@ -128,12 +128,6 @@
                                 <p>Horario</p>
                             </a>
                         </li>
-                        <li>
-                            <a href="consultarHorario.jsp">
-                                <i class="pe-7s-date"></i>
-                                <p>Correo</p>
-                            </a>
-                        </li>
 
                     </ul>
                     <%} else if (tipoU.equals("Estudiante")) {%>
@@ -163,14 +157,7 @@
                             </a>
                         </li>
                         <li>
-                        <li>
-                            <a href="consultarNovedad.jsp">
-                                <i class="pe-7s-info"></i>
-                                <p>Novedad</p>
-                            </a>
-                        </li>
-                        <li>
-                        <li>
+
                             <a href="consultarHorario.jsp">
                                 <i class="pe-7s-date"></i>
                                 <p>Horario</p>
@@ -262,18 +249,17 @@
 
                     <table id="usuario" class=" table table-striped" style="width:100%">
                         <thead>
-                            <tr>
-                                <th>Id</th>
+                            <tr>                                
                                 <th>Nombre</th>
                                 <th>Estado</th>
                                 <th>Fecha de Inicio</th>
                                 <th>Fecha de Fin</th>
-                                <%
-                                    if (tipoU.equals("Administrador")) {
-                                %>
+                                    <%
+                                        if (tipoU.equals("Administrador")) {
+                                    %>
                                 <th>Estado</th>
                                 <th>Actualizar</th>
-                                <%}%>
+                                    <%}%>
                             </tr>
                         </thead>
                         <tbody>
@@ -285,8 +271,7 @@
 
                                     GruVO = listaGrupo.get(i);
                             %>               
-                            <tr>
-                                <td><%=GruVO.getIdGrupo()%></td>
+                            <tr>                                
                                 <td><%=GruVO.getNombre()%></td>
                                 <td>
                                     <a class="<%=GruVO.getEstado().equals("Activo") ? "btn btn-success  m-3" : "btn btn-danger  m-3"%>" style="padding-right: 50px;">
@@ -299,8 +284,27 @@
                                     if (tipoU.equals("Administrador")) {
                                 %>
                                 <td>
-                                    <a  class="btn btn-primary edit m-2 p-2"href="cambiarEstadoGrupo.jsp?idgrupo=<%=GruVO.getIdGrupo()%>&estado=<%=GruVO.getEstado()%>"><i class="fas fa-pen"></i></a>
-
+                                    <%
+                                        if (GruVO.getEstado().equals("Activo")) {
+                                    %>
+                                    <form method="POST" action="Grupo">
+                                        <input type="hidden" name="txtId" value="<%=GruVO.getIdGrupo()%>">
+                                        <input type="hidden" name="txtEstado" value="Inactivo">
+                                        <button class="btn btn-info edit m-2 p-2" type="submit"><i class="fas fa-pen"></i></button>
+                                        <input type="hidden" name="opcion" value="3">
+                                    </form>
+                                    <%
+                                    } else {
+                                    %>
+                                    <form method="POST" action="Grupo">
+                                        <input type="hidden" name="txtId" value="<%=GruVO.getIdGrupo()%>">
+                                        <input type="hidden" name="txtEstado" value="Activo">
+                                        <button class="btn btn-info edit m-2 p-2" type="submit"><i class="fas fa-pen"></i></button>
+                                        <input type="hidden" name="opcion" value="3">
+                                    </form>
+                                    <%
+                                        }
+                                    %>
                                 </td>
 
                                 <td>
@@ -311,18 +315,17 @@
                             <%}%>  
                         </tbody>
                         <tfoot>
-                            <tr>
-                                <th>Id</th>
+                            <tr>                                
                                 <th>Nombre</th>
                                 <th>Estado</th>
                                 <th>Fecha de Inicio</th>
                                 <th>Fecha de Fin</th>
-                                <%
-                                    if (tipoU.equals("Administrador")) {
-                                %>
+                                    <%
+                                        if (tipoU.equals("Administrador")) {
+                                    %>
                                 <th>Estado</th>
                                 <th>Actualizar</th>
-                                <%}%>
+                                    <%}%>
                             </tr>
 
                         </tfoot>
@@ -337,10 +340,10 @@
                                 "sProcessing": "Procesando...",
                                 "sLengthMenu": "Mostrar _MENU_ registros",
                                 "sZeroRecords": "No se encontraron resultados",
-                                "sEmptyTable": "Ningun dato disponible en esta tabla",
-                                "sInfo": "Mostrando grupos del _START_ al _END_ de un total de _TOTAL_ grupos",
-                                "sInfoEmpty": "Mostrando grupos del 0 al 0 de un total de 0 grupos",
-                                "sInfoFiltered": "(filtrado de un total de _MAX_ grupos)",
+                                "sEmptyTable": "NingÃºn dato disponible en esta tabla",
+                                "sInfo": "Mostrando Grupos del _START_ al _END_ de un total de _TOTAL_ Grupos",
+                                "sInfoEmpty": "Mostrando usuarios del 0 al 0 de un total de 0 Grupos",
+                                "sInfoFiltered": "(filtrado de un total de _MAX_ Grupos)",
                                 "sInfoPostFix": "",
                                 "sSearch": "Buscar:",
                                 "sUrl": "",
@@ -370,7 +373,7 @@
                 <center><button class="abrir-registrar btn btn-primary" id="abrir-registrar">Registrar</button></center>
 
                 <div class="overlay" id="overlay">
-                    <form method="POST" action="Grupo" class="form-registro">
+                    <form method="POST" action="Grupo" class="form-registro needs-validation" novalidate>
                         <div class="tituloR">
                             <a href="#" class="cerrar-registro" id="cerrar-registro"><i class="fas fa-times"></i></a>
                             <h2>Registrar Grupo</h2>
@@ -378,21 +381,39 @@
                         <div class="cuerpo">
                             <div class="formulario">
 
-                                <div class="modal-body">
-                                    <label for="recipient-name" class="col-form-label">Nombre:</label>    
-                                    <input type="text" name="txtNombre" placeholder="Nombre" required class="form-control" minlength="3" maxlength="30" onkeypress="return (event.charCode >= 65 && event.charCode >= 90 && event.charCode >= 97 && event.charCode <= 122)">
+                                <div class="col-md-6 ">
+                                    <label for="validationTooltip01" class="col-form-label">Nombre:</label>    
+                                    <input id="validationTooltip01" type="text" name="txtNombre" placeholder="Nombre" required class="form-control" minlength="3" maxlength="30" onkeypress="return (event.charCode >= 65 && event.charCode >= 90 && event.charCode >= 97 && event.charCode <= 122)">
+                                    <div class="valid-feedback">
+                                        Correcto
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Por favor ingresa el Nombre 
+                                    </div>
                                 </div>
 
                                 <input type="hidden" name="txtEstado" value="Activo">
 
-                                <div class="modal-body">
-                                    <label for="recipient-name" class="col-form-label">Fecha inicio:</label>  
-                                    <input type="date" name="txtFechaInicio" placeholder="Fecha de Inicio" required class="form-control">
+                                <div class="col-md-6 ">
+                                    <label for="validationTooltip01" class="col-form-label">Fecha inicio:</label>  
+                                    <input id="validationTooltip01" type="date" name="txtFechaInicio" placeholder="Fecha de Inicio" required class="form-control">
+                                    <div class="valid-feedback">
+                                        Correcto
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Por favor ingresa la fecha de inicio 
+                                    </div>
                                 </div>
 
-                                <div class="modal-body">
-                                    <label for="recipient-name" class="col-form-label">Fecha fin:</label>  
-                                    <input type="date" name="txtFechaFin" placeholder="Fecha de Fin" required class="form-control">
+                                <div class="col-md-6 ">
+                                    <label for="validationTooltip01" class="col-form-label">Fecha fin:</label>  
+                                    <input id="validationTooltip01" type="date" name="txtFechaFin" placeholder="Fecha de Fin" required class="form-control">
+                                    <div class="valid-feedback">
+                                        Correcto
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Por favor ingresa de fin 
+                                    </div>
                                 </div>
 
                                 <div class="selector">
@@ -403,7 +424,7 @@
                         </div>
                     </form>
                     <%} else {
-                }%>
+                        }%>
                 </div>
                 <% if (request.getAttribute("mensajeError") != null) {%>
                 <script  type="text/javascript">
@@ -451,7 +472,28 @@
 
             </div>
         </div>
+        <script>
+                    // Example starter JavaScript for disabling form submissions if there are invalid fields
+                            (function () {
+                                'use strict'
 
+                                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                                var forms = document.querySelectorAll('.needs-validation')
+
+                                // Loop over them and prevent submission
+                                Array.prototype.slice.call(forms)
+                                        .forEach(function (form) {
+                                            form.addEventListener('submit', function (event) {
+                                                if (!form.checkValidity()) {
+                                                    event.preventDefault()
+                                                    event.stopPropagation()
+                                                }
+
+                                                form.classList.add('was-validated')
+                                            }, false)
+                                        })
+                            })()
+        </script>
     </body>
     <!--   Core JS Files   -->
     <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
@@ -462,4 +504,3 @@
 
 
 </html>
-

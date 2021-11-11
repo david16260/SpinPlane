@@ -10,12 +10,11 @@ package ModeloVO;
  * @author David
  */
 public class UsuarioVO {
-    private String nombre,apellido,tipoDocumento,numDocumento,celular,estado,correo,clave;
-    private String usuId,idTipoUsuario,tipoUsuario;
-    
 
-   
-    public UsuarioVO(String usuId,String nombre, String apellido, String tipoDocumento, String numDocumento, String celular, String estado, String correo, String clave,String idTipoUsuario, String tipoUsuario) {
+    private String nombre, apellido, tipoDocumento, numDocumento, celular, estado, correo, clave;
+    private String usuId, idTipoUsuario, tipoUsuario, idGrupo, grupo;
+
+    public UsuarioVO(String usuId, String nombre, String apellido, String tipoDocumento, String numDocumento, String celular, String estado, String correo, String clave, String idTipoUsuario, String tipoUsuario, String idGrupo, String grupo) {
         this.usuId = usuId;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -27,8 +26,11 @@ public class UsuarioVO {
         this.clave = clave;
         this.idTipoUsuario = idTipoUsuario;
         this.tipoUsuario = tipoUsuario;
+        this.idGrupo = idGrupo;
+        this.grupo = grupo;
     }
-    public UsuarioVO(String usuId,String nombre, String apellido, String tipoDocumento, String numDocumento, String celular,String estado, String correo,String tipoUsuario) {
+
+    public UsuarioVO(String usuId, String nombre, String apellido, String tipoDocumento, String numDocumento, String celular, String estado, String correo, String idTipoUsuario, String tipoUsuario, String idGrupo, String grupo) {
         this.usuId = usuId;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -38,9 +40,12 @@ public class UsuarioVO {
         this.estado = estado;
         this.correo = correo;
         this.tipoUsuario = tipoUsuario;
+        this.idTipoUsuario = idTipoUsuario;
+        this.idGrupo = idGrupo;
+        this.grupo = grupo;
     }
 
-    public UsuarioVO( String usuId,String idTipoUsuario) {
+    public UsuarioVO(String usuId, String idTipoUsuario) {
         this.usuId = usuId;
         this.idTipoUsuario = idTipoUsuario;
     }
@@ -55,16 +60,14 @@ public class UsuarioVO {
     public UsuarioVO() {
     }
 
-    
-    
-     public String getUsuId() {
+    public String getUsuId() {
         return usuId;
     }
 
     public void setUsuId(String usuId) {
         this.usuId = usuId;
     }
-    
+
     public String getNombre() {
         return nombre;
     }
@@ -104,7 +107,7 @@ public class UsuarioVO {
     public void setCelular(String celular) {
         this.celular = celular;
     }
-    
+
     public String getEstado() {
         return estado;
     }
@@ -128,7 +131,7 @@ public class UsuarioVO {
     public void setClave(String clave) {
         this.clave = clave;
     }
-    
+
     public String getIdTipoUsuario() {
         return idTipoUsuario;
     }
@@ -144,5 +147,21 @@ public class UsuarioVO {
     public void setTipoUsuario(String tipoUsuario) {
         this.tipoUsuario = tipoUsuario;
     }
-    
+
+    public String getIdGrupo() {
+        return idGrupo;
+    }
+
+    public void setIdGrupo(String idGrupo) {
+        this.idGrupo = idGrupo;
+    }
+
+    public String getGrupo() {
+        return grupo;
+    }
+
+    public void setGrupo(String grupo) {
+        this.grupo = grupo;
+    }
+
 }
