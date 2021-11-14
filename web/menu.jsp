@@ -28,10 +28,10 @@
         <!--  CSS for Demo Purpose, don't include it in your project     -->
         <link href="assets/css/demo.css" rel="stylesheet" />
 
- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+        <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
         <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
         <link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
-       
+
     </head>
     <body>
 
@@ -134,7 +134,7 @@
                                 <p>Horario</p>
                             </a>
                         </li>
-                        
+
                         <%} else if (tipoU.equals("Administrador")) {%>
                         <ul class="nav">
                             <li>
@@ -182,11 +182,11 @@
                                 </a>
                             </li>
                             <li>
-                            <a href="EnviarCorreo.jsp">
-                                <i class="pe-7s-date"></i>
-                                <p>Correo</p>
-                            </a>
-                        </li>
+                                <a href="EnviarCorreo.jsp">
+                                    <i class="pe-7s-date"></i>
+                                    <p>Correo</p>
+                                </a>
+                            </li>
                         </ul>
                         <%}%>
                 </div>
@@ -202,24 +202,28 @@
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                             </button>
-                            <a class="navbar-brand" href="#">Menu</a>
+                            <div class="col-md-6">
+                                <form method="POST" action="Usuario">
+                                    <input type="hidden" name="txtId" value="<%=usuVO.getUsuId()%>">
+                                    <input type="submit" value="Perfil" class="btn btn-primary">
+                                    <input type="hidden" name="opcion" value="4">
+                                </form>
+                            </div> 
+
+
                         </div>
+
+
                         <div class="collapse navbar-collapse">
 
-                            <ul class="nav navbar-nav navbar-right">
 
-                                <li>
-                                    <a href="#">
-                                        <form class="cerrar" method="post" action="Sesiones">
-                                            <input class="cerrar" type="submit" value="Cerrar Sesion">
-                                        </form>
-                                        <form method="POST" action="Usuario">
-                                            <input type="hidden" name="txtId" value="<%=usuVO.getUsuId()%>">
-                                            <input type="submit" value="Perfil">
-                                            <input type="hidden" name="opcion" value="4">
-                                        </form>
-                                    </a>
-                                </li>
+                            <ul class="nav navbar-nav navbar-right">
+                                <div class="col-md-6">
+                                    <form class="cerrar" method="post" action="Sesiones">
+                                        <input type="submit" value="Cerrar Sesión" class="btn btn-secondary">
+                                    </form>
+
+                                </div>           
                                 <li class="separator hidden-lg"></li>
                             </ul>
                         </div>
