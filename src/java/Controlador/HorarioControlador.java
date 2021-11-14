@@ -79,6 +79,8 @@ public class HorarioControlador extends HttpServlet {
                 }
                 request.getRequestDispatcher("consultarHorario.jsp").forward(request, response);
                 break;
+                
+          
             
         }
     }
