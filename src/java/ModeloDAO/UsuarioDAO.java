@@ -238,12 +238,12 @@ public class UsuarioDAO extends Conexion implements Crud {
     public ArrayList<UsuarioVO> roles() {
         ArrayList<UsuarioVO> listaRoles = new ArrayList<>();
         try {
-            sql = "SELECT usuario.nombre,usuario.apellido,usuario.idTipoUsuario from usuario INNER join grupo_usuario on usuario.idUsuario=grupo_usuario.idUsuario INNER JOIN grupo on grupo_usuario.idGrupo=grupo.idGrupo where idTipoUsuario=idTipoUsuario";
+            sql = "SELECT usuario.nombre,usuario.idTipoUsuario,usuario.idGrupo from usuario INNER join grupo_usuario on usuario.idUsuario=grupo_usuario.idUsuario INNER JOIN grupo on grupo_usuario.idGrupo=grupo.idGrupo where idTipoUsuario=idTipoUsuario";
             puente = conexion.prepareStatement(sql);
             puente.setString(1, idTipoUsuario);
             mensajero = puente.executeQuery();
             while (mensajero.next()) {
-                UsuarioVO usuVO = new UsuarioVO(mensajero.getString(1), mensajero.getString(2));
+                UsuarioVO usuVO = new UsuarioVO(mensajero.getString(1), mensajero.getString(2),mensajero.getString(3));
                 listaRoles.add(usuVO);
 
             }

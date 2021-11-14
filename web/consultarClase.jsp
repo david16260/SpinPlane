@@ -83,7 +83,7 @@
                             <img src="images/LOGO4.gif" class="SpinPlane" alt=""/>
                         </a>
                     </div>
-<%
+                    <%
                         String tipoU = usuVO.getIdTipoUsuario();
                         if (tipoU.equals("Profesor")) {
                     %>
@@ -126,7 +126,7 @@
                                 <p>Horario</p>
                             </a>
                         </li>
-                        
+
 
                     </ul>
                     <%} else if (tipoU.equals("Estudiante")) {%>
@@ -169,7 +169,7 @@
                                 <p>Horario</p>
                             </a>
                         </li>
-                        
+
                         <%} else if (tipoU.equals("Administrador")) {%>
                         <ul class="nav">
                             <li>
@@ -217,11 +217,11 @@
                                 </a>
                             </li>
                             <li>
-                            <a href="EnviarCorreo.jsp">
-                                <i class="pe-7s-date"></i>
-                                <p>Correo</p>
-                            </a>
-                        </li>
+                                <a href="EnviarCorreo.jsp">
+                                    <i class="pe-7s-date"></i>
+                                    <p>Correo</p>
+                                </a>
+                            </li>
                         </ul>
                         <%}%>
                 </div>
@@ -253,19 +253,19 @@
                 </nav>
 
                 <div class="contenedor mt-4">
-
+                    <%
+                        if (tipoU.equals("Administrador")) {
+                    %>
                     <table id="usuario" class="table table-striped" style="width:100%">
                         <thead>
                             <tr>                                
                                 <th>Nombre</th>
                                 <th>Estado</th>
                                 <th>Cantidad de Sesiones</th>
-                                    <%
-                                        if (tipoU.equals("Administrador")) {
-                                    %>
+
                                 <th>Estado</th>
                                 <th>Actualizar</th>
-                                    <%}%>
+
                             </tr>
                         </thead>
                         <tbody>
@@ -293,7 +293,7 @@
                                         if (ClaVO.getEstado().equals("Activo")) {
                                     %>
                                     <form method="POST" action="Clase">
-                                        <input type="hidden" name="txtId" value="<%=ClaVO.getIdClase() %>">
+                                        <input type="hidden" name="txtId" value="<%=ClaVO.getIdClase()%>">
                                         <input type="hidden" name="txtEstado" value="Inactivo">
                                         <button class="btn btn-info edit m-2 p-2" type="submit"><i class="fas fa-pen"></i></button>
                                         <input type="hidden" name="opcion" value="3">
@@ -302,7 +302,7 @@
                                     } else {
                                     %>
                                     <form method="POST" action="Clase">
-                                        <input type="hidden" name="txtId" value="<%=ClaVO.getIdClase() %>">
+                                        <input type="hidden" name="txtId" value="<%=ClaVO.getIdClase()%>">
                                         <input type="hidden" name="txtEstado" value="Activo">
                                         <button class="btn btn-info edit m-2 p-2" type="submit"><i class="fas fa-pen"></i></button>
                                         <input type="hidden" name="opcion" value="3">
@@ -324,18 +324,97 @@
                             <tr>                                
                                 <th>Nombre</th>
                                 <th>Estado</th>
-                                <th>Cantidad de Sesiones</th>
-                                    <%
-                                        if (tipoU.equals("Administrador")) {
-                                    %>
+                                <th>Cantidad de Sesiones</th>                                    
                                 <th>Estado</th>
                                 <th>Actualizar</th>
-                                    <%}%>
                             </tr>
                         </tfoot>
                     </table>
+                    <%}%>
+                    
+                    <%
+                        if (tipoU.equals("Profesor")) {
+                    %>
+                    <table id="usuario" class="table table-striped" style="width:100%">
+                        <thead>
+                            <tr>                                
+                                <th>Nombre</th>
+                                <th>Estado</th>
+                                <th>Cantidad de Sesiones</th>                               
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <%
+                                ClaseVO ClaVO = new ClaseVO();
+                                ClaseDAO ClaDAO = new ClaseDAO(ClaVO);
+                                ArrayList<ClaseVO> listaClasePE = ClaDAO.listarPE(usuVO.getUsuId());
+                                for (int i = 0; i < listaClasePE.size(); i++) {
+
+                                    ClaVO = listaClasePE.get(i);
+                            %>               
+                            <tr>                               
+                                <td><%=ClaVO.getNombre()%></td>
+                                <td>
+                                    <a class="<%=ClaVO.getEstado().equals("Activo") ? "btn btn-success  m-3" : "btn btn-danger  m-3"%>" style="padding-right: 56px;">
+                                        <%=ClaVO.getEstado()%>
+                                    </a>
+                                </td>
+                                <td class="text-center"><%=ClaVO.getCantidadSesiones()%></td> 
+                            </tr>
+                            <%}%>  
+                        </tbody>
+                        <tfoot>
+                            <tr>                                
+                                <th>Nombre</th>
+                                <th>Estado</th>
+                                <th>Cantidad de Sesiones</th>                                    
+                            </tr>
+                        </tfoot>
+                    </table>
+                    <%}%>
+                    
+                    <%
+                        if (tipoU.equals("Estudiante")) {
+                    %>
+                    <table id="usuario" class="table table-striped" style="width:100%">
+                        <thead>
+                            <tr>                                
+                                <th>Nombre</th>
+                                <th>Estado</th>
+                                <th>Cantidad de Sesiones</th>                               
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <%
+                                ClaseVO ClaVO = new ClaseVO();
+                                ClaseDAO ClaDAO = new ClaseDAO(ClaVO);
+                                ArrayList<ClaseVO> listaClasePE = ClaDAO.listarPE(usuVO.getUsuId());
+                                for (int i = 0; i < listaClasePE.size(); i++) {
+
+                                    ClaVO = listaClasePE.get(i);
+                            %>               
+                            <tr>                               
+                                <td><%=ClaVO.getNombre()%></td>
+                                <td>
+                                    <a class="<%=ClaVO.getEstado().equals("Activo") ? "btn btn-success  m-3" : "btn btn-danger  m-3"%>" style="padding-right: 56px;">
+                                        <%=ClaVO.getEstado()%>
+                                    </a>
+                                </td>
+                                <td class="text-center"><%=ClaVO.getCantidadSesiones()%></td> 
+                            </tr>
+                            <%}%>  
+                        </tbody>
+                        <tfoot>
+                            <tr>                                
+                                <th>Nombre</th>
+                                <th>Estado</th>
+                                <th>Cantidad de Sesiones</th>                                    
+                            </tr>
+                        </tfoot>
+                    </table>
+                    <%}%>
                 </div>
-               <script>
+                <script>
                     $(document).ready(function () {
                         $('#usuario').DataTable({
                             scrollY: 400,
@@ -464,27 +543,27 @@
             </div>
         </div>
         <script>
-            // Example starter JavaScript for disabling form submissions if there are invalid fields
-                    (function () {
-                        'use strict'
+                    // Example starter JavaScript for disabling form submissions if there are invalid fields
+                            (function () {
+                                'use strict'
 
-                        // Fetch all the forms we want to apply custom Bootstrap validation styles to
-                        var forms = document.querySelectorAll('.needs-validation')
+                                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                                var forms = document.querySelectorAll('.needs-validation')
 
-                        // Loop over them and prevent submission
-                        Array.prototype.slice.call(forms)
-                                .forEach(function (form) {
-                                    form.addEventListener('submit', function (event) {
-                                        if (!form.checkValidity()) {
-                                            event.preventDefault()
-                                            event.stopPropagation()
-                                        }
+                                // Loop over them and prevent submission
+                                Array.prototype.slice.call(forms)
+                                        .forEach(function (form) {
+                                            form.addEventListener('submit', function (event) {
+                                                if (!form.checkValidity()) {
+                                                    event.preventDefault()
+                                                    event.stopPropagation()
+                                                }
 
-                                        form.classList.add('was-validated')
-                                    }, false)
-                                })
-                    })()
-</script>
+                                                form.classList.add('was-validated')
+                                            }, false)
+                                        })
+                            })()
+        </script>
     </body>
     <!--   Core JS Files   -->
     <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->

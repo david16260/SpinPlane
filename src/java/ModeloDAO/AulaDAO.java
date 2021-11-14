@@ -30,7 +30,7 @@ public class AulaDAO extends Conexion implements Crud{
     
     private String sql;
     
-    private String  idAula = "", nombre = "", capacidad  = "", estado = "";
+    private String  idAula = "", nombre = "", capacidad  = "", estado = "", idUsuario="";
      
     public AulaDAO(AulaVO AuVO){
      
@@ -41,6 +41,7 @@ public class AulaDAO extends Conexion implements Crud{
             nombre =AuVO.getNombre();
             capacidad =AuVO.getCapacidad();
             estado =AuVO.getEstado();
+            idUsuario=AuVO.getIdUsuario();
         } catch (Exception e) {
             Logger.getLogger(AulaDAO.class.getName()).log(Level.SEVERE, null, e);
         }
@@ -119,7 +120,7 @@ public class AulaDAO extends Conexion implements Crud{
         
         try {
             conexion= this.obtenerConexion();
-            sql="call consultarAulas";
+            sql="call consultarAulasA";
             puente = conexion.prepareStatement(sql);
             mensajero = puente.executeQuery();
             while (mensajero.next()) {
@@ -141,6 +142,39 @@ public class AulaDAO extends Conexion implements Crud{
             }
         }
         return listaAula;
+        
+    }
+     
+     public  ArrayList<AulaVO> listarPE(String idUsuario){
+        
+        ArrayList<AulaVO>listaAulaPE = new ArrayList<>();
+        
+        
+        try {
+            conexion= this.obtenerConexion();
+            sql="call consultarAulasPE(?)";
+            puente = conexion.prepareStatement(sql);
+            puente.setString(1, idUsuario);
+            mensajero = puente.executeQuery();
+            while (mensajero.next()) {
+                
+                AulaVO AuVO= new AulaVO(mensajero.getString(1),mensajero.getString(2),
+                    mensajero.getString(3));
+                
+                   listaAulaPE.add(AuVO);
+            }
+        
+        } catch (Exception e) {
+              Logger.getLogger(AulaDAO.class.getName()).log(Level.SEVERE, null, e);
+        }finally {
+            try {
+                this.cerrarConexion();
+                
+            } catch (SQLException e) {
+              Logger.getLogger(AulaDAO.class.getName()).log(Level.SEVERE, null, e);
+            }
+        }
+        return listaAulaPE;
         
     }
       

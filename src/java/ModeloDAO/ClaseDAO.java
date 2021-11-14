@@ -31,7 +31,7 @@ public class ClaseDAO extends Conexion implements Crud{
     
     private String sql;
     
-    private String  idClase = "", nombre = "", estado = "", cantidadSesiones ="";
+    private String  idClase = "", nombre = "", estado = "", cantidadSesiones ="",idUsuario;
     
     public ClaseDAO(ClaseVO claVO){
      
@@ -41,6 +41,7 @@ public class ClaseDAO extends Conexion implements Crud{
             idClase = claVO.getIdClase();
             nombre =claVO.getNombre();
             estado =claVO.getEstado();
+            idUsuario = claVO.getIdUsuario();
             cantidadSesiones=claVO.getCantidadSesiones();
         } catch (Exception e) {
             Logger.getLogger(ClaseDAO.class.getName()).log(Level.SEVERE, null, e);
@@ -120,7 +121,7 @@ public class ClaseDAO extends Conexion implements Crud{
         
         try {
             conexion= this.obtenerConexion();
-            sql="call consultarClases;";
+            sql="call consultarClasesA;";
             puente = conexion.prepareStatement(sql);
             mensajero = puente.executeQuery();
             while (mensajero.next()) {
@@ -144,5 +145,37 @@ public class ClaseDAO extends Conexion implements Crud{
         return listaClase;
         
     
+    }
+     
+      public  ArrayList<ClaseVO> listarPE(String idUsuario){
+        
+        ArrayList<ClaseVO>listaClasePE = new ArrayList<>();
+        
+        
+        try {
+            conexion= this.obtenerConexion();
+            sql="call consultarClasesPE(?);";
+            puente = conexion.prepareStatement(sql);
+            puente.setString(1,idUsuario);
+            mensajero = puente.executeQuery();
+            while (mensajero.next()) {
+                
+                ClaseVO ClaVO= new ClaseVO(mensajero.getString(1),mensajero.getString(2),
+                    mensajero.getString(3));
+                
+                   listaClasePE.add(ClaVO);
+            }
+        
+        } catch (Exception e) {
+              Logger.getLogger(ClaseDAO.class.getName()).log(Level.SEVERE, null, e);
+        }finally {
+            try {
+                this.cerrarConexion();
+                
+            } catch (SQLException e) {
+              Logger.getLogger(ClaseDAO.class.getName()).log(Level.SEVERE, null, e);
+            }
+        }
+        return listaClasePE;
     }
 }

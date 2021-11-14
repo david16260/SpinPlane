@@ -45,9 +45,10 @@ public class UsuarioVO {
         this.grupo = grupo;
     }
 
-    public UsuarioVO(String usuId, String idTipoUsuario) {
+    public UsuarioVO(String usuId, String idTipoUsuario, String idGrupo) {
         this.usuId = usuId;
         this.idTipoUsuario = idTipoUsuario;
+        this.idGrupo = idGrupo;
     }
 
     public UsuarioVO(String correo, String clave, String usuId, String idTipoUsuario) {

@@ -133,7 +133,7 @@
                                 <p>Horario</p>
                             </a>
                         </li>
-                        
+
 
                     </ul>
                     <%} else if (tipoU.equals("Estudiante")) {%>
@@ -176,7 +176,7 @@
                                 <p>Horario</p>
                             </a>
                         </li>
-                        
+
                         <%} else if (tipoU.equals("Administrador")) {%>
                         <ul class="nav">
                             <li>
@@ -224,11 +224,11 @@
                                 </a>
                             </li>
                             <li>
-                            <a href="EnviarCorreo.jsp">
-                                <i class="pe-7s-date"></i>
-                                <p>Correo</p>
-                            </a>
-                        </li>
+                                <a href="EnviarCorreo.jsp">
+                                    <i class="pe-7s-date"></i>
+                                    <p>Correo</p>
+                                </a>
+                            </li>
                         </ul>
                         <%}%>
                 </div>
@@ -260,6 +260,9 @@
                 </nav>
 
                 <div class="contenedor mt-4">
+                    <%
+                        if (tipoU.equals("Administrador")) {
+                    %>
                     <table id="usuario" class="table table-striped" style="width:100%">
                         <thead>
                             <tr>     
@@ -272,12 +275,8 @@
                                 <th>Hora Inicio</th>
                                 <th>Hora Fin</th>
                                 <th>Estado</th>                                
-                                    <%
-                                        if (tipoU.equals("Administrador")) {
-                                    %>
                                 <th>Estado</th>
                                 <th>Actualizar</th>
-                                    <%}%>
                             </tr>
                         </thead>
                         <tbody>
@@ -332,7 +331,7 @@
                                 </td>
                                 <%}%>
                             </tr>
-                            <%}%>  
+                            <%}%>                             
                         </tbody>
                         <tfoot>
                             <tr>     
@@ -354,6 +353,123 @@
                             </tr>
                         </tfoot>
                     </table>
+                    <%}%>
+                    
+                    <%
+                        if (tipoU.equals("Estudiante")) {
+                    %>
+                    <table id="usuario" class="table table-striped" style="width:100%">
+                        <thead>
+                            <tr>     
+                                <th>Grupo</th>
+                                <th>Aula</th>
+                                <th>Clase</th>
+                                <th>Fecha Inicio</th>
+                                <th>Fecha Fin</th>
+                                <th>Dia</th>
+                                <th>Hora Inicio</th>
+                                <th>Hora Fin</th>
+                                <th>Estado</th>                                
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <%
+                                HorarioVO HorVO = new HorarioVO();
+                                HorarioDAO HorDAO = new HorarioDAO(HorVO);
+                                ArrayList<HorarioVO> listaHorarioPE = HorDAO.listarPE(usuVO.getIdGrupo());
+                                for (int i = 0; i < listaHorarioPE.size(); i++) {
+
+                                    HorVO = listaHorarioPE.get(i);
+                            %>               
+                            <tr>                
+                                <td><%=HorVO.getNombreGrupo()%></td>
+                                <td><%=HorVO.getNombreAula()%></td>
+                                <td><%=HorVO.getNombreClase()%></td>
+                                <td><%=HorVO.getFechaInicio()%></td>
+                                <td><%=HorVO.getFechaFin()%></td>
+                                <td><%=HorVO.getDia()%></td>
+                                <td><%=HorVO.getHoraInicio()%></td>
+                                <td><%=HorVO.getHoraFin()%></td>
+                                <td><a class="<%=HorVO.getEstado().equals("Activo") ? "btn btn-success  m-5" : "btn btn-danger  m-5"%>" style="padding-right: 10px;">
+                                        <%=HorVO.getEstado()%>
+                                    </a></td>                                
+                            </tr>
+                            <%}%>                             
+                        </tbody>
+                        <tfoot>
+                            <tr>     
+                                <th>Grupo</th>
+                                <th>Aula</th>
+                                <th>Clase</th>
+                                <th>Fecha Inicio</th>
+                                <th>Fecha Fin</th>
+                                <th>Dia</th>
+                                <th>Hora Inicio</th>
+                                <th>Hora Fin</th>
+                                <th>Estado</th>                                
+                            </tr>
+                        </tfoot>
+                    </table>
+                    <%}%>
+                    
+                    <%
+                        if (tipoU.equals("Profesor")) {
+                    %>
+                    <table id="usuario" class="table table-striped" style="width:100%">
+                        <thead>
+                            <tr>     
+                                <th>Grupo</th>
+                                <th>Aula</th>
+                                <th>Clase</th>
+                                <th>Fecha Inicio</th>
+                                <th>Fecha Fin</th>
+                                <th>Dia</th>
+                                <th>Hora Inicio</th>
+                                <th>Hora Fin</th>
+                                <th>Estado</th>                                
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <%
+                                HorarioVO HorVO = new HorarioVO();
+                                HorarioDAO HorDAO = new HorarioDAO(HorVO);
+                                ArrayList<HorarioVO> listaHorarioPE = HorDAO.listarPE(usuVO.getIdGrupo());
+                                for (int i = 0; i < listaHorarioPE.size(); i++) {
+
+                                    HorVO = listaHorarioPE.get(i);
+                            %>               
+                            <tr>                
+                                <td><%=HorVO.getNombreGrupo()%></td>
+                                <td><%=HorVO.getNombreAula()%></td>
+                                <td><%=HorVO.getNombreClase()%></td>
+                                <td><%=HorVO.getFechaInicio()%></td>
+                                <td><%=HorVO.getFechaFin()%></td>
+                                <td><%=HorVO.getDia()%></td>
+                                <td><%=HorVO.getHoraInicio()%></td>
+                                <td><%=HorVO.getHoraFin()%></td>
+                                <td><a class="<%=HorVO.getEstado().equals("Activo") ? "btn btn-success  m-5" : "btn btn-danger  m-5"%>" style="padding-right: 10px;">
+                                        <%=HorVO.getEstado()%>
+                                    </a></td>                                
+                            </tr>
+                            <%}%>                             
+                        </tbody>
+                        <tfoot>
+                            <tr>     
+                                <th>Grupo</th>
+                                <th>Aula</th>
+                                <th>Clase</th>
+                                <th>Fecha Inicio</th>
+                                <th>Fecha Fin</th>
+                                <th>Dia</th>
+                                <th>Hora Inicio</th>
+                                <th>Hora Fin</th>
+                                <th>Estado</th>                                
+                            </tr>
+                        </tfoot>
+                    </table>
+                    <%}%>
                 </div>
 
                 <script>

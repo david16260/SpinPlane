@@ -143,4 +143,37 @@ public class GrupoDAO extends Conexion implements Crud{
         return listaGrupo;
           
     }
+    
+    public  ArrayList<GrupoVO> listarPE(String idGrupo){
+        
+        ArrayList<GrupoVO>listaGrupoPE = new ArrayList<>();
+        
+        
+        try {
+            conexion= this.obtenerConexion();
+            sql="call consultarGruposPE(?);";
+            puente = conexion.prepareStatement(sql);
+            puente.setString(1, idGrupo);
+            mensajero = puente.executeQuery();
+            while (mensajero.next()) {
+                
+                GrupoVO GruVO= new GrupoVO(mensajero.getString(1),mensajero.getString(2),
+                    mensajero.getString(3), mensajero.getString(4),mensajero.getString(5));
+                
+                   listaGrupoPE.add(GruVO);
+            }
+        
+        } catch (Exception e) {
+              Logger.getLogger(GrupoDAO.class.getName()).log(Level.SEVERE, null, e);
+        }finally {
+            try {
+                this.cerrarConexion();
+                
+            } catch (SQLException e) {
+              Logger.getLogger(GrupoDAO.class.getName()).log(Level.SEVERE, null, e);
+            }
+        }
+        return listaGrupoPE;
+          
+    }
 }

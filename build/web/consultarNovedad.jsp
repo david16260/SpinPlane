@@ -126,7 +126,7 @@
                                 <p>Horario</p>
                             </a>
                         </li>
-                        
+
                     </ul>
                     <%} else if (tipoU.equals("Estudiante")) {%>
                     <ul class="nav">
@@ -168,7 +168,7 @@
                                 <p>Horario</p>
                             </a>
                         </li>
-                        
+
                         <%} else if (tipoU.equals("Administrador")) {%>
                         <ul class="nav">
                             <li>
@@ -216,11 +216,11 @@
                                 </a>
                             </li>
                             <li>
-                            <a href="EnviarCorreo.jsp">
-                                <i class="pe-7s-date"></i>
-                                <p>Correo</p>
-                            </a>
-                        </li>
+                                <a href="EnviarCorreo.jsp">
+                                    <i class="pe-7s-date"></i>
+                                    <p>Correo</p>
+                                </a>
+                            </li>
                         </ul>
                         <%}%>
                 </div>
@@ -252,11 +252,14 @@
                 </nav>
 
                 <div class="contenedor mt-4">
-
+                    <%
+                       if (tipoU.equals("Administrador")) {
+                    %>    
                     <table id="usuario" class="table table-striped" style="width:150%">
                         <thead>
                             <tr>  
-                                <th>Estudiante</th>
+                                <th>Nombre</th>
+                                <th>Apellido</th>
                                 <th>Tipo de Novedad</th>
                                 <th>Descripcion</th>
                                 <th>Fecha Inicio</th>
@@ -275,6 +278,62 @@
                             %>               
                             <tr>   
                                 <td><%=NovVO.getNombreUsuario()%></td>
+                                <td><%=NovVO.getApellidoUsuario()%></td>
+                                <td><%=NovVO.getTipoNovedad()%></td>
+                                <td><%=NovVO.getDescripcion()%></td>
+                                <td><%=NovVO.getFechaInicio()%></td>
+                                <td><%=NovVO.getFechaFin()%></td>                                                         
+                                <td>
+                                    <a class="btn btn-primary edit"href="actualizarNovedad.jsp?idnovedad=<%=NovVO.getIdNovedad()%>&descripcion=<%=NovVO.getDescripcion()%>&fechainicio=<%=NovVO.getFechaInicio()%>&fechafin=<%=NovVO.getFechaFin()%>&idtiponovedad=<%=NovVO.getIdTipoNovedad()%>&idasistencia=<%=NovVO.getIdAsistencia()%>&usuario=<%=NovVO.getNombreUsuario()%>&novedad=<%=NovVO.getTipoNovedad()%>"><i class="fas fa-pen"></i></a>
+                                </td>
+                            </tr>
+
+                            <%}%>  
+
+                        </tbody>
+                        <tfoot>
+                            <tr>                                
+                                <th>Nombre</th>
+                                <th>Apellido</th>
+                                <th>Tipo de Novedad</th>
+                                <th>Descripcion</th>
+                                <th>Fecha Inicio</th>
+                                <th>Fecha Fin</th>
+                                <th>Actualizar</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                    <%
+                        }
+                    %>
+                
+                <%
+                        if (tipoU.equals("Estudiante")) {
+                    %>    
+                    <table id="usuario" class="table table-striped" style="width:150%">
+                        <thead>
+                            <tr>  
+                                <th>Nombre</th>
+                                <th>Apellido</th>
+                                <th>Tipo de Novedad</th>
+                                <th>Descripcion</th>
+                                <th>Fecha Inicio</th>
+                                <th>Fecha Fin</th>
+                                <th>Actualizar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <%
+                                NovedadVO NovVO = new NovedadVO();
+                                NovedadDAO NovDAO = new NovedadDAO(NovVO);
+                                ArrayList<NovedadVO> listaNovedadE = NovDAO.listarE(usuVO.getUsuId());
+                                for (int i = 0; i < listaNovedadE.size(); i++) {
+
+                                    NovVO = listaNovedadE.get(i);
+                            %>               
+                            <tr>   
+                                <td><%=NovVO.getNombreUsuario()%></td>
+                                <td><%=NovVO.getApellidoUsuario()%></td>
                                 <td><%=NovVO.getTipoNovedad()%></td>
                                 <td><%=NovVO.getDescripcion()%></td>
                                 <td><%=NovVO.getFechaInicio()%></td>
@@ -289,7 +348,8 @@
                         </tbody>
                         <tfoot>
                             <tr>                                
-                                <th>Estudiante</th>
+                                <th>Nombre</th>
+                                <th>Apellido</th>
                                 <th>Tipo de Novedad</th>
                                 <th>Descripcion</th>
                                 <th>Fecha Inicio</th>
@@ -298,8 +358,65 @@
                             </tr>
                         </tfoot>
                     </table>
-                </div>
+                    <%
+                        }
+                    %>
+                    
+                    <%
+                        if (tipoU.equals("Profesor")) {
+                    %>    
+                    <table id="usuario" class="table table-striped" style="width:150%">
+                        <thead>
+                            <tr>  
+                                <th>Nombre</th>
+                                <th>Apellido</th>
+                                <th>Tipo de Novedad</th>
+                                <th>Descripcion</th>
+                                <th>Fecha Inicio</th>
+                                <th>Fecha Fin</th>
+                                <th>Actualizar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <%
+                                NovedadVO NovVO = new NovedadVO();
+                                NovedadDAO NovDAO = new NovedadDAO(NovVO);
+                                ArrayList<NovedadVO> listaNovedadP = NovDAO.listarP(usuVO.getIdGrupo());
+                                for (int i = 0; i < listaNovedadP.size(); i++) {
 
+                                    NovVO = listaNovedadP.get(i);
+                            %>               
+                            <tr>   
+                                <td><%=NovVO.getNombreUsuario()%></td>
+                                <td><%=NovVO.getApellidoUsuario()%></td>
+                                <td><%=NovVO.getTipoNovedad()%></td>
+                                <td><%=NovVO.getDescripcion()%></td>
+                                <td><%=NovVO.getFechaInicio()%></td>
+                                <td><%=NovVO.getFechaFin()%></td>                                                                
+                                <td>
+                                    <a class="btn btn-primary edit"href="actualizarNovedad.jsp?idnovedad=<%=NovVO.getIdNovedad()%>&descripcion=<%=NovVO.getDescripcion()%>&fechainicio=<%=NovVO.getFechaInicio()%>&fechafin=<%=NovVO.getFechaFin()%>&idtiponovedad=<%=NovVO.getIdTipoNovedad()%>&idasistencia=<%=NovVO.getIdAsistencia()%>&usuario=<%=NovVO.getNombreUsuario()%>&novedad=<%=NovVO.getTipoNovedad()%>"><i class="fas fa-pen"></i></a>
+                                </td>
+                            </tr>
+
+                            <%}%>  
+
+                        </tbody>
+                        <tfoot>
+                            <tr>                                
+                                <th>Nombre</th>
+                                <th>Apellido</th>
+                                <th>Tipo de Novedad</th>
+                                <th>Descripcion</th>
+                                <th>Fecha Inicio</th>
+                                <th>Fecha Fin</th>
+                                <th>Actualizar</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                    <%
+                        }
+                    %>
+                    </div>
                 <script>
                     $(document).ready(function () {
                         $('#usuario').DataTable({
@@ -334,7 +451,7 @@
                             }
                         });
                     });
-                </script>
+                </script>                    
                 <button class="abrir-registrar btn btn-primary" id="abrir-registrar">Registrar</button>
                 <div class="overlay " id="overlay">
                     <form method="POST" action="Novedad" class="form-registro needs-validation" novalidate>

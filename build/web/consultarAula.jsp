@@ -84,7 +84,7 @@
                             <img src="images/LOGO4.gif" class="SpinPlane" alt=""/>
                         </a>
                     </div>
-<%
+                    <%
                         String tipoU = usuVO.getIdTipoUsuario();
                         if (tipoU.equals("Profesor")) {
                     %>
@@ -127,7 +127,7 @@
                                 <p>Horario</p>
                             </a>
                         </li>
-                        
+
 
                     </ul>
                     <%} else if (tipoU.equals("Estudiante")) {%>
@@ -170,7 +170,7 @@
                                 <p>Horario</p>
                             </a>
                         </li>
-                        
+
                         <%} else if (tipoU.equals("Administrador")) {%>
                         <ul class="nav">
                             <li>
@@ -218,11 +218,11 @@
                                 </a>
                             </li>
                             <li>
-                            <a href="EnviarCorreo.jsp">
-                                <i class="pe-7s-date"></i>
-                                <p>Correo</p>
-                            </a>
-                        </li>
+                                <a href="EnviarCorreo.jsp">
+                                    <i class="pe-7s-date"></i>
+                                    <p>Correo</p>
+                                </a>
+                            </li>
                         </ul>
                         <%}%>
 
@@ -256,19 +256,18 @@
 
 
                 <div class="contenedor mt-4">
-
+                    <%
+                        if (tipoU.equals("Administrador")) {
+                    %>
                     <table id="usuario" class="table table-striped" style="width:100%">
                         <thead>
                             <tr>                               
                                 <th>Nombre</th>
                                 <th>Capacidad</th>
-                                <th>Estado</th>
-                                    <%
-                                        if (tipoU.equals("Administrador")) {
-                                    %>
+                                <th>Estado</th>                                   
                                 <th>Estado</th>
                                 <th>Actualizar</th>
-                                    <%}%>
+
                             </tr>
                         </thead>
                         <tbody>
@@ -287,11 +286,7 @@
                                     <a class="<%=AuVO.getEstado().equals("Activo") ? "btn btn-success  m-3" : "btn btn-danger  m-3"%>" style="padding-right: 10px;">
                                         <%=AuVO.getEstado()%>
                                     </a>
-                                </td>
-                                <%
-                                    if (tipoU.equals("Administrador")) {
-                                %>
-
+                                </td>                                
                                 <td>
                                     <%
                                         if (AuVO.getEstado().equals("Activo")) {
@@ -318,26 +313,103 @@
 
                                 <td>
                                     <a class="btn btn-info edit m-2 p-2" href="actualizarAula.jsp?idAula=<%=AuVO.getIdAula()%>&nombre=<%=AuVO.getNombre()%>&capacidad=<%=AuVO.getCapacidad()%>"><i class="fas fa-pen"></i></a>
-
-                                </td>
+                                </td> 
                                 <%}%>
-                            </tr>
-                            <%}%>  
+                            </tr>                            
                         </tbody>
                         <tfoot>
                             <tr>                                
                                 <th>Nombre</th>
                                 <th>Capacidad</th>
-                                <th>Estado</th>     
-                                    <%
-                                        if (tipoU.equals("Administrador")) {
-                                    %>
+                                <th>Estado</th>                                        
                                 <th>Estado</th>
-                                <th>Actualizar</th>
-                                    <%}%>
+                                <th>Actualizar</th>                                   
                             </tr>
                         </tfoot>
                     </table>
+                    <%}%>
+                    
+                    <%
+                        if (tipoU.equals("Profesor")) {
+                    %>
+                    <table id="usuario" class="table table-striped" style="width:100%">
+                        <thead>
+                            <tr>                               
+                                <th>Nombre</th>
+                                <th>Capacidad</th>
+                                <th>Estado</th>                                                                   
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <%
+                                AulaVO AuVO = new AulaVO();
+                                AulaDAO AuDAO = new AulaDAO(AuVO);
+                                ArrayList<AulaVO> listaAulaPE = AuDAO.listarPE(usuVO.getUsuId());
+                                for (int i = 0; i < listaAulaPE.size(); i++) {
+
+                                    AuVO = listaAulaPE.get(i);
+                            %>               
+                            <tr>                                
+                                <td><%=AuVO.getNombre()%></td>
+                                <td><%=AuVO.getCapacidad()%></td>
+                                <td>
+                                    <a class="<%=AuVO.getEstado().equals("Activo") ? "btn btn-success  m-3" : "btn btn-danger  m-3"%>" style="padding-right: 10px;">
+                                        <%=AuVO.getEstado()%>
+                                    </a>
+                                </td> 
+                                <%}%>
+                            </tr>                            
+                        </tbody>
+                        <tfoot>
+                            <tr>                                
+                                <th>Nombre</th>
+                                <th>Capacidad</th>
+                                <th>Estado</th>                                                                                                          
+                            </tr>
+                        </tfoot>
+                    </table>
+                    <%}%>
+                    
+                    <%
+                        if (tipoU.equals("Estudiante")) {
+                    %>
+                    <table id="usuario" class="table table-striped" style="width:100%">
+                        <thead>
+                            <tr>                               
+                                <th>Nombre</th>
+                                <th>Capacidad</th>
+                                <th>Estado</th>                                                                   
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <%
+                                AulaVO AuVO = new AulaVO();
+                                AulaDAO AuDAO = new AulaDAO(AuVO);
+                                ArrayList<AulaVO> listaAulaPE = AuDAO.listarPE(usuVO.getUsuId());
+                                for (int i = 0; i < listaAulaPE.size(); i++) {
+
+                                    AuVO = listaAulaPE.get(i);
+                            %>               
+                            <tr>                                
+                                <td><%=AuVO.getNombre()%></td>
+                                <td><%=AuVO.getCapacidad()%></td>
+                                <td>
+                                    <a class="<%=AuVO.getEstado().equals("Activo") ? "btn btn-success  m-3" : "btn btn-danger  m-3"%>" style="padding-right: 10px;">
+                                        <%=AuVO.getEstado()%>
+                                    </a>
+                                </td> 
+                                <%}%>
+                            </tr>                            
+                        </tbody>
+                        <tfoot>
+                            <tr>                                
+                                <th>Nombre</th>
+                                <th>Capacidad</th>
+                                <th>Estado</th>                                                                                                          
+                            </tr>
+                        </tfoot>
+                    </table>
+                    <%}%>
                 </div>
 
                 <script>

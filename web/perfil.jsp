@@ -60,7 +60,9 @@
     <body class="fix-header card-no-border fix-sidebar">
         <div class="wrapper">
 
-           <div class="sidebar" data-color="orange" data-image="assets/img/siderbar.jpeg">
+            <div class="sidebar" data-color="orange" data-image="assets/img/siderbar.jpeg">
+
+
                 <div class="sidebar-wrapper">
                     <div class="logo">
                         <a href="menu.jsp">
@@ -112,6 +114,7 @@
                             </a>
                         </li>
 
+
                     </ul>
                     <%} else if (tipoU.equals("Estudiante")) {%>
                     <ul class="nav">
@@ -122,16 +125,15 @@
                             </a>
                         </li>
                         <li>
-                            <a href="consultarGrupo.jsp">
-                                <i class="pe-7s-users"></i>
-                                <p>Grupo</p>
-                            </a>
-                        </li>
-                        <li>
-                        <li>
                             <a href="consultarAula.jsp">
                                 <i class="pe-7s-culture"></i>
                                 <p>Aula</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="consultarGrupo.jsp">
+                                <i class="pe-7s-users"></i>
+                                <p>Grupo</p>
                             </a>
                         </li>
                         <li>
@@ -141,11 +143,20 @@
                             </a>
                         </li>
                         <li>
+                        <li>
+                            <a href="consultarNovedad.jsp">
+                                <i class="pe-7s-info"></i>
+                                <p>Novedad</p>
+                            </a>
+                        </li>
+                        <li>
+                        <li>
                             <a href="consultarHorario.jsp">
                                 <i class="pe-7s-date"></i>
                                 <p>Horario</p>
                             </a>
                         </li>
+
                         <%} else if (tipoU.equals("Administrador")) {%>
                         <ul class="nav">
                             <li>
@@ -180,11 +191,22 @@
                                 </a>
                             </li>
                             <li>
-
+                            <li>
+                                <a href="consultarHorario.jsp">
+                                    <i class="pe-7s-date"></i>
+                                    <p>Horario</p>
+                                </a>
+                            </li>
                             <li>
                                 <a href="consultarUsuario.jsp">
                                     <i class="pe-7s-user"></i>
                                     <p>Usuario</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="EnviarCorreo.jsp">
+                                    <i class="pe-7s-date"></i>
+                                    <p>Correo</p>
                                 </a>
                             </li>
                         </ul>
@@ -211,7 +233,7 @@
                     if (UsuVO != null) {
 
                 %>
-              
+
                 <!-- ============================================================== -->
                 <!-- Main wrapper - style you can find in pages.scss -->
                 <!-- ============================================================== -->
@@ -233,7 +255,7 @@
                             <!-- Start Page Content -->
                             <!-- ============================================================== -->
                             <!-- Row -->
-                            
+
                             <div class="row">
                                 <!-- Column -->
                                 <div class="col-lg-4 col-xlg-3">
@@ -254,29 +276,29 @@
                                         <div class="card-body">
                                             <form class="form-horizontal form-material mx-2">
                                                 <div class="form-group">
-                                                    <label class="col-md-12">Nombres</label>                                                    
-                                                        <h4 class="form-control m-l-15 form-control-line"><%=UsuVO.getNombre()%> <%=UsuVO.getApellido()%></h4>        
+                                                    <label class="col-md-12">Nombre completo:</label>                                                    
+                                                    <h4 class="form-control m-l-15 form-control-line"><%=UsuVO.getNombre()%> <%=UsuVO.getApellido()%></h4>        
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="example-email" class="col-md-12">Tipo de identificación</label>                                                    
-                                                        <h4 class="form-control m-l-15 form-control-line"><%=UsuVO.getTipoDocumento()%></h4>                                                    
+                                                    <label for="example-email" class="col-md-12">Tipo de identificación:</label>                                                    
+                                                    <h4 class="form-control m-l-15 form-control-line"><%=UsuVO.getTipoDocumento()%></h4>                                                    
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="example-email" class="col-md-12">Número de identificación</label>                                                    
-                                                        <h4 class="form-control m-l-15 form-control-line"><%=UsuVO.getNumDocumento()%></h4>                                                    
+                                                    <label for="example-email" class="col-md-12">Número de identificación:</label>                                                    
+                                                    <h4 class="form-control m-l-15 form-control-line"><%=UsuVO.getNumDocumento()%></h4>                                                    
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="example-email" class="col-md-12">Correo</label>                                                    
-                                                        <h4 class="form-control m-l-15 form-control-line"><%=UsuVO.getCorreo()%></h4>                                                    
-                                                </div>
-                                                    <div class="form-group">
-                                                    <label for="example-email" class="col-md-12">Teléfono</label>                                                    
-                                                        <h4 class="form-control m-l-15 form-control-line"><%=UsuVO.getCelular()%></h4>                                                    
+                                                    <label for="example-email" class="col-md-12">Correo:</label>                                                    
+                                                    <h4 class="form-control m-l-15 form-control-line"><%=UsuVO.getCorreo()%></h4>                                                    
                                                 </div>
                                                 <div class="form-group">
-                                                    <label class="col-md-12">Contraseña</label>                                                    
-                                                        <input type="password" value="<%=UsuVO.getClave()%>"
-                                                               class="form-control m-l-15 form-control-line" readonly="">                                                    
+                                                    <label for="example-email" class="col-md-12">Teléfono:</label>                                                    
+                                                    <h4 class="form-control m-l-15 form-control-line"><%=UsuVO.getCelular()%></h4>                                                    
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-md-12">Contraseña:</label>                                                    
+                                                    <input type="password" value="<%=UsuVO.getClave()%>"
+                                                           class="form-control m-l-15 form-control-line" readonly="">                                                    
                                                 </div>                                                                                                                                              
                                                 <div class="form-group">
                                                     <div class="col-sm-12">
@@ -284,40 +306,48 @@
                                                     </div>
                                                 </div>
                                             </form>
+                                            <div class="form-group">
+                                                <div class="col-sm-12">
+                                                    <form method="POST" action="Horario">
+                                                        <input type="hidden" name="txtGrupo" value="<%=UsuVO.getIdGrupo()%>">
+                                                        <button type="submit" class="btn btn-success">Horarios</button>
+                                                        <input type="hidden" value="4" name="opcion">
+                                                    </form>                                                    
+                                                </div>              
+                                            </div>
                                         </div>
                                     </div>
+                                    <!-- Column -->
                                 </div>
-                                <!-- Column -->
+                                <%
+                                    }
+                                %>
                             </div>
-                            <%
-                    }
-                %>
+                            <!-- ============================================================== -->
+                            <!-- End Container fluid  -->
+                            <!-- ============================================================== -->
+                            <!-- ============================================================== -->
+                            <!-- footer -->
+                            <!-- ============================================================== -->
+                            <footer class="footer"><p class="copyright text-center">
+                                    &copy; <script>document.write(new Date().getFullYear())</script> <a href="#">SpinPlane</a>
+                                </p> </footer>
+                            </footer>
                         </div>
-                        <!-- ============================================================== -->
-                        <!-- End Container fluid  -->
-                        <!-- ============================================================== -->
-                        <!-- ============================================================== -->
-                        <!-- footer -->
-                        <!-- ============================================================== -->
-                        <footer class="footer"><p class="copyright text-center">
-                            &copy; <script>document.write(new Date().getFullYear())</script> <a href="#">SpinPlane</a>
-                        </p> </footer>
-                </footer>
-                    </div>
-                </div>   
+                    </div>   
+                </div>
             </div>
-        </div>
-             <script src="../assets/plugins/jquery/jquery.min.js"></script>
-                <!-- Bootstrap tether Core JavaScript -->
-                <script src="../assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-                <!-- slimscrollbar scrollbar JavaScript -->
-                <script src="jsP/perfect-scrollbar.jquery.min.js"></script>
-                <!--Wave Effects -->
-                <script src="jsP/waves.js"></script>
-                <!--Menu sidebar -->
-                <script src="jsP/sidebarmenu.js"></script>
-                <!--Custom JavaScript -->
-                <script src="jsP/custom.min.js"></script>
-            
+            <script src="../assets/plugins/jquery/jquery.min.js"></script>
+            <!-- Bootstrap tether Core JavaScript -->
+            <script src="../assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+            <!-- slimscrollbar scrollbar JavaScript -->
+            <script src="jsP/perfect-scrollbar.jquery.min.js"></script>
+            <!--Wave Effects -->
+            <script src="jsP/waves.js"></script>
+            <!--Menu sidebar -->
+            <script src="jsP/sidebarmenu.js"></script>
+            <!--Custom JavaScript -->
+            <script src="jsP/custom.min.js"></script>
+
     </body>
 </html>

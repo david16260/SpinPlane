@@ -30,7 +30,7 @@ public class NovedadDAO extends Conexion implements Crud{
     
     private String sql;
     
-    private String  idNovedad = "", descripcion = "", fechaInicio  = "", fechaFin="", idTipoNovedad = "" ,idAsistencia = "";
+    private String  idNovedad = "", descripcion = "", fechaInicio  = "", nombreUsuario="", apellidoUsuario="", fechaFin="", idTipoNovedad = "" ,idAsistencia = "", idUsuario,idGrupo;
      
     public NovedadDAO(NovedadVO NovVO){
      
@@ -43,6 +43,10 @@ public class NovedadDAO extends Conexion implements Crud{
             fechaFin =NovVO.getFechaFin();
             idTipoNovedad=NovVO.getIdTipoNovedad();
             idAsistencia=NovVO.getIdAsistencia();
+            idUsuario=NovVO.getIdUsuario();
+            nombreUsuario=NovVO.getNombreUsuario();
+            apellidoUsuario=NovVO.getApellidoUsuario();
+            idGrupo=NovVO.getIdGrupo();
         } catch (Exception e) {
             Logger.getLogger(AulaDAO.class.getName()).log(Level.SEVERE, null, e);
         }
@@ -103,21 +107,21 @@ public class NovedadDAO extends Conexion implements Crud{
     public boolean cambiarEstado() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-     public  ArrayList<NovedadVO> listar(){
+    public  ArrayList<NovedadVO> listar(){
         
         ArrayList<NovedadVO>listaNovedad = new ArrayList<>();
         
         
         try {
             conexion= this.obtenerConexion();
-            sql="call consultarNovedades;";
+            sql="call consultarNovedadesA;";
             puente = conexion.prepareStatement(sql);
             mensajero = puente.executeQuery();
             while (mensajero.next()) {
                 
                 NovedadVO AuVO= new NovedadVO(mensajero.getString(1),mensajero.getString(2),
                     mensajero.getString(3), mensajero.getString(4),mensajero.getString(5),mensajero.getString(6),
-                mensajero.getString(7),mensajero.getString(8));
+                mensajero.getString(7),mensajero.getString(8),mensajero.getString(9));
                 
                    listaNovedad.add(AuVO);
             }
@@ -133,6 +137,74 @@ public class NovedadDAO extends Conexion implements Crud{
             }
         }
         return listaNovedad;
+        
+    }
+    
+    public  ArrayList<NovedadVO> listarE(String idUsuario){
+        
+        ArrayList<NovedadVO>listaNovedadE = new ArrayList<>();
+        
+        
+        try {
+            conexion= this.obtenerConexion();
+            sql="call consultarNovedadesE(?);";
+            puente = conexion.prepareStatement(sql);
+            puente.setString(1, idUsuario);
+            mensajero = puente.executeQuery();
+            while (mensajero.next()) {
+                
+                NovedadVO AuVO= new NovedadVO(mensajero.getString(1),mensajero.getString(2),
+                    mensajero.getString(3), mensajero.getString(4),mensajero.getString(5),mensajero.getString(6),
+                mensajero.getString(7),mensajero.getString(8),mensajero.getString(9));
+                
+                   listaNovedadE.add(AuVO);
+            }
+        
+        } catch (Exception e) {
+              Logger.getLogger(NovedadDAO.class.getName()).log(Level.SEVERE, null, e);
+        }finally {
+            try {
+                this.cerrarConexion();
+                
+            } catch (SQLException e) {
+              Logger.getLogger(NovedadDAO.class.getName()).log(Level.SEVERE, null, e);
+            }
+        }
+        return listaNovedadE;
+        
+    }
+    
+    public  ArrayList<NovedadVO> listarP(String idGrupo){
+        
+        ArrayList<NovedadVO>listaNovedadP = new ArrayList<>();
+        
+        
+        try {
+            conexion= this.obtenerConexion();
+            sql="call consultarNovedadesP(?);";
+            puente = conexion.prepareStatement(sql);
+            puente.setString(1, idGrupo);
+            mensajero = puente.executeQuery();
+            while (mensajero.next()) {
+                
+                NovedadVO AuVO= new NovedadVO(mensajero.getString(1),mensajero.getString(2),
+                    mensajero.getString(3), mensajero.getString(4),mensajero.getString(5),mensajero.getString(6),
+                mensajero.getString(7),mensajero.getString(8),mensajero.getString(9));
+                
+                   listaNovedadP.add(AuVO);
+            }
+        
+        } catch (Exception e) {
+              Logger.getLogger(NovedadDAO.class.getName()).log(Level.SEVERE, null, e);
+        }finally {
+            try {
+                this.cerrarConexion();
+                
+            } catch (SQLException e) {
+              Logger.getLogger(NovedadDAO.class.getName()).log(Level.SEVERE, null, e);
+            }
+        }
+        return listaNovedadP;
         
     }
      

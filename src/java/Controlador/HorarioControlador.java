@@ -9,6 +9,7 @@ import ModeloDAO.HorarioDAO;
 import ModeloVO.HorarioVO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -35,11 +36,11 @@ public class HorarioControlador extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         String idHorario = request.getParameter("txtId");
-        String fechaInicio = request.getParameter("txtFechaInicio");     
+        String fechaInicio = request.getParameter("txtFechaInicio");
         String fechaFin = request.getParameter("txtFechaFin");
         String dia = request.getParameter("txtDia");
         String horaInicio = request.getParameter("txtHoraInicio");
-        String horaFin = request.getParameter("txtHoraFin");     
+        String horaFin = request.getParameter("txtHoraFin");
         String estado = request.getParameter("txtEstado");
         String idGrupo = request.getParameter("txtGrupo");
         String idClase = request.getParameter("txtClase");
@@ -47,12 +48,12 @@ public class HorarioControlador extends HttpServlet {
         String nombreGrupo = request.getParameter("txtNombreGrupo");
         String nombreAula = request.getParameter("txtNombreAula");
         String nombreClase = request.getParameter("txtNombreClase");
-        
+
         int opcion = Integer.parseInt(request.getParameter("opcion"));
         //Instanciar el VO
-        HorarioVO HorVO =new HorarioVO(idHorario,fechaInicio,fechaFin,dia,horaInicio,horaFin,estado,idGrupo,idAula,idClase,nombreGrupo,nombreAula,nombreClase);
+        HorarioVO HorVO = new HorarioVO(idHorario, fechaInicio, fechaFin, dia, horaInicio, horaFin, estado, idGrupo, idAula, idClase, nombreGrupo, nombreAula, nombreClase);
         //Instanciar el DAO
-        HorarioDAO HorDAO =new HorarioDAO(HorVO);
+        HorarioDAO HorDAO = new HorarioDAO(HorVO);
         switch (opcion) {
             case 1://Agregar Registro
                 if (HorDAO.agregarRegistro()) {
@@ -70,7 +71,7 @@ public class HorarioControlador extends HttpServlet {
                 }
                 request.getRequestDispatcher("consultarHorario.jsp").forward(request, response);
                 break;
-                case 3://Actualizar Estado
+            case 3://Actualizar Estado
                 if (HorDAO.cambiarEstado()) {
                     request.setAttribute("mensajeExito", "El estado se actualizo corectamente");
                 } else {
@@ -78,7 +79,7 @@ public class HorarioControlador extends HttpServlet {
                 }
                 request.getRequestDispatcher("consultarHorario.jsp").forward(request, response);
                 break;
-           
+            
         }
     }
 

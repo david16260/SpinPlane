@@ -35,18 +35,16 @@ public class NovedadControlador extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String idGrupo = request.getParameter("txtId");
+        String idNovedad = request.getParameter("txtId");
         String descripcion = request.getParameter("txtDescripcion");    
         String fechaInicio = request.getParameter("txtFechaInicio");
         String fechaFin = request.getParameter("txtFechaFin");
         String idTipoNovedad = request.getParameter("txtTipoNovedad");
         String idAsistencia = request.getParameter("txtAsistencia");
-        String tipoNovedad = request.getParameter("txtTipoNovedad");
-        String nombreUsuario = request.getParameter("txtNombreUsuario");
         
         int opcion = Integer.parseInt(request.getParameter("opcion"));
         
-        NovedadVO NovVO= new NovedadVO(idGrupo,descripcion, fechaInicio, fechaFin, idTipoNovedad,idAsistencia,tipoNovedad,nombreUsuario);
+        NovedadVO NovVO= new NovedadVO(idNovedad,descripcion, fechaInicio, fechaFin, idTipoNovedad,idAsistencia);
         
         NovedadDAO NovDAO = new NovedadDAO(NovVO);
         switch (opcion) {

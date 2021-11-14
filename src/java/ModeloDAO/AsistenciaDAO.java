@@ -137,4 +137,76 @@ public class AsistenciaDAO extends Conexion implements Crud {
         return listaAsistencia;
 
     }
+    
+    public ArrayList<AsistenciaVO> listarE(String idUsuario) {
+
+        ArrayList<AsistenciaVO> listaAsistenciaE = new ArrayList<>();
+
+        try {
+            conexion = this.obtenerConexion();
+
+            sql = "call consultarAsistenciasE(?)";
+
+
+            puente = conexion.prepareStatement(sql);
+            puente.setString(1, idUsuario);
+            mensajero = puente.executeQuery();
+            while (mensajero.next()) {
+
+                AsistenciaVO AsisVO = new AsistenciaVO(mensajero.getString(1), mensajero.getString(2),
+                        mensajero.getString(3), mensajero.getString(4), mensajero.getString(5),
+                        mensajero.getString(6), mensajero.getString(7));
+
+                listaAsistenciaE.add(AsisVO);
+            }
+
+        } catch (Exception e) {
+            Logger.getLogger(AsistenciaDAO.class.getName()).log(Level.SEVERE, null, e);
+        } finally {
+            try {
+                this.cerrarConexion();
+
+            } catch (SQLException e) {
+                Logger.getLogger(AsistenciaDAO.class.getName()).log(Level.SEVERE, null, e);
+            }
+        }
+        return listaAsistenciaE;
+
+    }
+    
+    public ArrayList<AsistenciaVO> listarP(String idGrupo) {
+
+        ArrayList<AsistenciaVO> listaAsistenciaP = new ArrayList<>();
+
+        try {
+            conexion = this.obtenerConexion();
+
+            sql = "call consultarAsistenciasP(?)";
+
+
+            puente = conexion.prepareStatement(sql);
+             puente.setString(1, idGrupo);
+            mensajero = puente.executeQuery();
+            while (mensajero.next()) {
+
+                AsistenciaVO AsisVO = new AsistenciaVO(mensajero.getString(1), mensajero.getString(2),
+                        mensajero.getString(3), mensajero.getString(4), mensajero.getString(5),
+                        mensajero.getString(6), mensajero.getString(7));
+
+                listaAsistenciaP.add(AsisVO);
+            }
+
+        } catch (Exception e) {
+            Logger.getLogger(AsistenciaDAO.class.getName()).log(Level.SEVERE, null, e);
+        } finally {
+            try {
+                this.cerrarConexion();
+
+            } catch (SQLException e) {
+                Logger.getLogger(AsistenciaDAO.class.getName()).log(Level.SEVERE, null, e);
+            }
+        }
+        return listaAsistenciaP;
+
+    }
 }

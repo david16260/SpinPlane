@@ -88,7 +88,7 @@
                             <img src="images/LOGO4.gif" class="SpinPlane" alt=""/>
                         </a>
                     </div>
-<%
+                    <%
                         String tipoU = usuVO.getIdTipoUsuario();
                         if (tipoU.equals("Profesor")) {
                     %>
@@ -131,7 +131,7 @@
                                 <p>Horario</p>
                             </a>
                         </li>
-                        
+
 
                     </ul>
                     <%} else if (tipoU.equals("Estudiante")) {%>
@@ -174,7 +174,7 @@
                                 <p>Horario</p>
                             </a>
                         </li>
-                        
+
                         <%} else if (tipoU.equals("Administrador")) {%>
                         <ul class="nav">
                             <li>
@@ -222,11 +222,11 @@
                                 </a>
                             </li>
                             <li>
-                            <a href="EnviarCorreo.jsp">
-                                <i class="pe-7s-date"></i>
-                                <p>Correo</p>
-                            </a>
-                        </li>
+                                <a href="EnviarCorreo.jsp">
+                                    <i class="pe-7s-date"></i>
+                                    <p>Correo</p>
+                                </a>
+                            </li>
                         </ul>
                         <%}%>
                 </div>
@@ -258,7 +258,9 @@
                 </nav>
 
                 <div class="contenedor mt-2">
-
+                    <%
+                        if (tipoU.equals("Administrador")) {
+                    %>
                     <table id="usuario" class="table table-striped" style="width:100%">
                         <thead>
                             <tr>
@@ -266,11 +268,7 @@
                                 <th>Fecha</th>
                                 <th>Usuario</th>
                                 <th>Grupo</th>
-                                    <%
-                                        if (tipoU.equals("Administrador")) {
-                                    %>
                                 <th>Actualizar</th>
-                                    <%}%>
                             </tr>
                         </thead>
                         <tbody>
@@ -302,15 +300,95 @@
                                 <th>Asistencia</th>
                                 <th>Fecha</th>
                                 <th>Usuario</th>
-                                <th>Grupo</th>
-                                    <%
-                                        if (tipoU.equals("Administrador")) {
-                                    %>
-                                <th>Actualizar</th>
-                                    <%}%>
+                                <th>Grupo</th>                                   
+                                <th>Actualizar</th>                                    
                             </tr>
                         </tfoot>
                     </table>
+                    <%}%>
+                    <%
+                        if (tipoU.equals("Estudiante")) {
+                    %>
+                    <table id="usuario" class="table table-striped" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>Asistencia</th>
+                                <th>Fecha</th>
+                                <th>Usuario</th>
+                                <th>Grupo</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <%
+                                AsistenciaVO AsisVO = new AsistenciaVO();
+                                AsistenciaDAO AsisDAO = new AsistenciaDAO(AsisVO);
+                                ArrayList<AsistenciaVO> listaAsistenciaE = AsisDAO.listarE(usuVO.getUsuId());
+                                for (int i = 0; i < listaAsistenciaE.size(); i++) {
+
+                                    AsisVO = listaAsistenciaE.get(i);
+                            %>               
+                            <tr>
+                                <td><%=AsisVO.getAsistencia()%></td>
+                                <td><%=AsisVO.getFecha()%></td>
+                                <td><%=AsisVO.getNombreUsuario()%></td>
+                                <td><%=AsisVO.getNombreGrupo()%></td>
+                            </tr>
+                            <%}%>  
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>Asistencia</th>
+                                <th>Fecha</th>
+                                <th>Usuario</th>
+                                <th>Grupo</th>                                                                    
+                            </tr>
+                        </tfoot>
+                    </table>
+                    <%}%>
+                    <%
+                        if (tipoU.equals("Profesor")) {
+                    %>
+                    <table id="usuario" class="table table-striped" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>Asistencia</th>
+                                <th>Fecha</th>
+                                <th>Usuario</th>
+                                <th>Grupo</th>
+                                <th>Actualizar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <%
+                                AsistenciaVO AsisVO = new AsistenciaVO();
+                                AsistenciaDAO AsisDAO = new AsistenciaDAO(AsisVO);
+                                ArrayList<AsistenciaVO> listaAsistenciaP = AsisDAO.listarP(usuVO.getIdGrupo());
+                                for (int i = 0; i < listaAsistenciaP.size(); i++) {
+
+                                    AsisVO = listaAsistenciaP.get(i);
+                            %>               
+                            <tr>
+                                <td><%=AsisVO.getAsistencia()%></td>
+                                <td><%=AsisVO.getFecha()%></td>
+                                <td><%=AsisVO.getNombreUsuario()%></td>
+                                <td><%=AsisVO.getNombreGrupo()%></td>                               
+                                <td>
+                                    <a class="btn btn-info edit m-6 p-2"href="actualizarAsistencia.jsp?idAsistencia=<%=AsisVO.getIdAsistencia()%>&asistencia=<%=AsisVO.getAsistencia()%>&fecha=<%=AsisVO.getFecha()%>&usuario=<%=AsisVO.getNombreUsuario()%>&grupo=<%=AsisVO.getNombreGrupo()%>&idUsuario=<%=AsisVO.getIdUsuario()%>&idGrupo=<%=AsisVO.getIdGrupo()%>"><i class="fas fa-pen"></i></a>
+                                </td>                                
+                            </tr>
+                            <%}%>  
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>Asistencia</th>
+                                <th>Fecha</th>
+                                <th>Usuario</th>
+                                <th>Grupo</th>                                   
+                                <th>Actualizar</th>                                    
+                            </tr>
+                        </tfoot>
+                    </table>
+                    <%}%>
                 </div>
                 <script>
                     $(document).ready(function () {

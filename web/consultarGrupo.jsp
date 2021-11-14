@@ -84,7 +84,7 @@
                             <img src="images/LOGO4.gif" class="SpinPlane" alt=""/>
                         </a>
                     </div>
-<%
+                    <%
                         String tipoU = usuVO.getIdTipoUsuario();
                         if (tipoU.equals("Profesor")) {
                     %>
@@ -127,7 +127,7 @@
                                 <p>Horario</p>
                             </a>
                         </li>
-                        
+
 
                     </ul>
                     <%} else if (tipoU.equals("Estudiante")) {%>
@@ -170,7 +170,7 @@
                                 <p>Horario</p>
                             </a>
                         </li>
-                        
+
                         <%} else if (tipoU.equals("Administrador")) {%>
                         <ul class="nav">
                             <li>
@@ -218,11 +218,11 @@
                                 </a>
                             </li>
                             <li>
-                            <a href="EnviarCorreo.jsp">
-                                <i class="pe-7s-date"></i>
-                                <p>Correo</p>
-                            </a>
-                        </li>
+                                <a href="EnviarCorreo.jsp">
+                                    <i class="pe-7s-date"></i>
+                                    <p>Correo</p>
+                                </a>
+                            </li>
                         </ul>
                         <%}%>
                 </div>
@@ -254,7 +254,9 @@
                 </nav>
 
                 <div class="contenedor mt-4">
-
+                    <%
+                        if (tipoU.equals("Administrador")) {
+                    %>
                     <table id="usuario" class=" table table-striped" style="width:100%">
                         <thead>
                             <tr>                                
@@ -262,12 +264,10 @@
                                 <th>Estado</th>
                                 <th>Fecha de Inicio</th>
                                 <th>Fecha de Fin</th>
-                                    <%
-                                        if (tipoU.equals("Administrador")) {
-                                    %>
+
                                 <th>Estado</th>
                                 <th>Actualizar</th>
-                                    <%}%>
+
                             </tr>
                         </thead>
                         <tbody>
@@ -338,6 +338,95 @@
 
                         </tfoot>
                     </table>
+                    <%}%>
+
+                    <%
+                        if (tipoU.equals("Profesor")) {
+                    %>
+                    <table id="usuario" class=" table table-striped" style="width:100%">
+                        <thead>
+                            <tr>                                
+                                <th>Nombre</th>
+                                <th>Estado</th>
+                                <th>Fecha de Inicio</th>
+                                <th>Fecha de Fin</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <%
+                                GrupoVO GruVO = new GrupoVO();
+                                GrupoDAO GruDAO = new GrupoDAO(GruVO);
+                                ArrayList<GrupoVO> listaGrupoPE = GruDAO.listarPE(usuVO.getIdGrupo());
+                                for (int i = 0; i < listaGrupoPE.size(); i++) {
+
+                                    GruVO = listaGrupoPE.get(i);
+                            %>               
+                            <tr>                                
+                                <td><%=GruVO.getNombre()%></td>
+                                <td>
+                                    <a class="<%=GruVO.getEstado().equals("Activo") ? "btn btn-success  m-3" : "btn btn-danger  m-3"%>" style="padding-right: 50px;">
+                                        <%=GruVO.getEstado()%>
+                                    </a>
+                                </td>
+                                <td class="text-center"><%=GruVO.getFechaInicio()%></td> 
+                                <td class="text-center"><%=GruVO.getFechaFin()%></td> 
+                                <%}%>
+                            </tr> 
+                        </tbody>
+                        <tfoot>
+                            <tr>                                
+                                <th>Nombre</th>
+                                <th>Estado</th>
+                                <th>Fecha de Inicio</th>
+                                <th>Fecha de Fin</th>                                  
+                            </tr>
+                        </tfoot>
+                    </table>
+                    <%}%>
+
+                    <%
+                        if (tipoU.equals("Estudiante")) {
+                    %>
+                    <table id="usuario" class=" table table-striped" style="width:100%">
+                        <thead>
+                            <tr>                                
+                                <th>Nombre</th>
+                                <th>Estado</th>
+                                <th>Fecha de Inicio</th>
+                                <th>Fecha de Fin</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <%
+                                GrupoVO GruVO = new GrupoVO();
+                                GrupoDAO GruDAO = new GrupoDAO(GruVO);
+                                ArrayList<GrupoVO> listaGrupoPE = GruDAO.listarPE(usuVO.getIdGrupo());
+                                for (int i = 0; i < listaGrupoPE.size(); i++) {
+
+                                    GruVO = listaGrupoPE.get(i);
+                            %>               
+                            <tr>                                
+                                <td><%=GruVO.getNombre()%></td>
+                                <td>
+                                    <a class="<%=GruVO.getEstado().equals("Activo") ? "btn btn-success  m-3" : "btn btn-danger  m-3"%>" style="padding-right: 50px;">
+                                        <%=GruVO.getEstado()%>
+                                    </a>
+                                </td>
+                                <td class="text-center"><%=GruVO.getFechaInicio()%></td> 
+                                <td class="text-center"><%=GruVO.getFechaFin()%></td> 
+                                <%}%>
+                            </tr> 
+                        </tbody>
+                        <tfoot>
+                            <tr>                                
+                                <th>Nombre</th>
+                                <th>Estado</th>
+                                <th>Fecha de Inicio</th>
+                                <th>Fecha de Fin</th>                                  
+                            </tr>
+                        </tfoot>
+                    </table>
+                    <%}%> 
                 </div>
 
                 <script>

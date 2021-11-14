@@ -162,5 +162,40 @@ public class HorarioDAO extends Conexion implements Crud {
         return listaHorario;
         
     }
+     
+     public  ArrayList<HorarioVO> listarPE(String idGrupo){
+        
+        ArrayList<HorarioVO>listaHorarioPE = new ArrayList<>();
+        
+        
+        try {
+            conexion= this.obtenerConexion();
+            sql="call consultarHorariosPE(?)";
+            puente = conexion.prepareStatement(sql);
+            puente.setString(1, idGrupo);
+            mensajero = puente.executeQuery(); 
+            while (mensajero.next()) {
+                
+                HorarioVO HorVO= new HorarioVO(mensajero.getString(1),mensajero.getString(2),
+                    mensajero.getString(3), mensajero.getString(4),mensajero.getString(5),mensajero.getString(6),
+                mensajero.getString(7),mensajero.getString(8),mensajero.getString(9),mensajero.getString(10),
+                mensajero.getString(11),mensajero.getString(12),mensajero.getString(13));
+                
+                   listaHorarioPE.add(HorVO);
+            }
+        
+        } catch (Exception e) {
+              Logger.getLogger(HorarioDAO.class.getName()).log(Level.SEVERE, null, e);
+        }finally {
+            try {
+                this.cerrarConexion();
+                
+            } catch (SQLException e) {
+              Logger.getLogger(HorarioDAO.class.getName()).log(Level.SEVERE, null, e);
+            }
+        }
+        return listaHorarioPE;
+        
+    }
 }
  

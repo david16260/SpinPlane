@@ -6,13 +6,19 @@
 package ModeloVO;
 
 public class AulaVO {
-    private String idAula, nombre, capacidad, estado;
+    private String idAula, nombre, capacidad, estado, idUsuario;
 
     public AulaVO() {
     }
 
     public AulaVO(String idAula, String nombre, String capacidad, String estado) {
         this.idAula = idAula;
+        this.nombre = nombre;
+        this.capacidad = capacidad;
+        this.estado = estado;
+    }
+
+    public AulaVO(String nombre, String capacidad, String estado) {
         this.nombre = nombre;
         this.capacidad = capacidad;
         this.estado = estado;
@@ -49,5 +55,14 @@ public class AulaVO {
     public void setEstado(String estado) {
         this.estado = estado;
     }
+
+    public String getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(String idUsuario) {
+        this.idUsuario = idUsuario;
+    }
+    
 
 }

@@ -10,7 +10,7 @@ package ModeloVO;
  * @author Lanix
  */
 public class ClaseVO {
-  private String idClase,nombre,estado,cantidadSesiones;
+  private String idClase,nombre,estado,cantidadSesiones,idUsuario;
 
     public ClaseVO() {
     }
@@ -21,6 +21,14 @@ public class ClaseVO {
         this.estado = estado;
         this.cantidadSesiones=cantidadSesiones;
     }
+
+    public ClaseVO(String nombre, String estado, String cantidadSesiones) {
+        this.nombre = nombre;
+        this.estado = estado;
+        this.cantidadSesiones = cantidadSesiones;
+    }
+    
+    
 
     public String getIdClase() {
         return idClase;
@@ -52,6 +60,14 @@ public class ClaseVO {
 
     public void setCantidadSesiones(String cantidadSesiones) {
         this.cantidadSesiones = cantidadSesiones;
+    }
+
+    public String getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(String idUsuario) {
+        this.idUsuario = idUsuario;
     }
     
 }

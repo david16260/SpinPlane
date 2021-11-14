@@ -28,13 +28,13 @@ public class RolDAO extends Conexion{
         
         try {
             conexion = this.obtenerConexion();
-            sql = "SELECT usuario.idUsuario, tipousuario.tipoUsuario from usuario INNER JOIN tipousuario on usuario.idTipoUsuario= tipousuario.idTipoUsuario where correo = ?";
+            sql = "SELECT usuario.idUsuario, tipousuario.tipoUsuario,usuario.idGrupo from usuario INNER JOIN tipousuario on usuario.idTipoUsuario= tipousuario.idTipoUsuario where correo = ?";
             puente = conexion.prepareStatement(sql);
             puente.setString(1, idTipoUsuario);
             mensajero = puente.executeQuery();
             
             while(mensajero.next()){
-                UsuarioVO UsuVO = new UsuarioVO( mensajero.getString(1), mensajero.getString(2));
+                UsuarioVO UsuVO = new UsuarioVO( mensajero.getString(1), mensajero.getString(2),mensajero.getString(3));
                 listaRoles.add(UsuVO);
                 
             }
