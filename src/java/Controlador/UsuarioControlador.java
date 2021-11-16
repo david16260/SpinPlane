@@ -128,7 +128,14 @@ public class UsuarioControlador extends HttpServlet {
                 }
                 request.getRequestDispatcher("consultarUsuario.jsp").forward(request, response);
                 break;
-                                        
+               case 6://Actualizar perfil
+                    if (UsuDAO.actualizarPerfil()) {
+                    request.setAttribute("mensajeExito", "El perfil se actualizo corectamente");
+                } else {
+                    request.setAttribute("mensajeError", "El perfil no se actualizo corectamente");
+                }
+                request.getRequestDispatcher("perfil.jsp").forward(request, response);
+                break;                    
         }
 
         }

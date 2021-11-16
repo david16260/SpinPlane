@@ -106,6 +106,29 @@ public class UsuarioDAO extends Conexion implements Crud {
         }
         return operacion;
     }
+    public boolean actualizarPerfil() {
+        try {
+            sql = "call actualizarUsuarioS(?,?,?,?,?,?)";
+            puente = conexion.prepareStatement(sql);
+            puente.setString(1, nombre);
+            puente.setString(2, apellido);
+            puente.setString(3, celular);
+            puente.setString(4, clave);
+            puente.setString(5, correo);
+            puente.setString(6, usuId);
+            puente.executeUpdate();
+            operacion = true;
+        } catch (SQLException e) {
+            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, e);
+        } finally {
+            try {
+                this.cerrarConexion();
+
+            } catch (SQLException e) {
+            }
+        }
+        return operacion;
+    }
 
     @Override
     public boolean cambiarEstado() {
