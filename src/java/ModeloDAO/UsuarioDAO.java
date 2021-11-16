@@ -257,24 +257,36 @@ public class UsuarioDAO extends Conexion implements Crud {
         }
         return listaUsuario;
     }
+   
+    
+    public ArrayList<UsuarioVO> listarAP(String idGrupo) {
 
-    public ArrayList<UsuarioVO> roles() {
-        ArrayList<UsuarioVO> listaRoles = new ArrayList<>();
+        ArrayList<UsuarioVO> listaUsuarioAP = new ArrayList<>();
+
         try {
-            sql = "SELECT usuario.nombre,usuario.idTipoUsuario,usuario.idGrupo from usuario INNER join grupo_usuario on usuario.idUsuario=grupo_usuario.idUsuario INNER JOIN grupo on grupo_usuario.idGrupo=grupo.idGrupo where idTipoUsuario=idTipoUsuario";
+            conexion = this.obtenerConexion();
+            sql = "call consultarUsuariosAsistenciaP(?)";
             puente = conexion.prepareStatement(sql);
-            puente.setString(1, idTipoUsuario);
+            puente.setString(1, idGrupo);
             mensajero = puente.executeQuery();
             while (mensajero.next()) {
-                UsuarioVO usuVO = new UsuarioVO(mensajero.getString(1), mensajero.getString(2),mensajero.getString(3));
-                listaRoles.add(usuVO);
 
+                UsuarioVO UsuVO = new UsuarioVO(mensajero.getString(1), mensajero.getString(2),
+                        mensajero.getString(3),mensajero.getString(4),mensajero.getString(5));
+                listaUsuarioAP.add(UsuVO);
             }
-        } catch (SQLException e) {
-            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, e);
-        }
-        return listaRoles;
 
+        } catch (Exception e) {
+            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, e);
+        } finally {
+            try {
+                this.cerrarConexion();
+
+            } catch (SQLException e) {
+                Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, e);
+            }
+        }
+        return listaUsuarioAP;
     }
 
 }

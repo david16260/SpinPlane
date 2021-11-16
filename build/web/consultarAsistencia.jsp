@@ -426,77 +426,65 @@
                     });
                 </script>
 
-                <button class="abrir-registrar btn btn-primary"  id="abrir-registrar">Registrar</button>
+                <form method="post" action="Asistencia">
+                    <input type="hidden" name="txtIdGrupo" value="<%=usuVO.getIdGrupo()%>">
+                    <button class="abrir-registrar btn btn-primary" name="opcion" id="abrir-registrar" value="3">Registrar</button>
+                </form>
+                <%
+                  AsistenciaVO AsiVO = (AsistenciaVO) request.getAttribute("Si");
+                    if (AsiVO != null) {
+                %>
+                <script  type="text/javascript">
 
-                <div class="overlay" id="overlay">
-                    <form method="POST" action="Asistencia" class="form-registro">
-                        <div class="tituloR">
-                            <a href="#" class="cerrar-registro" id="cerrar-registro"><i class="fas fa-times"></i></a>
-                            <h2>Registrar Asistencia</h2>
-                        </div>
-                        <div class="cuerpo">
-                            <div class="formulario">
-                                <div class="modal-body">
-                                    <label for="recipient-name" class="col-form-label">Asistencia:</label>     
-                                    <select name="txtAsistencia" class="form-control">
-                                        <option selected>Asistencia</option>
-                                        <option value="Si">Si</option>
-                                        <option value="No">No</option>
-                                    </select>
-                                </div>
-
-                                <div class="modal-body">
-                                    <label for="recipient-name" class="col-form-label">Fecha:</label>      
-                                    <input type="date" name="txtFecha" required class="form-control">
-                                </div>
-
-                                <div class="modal-body">
-                                    <label for="recipient-name" class="col-form-label">Usuario:</label>
-                                    <select name="txtIdUsuario" class="form-control">
-                                        <option selected>Usuario</option>
-                                        <%
-                                            UsuarioVO UsuVO = new UsuarioVO();
-                                            UsuarioDAO UsuDAO = new UsuarioDAO(UsuVO);
-                                            ArrayList< UsuarioVO> listaUsuario = UsuDAO.listar();
-                                            for (int i = 0; i < listaUsuario.size(); i++) {
-
-                                                UsuVO = listaUsuario.get(i);
-                                        %>
-                                        <option value="<%=UsuVO.getUsuId()%>"><%=UsuVO.getApellido()%></option>
-                                        <%
-                                            }
-                                        %>    
-                                    </select>
-                                </div>
-
-                                <div class="modal-body">
-                                    <label for="recipient-name" class="col-form-label">Grupo:</label>
-                                    <select name="txtIdGrupo" class="form-control">
-                                        <option selected>Grupo</option>
-                                        <%
-                                            GrupoVO GruVO = new GrupoVO();
-                                            GrupoDAO GruDAO = new GrupoDAO(GruVO);
-                                            ArrayList< GrupoVO> listaGrupo = GruDAO.listar();
-                                            for (int i = 0; i < listaGrupo.size(); i++) {
-
-                                                GruVO = listaGrupo.get(i);
-                                        %>
-                                        <option value="<%=GruVO.getIdGrupo()%>"><%=GruVO.getNombre()%></option>
-                                        <%
-                                            }
-                                        %> 
-                                    </select>
-                                </div>
-                                <div class="boton">
-                                    <input type="submit" id="btn" value="Registrar" class="btn btn-success">
-                                    <input type="hidden" value="1" name="opcion">
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+                    swal({
+                        title: "Error",
+                        text: "Para este grupo el dia de hoy ya se tomo asistencia",
+                        type: 'error',
+                        confirmButtonClass: "btn-primary",
+                        confirmButtonText: "OK",
+                        closeOnConfirm: false
+                    },
+                            function () {
+                                window.location = "consultarAsistencia.jsp";
+                            });
+                </script>
+                <%
+                    }
+                %>                    
                 <script src="Js/consutarUsuario.js" type="text/javascript"></script>
 
+                <% if (request.getAttribute("mensajeError") != null) {%>
+                <script  type="text/javascript">
+
+                    swal({
+                        title: "Error",
+                        text: "${mensajeError}",
+                        type: 'error',
+                        confirmButtonClass: "btn-primary",
+                        confirmButtonText: "OK",
+                        closeOnConfirm: false
+                    },
+                            function () {
+                                window.location = "registrarAsistencia.jsp";
+                            });
+                </script>
+
+                <%} else if (request.getAttribute("mensajeExito") != null) {%>
+                <script  type="text/javascript">
+
+                    swal({
+                        title: "Correcto",
+                        text: "${mensajeExito}",
+                        type: 'success',
+                        confirmButtonClass: "btn-primary",
+                        confirmButtonText: "OK",
+                        closeOnConfirm: false
+                    },
+                            function () {
+                                window.location = "consultarAsistencia.jsp";
+                            });
+                </script>
+                <%}%>
 
                 <footer class="footer">
                     <div class="container-fluid">

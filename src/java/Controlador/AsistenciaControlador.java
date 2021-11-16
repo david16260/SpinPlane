@@ -10,6 +10,7 @@ import ModeloDAO.AulaDAO;
 import ModeloVO.AsistenciaVO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -35,33 +36,31 @@ public class AsistenciaControlador extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
-        String idAsistencia = request.getParameter("txtId");     
+
+        String idAsistencia = request.getParameter("txtId");
         String asistencia = request.getParameter("txtAsistencia");
         String fecha = request.getParameter("txtFecha");
         String idUsuario = request.getParameter("txtIdUsuario");
         String idGrupo = request.getParameter("txtIdGrupo");
         String nombreUsuario = request.getParameter("txtNombreUsuario");
         String nombreGrupo = request.getParameter("txtNombreGrupo");
-        
-          int opcion = Integer.parseInt(request.getParameter("opcion"));
-        
-          //paso 2- instanciar VO
-          AsistenciaVO AsiVO = new AsistenciaVO(idAsistencia, asistencia, fecha, idUsuario, idGrupo,nombreUsuario,nombreGrupo);
-          
-          //instanciar DAO
-          
-          AsistenciaDAO AsisDAO = new AsistenciaDAO(AsiVO);
-         
-          
-            switch (opcion) {
+
+        int opcion = Integer.parseInt(request.getParameter("opcion"));
+
+        //paso 2- instanciar VO
+        AsistenciaVO AsiVO = new AsistenciaVO(idAsistencia, asistencia, fecha, idUsuario, idGrupo, nombreUsuario, nombreGrupo);
+
+        //instanciar DAO
+        AsistenciaDAO AsisDAO = new AsistenciaDAO(AsiVO);
+
+        switch (opcion) {
             case 1://Agregar Registro
-                if (AsisDAO.agregarRegistro()) {
-                    request.setAttribute("mensajeExito", "La Asistencia se registro corectamente");
+                if (AsisDAO.agregarRegistro()) {                    
+                    request.setAttribute("mensajeExito", "La Asistencia se registro corectamente");                    
                 } else {
                     request.setAttribute("mensajeError", "La Asistencia no se registro corectamente");
                 }
-                request.getRequestDispatcher("consultarAsistencia.jsp").forward(request, response);
+                request.getRequestDispatcher("registrarAsistencia.jsp").forward(request, response);
                 break;
             case 2://Actualizar Registro
                 if (AsisDAO.actualizarRegistro()) {
@@ -71,47 +70,62 @@ public class AsistenciaControlador extends HttpServlet {
                 }
                 request.getRequestDispatcher("actualizarAsistencia.jsp").forward(request, response);
                 break;
-           
+            case 3: //consultar si ya se tomo asistencia ese dia
+                AsiVO = AsisDAO.listaAsistenciaAD(idGrupo);
+                if (AsiVO != null) {
+                    request.setAttribute("Si", AsiVO);
+                    request.getRequestDispatcher("consultarAsistencia.jsp").forward(request, response);
+                } else {
+                 request.setAttribute("Si", AsiVO);  
+                 request.getRequestDispatcher("registrarAsistencia.jsp").forward(request, response);
+                }
+                
+                break;
+
+            }
         }
-    }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+        // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+        /**
+         * Handles the HTTP <code>GET</code> method.
+         *
+         * @param request servlet request
+         * @param response servlet response
+         * @throws ServletException if a servlet-specific error occurs
+         * @throws IOException if an I/O error occurs
+         */
+        @Override
+        protected void doGet
+        (HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
-    }
+            processRequest(request, response);
+        }
 
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+        /**
+         * Handles the HTTP <code>POST</code> method.
+         *
+         * @param request servlet request
+         * @param response servlet response
+         * @throws ServletException if a servlet-specific error occurs
+         * @throws IOException if an I/O error occurs
+         */
+        @Override
+        protected void doPost
+        (HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
-    }
+            processRequest(request, response);
+        }
 
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
-    @Override
-    public String getServletInfo() {
+        /**
+         * Returns a short description of the servlet.
+         *
+         * @return a String containing servlet description
+         */
+        @Override
+        public String getServletInfo
+        
+            () {
         return "Short description";
-    }// </editor-fold>
+        }// </editor-fold>
 
-}
+    }

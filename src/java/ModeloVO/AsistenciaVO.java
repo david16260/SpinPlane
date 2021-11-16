@@ -12,6 +12,14 @@ public class AsistenciaVO {
     public AsistenciaVO() {
     }
 
+    public AsistenciaVO(String idAsistencia, String fecha, String idGrupo) {
+        this.idAsistencia = idAsistencia;
+        this.fecha = fecha;
+        this.idGrupo = idGrupo;
+    }
+    
+    
+
     public AsistenciaVO(String idAsistencia, String asistencia, String fecha, String idUsuario, String idGrupo, String nombreUsuario, String nombreGrupo) {
         this.idAsistencia = idAsistencia;
         this.asistencia = asistencia;
