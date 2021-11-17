@@ -325,7 +325,7 @@
                                             <option value="<%=GruVO.getIdGrupo()%>"></option>
                                         </select>
                                         <input type="submit" value="Generar">
-                                        <input type="hidden" value="Reportes/ReporteHorarioId.jasper" name="nombre">   
+                                        <input type="hidden" value="Reportes/ReporteGrupoId.jasper" name="nombre">   
                                     </form>
                                 </td>
                                 <%}%>
