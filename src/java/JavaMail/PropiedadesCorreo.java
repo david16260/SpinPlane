@@ -22,7 +22,7 @@ import javax.mail.internet.MimeMessage;
  */
 public class PropiedadesCorreo {
     public static void enviarCorreo(String host, String puerto, final String usuario,
-            final String clave, String direccion, String asunto, String mensaje) throws AddressException, MessagingException{
+            final String clave, String direccion, String asunto, String mensaje, String imagen) throws AddressException, MessagingException{
     
         //propiedades de servidor smtp
         
@@ -49,7 +49,10 @@ public class PropiedadesCorreo {
         msg.setSubject(asunto);
         msg.setSentDate(new Date());
         msg.setText(mensaje);
+        msg.setFileName(imagen);
         
+        
+    
         
         Transport.send(msg);
         
