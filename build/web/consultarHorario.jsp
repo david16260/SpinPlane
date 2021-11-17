@@ -277,6 +277,7 @@
                                 <th>Estado</th>                                
                                 <th>Estado</th>
                                 <th>Actualizar</th>
+                                <th>Reporte</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -299,7 +300,8 @@
                                 <td><%=HorVO.getHoraFin()%></td>
                                 <td><a class="<%=HorVO.getEstado().equals("Activo") ? "btn btn-success  m-5" : "btn btn-danger  m-5"%>" style="padding-right: 10px;">
                                         <%=HorVO.getEstado()%>
-                                    </a></td>                                
+                                    </a></td>  
+                                    
                                     <%
                                         if (tipoU.equals("Administrador")) {
                                     %>
@@ -328,6 +330,16 @@
                                 </td>
                                 <td>
                                     <a class="btn btn-info edit m-2 p-2"href="actualizarHorario.jsp?idHorario=<%=HorVO.getIdHorario()%>&fechaInicio=<%=HorVO.getFechaInicio()%>&fechaFin=<%=HorVO.getFechaFin()%>&dia=<%=HorVO.getDia()%>&horaInicio=<%=HorVO.getHoraInicio()%>&horaFin=<%=HorVO.getHoraFin()%>&idGrupo=<%=HorVO.getIdGrupo()%>&idAula=<%=HorVO.getIdAula()%>&idClase=<%=HorVO.getIdClase()%>&nomGrupo=<%=HorVO.getNombreGrupo()%>&nomClase=<%=HorVO.getNombreClase()%>&nomAula=<%=HorVO.getNombreAula()%>   "><i class="fas fa-pen"></i></a>
+                                </td>
+                                  <td>   
+                                    <form action="generarReporteHorarioId.jsp" method="post" target="_blank">
+                    
+                                        <select name="horario">
+                                            <option value="<%=HorVO.getIdHorario()%>"></option>
+                                        </select>
+                                        <input type="submit" value="Generar">
+                                        <input type="hidden" value="Reportes/ReporteHorarioId.jasper" name="nombre">   
+                                    </form>
                                 </td>
                                 <%}%>
                             </tr>
@@ -444,7 +456,8 @@
                                 <th>Dia</th>
                                 <th>Hora Inicio</th>
                                 <th>Hora Fin</th>
-                                <th>Estado</th>                                
+                                <th>Estado</th> 
+                                <th>Reporte</th>
                                 
                             </tr>
                         </thead>
@@ -468,7 +481,17 @@
                                 <td><%=HorVO.getHoraFin()%></td>
                                 <td><a class="<%=HorVO.getEstado().equals("Activo") ? "btn btn-success  m-5" : "btn btn-danger  m-5"%>" style="padding-right: 10px;">
                                         <%=HorVO.getEstado()%>
-                                    </a></td>                                
+                                    </a></td> 
+                                    <td>   
+                                    <form action="generarReporteHorarioId.jsp" method="post" target="_blank">
+                    
+                                        <select name="horario">
+                                            <option value="<%=HorVO.getIdHorario()%>"></option>
+                                        </select>
+                                        <input type="submit" value="Generar">
+                                        <input type="hidden" value="Reportes/ReporteHorarioId.jasper" name="nombre">   
+                                    </form>
+                                </td>
                             </tr>
                             <%}%>                             
                         </tbody>

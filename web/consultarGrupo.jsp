@@ -318,6 +318,16 @@
                                 <td>
                                     <a class="btn btn-info edit m-2 p-2"href="actualizarGrupo.jsp?idgrupo=<%=GruVO.getIdGrupo()%>&nombre=<%=GruVO.getNombre()%>&inicio=<%=GruVO.getFechaInicio()%>&fin=<%=GruVO.getFechaFin()%>"><i class="fas fa-pen"></i></a>
                                 </td>
+                                <td>   
+                                    <form action="generarReporteGrupo.jsp" method="post" target="_blank">
+                    
+                                        <select name="grupo">
+                                            <option value="<%=GruVO.getIdGrupo()%>"></option>
+                                        </select>
+                                        <input type="submit" value="Generar">
+                                        <input type="hidden" value="Reportes/ReporteHorarioId.jasper" name="nombre">   
+                                    </form>
+                                </td>
                                 <%}%>
                             </tr>
                             <%}%>  
