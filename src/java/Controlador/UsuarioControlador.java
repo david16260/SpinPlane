@@ -108,7 +108,7 @@ public class UsuarioControlador extends HttpServlet {
                     request.getRequestDispatcher("login.jsp").forward(request, response);
                 }
                 break;
-                case 4://Actualizar Estado
+                case 4://consultar usuario en sesion
                 UsuVO = UsuDAO.consultarUsuarioS(usuId);
                 if (UsuVO !=null) {
                     

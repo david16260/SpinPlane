@@ -47,7 +47,7 @@
         <link href="css/colors/default-dark.css" id="theme" rel="stylesheet">
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-        <       !-- Favicon icon -->
+        <!-- Favicon icon -->
         <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
         <!-- Bootstrap Core CSS -->
         <link href="../assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -297,7 +297,7 @@
                                 <div class="col-lg-8 col-xlg-9">
                                     <div class="card">
                                         <div class="card-body">
-                                            <form class="form-horizontal form-material mx-2">
+                                            <div class="form-horizontal form-material mx-2">
                                                 <br>
                                                 <div class="form-group">
                                                     <label class="col-md-12">Nombre completo:</label>
@@ -334,13 +334,13 @@
                                                     <input type="password" value="<%=UsuVO.getClave()%>"
                                                            class="form-control m-l-15 form-control-line" >                                                    
                                                 </div>                                                                                                                                              
-                                            </form>
-
+                                            <button class="abrir-registrar btn btn-success" id="abrir-registrar">Atualizar</button>
+                                            </div>
                                         </div>
                                     </div>
                                     <!-- Column -->
                                 </div>
-
+                                
                             </div>
                             <!-- ============================================================== -->
                             <!-- End Container fluid  -->
@@ -348,19 +348,19 @@
                             <!-- ============================================================== -->
                             <!-- footer -->
                             <!-- ============================================================== -->
-                            <button class="abrir-registrar btn btn-primary" id="abrir-registrar">Registrar</button>
+
                             <div class="overlay" id="overlay">
                                 <form method="POST" action="Usuario" class="form-registro needs-validation" novalidate>
                                     <div class="tituloR">
                                         <a href="#" class="cerrar-registro" id="cerrar-registro"><i class="fas fa-times"></i></a>
-                                        <h2 class="textReg">Registrar Usuario</h2>
+                                        <h2 class="textReg">Datos del Usuario</h2>
                                     </div>
                                     <div class="cuerpo">
                                         <div class="formulario">
                                             <div class="col-md-6 ">
                                                 <input type="hidden" name="txtId" value="<%=UsuVO.getUsuId()%>">
                                                 <label for="validationTooltip01" class="form-label">Nombre:</label>
-                                                <input value="<%=UsuVO.getNombre() %>" type="text" class="form-control"  id="validationTooltip01" name="txtNombre" placeholder="Nombre" minlength="3" maxlength="30" required>
+                                                <input value="<%=UsuVO.getNombre()%>" type="text" class="form-control"  id="validationTooltip01" name="txtNombre" placeholder="Nombre" minlength="3" maxlength="30" required>
                                                 <div class="valid-feedback">
                                                     Correcto
                                                 </div>
@@ -370,7 +370,7 @@
                                             </div>
 
                                             <div class="col-md-6 ">
-                                                <label for="validationTooltip04" class="col-form-label">Apellido:</label>
+                                                <label for="validationTooltip04" class="form-label">Apellido:</label>
                                                 <input value="<%=UsuVO.getApellido()%>" type="text" class="form-control"  id="validationTooltip01" name="txtApellido" placeholder="Apellido" minlength="3" maxlength="30" required>
                                                 <div class="valid-feedback">
                                                     Correcto
@@ -404,7 +404,7 @@
                                             </div>
                                             <div class="col-md-6 ">
                                                 <label for="validationTooltip01" class="form-label">Contraseña:</label>
-                                                <input value="<%=UsuVO.getClave()%>" type="password" name="txtClave" placeholder="Contraseña" class="form-control"  id="validationTooltip01" minlength="8" maxlength="30" required>
+                                                <input value="" type="password" name="txtClave" placeholder="Contraseña" class="form-control"  id="validationTooltip01" minlength="8" maxlength="30" required>
                                                 <div class="valid-feedback">
                                                     Correcto
                                                 </div>
@@ -413,13 +413,11 @@
                                                 </div>
                                             </div>
                                             <div class="col-12 mt-3">
-                                                <input type="submit" class="btn btn-success" id="btn" value="Registrar">
+                                                <input type="submit" class="btn btn-success" id="btn" value="Actualizar">
                                                 <input type="hidden" value="6" name="opcion">
                                             </div>
                                         </div>
-                                    </div>
-                                    <input type="hidden" value="Activo" name="txtEstado" required>
-
+                                    </div>                                    
                                 </form>
                             </div>
                             <%
@@ -437,7 +435,7 @@
                                     closeOnConfirm: false
                                 },
                                         function () {
-                                            window.location = "index.jsp";
+                                            window.location = "menu.jsp";
                                         });
                             </script>
 
@@ -453,7 +451,7 @@
                                     closeOnConfirm: false
                                 },
                                         function () {
-                                            window.location = "index.jsp";
+                                            window.location = "menu.jsp";
                                         });
                             </script>
                             <%}%>
