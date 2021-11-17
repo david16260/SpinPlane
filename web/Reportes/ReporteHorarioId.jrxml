@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="860" pageHeight="842" columnWidth="820" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e94445d0-a803-4822-b07c-36dd45f38242">
+	<property name="ireport.zoom" value="1.2100000000000162"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<parameter name="horario" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     horario.`idHorario`,
+     horario.`fechaInicio`,
+     horario.`fechaFin`,
+     horario.`dia`,
+     horario.`horaInicio`,
+     horario.`horaFin`,
+     horario.`estado`,
+     grupo.`idgrupo`,
+     aula.`idaula`,
+     clase.`idclase`,
+     grupo.`nombre` AS grupo,
+     aula.`nombre` AS aula,
+     clase.`nombre` AS clase
+FROM
+     `horario` horario INNER JOIN `grupo` grupo ON horario.`idGrupo` = grupo.`idGrupo`
+     INNER JOIN `aula` aula ON horario.`idAula` = aula.`idAula`
+     INNER JOIN `clase` clase ON horario.`idClase` = clase.`idClase`
+
+WHERE horario.idHorario=$P{horario};]]>
+	</queryString>
+	<field name="idHorario" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fechaInicio" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fechaFin" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="dia" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="horaInicio" class="java.sql.Time">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="horaFin" class="java.sql.Time">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="estado" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="idgrupo" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="idaula" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="idclase" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="grupo" class="java.lang.String"/>
+	<field name="aula" class="java.lang.String"/>
+	<field name="clase" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="70" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="266" y="15" width="132" height="33" uuid="7ea268f7-546e-406b-b854-87938ba48ebb"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[HORARIO]]></text>
+			</staticText>
+			<image>
+				<reportElement x="607" y="0" width="213" height="70" uuid="429ade93-2f9a-4296-8575-427981eab9cf"/>
+				<imageExpression><![CDATA["C:\\Users\\David\\OneDrive\\Documentos\\NetBeansProjects\\Academia\\web\\images\\LOGO3.gif"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="35" width="820" height="1" uuid="77f5dfaf-8afc-44a2-8834-f2b27ba9cf80"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="0" y="19" width="42" height="15" uuid="b7c977fc-358e-4e12-bf04-6bad296f1c6a"/>
+				<text><![CDATA[idHorario]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="69" y="19" width="81" height="15" uuid="06f95f14-f061-43e4-9ae6-e6113998b954"/>
+				<text><![CDATA[Fecha Inicio]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="197" y="19" width="62" height="15" uuid="ee778e08-a68c-427b-87c4-01fbbb9adb63"/>
+				<text><![CDATA[Fecha Fin]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="311" y="19" width="42" height="15" uuid="04a1d29b-8bf9-4918-92bf-c37a7cc2f390"/>
+				<text><![CDATA[dia]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="398" y="19" width="67" height="15" uuid="3ec1c6d5-2e94-4d60-b371-71d4c0ea7964"/>
+				<text><![CDATA[Hora Incio]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="503" y="19" width="86" height="15" uuid="dbcc399a-6cb5-45ca-b640-1f17f961b737"/>
+				<text><![CDATA[Hora Final]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="607" y="19" width="42" height="15" uuid="1c936c54-8912-4185-ad89-88592c3fb3f7"/>
+				<text><![CDATA[estado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="665" y="19" width="42" height="15" uuid="17047381-c9da-465e-a885-a9b8e59199be"/>
+				<text><![CDATA[grupo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="721" y="19" width="42" height="15" uuid="89fcba14-c062-4ba7-a9f0-4c4f78d0b9cf"/>
+				<text><![CDATA[aula]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="778" y="19" width="42" height="15" uuid="11582149-604c-42cb-9729-11b5cfa175fb"/>
+				<text><![CDATA[clase]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="820" height="1" uuid="5cf63185-0a44-4f79-8d41-46541a218193"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement style="Detail" x="0" y="0" width="42" height="15" uuid="651cb732-77c2-4268-8666-69197797aace"/>
+				<textFieldExpression><![CDATA[$F{idHorario}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="42" y="0" width="123" height="15" uuid="fc6e20c6-c0b4-4552-add0-7fc1d053d44e"/>
+				<textFieldExpression><![CDATA[$F{fechaInicio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="175" y="0" width="114" height="15" uuid="21d836e2-f8fa-4d40-b669-daf0e6146f68"/>
+				<textFieldExpression><![CDATA[$F{fechaFin}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="665" y="1" width="42" height="15" uuid="63242223-a9a8-44be-bd36-e4dd7b2fa9ea"/>
+				<textFieldExpression><![CDATA[$F{grupo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="763" y="1" width="57" height="15" uuid="4b2ed00f-96ba-466a-b847-a010bab85377"/>
+				<textFieldExpression><![CDATA[$F{clase}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="369" y="1" width="96" height="15" uuid="e86a362d-0ad9-44e6-a948-bf54ae8e8a99"/>
+				<textFieldExpression><![CDATA[$F{horaInicio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="311" y="0" width="42" height="15" uuid="fc24c361-21ce-48c6-ad0f-75e79ae058d7"/>
+				<textFieldExpression><![CDATA[$F{dia}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="721" y="1" width="42" height="15" uuid="10ec4fce-e0f9-46fc-b9ee-2147c6310475"/>
+				<textFieldExpression><![CDATA[$F{aula}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="607" y="1" width="42" height="15" uuid="af422fce-3998-4510-a36a-3e499e93e8df"/>
+				<textFieldExpression><![CDATA[$F{estado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="487" y="1" width="102" height="15" uuid="ab99f611-30b7-4d09-95a5-e977187b81f2"/>
+				<textFieldExpression><![CDATA[$F{horaFin}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="820" height="1" uuid="bdf6bcef-14cc-4535-9af9-44667fdec736"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement style="Column header" x="433" y="0" width="80" height="20" uuid="43ec3519-4226-43f3-ae9b-b6c4cd164bf4"/>
+				<textElement textAlignment="Right">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement style="Column header" x="513" y="0" width="40" height="20" uuid="928c5178-8829-4726-b88f-3fbdf33821db"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="0" y="0" width="197" height="20" uuid="0f179b06-cbac-4d74-9a26-4205fc679e6e"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

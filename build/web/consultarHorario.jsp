@@ -349,6 +349,12 @@
                                     %>
                                 <th>Estado</th>
                                 <th>Actualizar</th>
+                                <th>
+                                    <form method="post" action="generarReportesHorario.jsp" target="_blank">
+                                    <input type="submit" value="Generar reporte">
+                                    <input type="hidden" value="Reportes/ReporteHorario.jasper" name="nombre">  
+                                    </form>
+                                </th>
                                     <%}%>
                             </tr>
                         </tfoot>
@@ -369,7 +375,8 @@
                                 <th>Dia</th>
                                 <th>Hora Inicio</th>
                                 <th>Hora Fin</th>
-                                <th>Estado</th>                                
+                                <th>Estado</th>
+                                <th>Reporte</th>
                                 
                             </tr>
                         </thead>
@@ -393,7 +400,17 @@
                                 <td><%=HorVO.getHoraFin()%></td>
                                 <td><a class="<%=HorVO.getEstado().equals("Activo") ? "btn btn-success  m-5" : "btn btn-danger  m-5"%>" style="padding-right: 10px;">
                                         <%=HorVO.getEstado()%>
-                                    </a></td>                                
+                                    </a></td> 
+                                <td>   
+                                    <form action="generarReporteHorarioId.jsp" method="post" target="_blank">
+                    
+                                        <select name="horario">
+                                            <option value="<%=HorVO.getIdHorario()%>"></option>
+                                        </select>
+                                        <input type="submit" value="Generar">
+                                        <input type="hidden" value="Reportes/ReporteHorarioId.jasper" name="nombre">   
+                                    </form>
+                                </td>
                             </tr>
                             <%}%>                             
                         </tbody>
@@ -407,7 +424,7 @@
                                 <th>Dia</th>
                                 <th>Hora Inicio</th>
                                 <th>Hora Fin</th>
-                                <th>Estado</th>                                
+                                <th>Estado</th> 
                             </tr>
                         </tfoot>
                     </table>
