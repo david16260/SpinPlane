@@ -321,10 +321,10 @@
                                 <td>   
                                     <form action="generarReporteGrupo.jsp" method="post" target="_blank">
                     
-                                        <select name="grupo">
+                                        <select name="grupo" hidden="">
                                             <option value="<%=GruVO.getIdGrupo()%>"></option>
                                         </select>
-                                        <input type="submit" value="Generar">
+                                        <input type="submit" value="Generar" class="btn btn-outline-info m-5">
                                         <input type="hidden" value="Reportes/ReporteGrupoId.jasper" name="nombre">   
                                     </form>
                                 </td>
@@ -360,6 +360,7 @@
                                 <th>Estado</th>
                                 <th>Fecha de Inicio</th>
                                 <th>Fecha de Fin</th>
+                                <th>Estado</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -380,6 +381,16 @@
                                 </td>
                                 <td class="text-center"><%=GruVO.getFechaInicio()%></td> 
                                 <td class="text-center"><%=GruVO.getFechaFin()%></td> 
+                                  <td>   
+                                    <form action="generarReporteGrupo.jsp" method="post" target="_blank">
+                    
+                                        <select name="grupo" hidden="">
+                                            <option value="<%=GruVO.getIdGrupo()%>"></option>
+                                        </select>
+                                        <input type="submit" value="Generar" class="btn btn-outline-info m-5">
+                                        <input type="hidden" value="Reportes/ReporteGrupoId.jasper" name="nombre">   
+                                    </form>
+                                </td>
                                 <%}%>
                             </tr> 
                         </tbody>

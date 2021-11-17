@@ -334,10 +334,10 @@
                                   <td>   
                                     <form action="generarReporteHorarioId.jsp" method="post" target="_blank">
                     
-                                        <select name="horario">
+                                        <select name="horario" hidden="">
                                             <option value="<%=HorVO.getIdHorario()%>"></option>
                                         </select>
-                                        <input type="submit" value="Generar">
+                                        <input type="submit" value="Generar" class="btn btn-outline-info m-5">
                                         <input type="hidden" value="Reportes/ReporteHorarioId.jasper" name="nombre">   
                                     </form>
                                 </td>
@@ -363,7 +363,7 @@
                                 <th>Actualizar</th>
                                 <th>
                                     <form method="post" action="generarReportesHorario.jsp" target="_blank">
-                                    <input type="submit" value="Generar reporte">
+                                    <input type="submit" value="Generar" class="btn btn-outline-info m-5">
                                     <input type="hidden" value="Reportes/ReporteHorario.jasper" name="nombre">  
                                     </form>
                                 </th>
@@ -416,10 +416,10 @@
                                 <td>   
                                     <form action="generarReporteHorarioId.jsp" method="post" target="_blank">
                     
-                                        <select name="horario">
+                                        <select name="horario" hidden="">
                                             <option value="<%=HorVO.getIdHorario()%>"></option>
                                         </select>
-                                        <input type="submit" value="Generar">
+                                        <input type="submit" value="Generar" class="btn btn-outline-info m-5">
                                         <input type="hidden" value="Reportes/ReporteHorarioId.jasper" name="nombre">   
                                     </form>
                                 </td>
@@ -485,10 +485,10 @@
                                     <td>   
                                     <form action="generarReporteHorarioId.jsp" method="post" target="_blank">
                     
-                                        <select name="horario">
-                                            <option value="<%=HorVO.getIdHorario()%>"></option>
+                                        <select name="horario" hidden="">
+                                            <option value="<%=HorVO.getIdHorario()%>" ></option>
                                         </select>
-                                        <input type="submit" value="Generar">
+                                        <input type="submit" value="Generar" class="btn btn-outline-info m-5">
                                         <input type="hidden" value="Reportes/ReporteHorarioId.jasper" name="nombre">   
                                     </form>
                                 </td>
