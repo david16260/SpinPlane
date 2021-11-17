@@ -267,7 +267,7 @@
 
                                 <th>Estado</th>
                                 <th>Actualizar</th>
-
+                                <th>Reporte</th>
                             </tr>
                         </thead>
                         <tbody>

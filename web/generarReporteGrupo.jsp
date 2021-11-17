@@ -29,7 +29,7 @@
             Connection conexion = conexionBD.obtenerConexion();
             byte[] reporteBytes = JasperRunManager.runReportToPdf(reporte.getPath(), parametros, conexion);
             response.setContentType("application/pdf");
-            response.setHeader("Content-Disposition", "filename=\"reporte_Horario.pdf\";");
+            response.setHeader("Content-Disposition", "filename=\"reporte_Grupo.pdf\";");
             response.setContentLength(reporteBytes.length);
             ServletOutputStream salida = response.getOutputStream();
             salida.write(reporteBytes,0,reporteBytes.length);
