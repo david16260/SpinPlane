@@ -53,13 +53,12 @@ public class AsistenciaDAO extends Conexion implements Crud {
     @Override
     public boolean agregarRegistro() {
         try {
-            sql = "call agregarAsistencia(?,?,?,?,?)";
+            sql = "call agregarAsistencia(?,?,?,?)";
             puente = conexion.prepareStatement(sql);
             puente.setString(1, idAsistencia);
             puente.setString(2, asistencia);
-            puente.setString(3, fecha);
-            puente.setString(4, idUsuario);
-            puente.setString(5, idGrupo);
+            puente.setString(3, idUsuario);
+            puente.setString(4, idGrupo);
             puente.executeUpdate();
             operacion = true;
         } catch (SQLException e) {
@@ -207,6 +206,36 @@ public class AsistenciaDAO extends Conexion implements Crud {
             }
         }
         return listaAsistenciaP;
+
+    }
+    
+    public AsistenciaVO listaAsistenciaAD(String idGrupo) {
+
+        AsistenciaVO AsiVO = null;
+
+        try {
+
+            conexion = this.obtenerConexion();
+            sql = "call asistenciaFechaGrupo(?);";
+            puente = conexion.prepareStatement(sql);
+            puente.setString(1, idGrupo);
+            mensajero = puente.executeQuery();
+            while (mensajero.next()) {
+
+                AsiVO = new AsistenciaVO(mensajero.getString(1),mensajero.getString(2),mensajero.getString(3));
+            }
+
+        } catch (Exception e) {
+            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, e);
+        } finally {
+            try {
+                this.cerrarConexion();
+
+            } catch (SQLException e) {
+                Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, e);
+            }
+        }
+        return AsiVO;
 
     }
 }

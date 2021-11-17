@@ -89,7 +89,7 @@
                         <li>
                             <a href="EnviarCorreo.jsp">
                                 <i class="pe-7s-date"></i>
-                                <p>Horario</p>
+                                <p>Correo</p>
                             </a>
                         </li>
 

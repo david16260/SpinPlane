@@ -74,7 +74,7 @@
                 <ul class="error" id="error"></ul>
                 <div class="inputb">
                     <!--<input type="submit" id="btn" value="Entrar">-->
-
+                        <a href="recuperarContraseña.jsp">¿Has olvidado tu contraseña?</a> 
                     <button type="submit" >Ingresar</button>
                     <input type="hidden" value="3" name="opcion">
 

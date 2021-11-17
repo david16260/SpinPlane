@@ -1,19 +1,15 @@
 <%-- 
-    Document   : conultarClase.jsp
-    Created on : 25/06/2021, 02:40:36 PM
-    Author     : Yurny
+    Document   : registrarAsistencia
+    Created on : 15/11/2021, 09:37:59 PM
+    Author     : Sebas
 --%>
 
-<%@page import="java.util.ArrayList"%>
-<%@page import="ModeloDAO.GrupoDAO"%>
-<%@page import="ModeloVO.GrupoVO"%>
-<%@page import="ModeloDAO.UsuarioDAO"%>
-<%@page import="ModeloVO.UsuarioVO"%>
-<%@page import="ModeloDAO.AsistenciaDAO"%>
 <%@page import="ModeloVO.AsistenciaVO"%>
-<%@include file="Sesiones.jsp" %>
+<%@page import="ModeloDAO.AsistenciaDAO"%>
+<%@page import="ModeloDAO.UsuarioDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!doctype html>
+<!DOCTYPE html>
+<%@include file="Sesiones.jsp" %>
 <html lang="en">
     <head>
         <meta charset="utf-8" />
@@ -26,7 +22,7 @@
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css" />
         <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css"/>
-        <link rel="stylesheet" href="Css/consultarNovedad.css"/>
+        <link rel="stylesheet" href="Css/consultarUsuario.css"/>
         <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -59,6 +55,7 @@
 
         <!--  CSS for Demo Purpose, don't include it in your project     -->
         <link href="assets/css/demo.css" rel="stylesheet" />
+        <!--  CSS for Demo Purpose, don't include it in your project     -->
 
 
         <!--     Fonts and icons     -->
@@ -74,20 +71,27 @@
         <div class="wrapper">
             <div class="sidebar" data-color="orange" data-image="assets/img/siderbar.jpeg">
 
-
                 <!--
             
                     Tip 1: you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple"
                     Tip 2: you can also add an image using data-image tag
             
                 -->
-
+                <%
+                    String tipoUs = usuVO.getIdTipoUsuario();
+                    if (tipoUs.equals("Estudiante")) {
+                %>
+                <script>
+                    window.location.href = "menu.jsp";
+                </script>
+                <%}%>
                 <div class="sidebar-wrapper">
                     <div class="logo">
                         <a href="menu.jsp">
                             <img src="images/LOGO4.gif" class="SpinPlane" alt=""/>
                         </a>
                     </div>
+
                     <%
                         String tipoU = usuVO.getIdTipoUsuario();
                         if (tipoU.equals("Profesor")) {
@@ -132,7 +136,6 @@
                             </a>
                         </li>
 
-
                     </ul>
                     <%} else if (tipoU.equals("Estudiante")) {%>
                     <ul class="nav">
@@ -143,15 +146,16 @@
                             </a>
                         </li>
                         <li>
-                            <a href="consultarAula.jsp">
-                                <i class="pe-7s-culture"></i>
-                                <p>Aula</p>
-                            </a>
-                        </li>
-                        <li>
                             <a href="consultarGrupo.jsp">
                                 <i class="pe-7s-users"></i>
                                 <p>Grupo</p>
+                            </a>
+                        </li>
+                        <li>
+                        <li>
+                            <a href="consultarAula.jsp">
+                                <i class="pe-7s-culture"></i>
+                                <p>Aula</p>
                             </a>
                         </li>
                         <li>
@@ -161,20 +165,11 @@
                             </a>
                         </li>
                         <li>
-                        <li>
-                            <a href="consultarNovedad.jsp">
-                                <i class="pe-7s-info"></i>
-                                <p>Novedad</p>
-                            </a>
-                        </li>
-                        <li>
-                        <li>
                             <a href="consultarHorario.jsp">
                                 <i class="pe-7s-date"></i>
                                 <p>Horario</p>
                             </a>
                         </li>
-
                         <%} else if (tipoU.equals("Administrador")) {%>
                         <ul class="nav">
                             <li>
@@ -209,22 +204,11 @@
                                 </a>
                             </li>
                             <li>
-                            <li>
-                                <a href="consultarHorario.jsp">
-                                    <i class="pe-7s-date"></i>
-                                    <p>Horario</p>
-                                </a>
-                            </li>
+
                             <li>
                                 <a href="consultarUsuario.jsp">
                                     <i class="pe-7s-user"></i>
                                     <p>Usuario</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="EnviarCorreo.jsp">
-                                    <i class="pe-7s-date"></i>
-                                    <p>Correo</p>
                                 </a>
                             </li>
                         </ul>
@@ -250,211 +234,73 @@
                             </ul>
                             <ul style="list-style: none; margin-top: 15px;">
                                 <li>
-                                    <h2 class="text-center">Gestionar Asistencia</h2>
+                                    <h2 class="text-center">Asistencia</h2>
                                 </li>
                             </ul>
                         </div>
                     </div>
                 </nav>
 
-                <div class="contenedor mt-2">
-                    <%
-                        if (tipoU.equals("Administrador")) {
-                    %>
-                    <table id="usuario" class="table table-striped" style="width:100%">
-                        <thead>
-                            <tr>
-                                <th>Asistencia</th>
-                                <th>Fecha</th>
-                                <th>Usuario</th>
-                                <th>Grupo</th>
-                                <th>Actualizar</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <%
-                                AsistenciaVO AsisVO = new AsistenciaVO();
-                                AsistenciaDAO AsisDAO = new AsistenciaDAO(AsisVO);
-                                ArrayList<AsistenciaVO> listaAsistencia = AsisDAO.listar();
-                                for (int i = 0; i < listaAsistencia.size(); i++) {
 
-                                    AsisVO = listaAsistencia.get(i);
-                            %>               
-                            <tr>
-                                <td><%=AsisVO.getAsistencia()%></td>
-                                <td><%=AsisVO.getFecha()%></td>
-                                <td><%=AsisVO.getNombreUsuario()%></td>
-                                <td><%=AsisVO.getNombreGrupo()%></td>
-                                <%
-                                    if (tipoU.equals("Administrador")) {
-                                %>
-                                <td>
-                                    <a class="btn btn-info edit m-6 p-2"href="actualizarAsistencia.jsp?idAsistencia=<%=AsisVO.getIdAsistencia()%>&asistencia=<%=AsisVO.getAsistencia()%>&fecha=<%=AsisVO.getFecha()%>&usuario=<%=AsisVO.getNombreUsuario()%>&grupo=<%=AsisVO.getNombreGrupo()%>&idUsuario=<%=AsisVO.getIdUsuario()%>&idGrupo=<%=AsisVO.getIdGrupo()%>"><i class="fas fa-pen"></i></a>
-                                </td>
-                                <%}%>
-                            </tr>
-                            <%}%>  
-                        </tbody>
-                        <tfoot>
-                            <tr>
-                                <th>Asistencia</th>
-                                <th>Fecha</th>
-                                <th>Usuario</th>
-                                <th>Grupo</th>                                   
-                                <th>Actualizar</th>                                    
-                            </tr>
-                        </tfoot>
-                    </table>
-                    <%}%>
-                    <%
-                        if (tipoU.equals("Estudiante")) {
-                    %>
-                    <table id="usuario" class="table table-striped" style="width:100%">
-                        <thead>
-                            <tr>
-                                <th>Asistencia</th>
-                                <th>Fecha</th>
-                                <th>Usuario</th>
-                                <th>Grupo</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <%
-                                AsistenciaVO AsisVO = new AsistenciaVO();
-                                AsistenciaDAO AsisDAO = new AsistenciaDAO(AsisVO);
-                                ArrayList<AsistenciaVO> listaAsistenciaE = AsisDAO.listarE(usuVO.getUsuId());
-                                for (int i = 0; i < listaAsistenciaE.size(); i++) {
+                <div class="contenedor mt-4">
 
-                                    AsisVO = listaAsistenciaE.get(i);
-                            %>               
-                            <tr>
-                                <td><%=AsisVO.getAsistencia()%></td>
-                                <td><%=AsisVO.getFecha()%></td>
-                                <td><%=AsisVO.getNombreUsuario()%></td>
-                                <td><%=AsisVO.getNombreGrupo()%></td>
-                            </tr>
-                            <%}%>  
-                        </tbody>
-                        <tfoot>
-                            <tr>
-                                <th>Asistencia</th>
-                                <th>Fecha</th>
-                                <th>Usuario</th>
-                                <th>Grupo</th>                                                                    
-                            </tr>
-                        </tfoot>
-                    </table>
-                    <%}%>
-                    <%
-                        if (tipoU.equals("Profesor")) {
-                    %>
-                    <table id="usuario" class="table table-striped" style="width:100%">
-                        <thead>
-                            <tr>
-                                <th>Asistencia</th>
-                                <th>Fecha</th>
-                                <th>Usuario</th>
-                                <th>Grupo</th>
-                                <th>Actualizar</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <%
-                                AsistenciaVO AsisVO = new AsistenciaVO();
-                                AsistenciaDAO AsisDAO = new AsistenciaDAO(AsisVO);
-                                ArrayList<AsistenciaVO> listaAsistenciaP = AsisDAO.listarP(usuVO.getIdGrupo());
-                                for (int i = 0; i < listaAsistenciaP.size(); i++) {
 
-                                    AsisVO = listaAsistenciaP.get(i);
-                            %>               
-                            <tr>
-                                <td><%=AsisVO.getAsistencia()%></td>
-                                <td><%=AsisVO.getFecha()%></td>
-                                <td><%=AsisVO.getNombreUsuario()%></td>
-                                <td><%=AsisVO.getNombreGrupo()%></td>                               
-                                <td>
-                                    <a class="btn btn-info edit m-6 p-2"href="actualizarAsistencia.jsp?idAsistencia=<%=AsisVO.getIdAsistencia()%>&asistencia=<%=AsisVO.getAsistencia()%>&fecha=<%=AsisVO.getFecha()%>&usuario=<%=AsisVO.getNombreUsuario()%>&grupo=<%=AsisVO.getNombreGrupo()%>&idUsuario=<%=AsisVO.getIdUsuario()%>&idGrupo=<%=AsisVO.getIdGrupo()%>"><i class="fas fa-pen"></i></a>
-                                </td>                                
-                            </tr>
-                            <%}%>  
-                        </tbody>
-                        <tfoot>
-                            <tr>
-                                <th>Asistencia</th>
-                                <th>Fecha</th>
-                                <th>Usuario</th>
-                                <th>Grupo</th>                                   
-                                <th>Actualizar</th>                                    
-                            </tr>
-                        </tfoot>
-                    </table>
-                    <%}%>
-                </div>
-                <script>
-                    $(document).ready(function () {
-                        $('#usuario').DataTable({
-                            scrollY: 400,
-                            language: {
-                                "sProcessing": "Procesando...",
-                                "sLengthMenu": "Mostrar _MENU_ registros",
-                                "sZeroRecords": "No se encontraron resultados",
-                                "sEmptyTable": "NingÃºn dato disponible en esta tabla",
-                                "sInfo": "Mostrando Asistencias del _START_ al _END_ de un total de _TOTAL_ Asistencias",
-                                "sInfoEmpty": "Mostrando Asistencias del 0 al 0 de un total de 0 Asistencias",
-                                "sInfoFiltered": "(filtrado de un total de _MAX_ Asistencias)",
-                                "sInfoPostFix": "",
-                                "sSearch": "Buscar:",
-                                "sUrl": "",
-                                "sInfoThousands": ",",
-                                "sLoadingRecords": "Cargando...",
-                                "oPaginate": {
-                                    "sFirst": "Primero",
-                                    "sLast": "Ãšltimo",
-                                    "sNext": "Siguiente",
-                                    "sPrevious": "Anterior"
-                                },
-                                "oAria": {
-                                    "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
-                                    "sSortDescending": ": Activar para ordenar la columna de manera descendente"
-                                },
-                                "buttons": {
-                                    "copy": "Copiar",
-                                    "colvis": "Visibilidad"
-                                }
-                            }
-                        });
-                    });
-                </script>
+                    <form method="POST" action="Asistencia" class="form-registro needs-validation" novalidate>
+                        <div class="tituloR">
+                            <a href="consultarAsistencia.jsp" class="cerrar-registro" id="cerrar-registro"><i class="fas fa-times"></i></a>
+                            <h2 class="textReg">Registrar Asistencia</h2>
+                        </div>
+                        <div class="cuerpo">
+                            <div class="formulario">                                 
+                                <div class="col-md-6">
+                                    <label for="recipient-name" class="col-form-label">Estudiante:</label>
+                                    <select name="txtIdUsuario" class="form-control">                                        
+                                        <%
+                                            UsuarioVO UsuVO = new UsuarioVO();
+                                            UsuarioDAO UsuDAO = new UsuarioDAO(UsuVO);
+                                            ArrayList< UsuarioVO> listaUsuarioAP = UsuDAO.listarAP(usuVO.getIdGrupo());                                            
+                                            for (int i = 0; i < listaUsuarioAP.size();i++) {
 
-                <form method="post" action="Asistencia">
-                    <input type="hidden" name="txtIdGrupo" value="<%=usuVO.getIdGrupo()%>">
-                    <button class="abrir-registrar btn btn-primary" name="opcion" id="abrir-registrar" value="3">Registrar</button>
-                </form>
+                                                UsuVO = listaUsuarioAP.get(i);
+                                        %>
+                                        <option value="<%=UsuVO.getUsuId()%>"><%=UsuVO.getNombre()%> <%=UsuVO.getApellido()%></option>
+                                        <%
+                                            }
+                                        %>
+                                    </select>
+                                </div>                                
+                                <div class="col-md-6">
+                                    <label for="recipient-name" class="col-form-label">Grupo:</label>
+                                    <input type="text" readonly="" value="<%=usuVO.getGrupo()%>" name="txtnombreGrupo" required class="form-control">
+                                    <input type="hidden" value="<%=usuVO.getIdGrupo()%>" name="txtIdGrupo" required class="form-control">
+                                </div>
+
+                                <div class="col-md-6 ">
+                                    <label for="validationCustom04" class="col-form-label">Asistencia:</label>
+                                    <select  id="validationCustom04" name="txtAsistencia" class="form-control">
+                                        <option value="Si">Si</option>
+                                        <option value="No">No</option>
+                                    </select>
+                                    <div class="invalid-feedback">
+                                        Por favor selecciona asistencia 
+                                    </div>
+                                    <div class="valid-feedback">
+                                        Correcto
+                                    </div>
+                                </div>                               
+                                <div class="boton">
+                                                       
+                                    <input type="submit" value="Registrar" class="btn btn-success">
+                                    <input type="hidden" value="1" name="opcion">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>               
                 <%
-                  AsistenciaVO AsiVO = (AsistenciaVO) request.getAttribute("Si");
-                    if (AsiVO != null) {
+                    if (request.getAttribute("mensajeError") != null) {
                 %>
-                <script  type="text/javascript">
-
-                    swal({
-                        title: "Error",
-                        text: "Para este grupo el dia de hoy ya se tomo asistencia",
-                        type: 'error',
-                        confirmButtonClass: "btn-primary",
-                        confirmButtonText: "OK",
-                        closeOnConfirm: false
-                    },
-                            function () {
-                                window.location = "consultarAsistencia.jsp";
-                            });
-                </script>
-                <%
-                    }
-                %>                    
-                <script src="Js/consutarUsuario.js" type="text/javascript"></script>
-
-                <% if (request.getAttribute("mensajeError") != null) {%>
-                <script  type="text/javascript">
+                <script  type="text/javascript">                   
 
                     swal({
                         title: "Error",
@@ -468,8 +314,7 @@
                                 window.location = "registrarAsistencia.jsp";
                             });
                 </script>
-
-                <%} else if (request.getAttribute("mensajeExito") != null) {%>
+                <%} else if (request.getAttribute("mensajeExito") != null) { %>
                 <script  type="text/javascript">
 
                     swal({
@@ -481,11 +326,13 @@
                         closeOnConfirm: false
                     },
                             function () {
-                                window.location = "consultarAsistencia.jsp";
+                                window.location = "registrarAsistencia.jsp";
                             });
                 </script>
-                <%}%>
-
+                <%
+                    }
+                %>
+                <script src="Js/consutarUsuario.js" type="text/javascript"></script>
                 <footer class="footer">
                     <div class="container-fluid">
 
@@ -519,6 +366,7 @@
                                         })
                             })()
         </script>
+
     </body>
     <!--   Core JS Files   -->
     <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->

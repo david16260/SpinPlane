@@ -12,7 +12,7 @@
         <script src="Js/sweetalert.js" type="text/javascript"></script>
         <script src="Js/sweetalert.min.js" type="text/javascript"></script>
   <meta charset="UTF-8">
-  <title>Login</title>
+  <title>Recuperar contraseña</title>
   <link rel="shortcut icon" href="images/LOGO2.gif" />
   <link rel="stylesheet" href="Css/login.css">
 
@@ -33,7 +33,7 @@
             <form action="Usuario" class="log-in" autocomplete="off" method="POST"> 
                 <img src="images/LOGO4.gif" alt="Logo SpinPlane" class="logoLogin">
                 <div class="iniciar">
-                    <b><p class="letra">Inicia sesión</p></b>
+                    <b><p class="letra">Recuperar contraseña</p></b>
                 </div>
                 <div class="floating-label">
                     <input placeholder="Correo:" type="email" name="txtCorreo" id="email" autocomplete="off" class="input-registro">
@@ -52,29 +52,11 @@
 
                     </div>
                 </div>
-                <div class="floating-label">
-                    <input placeholder="Contraseña:" type="password" name="txtClave" id="password" autocomplete="off" class="input-registro">
-                    <label for="password">Contraseña:</label>
-                    <div class="icon">
 
-                        <?xml version="1.0" encoding="UTF-8"?>
-                        <svg enable-background="new 0 0 24 24" version="1.1" viewBox="0 0 24 24" xml:space="preserve"              xmlns="http://www.w3.org/2000/svg">
-                        <style type="text/css">
-                            .st0{fill:none;}
-                            .st1{fill:#010101;}
-                        </style>
-                        <rect class="st0" width="24" height="24"/>
-                        <path class="st1" d="M19,21H5V9h14V21z M6,20h12V10H6V20z"/>
-                        <path class="st1" d="M16.5,10h-1V7c0-1.9-1.6-3.5-3.5-3.5S8.5,5.1,8.5,7v3h-1V7c0-2.5,2-4.5,4.5-4.5s4.5,2,4.5,4.5V10z"/>
-                        <path class="st1" d="m12 16.5c-0.8 0-1.5-0.7-1.5-1.5s0.7-1.5 1.5-1.5 1.5 0.7 1.5 1.5-0.7 1.5-1.5 1.5zm0-2c-0.3 0-0.5 0.2-0.5 0.5s0.2 0.5 0.5 0.5 0.5-0.2 0.5-0.5-0.2-0.5-0.5-0.5z"/>
-                        </svg>
-                    </div>
-
-                </div>
                 <ul class="error" id="error"></ul>
                 <div class="inputb">
                     <!--<input type="submit" id="btn" value="Entrar">-->
-                        <a href="recuperarContraseña.jsp">¿Has olvidado tu contraseña?</a> 
+
                     <button type="submit" >Ingresar</button>
                     <input type="hidden" value="3" name="opcion">
 

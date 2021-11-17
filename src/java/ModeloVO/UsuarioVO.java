@@ -14,6 +14,14 @@ public class UsuarioVO {
     private String nombre, apellido, tipoDocumento, numDocumento, celular, estado, correo, clave;
     private String usuId, idTipoUsuario, tipoUsuario, idGrupo, grupo;
 
+    public UsuarioVO(String usuId, String nombre, String apellido, String idGrupo, String grupo) {
+        this.usuId = usuId;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.idGrupo = idGrupo;
+        this.grupo = grupo;
+    }
+    
     public UsuarioVO(String usuId, String nombre, String apellido, String tipoDocumento, String numDocumento, String celular, String estado, String correo, String clave, String idTipoUsuario, String tipoUsuario, String idGrupo, String grupo) {
         this.usuId = usuId;
         this.nombre = nombre;
@@ -45,10 +53,13 @@ public class UsuarioVO {
         this.grupo = grupo;
     }
 
-    public UsuarioVO(String usuId, String idTipoUsuario, String idGrupo) {
+    public UsuarioVO(String usuId, String idTipoUsuario, String idGrupo, String grupo,String nombre, String apellido) {
         this.usuId = usuId;
         this.idTipoUsuario = idTipoUsuario;
         this.idGrupo = idGrupo;
+        this.grupo = grupo;
+        this.nombre = nombre;
+        this.apellido = apellido;
     }
 
     public UsuarioVO(String correo, String clave, String usuId, String idTipoUsuario) {
