@@ -118,7 +118,7 @@ public class AsistenciaDAO extends Conexion implements Crud {
 
                 AsistenciaVO AsisVO = new AsistenciaVO(mensajero.getString(1), mensajero.getString(2),
                         mensajero.getString(3), mensajero.getString(4), mensajero.getString(5),
-                        mensajero.getString(6), mensajero.getString(7));
+                        mensajero.getString(6), mensajero.getString(7),mensajero.getString(8));
 
                 listaAsistencia.add(AsisVO);
             }
@@ -154,7 +154,7 @@ public class AsistenciaDAO extends Conexion implements Crud {
 
                 AsistenciaVO AsisVO = new AsistenciaVO(mensajero.getString(1), mensajero.getString(2),
                         mensajero.getString(3), mensajero.getString(4), mensajero.getString(5),
-                        mensajero.getString(6), mensajero.getString(7));
+                        mensajero.getString(6), mensajero.getString(7),mensajero.getString(8));
 
                 listaAsistenciaE.add(AsisVO);
             }
@@ -190,7 +190,7 @@ public class AsistenciaDAO extends Conexion implements Crud {
 
                 AsistenciaVO AsisVO = new AsistenciaVO(mensajero.getString(1), mensajero.getString(2),
                         mensajero.getString(3), mensajero.getString(4), mensajero.getString(5),
-                        mensajero.getString(6), mensajero.getString(7));
+                        mensajero.getString(6), mensajero.getString(7),mensajero.getString(8));
 
                 listaAsistenciaP.add(AsisVO);
             }

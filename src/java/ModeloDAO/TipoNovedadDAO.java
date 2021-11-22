@@ -12,6 +12,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -23,6 +25,20 @@ import java.util.ArrayList;
     private PreparedStatement puente;
     private ResultSet mensajero;
     private String sql;
+    
+     private String idTipoNovedad="", tipoNovedad="";
+     
+     public TipoNovedadDAO(TipoNovedadVO TipoNovVO){
+     
+         super();
+        try {
+            conexion = this.obtenerConexion();
+            idTipoNovedad = TipoNovVO.getIdTipoNovedad();
+            tipoNovedad =TipoNovVO.getTipoNovedad();           
+        } catch (Exception e) {
+            Logger.getLogger(AulaDAO.class.getName()).log(Level.SEVERE, null, e);
+        }
+     }
     
     public ArrayList<TipoNovedadVO> listar() {
 

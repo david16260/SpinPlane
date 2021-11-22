@@ -1,15 +1,17 @@
 <%-- 
-    Document   : conultarClase.jsp
-    Created on : 25/06/2021, 02:40:36 PM
+    Document   : registrarNovedad
+    Created on : 20/11/2021, 07:03:01 PM
     Author     : Sebas
 --%>
-<%@page import="java.util.ArrayList"%>
-<%@page import="ModeloDAO.NovedadDAO"%>
-<%@page import="ModeloVO.NovedadVO"%>
-<%@include file="Sesiones.jsp" %>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 
-<!doctype html>
+<%@page import="ModeloDAO.TipoNovedadDAO"%>
+<%@page import="ModeloVO.TipoNovedadVO"%>
+<%@page import="ModeloVO.AsistenciaVO"%>
+<%@page import="ModeloDAO.AsistenciaDAO"%>
+<%@page import="ModeloDAO.UsuarioDAO"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<%@include file="Sesiones.jsp" %>
 <html lang="en">
     <head>
         <meta charset="utf-8" />
@@ -22,7 +24,7 @@
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css" />
         <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css"/>
-        <link rel="stylesheet" href="Css/consultarNovedad.css"/>
+        <link rel="stylesheet" href="Css/consultarUsuario.css"/>
         <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -55,6 +57,7 @@
 
         <!--  CSS for Demo Purpose, don't include it in your project     -->
         <link href="assets/css/demo.css" rel="stylesheet" />
+        <!--  CSS for Demo Purpose, don't include it in your project     -->
 
 
         <!--     Fonts and icons     -->
@@ -67,6 +70,13 @@
     </head>
     <body>
 
+        <%
+            String idAsistencia = request.getParameter("idAsistencia");
+            String fecha = request.getParameter("fecha");
+            String nombreUsuario = request.getParameter("nombreUsuario");
+            String apellidoUsuario = request.getParameter("apellidoUsuario");
+            String nombreGrupo = request.getParameter("grupo");
+        %>                    
         <div class="wrapper">
             <div class="sidebar" data-color="orange" data-image="assets/img/siderbar.jpeg">
 
@@ -76,13 +86,21 @@
                     Tip 2: you can also add an image using data-image tag
             
                 -->
-
+                <%
+                    String tipoUs = usuVO.getIdTipoUsuario();
+                    if (tipoUs.equals("Estudiante")) {
+                %>
+                <script>
+                    window.location.href = "menu.jsp";
+                </script>
+                <%}%>
                 <div class="sidebar-wrapper">
                     <div class="logo">
                         <a href="menu.jsp">
                             <img src="images/LOGO4.gif" class="SpinPlane" alt=""/>
                         </a>
                     </div>
+
                     <%
                         String tipoU = usuVO.getIdTipoUsuario();
                         if (tipoU.equals("Profesor")) {
@@ -137,15 +155,16 @@
                             </a>
                         </li>
                         <li>
-                            <a href="consultarAula.jsp">
-                                <i class="pe-7s-culture"></i>
-                                <p>Aula</p>
-                            </a>
-                        </li>
-                        <li>
                             <a href="consultarGrupo.jsp">
                                 <i class="pe-7s-users"></i>
                                 <p>Grupo</p>
+                            </a>
+                        </li>
+                        <li>
+                        <li>
+                            <a href="consultarAula.jsp">
+                                <i class="pe-7s-culture"></i>
+                                <p>Aula</p>
                             </a>
                         </li>
                         <li>
@@ -155,20 +174,11 @@
                             </a>
                         </li>
                         <li>
-                        <li>
-                            <a href="consultarNovedad.jsp">
-                                <i class="pe-7s-info"></i>
-                                <p>Novedad</p>
-                            </a>
-                        </li>
-                        <li>
-                        <li>
                             <a href="consultarHorario.jsp">
                                 <i class="pe-7s-date"></i>
                                 <p>Horario</p>
                             </a>
                         </li>
-
                         <%} else if (tipoU.equals("Administrador")) {%>
                         <ul class="nav">
                             <li>
@@ -203,22 +213,11 @@
                                 </a>
                             </li>
                             <li>
-                            <li>
-                                <a href="consultarHorario.jsp">
-                                    <i class="pe-7s-date"></i>
-                                    <p>Horario</p>
-                                </a>
-                            </li>
+
                             <li>
                                 <a href="consultarUsuario.jsp">
                                     <i class="pe-7s-user"></i>
                                     <p>Usuario</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="EnviarCorreo.jsp">
-                                    <i class="pe-7s-date"></i>
-                                    <p>Correo</p>
                                 </a>
                             </li>
                         </ul>
@@ -244,201 +243,98 @@
                             </ul>
                             <ul style="list-style: none; margin-top: 15px;">
                                 <li>
-                                    <h2 class="text-center">Gestionar Novedad</h2>
+                                    <h2 class="text-center">Novedad</h2>
                                 </li>
                             </ul>
                         </div>
                     </div>
                 </nav>
 
+
                 <div class="contenedor mt-4">
-                    <%
-                        if (tipoU.equals("Administrador")) {
-                    %>    
-                    <table id="usuario" class="table table-striped" style="width:150%">
-                        <thead>
-                            <tr>  
-                                <th>Estudiante</th>                                
-                                <th>Tipo de Novedad</th>
-                                <th>Descripcion</th>
-                                <th>Fecha</th>
-                                <th>Grupo</th>
-                                <th>Actualizar</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <%
-                                NovedadVO NovVO = new NovedadVO();
-                                NovedadDAO NovDAO = new NovedadDAO(NovVO);
-                                ArrayList<NovedadVO> listaNovedad = NovDAO.listar();
-                                for (int i = 0; i < listaNovedad.size(); i++) {
+                    <form method="POST" action="Novedad" class="form-registro needs-validation" novalidate>
+                        <div class="tituloR">
+                            <a href="consultarNovedad.jsp" class="cerrar-registro" id="cerrar-registro"><i class="fas fa-times"></i></a>
+                            <h2 class="textReg">Actualizar Novedad</h2>
+                        </div>
+                        <div class="cuerpo">
+                            <div class="formulario">                                                                
+                                <input type="hidden" name="txtAsistencia" value="<%=idAsistencia%>">                                                               
+                                <div class="col-md-6 ">
+                                    <label for="validationTooltip01" class="col-form-label">Estuadiante:</label>  
+                                    <input type="text" class="form-control" readonly="" value="<%=nombreUsuario%> <%=apellidoUsuario%>" id="validationTooltip01" name="txtNombreUsuario"  required >
+                                    <div class="valid-feedback">
+                                        Correcto
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Por favor selecciona el nombre de el Estudiante 
+                                    </div>
+                                </div>
+                                <div class="col-md-6 ">
+                                    <label for="validationTooltip01" class="col-form-label">Grupo:</label>  
+                                    <input type="text" class="form-control" readonly="" value="<%=nombreGrupo%>" id="validationTooltip01" name="txtFechaFin" placeholder="Nombre" required >
+                                    <div class="valid-feedback">
+                                        Correcto
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Por favor registre la fecha fin  
+                                    </div>
+                                </div>
+                                <div class="col-md-6 ">
+                                    <label for="validationCustom04" class="col-form-label">Tipo de novedad:</label>
+                                    <select  id="validationCustom04"  name="txtTipoNovedad" class="form-control" required>
+                                        <option selected disabled value="">Tipo de Novedad</option>
+                                        <%
+                                            TipoNovedadVO tipoNovVO = new TipoNovedadVO();
+                                            TipoNovedadDAO tipoNovDAO = new TipoNovedadDAO(tipoNovVO);
+                                            ArrayList<TipoNovedadVO> listaTipoNovedad = tipoNovDAO.listar();
+                                            for (int i = 0; i < listaTipoNovedad.size(); i++) {
 
-                                    NovVO = listaNovedad.get(i);
-                            %>               
-                            <tr>   
-                                <td><%=NovVO.getNombreUsuario()%> <%=NovVO.getApellidoUsuario()%></td>
-                                <td><%=NovVO.getTipoNovedad()%></td>
-                                <td><%=NovVO.getDescripcion()%></td>
-                                <td><%=NovVO.getFecha()%></td>
-                                <td><%=NovVO.getNombreGrupo()%></td>                                                                                        
-                                <td>
-                                    <a class="btn btn-primary edit"href="actualizarNovedad.jsp?idnovedad=<%=NovVO.getIdNovedad()%>&descripcion=<%=NovVO.getDescripcion()%>&idtiponovedad=<%=NovVO.getIdTipoNovedad()%>&idAsistencia=<%=NovVO.getIdAsistencia()%>&nombreUsuario=<%=NovVO.getNombreUsuario()%>&apellidoUsuario=<%=NovVO.getApellidoUsuario()%>&novedad=<%=NovVO.getTipoNovedad()%>&fecha=<%=NovVO.getFecha()%>&grupo=<%=NovVO.getNombreGrupo()%>"><i class="fas fa-pen"></i></a>
-                                </td>
-                            </tr>
-
-                            <%}%>  
-
-                        </tbody>
-                        <tfoot>
-                            <tr>                                
-                                <th>Estudiante</th>                                
-                                <th>Tipo de Novedad</th>
-                                <th>Descripcion</th>
-                                <th>Fecha</th>
-                                <th>Grupo</th>
-                                <th>Actualizar</th>
-                            </tr>
-                        </tfoot>
-                    </table>
-                    <%
-                        }
-                    %>
-
-                    <%
-                        if (tipoU.equals("Estudiante")) {
-                    %>    
-                    <table id="usuario" class="table table-striped" style="width:150%">
-                        <thead>
-                            <tr>  
-                                <th>Estudiante</th>                                
-                                <th>Tipo de Novedad</th>
-                                <th>Descripcion</th>
-                                <th>Fecha</th>
-                                <th>Grupo</th>                               
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <%
-                                NovedadVO NovVO = new NovedadVO();
-                                NovedadDAO NovDAO = new NovedadDAO(NovVO);
-                                ArrayList<NovedadVO> listaNovedadE = NovDAO.listarE(usuVO.getUsuId());
-                                for (int i = 0; i < listaNovedadE.size(); i++) {
-
-                                    NovVO = listaNovedadE.get(i);
-                            %>               
-                            <tr>   
-                                <td><%=NovVO.getNombreUsuario()%> <%=NovVO.getApellidoUsuario()%></td>
-                                <td><%=NovVO.getTipoNovedad()%></td>
-                                <td><%=NovVO.getDescripcion()%></td>
-                                <td><%=NovVO.getFecha()%></td>
-                                <td><%=NovVO.getNombreGrupo()%></td>                                                                                                                              
-                            </tr>
-
-                            <%}%>  
-
-                        </tbody>
-                        <tfoot>
-                            <tr>                                
-                                <th>Estudiante</th>                                
-                                <th>Tipo de Novedad</th>
-                                <th>Descripcion</th>
-                                <th>Fecha</th>
-                                <th>Grupo</th>                               
-                            </tr>
-                        </tfoot>
-                    </table>
-                    <%
-                        }
-                    %>
-
-                    <%
-                        if (tipoU.equals("Profesor")) {
-                    %>    
-                    <table id="usuario" class="table table-striped" style="width:150%">
-                        <thead>
-                            <tr>  
-                                <th>Estudiante</th>                                
-                                <th>Tipo de Novedad</th>
-                                <th>Descripcion</th>
-                                <th>Fecha</th>
-                                <th>Grupo</th>
-                                <th>Actualizar</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <%
-                                NovedadVO NovVO = new NovedadVO();
-                                NovedadDAO NovDAO = new NovedadDAO(NovVO);
-                                ArrayList<NovedadVO> listaNovedadP = NovDAO.listarP(usuVO.getIdGrupo());
-                                for (int i = 0; i < listaNovedadP.size(); i++) {
-
-                                    NovVO = listaNovedadP.get(i);
-                            %>               
-                            <tr>   
-                                <td><%=NovVO.getNombreUsuario()%> <%=NovVO.getApellidoUsuario()%></td>
-                                <td><%=NovVO.getTipoNovedad()%></td>
-                                <td><%=NovVO.getDescripcion()%></td>
-                                <td><%=NovVO.getFecha()%></td>
-                                <td><%=NovVO.getNombreGrupo()%></td>                                                                                           
-                                <td>
-                                    <a class="btn btn-primary edit"href="actualizarNovedad.jsp?idnovedad=<%=NovVO.getIdNovedad()%>&descripcion=<%=NovVO.getDescripcion()%>&idtiponovedad=<%=NovVO.getIdTipoNovedad()%>&idAsistencia=<%=NovVO.getIdAsistencia()%>&nombreUsuario=<%=NovVO.getNombreUsuario()%>&apellidoUsuario=<%=NovVO.getApellidoUsuario()%>&novedad=<%=NovVO.getTipoNovedad()%>&fecha=<%=NovVO.getFecha()%>&grupo=<%=NovVO.getNombreGrupo()%>"><i class="fas fa-pen"></i></a>
-                                </td>
-                            </tr>
-
-                            <%}%>  
-
-                        </tbody>
-                        <tfoot>
-                            <tr>                                
-                                <th>Estudiante</th>                                
-                                <th>Tipo de Novedad</th>
-                                <th>Descripcion</th>
-                                <th>Fecha</th>
-                                <th>Grupo</th>
-                                <th>Actualizar</th>
-                            </tr>
-                        </tfoot>
-                    </table>
-                    <%
-                        }
-                    %>
-                </div>
-                <script>
-                    $(document).ready(function () {
-                        $('#usuario').DataTable({
-                            scrollY: 400,
-                            language: {
-                                "sProcessing": "Procesando...",
-                                "sLengthMenu": "Mostrar _MENU_ registros",
-                                "sZeroRecords": "No se encontraron resultados",
-                                "sEmptyTable": "NingÃºn dato disponible en esta tabla",
-                                "sInfo": "Mostrando Novedades del _START_ al _END_ de un total de _TOTAL_ Novedades",
-                                "sInfoEmpty": "Mostrando usuarios del 0 al 0 de un total de 0 Novedades",
-                                "sInfoFiltered": "(filtrado de un total de _MAX_ Novedades)",
-                                "sInfoPostFix": "",
-                                "sSearch": "Buscar:",
-                                "sUrl": "",
-                                "sInfoThousands": ",",
-                                "sLoadingRecords": "Cargando...",
-                                "oPaginate": {
-                                    "sFirst": "Primero",
-                                    "sLast": "Ãšltimo",
-                                    "sNext": "Siguiente",
-                                    "sPrevious": "Anterior"
-                                },
-                                "oAria": {
-                                    "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
-                                    "sSortDescending": ": Activar para ordenar la columna de manera descendente"
-                                },
-                                "buttons": {
-                                    "copy": "Copiar",
-                                    "colvis": "Visibilidad"
-                                }
-                            }
-                        });
-                    });
-                </script>                                                   
-                <% if (request.getAttribute("mensajeError") != null) {%>
+                                                tipoNovVO = listaTipoNovedad.get(i);
+                                        %> 
+                                        <option value="<%=tipoNovVO.getIdTipoNovedad() %>"><%=tipoNovVO.getTipoNovedad()%></option>
+                                        <%
+                                            }
+                                        %>
+                                    </select>
+                                    <div class="valid-feedback">
+                                        Correcto
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Por favor selecciona el tipo de novedad 
+                                    </div>
+                                </div>
+                                <div class="col-md-6 ">
+                                    <label for="validationTooltip01" rea  class="col-form-label">Fecha:</label>  
+                                    <input type="date" class="form-control" readonly="" value="<%=fecha%>" id="validationTooltip01" name="txtFechaInicio"  required >
+                                    <div class="valid-feedback">
+                                        Correcto
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Por favor registre la fecha inicio  
+                                    </div>
+                                </div>
+                                <div class="col-md-6 ">
+                                    <label for="validationTooltip01" class="col-form-label">Descripción:</label>          
+                                    <input type="text" class="form-control" id="validationTooltip01" name="txtDescripcion" value="" placeholder="Descripcion" required>
+                                    <div class="valid-feedback">
+                                        Correcto
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Por favor registre la descripcion  
+                                    </div>
+                                </div>
+                                <div class="boton">
+                                    <input type="submit" id="btn" value="Registrar" class="btn btn-success">
+                                    <input type="hidden" value="1" name="opcion">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>               
+                <%
+                    if (request.getAttribute("mensajeError") != null) {
+                %>
                 <script  type="text/javascript">
 
                     swal({
@@ -450,11 +346,10 @@
                         closeOnConfirm: false
                     },
                             function () {
-                                window.location = "consultarNovedad.jsp";
+                                window.location = "registrarAsistencia.jsp";
                             });
                 </script>
-
-                <%} else if (request.getAttribute("mensajeExito") != null) {%>
+                <%} else if (request.getAttribute("mensajeExito") != null) { %>
                 <script  type="text/javascript">
 
                     swal({
@@ -466,13 +361,13 @@
                         closeOnConfirm: false
                     },
                             function () {
-                                window.location = "consultarNovedad.jsp";
+                                window.location = "registrarAsistencia.jsp";
                             });
                 </script>
-                <%}%>
+                <%
+                    }
+                %>
                 <script src="Js/consutarUsuario.js" type="text/javascript"></script>
-
-
                 <footer class="footer">
                     <div class="container-fluid">
 
@@ -517,3 +412,4 @@
 
 
 </html>
+

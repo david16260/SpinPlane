@@ -312,12 +312,14 @@
                                                 <div class="form-group">
                                                     <label for="example-email" class="col-md-12">Tipo de identificación:</label>
                                                     <input class="form-control m-l-15 form-control-line" value="<%=UsuVO.getTipoDocumento()%>">
-
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="example-email" class="col-md-12">Número de identificación:</label>
                                                     <input class="form-control m-l-15 form-control-line" value="<%=UsuVO.getNumDocumento()%>">
-
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="example-email" class="col-md-12">Grupo:</label>
+                                                    <input class="form-control m-l-15 form-control-line" value="<%=UsuVO.getGrupo() %>">
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="example-email" class="col-md-12">Correo:</label>

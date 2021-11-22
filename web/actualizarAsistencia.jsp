@@ -67,12 +67,12 @@
         <%
             String idAsistencia = request.getParameter("idAsistencia");
             String asistencia = request.getParameter("asistencia");
-            String fehca = request.getParameter("fecha");
+            String fecha = request.getParameter("fecha");
             String estudiante = request.getParameter("usuario");
             String grupo = request.getParameter("grupo");
             String idGrupo = request.getParameter("idGrupo");
             String idUsuario = request.getParameter("idUsuario");
-            
+
         %>
 
         <div class="wrapper">
@@ -84,14 +84,13 @@
                     Tip 2: you can also add an image using data-image tag
             
                 -->
-                <%
-                        String tipoUs = usuVO.getIdTipoUsuario();
-                        if (tipoUs.equals("Estudiante")) {
-                    %>
-                    <script>
-                        window.location.href = "menu.jsp";
-                    </script>
-                    <%}%>
+                <%                    String tipoUs = usuVO.getIdTipoUsuario();
+                    if (tipoUs.equals("Estudiante")) {
+                %>
+                <script>
+                    window.location.href = "menu.jsp";
+                </script>
+                <%}%>
                 <div class="sidebar-wrapper">
                     <div class="logo">
                         <a href="menu.jsp">
@@ -259,14 +258,14 @@
                         </div>
                         <div class="cuerpo">
                             <div class="formulario">
-                                
-                                <input type="hidden" name="txtId" value="<%=idAsistencia %>">
-                                <input type="hidden" name="txtIdUsuario" value="<%=idUsuario %>">
-                                <input type="hidden" name="txtIdGrupo" value="<%=idGrupo %>">
-                                
+
+                                <input type="hidden" name="txtId" value="<%=idAsistencia%>">
+                                <input type="hidden" name="txtIdUsuario" value="<%=idUsuario%>">
+                                <input type="hidden" name="txtIdGrupo" value="<%=idGrupo%>">
+
                                 <div class="col-md-6 ">
                                     <label for="validationTooltip01" class="col-form-label">Estudiante:</label>          
-                                    <input type="text" class="form-control"  id="validationTooltip01" name="txtNombre" value="<%=estudiante %>" placeholder="Nombre" readonly="" required>
+                                    <input type="text" class="form-control"  id="validationTooltip01" name="txtNombre" value="<%=estudiante%>" placeholder="Nombre" readonly="" required>
                                     <div class="invalid-feedback">
                                         Por favor selecciona el estudiante 
                                     </div>
@@ -274,10 +273,10 @@
                                         Correcto
                                     </div>
                                 </div>
-                                
+
                                 <div class="col-md-6 ">
                                     <label for="validationTooltip01" class="col-form-label">Grupo:</label>  
-                                    <input type="text" class="form-control" value="<%=grupo %>" readonly="" id="validationTooltip01" name="txtNombre" placeholder="Nombre" required >
+                                    <input type="text" class="form-control" value="<%=grupo%>" readonly="" id="validationTooltip01" name="txtNombre" placeholder="Nombre" required >
                                     <div class="invalid-feedback">
                                         Por favor selecciona el grupo 
                                     </div>
@@ -285,7 +284,9 @@
                                         Correcto
                                     </div>
                                 </div>
-
+                                <%
+                                    if (asistencia.equals("Si")) {
+                                %>
                                 <div class="col-md-6 ">
                                     <label for="validationCustom04" class="col-form-label">Asistencia:</label>
                                     <select  id="validationCustom04" name="txtAsistencia" class="form-control">
@@ -299,10 +300,28 @@
                                         Correcto
                                     </div>
                                 </div>
-
+                                <%
+                                } else if(asistencia.equals("No")){
+                                %>
+                                <div class="col-md-6 ">
+                                    <label for="validationCustom04" class="col-form-label">Asistencia:</label>
+                                    <select  id="validationCustom04" name="txtAsistencia" class="form-control">                                        
+                                        <option value="No">No</option>
+                                        <option value="Si">Si</option>
+                                    </select>
+                                    <div class="invalid-feedback">
+                                        Por favor selecciona asistencia 
+                                    </div>
+                                    <div class="valid-feedback">
+                                        Correcto
+                                    </div>
+                                </div>
+                                <%
+                                    }
+                                %>
                                 <div class="col-md-6 ">
                                     <label for="validationTooltip01" class="col-form-label">Fecha:</label>    
-                                    <input type="date" id="validationTooltip01" readonly="" value="<%=fehca %>" class="form-control" name="txtFecha" required >
+                                    <input type="date" id="validationTooltip01" readonly="" value="<%=fecha%>" class="form-control" name="txtFecha" required >
                                     <div class="invalid-feedback">
                                         Por favor selecciona la fecha 
                                     </div>
@@ -319,7 +338,7 @@
                     </form>
                 </div>
 
-               
+
                 <% if (request.getAttribute("mensajeError") != null) {%>
                 <script  type="text/javascript">
 
@@ -355,7 +374,7 @@
 
 
 
-                
+
                 <script src="Js/consutarUsuario.js" type="text/javascript"></script>
 
 
@@ -371,27 +390,27 @@
             </div>
         </div>
         <script>
-            // Example starter JavaScript for disabling form submissions if there are invalid fields
-                    (function () {
-                        'use strict'
+                    // Example starter JavaScript for disabling form submissions if there are invalid fields
+                            (function () {
+                                'use strict'
 
-                        // Fetch all the forms we want to apply custom Bootstrap validation styles to
-                        var forms = document.querySelectorAll('.needs-validation')
+                                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                                var forms = document.querySelectorAll('.needs-validation')
 
-                        // Loop over them and prevent submission
-                        Array.prototype.slice.call(forms)
-                                .forEach(function (form) {
-                                    form.addEventListener('submit', function (event) {
-                                        if (!form.checkValidity()) {
-                                            event.preventDefault()
-                                            event.stopPropagation()
-                                        }
+                                // Loop over them and prevent submission
+                                Array.prototype.slice.call(forms)
+                                        .forEach(function (form) {
+                                            form.addEventListener('submit', function (event) {
+                                                if (!form.checkValidity()) {
+                                                    event.preventDefault()
+                                                    event.stopPropagation()
+                                                }
 
-                                        form.classList.add('was-validated')
-                                    }, false)
-                                })
-                    })()
-</script>
+                                                form.classList.add('was-validated')
+                                            }, false)
+                                        })
+                            })()
+        </script>
 
     </body>
     <!--   Core JS Files   -->

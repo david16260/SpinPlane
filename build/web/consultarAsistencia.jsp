@@ -1,4 +1,4 @@
-<%-- 
+    <%-- 
     Document   : conultarClase.jsp
     Created on : 25/06/2021, 02:40:36 PM
     Author     : Yurny
@@ -264,11 +264,12 @@
                     <table id="usuario" class="table table-striped" style="width:100%">
                         <thead>
                             <tr>
-                                <th>Asistencia</th>
-                                <th>Fecha</th>
-                                <th>Usuario</th>
+                                <th>Estudiante</th>
                                 <th>Grupo</th>
-                                <th>Actualizar</th>
+                                <th>Fecha</th>
+                                <th>Asistencia</th>                                                                                                
+                                <th>Actualizar</th> 
+                                <th>Novedad</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -281,27 +282,39 @@
                                     AsisVO = listaAsistencia.get(i);
                             %>               
                             <tr>
-                                <td><%=AsisVO.getAsistencia()%></td>
-                                <td><%=AsisVO.getFecha()%></td>
-                                <td><%=AsisVO.getNombreUsuario()%></td>
+                                <td><%=AsisVO.getNombreUsuario()%> <%=AsisVO.getApellidoUsuario()%></td>
                                 <td><%=AsisVO.getNombreGrupo()%></td>
+                                <td><%=AsisVO.getFecha()%></td>
+                                <td><%=AsisVO.getAsistencia()%></td>                                                                                               
                                 <%
                                     if (tipoU.equals("Administrador")) {
                                 %>
                                 <td>
                                     <a class="btn btn-info edit m-6 p-2"href="actualizarAsistencia.jsp?idAsistencia=<%=AsisVO.getIdAsistencia()%>&asistencia=<%=AsisVO.getAsistencia()%>&fecha=<%=AsisVO.getFecha()%>&usuario=<%=AsisVO.getNombreUsuario()%>&grupo=<%=AsisVO.getNombreGrupo()%>&idUsuario=<%=AsisVO.getIdUsuario()%>&idGrupo=<%=AsisVO.getIdGrupo()%>"><i class="fas fa-pen"></i></a>
                                 </td>
+                                <%
+                                    }
+                                    if (AsisVO.getAsistencia().equals("No")) {
+                                %>
+                                <td>
+                                    <a class="btn btn-info edit m-6 p-2"href="registrarNovedad.jsp?idAsistencia=<%=AsisVO.getIdAsistencia()%>&fecha=<%=AsisVO.getFecha()%>&nombreUsuario=<%=AsisVO.getNombreUsuario()%>&apellidoUsuario=<%=AsisVO.getApellidoUsuario()%>&grupo=<%=AsisVO.getNombreGrupo()%>"><i class="fas fa-pen"></i></a>
+                                </td>
+                                <%
+                                } else {
+                                %>
+                                <td></td>
                                 <%}%>
                             </tr>
                             <%}%>  
                         </tbody>
                         <tfoot>
                             <tr>
-                                <th>Asistencia</th>
+                                <th>Estudiante</th>
+                                <th>Grupo</th>
                                 <th>Fecha</th>
-                                <th>Usuario</th>
-                                <th>Grupo</th>                                   
-                                <th>Actualizar</th>                                    
+                                <th>Asistencia</th>                                                                                                
+                                <th>Actualizar</th> 
+                                <th>Novedad</th>                                 
                             </tr>
                         </tfoot>
                     </table>
@@ -312,10 +325,10 @@
                     <table id="usuario" class="table table-striped" style="width:100%">
                         <thead>
                             <tr>
-                                <th>Asistencia</th>
-                                <th>Fecha</th>
-                                <th>Usuario</th>
+                                <th>Estudiante</th>
                                 <th>Grupo</th>
+                                <th>Fecha</th>
+                                <th>Asistencia</th>                                                                                                                                                              
                             </tr>
                         </thead>
                         <tbody>
@@ -328,19 +341,19 @@
                                     AsisVO = listaAsistenciaE.get(i);
                             %>               
                             <tr>
-                                <td><%=AsisVO.getAsistencia()%></td>
-                                <td><%=AsisVO.getFecha()%></td>
-                                <td><%=AsisVO.getNombreUsuario()%></td>
+                                <td><%=AsisVO.getNombreUsuario()%> <%=AsisVO.getApellidoUsuario()%></td>
                                 <td><%=AsisVO.getNombreGrupo()%></td>
+                                <td><%=AsisVO.getFecha()%></td>
+                                <td><%=AsisVO.getAsistencia()%></td> 
                             </tr>
                             <%}%>  
                         </tbody>
                         <tfoot>
                             <tr>
-                                <th>Asistencia</th>
+                                <th>Estudiante</th>
+                                <th>Grupo</th>
                                 <th>Fecha</th>
-                                <th>Usuario</th>
-                                <th>Grupo</th>                                                                    
+                                <th>Asistencia</th>                                                                                                                                
                             </tr>
                         </tfoot>
                     </table>
@@ -351,11 +364,12 @@
                     <table id="usuario" class="table table-striped" style="width:100%">
                         <thead>
                             <tr>
-                                <th>Asistencia</th>
-                                <th>Fecha</th>
-                                <th>Usuario</th>
+                                <th>Estudiante</th>
                                 <th>Grupo</th>
-                                <th>Actualizar</th>
+                                <th>Fecha</th>
+                                <th>Asistencia</th>                                                                                                
+                                <th>Actualizar</th> 
+                                <th>Novedad</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -368,23 +382,37 @@
                                     AsisVO = listaAsistenciaP.get(i);
                             %>               
                             <tr>
-                                <td><%=AsisVO.getAsistencia()%></td>
+                                <td><%=AsisVO.getNombreUsuario()%> <%=AsisVO.getApellidoUsuario()%></td>
+                                <td><%=AsisVO.getNombreGrupo()%></td>
                                 <td><%=AsisVO.getFecha()%></td>
-                                <td><%=AsisVO.getNombreUsuario()%></td>
-                                <td><%=AsisVO.getNombreGrupo()%></td>                               
+                                <td><%=AsisVO.getAsistencia()%></td>                              
                                 <td>
                                     <a class="btn btn-info edit m-6 p-2"href="actualizarAsistencia.jsp?idAsistencia=<%=AsisVO.getIdAsistencia()%>&asistencia=<%=AsisVO.getAsistencia()%>&fecha=<%=AsisVO.getFecha()%>&usuario=<%=AsisVO.getNombreUsuario()%>&grupo=<%=AsisVO.getNombreGrupo()%>&idUsuario=<%=AsisVO.getIdUsuario()%>&idGrupo=<%=AsisVO.getIdGrupo()%>"><i class="fas fa-pen"></i></a>
-                                </td>                                
+                                </td>
+                                <%
+                                    if (AsisVO.getAsistencia().equals("No")) {
+                                %>
+                                <td>
+                                    <a class="btn btn-info edit m-6 p-2"href="registrarNovedad.jsp?idAsistencia=<%=AsisVO.getIdAsistencia()%>&fecha=<%=AsisVO.getFecha()%>&nombreUsuario=<%=AsisVO.getNombreUsuario()%>&apellidoUsuario=<%=AsisVO.getApellidoUsuario()%>&grupo=<%=AsisVO.getNombreGrupo()%>"><i class="fas fa-pen"></i></a>
+                                </td>
+                                <%
+                                } else {
+                                %>
+                                <td></td>
+                                <%
+                                    }
+                                %>
                             </tr>
                             <%}%>  
                         </tbody>
                         <tfoot>
                             <tr>
-                                <th>Asistencia</th>
+                                <th>Estudiante</th>
+                                <th>Grupo</th>
                                 <th>Fecha</th>
-                                <th>Usuario</th>
-                                <th>Grupo</th>                                   
-                                <th>Actualizar</th>                                    
+                                <th>Asistencia</th>                                                                                                
+                                <th>Actualizar</th> 
+                                <th>Novedad</th>
                             </tr>
                         </tfoot>
                     </table>
@@ -431,7 +459,7 @@
                     <button class="abrir-registrar btn btn-primary" name="opcion" id="abrir-registrar" value="3">Registrar</button>
                 </form>
                 <%
-                  AsistenciaVO AsiVO = (AsistenciaVO) request.getAttribute("Si");
+                    AsistenciaVO AsiVO = (AsistenciaVO) request.getAttribute("Si");
                     if (AsiVO != null) {
                 %>
                 <script  type="text/javascript">
