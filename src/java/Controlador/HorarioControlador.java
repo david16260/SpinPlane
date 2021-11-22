@@ -59,7 +59,7 @@ public class HorarioControlador extends HttpServlet {
                 if (HorDAO.agregarRegistro()) {
                     request.setAttribute("mensajeExito", "El Horario se registro corectamente");
                 } else {
-                    request.setAttribute("mensajeError", "El Horario no se registro corectamente");
+                    request.setAttribute("mensajeError", "El Horario no se  corectamente");
                 }
                 request.getRequestDispatcher("consultarHorario.jsp").forward(request, response);
                 break;
