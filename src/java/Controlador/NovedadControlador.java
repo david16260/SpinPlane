@@ -36,15 +36,18 @@ public class NovedadControlador extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         String idNovedad = request.getParameter("txtId");
-        String descripcion = request.getParameter("txtDescripcion");    
-        String fechaInicio = request.getParameter("txtFechaInicio");
-        String fechaFin = request.getParameter("txtFechaFin");
+        String descripcion = request.getParameter("txtDescripcion");            
         String idTipoNovedad = request.getParameter("txtTipoNovedad");
         String idAsistencia = request.getParameter("txtAsistencia");
+        String tipoNovedad = request.getParameter("txttipoNovedad");
+        String fecha = request.getParameter("txtFecha");
+        String nombreUsuario = request.getParameter("txtNombreUsuario");
+        String apellidoUsuario = request.getParameter("txtApellidoUsuario");
+        String nombreGrupo = request.getParameter("txtnombreGrupo");
         
         int opcion = Integer.parseInt(request.getParameter("opcion"));
         
-        NovedadVO NovVO= new NovedadVO(idNovedad,descripcion, fechaInicio, fechaFin, idTipoNovedad,idAsistencia);
+        NovedadVO NovVO= new NovedadVO(idNovedad,descripcion, idTipoNovedad,tipoNovedad,idAsistencia,fecha,nombreUsuario,apellidoUsuario,nombreGrupo);
         
         NovedadDAO NovDAO = new NovedadDAO(NovVO);
         switch (opcion) {
@@ -60,9 +63,9 @@ public class NovedadControlador extends HttpServlet {
                 if (NovDAO.actualizarRegistro()) {
                     request.setAttribute("mensajeExito", "La Novedad se actualizo corectamente");
                 } else {
-                    request.setAttribute("mensajeError", "La NOvedad no se actualizo corectamente");
+                    request.setAttribute("mensajeError", "La Novedad no se actualizo corectamente");
                 }
-                request.getRequestDispatcher("actualizarNovedad.jsp").forward(request, response);
+                request.getRequestDispatcher("consultarNovedad.jsp").forward(request, response);
                 break;
                 
            

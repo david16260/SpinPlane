@@ -253,17 +253,16 @@
 
                 <div class="contenedor mt-4">
                     <%
-                       if (tipoU.equals("Administrador")) {
+                        if (tipoU.equals("Administrador")) {
                     %>    
                     <table id="usuario" class="table table-striped" style="width:150%">
                         <thead>
                             <tr>  
-                                <th>Nombre</th>
-                                <th>Apellido</th>
+                                <th>Estudiante</th>                                
                                 <th>Tipo de Novedad</th>
                                 <th>Descripcion</th>
-                                <th>Fecha Inicio</th>
-                                <th>Fecha Fin</th>
+                                <th>Fecha</th>
+                                <th>Grupo</th>
                                 <th>Actualizar</th>
                             </tr>
                         </thead>
@@ -277,14 +276,13 @@
                                     NovVO = listaNovedad.get(i);
                             %>               
                             <tr>   
-                                <td><%=NovVO.getNombreUsuario()%></td>
-                                <td><%=NovVO.getApellidoUsuario()%></td>
+                                <td><%=NovVO.getNombreUsuario()%> <%=NovVO.getApellidoUsuario()%></td>
                                 <td><%=NovVO.getTipoNovedad()%></td>
                                 <td><%=NovVO.getDescripcion()%></td>
-                                <td><%=NovVO.getFechaInicio()%></td>
-                                <td><%=NovVO.getFechaFin()%></td>                                                         
+                                <td><%=NovVO.getFecha()%></td>
+                                <td><%=NovVO.getNombreGrupo()%></td>                                                                                        
                                 <td>
-                                    <a class="btn btn-primary edit"href="actualizarNovedad.jsp?idnovedad=<%=NovVO.getIdNovedad()%>&descripcion=<%=NovVO.getDescripcion()%>&fechainicio=<%=NovVO.getFechaInicio()%>&fechafin=<%=NovVO.getFechaFin()%>&idtiponovedad=<%=NovVO.getIdTipoNovedad()%>&idasistencia=<%=NovVO.getIdAsistencia()%>&usuario=<%=NovVO.getNombreUsuario()%>&novedad=<%=NovVO.getTipoNovedad()%>"><i class="fas fa-pen"></i></a>
+                                    <a class="btn btn-primary edit"href="actualizarNovedad.jsp?idnovedad=<%=NovVO.getIdNovedad()%>&descripcion=<%=NovVO.getDescripcion()%>&idtiponovedad=<%=NovVO.getIdTipoNovedad()%>&idAsistencia=<%=NovVO.getIdAsistencia()%>&nombreUsuario=<%=NovVO.getNombreUsuario()%>&apellidoUsuario=<%=NovVO.getApellidoUsuario()%>&novedad=<%=NovVO.getTipoNovedad()%>&fecha=<%=NovVO.getFecha()%>&grupo=<%=NovVO.getNombreGrupo()%>"><i class="fas fa-pen"></i></a>
                                 </td>
                             </tr>
 
@@ -293,12 +291,11 @@
                         </tbody>
                         <tfoot>
                             <tr>                                
-                                <th>Nombre</th>
-                                <th>Apellido</th>
+                                <th>Estudiante</th>                                
                                 <th>Tipo de Novedad</th>
                                 <th>Descripcion</th>
-                                <th>Fecha Inicio</th>
-                                <th>Fecha Fin</th>
+                                <th>Fecha</th>
+                                <th>Grupo</th>
                                 <th>Actualizar</th>
                             </tr>
                         </tfoot>
@@ -306,20 +303,18 @@
                     <%
                         }
                     %>
-                
-                <%
+
+                    <%
                         if (tipoU.equals("Estudiante")) {
                     %>    
                     <table id="usuario" class="table table-striped" style="width:150%">
                         <thead>
                             <tr>  
-                                <th>Nombre</th>
-                                <th>Apellido</th>
+                                <th>Estudiante</th>                                
                                 <th>Tipo de Novedad</th>
                                 <th>Descripcion</th>
-                                <th>Fecha Inicio</th>
-                                <th>Fecha Fin</th>
-                                <th>Actualizar</th>
+                                <th>Fecha</th>
+                                <th>Grupo</th>                               
                             </tr>
                         </thead>
                         <tbody>
@@ -332,15 +327,11 @@
                                     NovVO = listaNovedadE.get(i);
                             %>               
                             <tr>   
-                                <td><%=NovVO.getNombreUsuario()%></td>
-                                <td><%=NovVO.getApellidoUsuario()%></td>
+                                <td><%=NovVO.getNombreUsuario()%> <%=NovVO.getApellidoUsuario()%></td>
                                 <td><%=NovVO.getTipoNovedad()%></td>
                                 <td><%=NovVO.getDescripcion()%></td>
-                                <td><%=NovVO.getFechaInicio()%></td>
-                                <td><%=NovVO.getFechaFin()%></td>                                                                
-                                <td>
-                                    <a class="btn btn-primary edit"href="actualizarNovedad.jsp?idnovedad=<%=NovVO.getIdNovedad()%>&descripcion=<%=NovVO.getDescripcion()%>&fechainicio=<%=NovVO.getFechaInicio()%>&fechafin=<%=NovVO.getFechaFin()%>&idtiponovedad=<%=NovVO.getIdTipoNovedad()%>&idasistencia=<%=NovVO.getIdAsistencia()%>&usuario=<%=NovVO.getNombreUsuario()%>&novedad=<%=NovVO.getTipoNovedad()%>"><i class="fas fa-pen"></i></a>
-                                </td>
+                                <td><%=NovVO.getFecha()%></td>
+                                <td><%=NovVO.getNombreGrupo()%></td>                                                                                                                              
                             </tr>
 
                             <%}%>  
@@ -348,32 +339,29 @@
                         </tbody>
                         <tfoot>
                             <tr>                                
-                                <th>Nombre</th>
-                                <th>Apellido</th>
+                                <th>Estudiante</th>                                
                                 <th>Tipo de Novedad</th>
                                 <th>Descripcion</th>
-                                <th>Fecha Inicio</th>
-                                <th>Fecha Fin</th>
-                                <th>Actualizar</th>
+                                <th>Fecha</th>
+                                <th>Grupo</th>                               
                             </tr>
                         </tfoot>
                     </table>
                     <%
                         }
                     %>
-                    
+
                     <%
                         if (tipoU.equals("Profesor")) {
                     %>    
                     <table id="usuario" class="table table-striped" style="width:150%">
                         <thead>
                             <tr>  
-                                <th>Nombre</th>
-                                <th>Apellido</th>
+                                <th>Estudiante</th>                                
                                 <th>Tipo de Novedad</th>
                                 <th>Descripcion</th>
-                                <th>Fecha Inicio</th>
-                                <th>Fecha Fin</th>
+                                <th>Fecha</th>
+                                <th>Grupo</th>
                                 <th>Actualizar</th>
                             </tr>
                         </thead>
@@ -387,14 +375,13 @@
                                     NovVO = listaNovedadP.get(i);
                             %>               
                             <tr>   
-                                <td><%=NovVO.getNombreUsuario()%></td>
-                                <td><%=NovVO.getApellidoUsuario()%></td>
+                                <td><%=NovVO.getNombreUsuario()%> <%=NovVO.getApellidoUsuario()%></td>
                                 <td><%=NovVO.getTipoNovedad()%></td>
                                 <td><%=NovVO.getDescripcion()%></td>
-                                <td><%=NovVO.getFechaInicio()%></td>
-                                <td><%=NovVO.getFechaFin()%></td>                                                                
+                                <td><%=NovVO.getFecha()%></td>
+                                <td><%=NovVO.getNombreGrupo()%></td>                                                                                           
                                 <td>
-                                    <a class="btn btn-primary edit"href="actualizarNovedad.jsp?idnovedad=<%=NovVO.getIdNovedad()%>&descripcion=<%=NovVO.getDescripcion()%>&fechainicio=<%=NovVO.getFechaInicio()%>&fechafin=<%=NovVO.getFechaFin()%>&idtiponovedad=<%=NovVO.getIdTipoNovedad()%>&idasistencia=<%=NovVO.getIdAsistencia()%>&usuario=<%=NovVO.getNombreUsuario()%>&novedad=<%=NovVO.getTipoNovedad()%>"><i class="fas fa-pen"></i></a>
+                                    <a class="btn btn-primary edit"href="actualizarNovedad.jsp?idnovedad=<%=NovVO.getIdNovedad()%>&descripcion=<%=NovVO.getDescripcion()%>&idtiponovedad=<%=NovVO.getIdTipoNovedad()%>&idAsistencia=<%=NovVO.getIdAsistencia()%>&nombreUsuario=<%=NovVO.getNombreUsuario()%>&apellidoUsuario=<%=NovVO.getApellidoUsuario()%>&novedad=<%=NovVO.getTipoNovedad()%>&fecha=<%=NovVO.getFecha()%>&grupo=<%=NovVO.getNombreGrupo()%>"><i class="fas fa-pen"></i></a>
                                 </td>
                             </tr>
 
@@ -403,12 +390,11 @@
                         </tbody>
                         <tfoot>
                             <tr>                                
-                                <th>Nombre</th>
-                                <th>Apellido</th>
+                                <th>Estudiante</th>                                
                                 <th>Tipo de Novedad</th>
                                 <th>Descripcion</th>
-                                <th>Fecha Inicio</th>
-                                <th>Fecha Fin</th>
+                                <th>Fecha</th>
+                                <th>Grupo</th>
                                 <th>Actualizar</th>
                             </tr>
                         </tfoot>
@@ -416,7 +402,7 @@
                     <%
                         }
                     %>
-                    </div>
+                </div>
                 <script>
                     $(document).ready(function () {
                         $('#usuario').DataTable({
@@ -451,94 +437,7 @@
                             }
                         });
                     });
-                </script>                    
-                <button class="abrir-registrar btn btn-primary" id="abrir-registrar">Registrar</button>
-                <div class="overlay " id="overlay">
-                    <form method="POST" action="Novedad" class="form-registro needs-validation" novalidate>
-                        <div class="tituloR">
-                            <a href="#" class="cerrar-registro" id="cerrar-registro"><i class="fas fa-times"></i></a>
-                            <h2>Registrar Novedad</h2>
-                        </div>
-                        <div class="cuerpo">
-                            <div class="formulario">
-
-                                <div class="col-md-6 ">
-
-                                    <label  for="validationTooltip01" class="form-label">Descripción:</label>
-                                    <input minlength="30" maxlength="60"  type="text" id="validationTooltip01" name="txtDescripcion" class="form-control" placeholder="Descripcion" required>
-                                    <div class="valid-feedback">
-                                        Correcto
-                                    </div>
-                                    <div class="invalid-feedback">
-                                        Por favor registre la descripcion  
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6 ">
-
-                                    <label for="validationTooltip04" class="col-form-label">Fecha inicio:</label>
-                                    <input required type="date" name="txtFechaInicio" class="form-control"  id="validationTooltip01" placeholder="Fecha Inicio" >
-                                    <div class="valid-feedback">
-                                        Correcto
-                                    </div>
-                                    <div class="invalid-feedback">
-                                        Por favor registre la fecha inicio  
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6 ">
-
-                                    <label for="validationTooltip04" class="col-form-label">Fecha fin:</label>
-                                    <input required type="date" name="txtFechaFin" class="form-control"  id="validationTooltip01" placeholder="Fecha Inicio" >
-                                    <div class="valid-feedback">
-                                        Correcto
-                                    </div>
-                                    <div class="invalid-feedback">
-                                        Por favor registre la fecha fin  
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6 ">
-
-                                    <label for="validationCustom04" class="col-form-label">Tipo de novedad:</label>
-                                    <select  id="validationCustom04"  name="txtTipoNovedad" class="form-control" required>
-                                        <option selected disabled value="">Tipo de Novedad</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                    </select>
-                                    <div class="valid-feedback">
-                                        Correcto
-                                    </div>
-                                    <div class="invalid-feedback">
-                                        Por favor selecciona el tipo de novedad 
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6 ">
-
-                                    <label for="validationCustom04" class="col-form-label">Id asistencia:</label>
-                                    <select  required id="validationCustom04"  name="txtAsistencia" class="form-control">
-                                        <option selected disabled value="">Id Asistencia</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                    </select>
-                                    <div class="valid-feedback">
-                                        Correcto
-                                    </div>
-                                    <div class="invalid-feedback">
-                                        Por favor selecciona el tipo de asistencia 
-                                    </div>
-                                </div>
-
-                                <div class="boton">
-                                    <input type="submit" id="btn" value="Registrar" class="btn btn-success">
-                                    <input type="hidden" value="1" name="opcion">
-                                </div>
-                            </div>
-                        </div>
-
-                    </form>
-                </div>
+                </script>                                                   
                 <% if (request.getAttribute("mensajeError") != null) {%>
                 <script  type="text/javascript">
 

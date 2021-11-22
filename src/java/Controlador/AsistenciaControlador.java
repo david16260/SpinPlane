@@ -43,12 +43,13 @@ public class AsistenciaControlador extends HttpServlet {
         String idUsuario = request.getParameter("txtIdUsuario");
         String idGrupo = request.getParameter("txtIdGrupo");
         String nombreUsuario = request.getParameter("txtNombreUsuario");
+        String apellidoUsuario = request.getParameter("txtApellidoUsuario");
         String nombreGrupo = request.getParameter("txtNombreGrupo");
 
         int opcion = Integer.parseInt(request.getParameter("opcion"));
 
         //paso 2- instanciar VO
-        AsistenciaVO AsiVO = new AsistenciaVO(idAsistencia, asistencia, fecha, idUsuario, idGrupo, nombreUsuario, nombreGrupo);
+        AsistenciaVO AsiVO = new AsistenciaVO(idAsistencia, asistencia, fecha, idUsuario, idGrupo, nombreUsuario, apellidoUsuario,nombreGrupo);
 
         //instanciar DAO
         AsistenciaDAO AsisDAO = new AsistenciaDAO(AsiVO);
@@ -68,7 +69,7 @@ public class AsistenciaControlador extends HttpServlet {
                 } else {
                     request.setAttribute("mensajeError", "La Asistencia no se actualizo corectamente");
                 }
-                request.getRequestDispatcher("actualizarAsistencia.jsp").forward(request, response);
+                request.getRequestDispatcher("consultarAsistencia.jsp").forward(request, response);
                 break;
             case 3: //consultar si ya se tomo asistencia ese dia
                 AsiVO = AsisDAO.listaAsistenciaAD(idGrupo);

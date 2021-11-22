@@ -4,6 +4,7 @@
     Author     : Sebas
 --%>
 
+<%@page import="java.util.Calendar"%>
 <%@page import="ModeloDAO.ClaseDAO"%>
 <%@page import="ModeloVO.ClaseVO"%>
 <%@page import="ModeloDAO.AulaDAO"%>
@@ -13,6 +14,8 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="ModeloDAO.HorarioDAO"%>
 <%@page import="ModeloVO.HorarioVO"%>
+<%@page import="java.time.LocalDate"%>
+
 <%@include file="Sesiones.jsp" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -301,10 +304,10 @@
                                 <td><a class="<%=HorVO.getEstado().equals("Activo") ? "btn btn-success  m-5" : "btn btn-danger  m-5"%>" style="padding-right: 10px;">
                                         <%=HorVO.getEstado()%>
                                     </a></td>  
-                                    
-                                    <%
-                                        if (tipoU.equals("Administrador")) {
-                                    %>
+
+                                <%
+                                    if (tipoU.equals("Administrador")) {
+                                %>
                                 <td>
                                     <%
                                         if (HorVO.getEstado().equals("Activo")) {
@@ -331,9 +334,9 @@
                                 <td>
                                     <a class="btn btn-info edit m-2 p-2"href="actualizarHorario.jsp?idHorario=<%=HorVO.getIdHorario()%>&fechaInicio=<%=HorVO.getFechaInicio()%>&fechaFin=<%=HorVO.getFechaFin()%>&dia=<%=HorVO.getDia()%>&horaInicio=<%=HorVO.getHoraInicio()%>&horaFin=<%=HorVO.getHoraFin()%>&idGrupo=<%=HorVO.getIdGrupo()%>&idAula=<%=HorVO.getIdAula()%>&idClase=<%=HorVO.getIdClase()%>&nomGrupo=<%=HorVO.getNombreGrupo()%>&nomClase=<%=HorVO.getNombreClase()%>&nomAula=<%=HorVO.getNombreAula()%>   "><i class="fas fa-pen"></i></a>
                                 </td>
-                                  <td>   
+                                <td>   
                                     <form action="generarReporteHorarioId.jsp" method="post" target="_blank">
-                    
+
                                         <select name="horario" hidden="">
                                             <option value="<%=HorVO.getIdHorario()%>"></option>
                                         </select>
@@ -363,16 +366,16 @@
                                 <th>Actualizar</th>
                                 <th>
                                     <form method="post" action="generarReportesHorario.jsp" target="_blank">
-                                    <input type="submit" value="Generar" class="btn btn-outline-info m-5">
-                                    <input type="hidden" value="Reportes/ReporteHorario.jasper" name="nombre">  
+                                        <input type="submit" value="Generar" class="btn btn-outline-info m-5">
+                                        <input type="hidden" value="Reportes/ReporteHorario.jasper" name="nombre">  
                                     </form>
                                 </th>
-                                    <%}%>
+                                <%}%>
                             </tr>
                         </tfoot>
                     </table>
                     <%}%>
-                    
+
                     <%
                         if (tipoU.equals("Estudiante")) {
                     %>
@@ -389,7 +392,7 @@
                                 <th>Hora Fin</th>
                                 <th>Estado</th>
                                 <th>Reporte</th>
-                                
+
                             </tr>
                         </thead>
                         <tbody>
@@ -415,7 +418,7 @@
                                     </a></td> 
                                 <td>   
                                     <form action="generarReporteHorarioId.jsp" method="post" target="_blank">
-                    
+
                                         <select name="horario" hidden="">
                                             <option value="<%=HorVO.getIdHorario()%>"></option>
                                         </select>
@@ -441,7 +444,7 @@
                         </tfoot>
                     </table>
                     <%}%>
-                    
+
                     <%
                         if (tipoU.equals("Profesor")) {
                     %>
@@ -458,7 +461,7 @@
                                 <th>Hora Fin</th>
                                 <th>Estado</th> 
                                 <th>Reporte</th>
-                                
+
                             </tr>
                         </thead>
                         <tbody>
@@ -482,9 +485,9 @@
                                 <td><a class="<%=HorVO.getEstado().equals("Activo") ? "btn btn-success  m-5" : "btn btn-danger  m-5"%>" style="padding-right: 10px;">
                                         <%=HorVO.getEstado()%>
                                     </a></td> 
-                                    <td>   
+                                <td>   
                                     <form action="generarReporteHorarioId.jsp" method="post" target="_blank">
-                    
+
                                         <select name="horario" hidden="">
                                             <option value="<%=HorVO.getIdHorario()%>" ></option>
                                         </select>
@@ -561,8 +564,10 @@
                             <div class="formulario">
 
                                 <div class="col-md-6 ">
+                                    <%LocalDate fechaHoy = LocalDate.now();%>
+
                                     <label for="validationTooltip04" class="col-form-label">Fecha inicio:</label>
-                                    <input type="date" name="txtFechaInicio" required class="form-control" id="validationTooltip01">
+                                    <input type="date" name="txtFechaInicio" min="<%=fechaHoy%>" required class="form-control" id="validationTooltip01">
                                     <div class="valid-feedback">
                                         Correcto
                                     </div>
@@ -573,7 +578,7 @@
 
                                 <div class="col-md-6 ">
                                     <label for="validationTooltip04" class="col-form-label">Fecha fin:</label>
-                                    <input type="date" name="txtFechaFin" required class="form-control" id="validationTooltip01">
+                                    <input type="date" name="txtFechaFin" min="" required class="form-control" id="validationTooltip01">
                                     <div class="valid-feedback">
                                         Correcto
                                     </div>
@@ -581,7 +586,15 @@
                                         Por favor registre la fecha de fin  
                                     </div>
                                 </div>
-
+                                    <script>
+                                        
+                                        let inicio = document.querySelector('[name="txtFechaInicio"]');                                    
+                                        let fin = document.querySelector('[name="txtFechaFin"]');
+                                         inicio.addEventListener('change',function (e){
+                                             console.log(this.value);
+                                             fin.setAttribute("min",this.value);
+                                        });
+                                    </script>
                                 <div class="col-md-6 ">
                                     <label for="validationCustom04" class="col-form-label">Dia:</label> 
                                     <select required id="validationCustom04" name="txtDia" class="form-control">
@@ -601,10 +614,9 @@
                                         Por favor selecciona el Dia 
                                     </div>
                                 </div>
-
                                 <div class="col-md-6 ">
                                     <label for="validationTooltip04" class="col-form-label">Hora inicio:</label>
-                                    <input type="date"  name="txtHoraInicio" required class="form-control" id="validationTooltip01" >
+                                    <input type="time" name="txtHoraInicio" required class="form-control"  >
                                     <div class="valid-feedback">
                                         Correcto
                                     </div>
@@ -612,10 +624,10 @@
                                         Por favor registre la hora de inicio 
                                     </div>
                                 </div>
-
+                                    
                                 <div class="col-md-6 ">
                                     <label for="validationTooltip04" class="col-form-label">Hora fin:</label>
-                                    <input type="date"  name="txtHoraFin" required class="form-control" id="validationTooltip01" >
+                                    <input type="time"  name="txtHoraFin" required class="form-control" id="validationTooltip01" >
                                     <div class="valid-feedback">
                                         Correcto
                                     </div>

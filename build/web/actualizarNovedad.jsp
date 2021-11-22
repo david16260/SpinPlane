@@ -65,14 +65,15 @@
     </head>
     <body>
         <%
-            String idnovedad = request.getParameter("idnovedad");
+            String idNovedad = request.getParameter("idnovedad");
             String descripcion = request.getParameter("descripcion");
-            String fechainicio = request.getParameter("fechainicio");
-            String fechafin = request.getParameter("fechafin");
-            String idtiponovedad = request.getParameter("idtiponovedad");
-            String idasistencia = request.getParameter("idasistencia");
-             String nomUsuario = request.getParameter("usuario");
-              String novedad = request.getParameter("novedad");
+            String idTipoNovedad = request.getParameter("idtiponovedad");
+            String idAsistencia = request.getParameter("idAsistencia");
+            String tipoNovedad = request.getParameter("novedad");
+            String fecha = request.getParameter("fecha");
+            String nombreUsuario = request.getParameter("nombreUsuario");
+            String apellidoUsuario = request.getParameter("apellidoUsuario");
+            String nombreGrupo = request.getParameter("grupo");
         %>
 
         <div class="wrapper">
@@ -86,12 +87,12 @@
                 -->
                 <%
                     String tipoU = usuVO.getIdTipoUsuario();
-                        if (tipoU.equals("Estudiante")|| tipoU.equals("Profesor")) {
-                    %>
-                    <script>
-                        window.location.href = "menu.jsp";
-                    </script>
-                    <%}%>
+                    if (tipoU.equals("Estudiante")) {
+                %>
+                <script>
+                    window.location.href = "menu.jsp";
+                </script>
+                <%}%>
                 <div class="sidebar-wrapper">
                     <div class="logo">
                         <a href="menu.jsp">
@@ -100,7 +101,7 @@
                     </div>
 
                     <%
-                        
+
                         if (tipoU.equals("Profesor")) {
                     %>
                     <ul class="nav">
@@ -259,13 +260,12 @@
                         </div>
                         <div class="cuerpo">
                             <div class="formulario">
-                                <input type="hidden" name="txtId" value="<%=idnovedad %>">
-                                <input type="hidden" name="txtAsistencia" value="<%=idasistencia %>">
-                                <input type="hidden" name="txtTipoNovedad" value="<%=idtiponovedad %>">
-                                
+                                <input type="hidden" name="txtId" value="<%=idNovedad%>">
+                                <input type="hidden" name="txtAsistencia" value="<%=idAsistencia%>">
+                                <input type="hidden" name="txtTipoNovedad" value="<%=idTipoNovedad%>">                                
                                 <div class="col-md-6 ">
                                     <label for="validationTooltip01" class="col-form-label">Estuadiante:</label>  
-                                    <input type="text" class="form-control" readonly="" value="<%=nomUsuario %>" id="validationTooltip01" name="txtNombreUsuario"  required >
+                                    <input type="text" class="form-control" readonly="" value="<%=nombreUsuario%> <%=apellidoUsuario%>" id="validationTooltip01" name="txtNombreUsuario"  required >
                                     <div class="valid-feedback">
                                         Correcto
                                     </div>
@@ -273,43 +273,9 @@
                                         Por favor selecciona el nombre de el Estudiante 
                                     </div>
                                 </div>
-                                
                                 <div class="col-md-6 ">
-                                    <label for="validationTooltip01" class="col-form-label">Tipo de Novedad:</label>  
-                                    <input type="text" class="form-control" readonly="" value="<%=novedad %>"  id="validationTooltip01" name="txtTipoNovedad" placeholder="Nombre" required >
-                                    <div class="valid-feedback">
-                                        Correcto
-                                    </div>
-                                    <div class="invalid-feedback">
-                                        Por favor selecciona el tipo de novedad 
-                                    </div>
-                                </div>
-                                
-                                <div class="col-md-6 ">
-                                    <label for="validationTooltip01" class="col-form-label">Descripción:</label>          
-                                    <input type="text" class="form-control" id="validationTooltip01" name="txtDescripcion" value="<%=descripcion %>" placeholder="Nombre" required>
-                                    <div class="valid-feedback">
-                                        Correcto
-                                    </div>
-                                    <div class="invalid-feedback">
-                                        Por favor registre la descripcion  
-                                    </div>
-                                </div>
-                                
-                                <div class="col-md-6 ">
-                                    <label for="validationTooltip01" rea  class="col-form-label">Fecha Inicio:</label>  
-                                    <input type="date" class="form-control" readonly="" value="<%=fechainicio %>" id="validationTooltip01" name="txtFechaInicio"  required >
-                                    <div class="valid-feedback">
-                                        Correcto
-                                    </div>
-                                    <div class="invalid-feedback">
-                                        Por favor registre la fecha inicio  
-                                    </div>
-                                </div>
-                                
-                                <div class="col-md-6 ">
-                                    <label for="validationTooltip01" class="col-form-label">Fecha fin:</label>  
-                                    <input type="date" class="form-control" readonly="" value="<%=fechafin %>" id="validationTooltip01" name="txtFechaFin" placeholder="Nombre" required >
+                                    <label for="validationTooltip01" class="col-form-label">Grupo:</label>  
+                                    <input type="text" class="form-control" readonly="" value="<%=nombreGrupo%>" id="validationTooltip01" name="txtFechaFin" placeholder="Nombre" required >
                                     <div class="valid-feedback">
                                         Correcto
                                     </div>
@@ -317,9 +283,36 @@
                                         Por favor registre la fecha fin  
                                     </div>
                                 </div>
-                                
-     
-                             
+                                <div class="col-md-6 ">
+                                    <label for="validationTooltip01" class="col-form-label">Tipo de Novedad:</label>  
+                                    <input type="text" class="form-control" readonly="" value="<%=tipoNovedad%>"  id="validationTooltip01" name="txtTipoNovedad" placeholder="Nombre" required >
+                                    <div class="valid-feedback">
+                                        Correcto
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Por favor selecciona el tipo de novedad 
+                                    </div>
+                                </div>
+                                <div class="col-md-6 ">
+                                    <label for="validationTooltip01" rea  class="col-form-label">Fecha:</label>  
+                                    <input type="date" class="form-control" readonly="" value="<%=fecha%>" id="validationTooltip01" name="txtFechaInicio"  required >
+                                    <div class="valid-feedback">
+                                        Correcto
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Por favor registre la fecha inicio  
+                                    </div>
+                                </div>
+                                <div class="col-md-6 ">
+                                    <label for="validationTooltip01" class="col-form-label">Descripción:</label>          
+                                    <input type="text" class="form-control" id="validationTooltip01" name="txtDescripcion" value="<%=descripcion%>" placeholder="Nombre" required>
+                                    <div class="valid-feedback">
+                                        Correcto
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Por favor registre la descripcion  
+                                    </div>
+                                </div>
                                 <div class="boton">
                                     <input type="submit" id="btn" value="Actualizar" class="btn btn-success">
                                     <input type="hidden" value="2" name="opcion">
@@ -329,7 +322,7 @@
                     </form>
                 </div>
 
-               
+
                 <% if (request.getAttribute("mensajeError") != null) {%>
                 <script  type="text/javascript">
 
@@ -365,7 +358,7 @@
 
 
 
-                
+
                 <script src="Js/consutarUsuario.js" type="text/javascript"></script>
 
 
@@ -382,27 +375,27 @@
         </div>
         <script>
 
-            // Example starter JavaScript for disabling form submissions if there are invalid fields
-                    (function () {
-                        'use strict'
+                    // Example starter JavaScript for disabling form submissions if there are invalid fields
+                            (function () {
+                                'use strict'
 
-                        // Fetch all the forms we want to apply custom Bootstrap validation styles to
-                        var forms = document.querySelectorAll('.needs-validation')
+                                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                                var forms = document.querySelectorAll('.needs-validation')
 
-                        // Loop over them and prevent submission
-                        Array.prototype.slice.call(forms)
-                                .forEach(function (form) {
-                                    form.addEventListener('submit', function (event) {
-                                        if (!form.checkValidity()) {
-                                            event.preventDefault()
-                                            event.stopPropagation()
-                                        }
+                                // Loop over them and prevent submission
+                                Array.prototype.slice.call(forms)
+                                        .forEach(function (form) {
+                                            form.addEventListener('submit', function (event) {
+                                                if (!form.checkValidity()) {
+                                                    event.preventDefault()
+                                                    event.stopPropagation()
+                                                }
 
-                                        form.classList.add('was-validated')
-                                    }, false)
-                                })
-                    })()
-</script>
+                                                form.classList.add('was-validated')
+                                            }, false)
+                                        })
+                            })()
+        </script>
 
     </body>
     <!--   Core JS Files   -->

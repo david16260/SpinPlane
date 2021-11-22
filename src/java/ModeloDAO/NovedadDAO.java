@@ -30,7 +30,7 @@ public class NovedadDAO extends Conexion implements Crud{
     
     private String sql;
     
-    private String  idNovedad = "", descripcion = "", fechaInicio  = "", nombreUsuario="", apellidoUsuario="", fechaFin="", idTipoNovedad = "" ,idAsistencia = "", idUsuario,idGrupo;
+    private String idNovedad ="", descripcion="", idTipoNovedad="", tipoNovedad="", idAsistencia="", fecha="",nombreUsuario="",apellidoUsuario="",nombreGrupo="";
      
     public NovedadDAO(NovedadVO NovVO){
      
@@ -39,14 +39,13 @@ public class NovedadDAO extends Conexion implements Crud{
             conexion = this.obtenerConexion();
             idNovedad = NovVO.getIdNovedad();
             descripcion =NovVO.getDescripcion();
-            fechaInicio =NovVO.getFechaInicio();
-            fechaFin =NovVO.getFechaFin();
-            idTipoNovedad=NovVO.getIdTipoNovedad();
+            fecha =NovVO.getFecha();
             idAsistencia=NovVO.getIdAsistencia();
-            idUsuario=NovVO.getIdUsuario();
+            idTipoNovedad=NovVO.getIdTipoNovedad();
+            tipoNovedad=NovVO.getIdTipoNovedad();        
             nombreUsuario=NovVO.getNombreUsuario();
             apellidoUsuario=NovVO.getApellidoUsuario();
-            idGrupo=NovVO.getIdGrupo();
+            nombreGrupo=NovVO.getNombreGrupo();
         } catch (Exception e) {
             Logger.getLogger(AulaDAO.class.getName()).log(Level.SEVERE, null, e);
         }
@@ -56,14 +55,12 @@ public class NovedadDAO extends Conexion implements Crud{
     public boolean agregarRegistro() {
     
         try {
-            sql = "call agregarNovedad(?,?,?,?,?,?)";
+            sql = "call agregarNovedad(?,?,?,?)";
             puente = conexion.prepareStatement(sql);
             puente.setString(1, idNovedad);
-            puente.setString(2, descripcion);
-            puente.setString(3, fechaInicio);
-            puente.setString(4, fechaFin);
-            puente.setString(5, idTipoNovedad);
-            puente.setString(6, idAsistencia);
+            puente.setString(2, descripcion);         
+            puente.setString(3, idTipoNovedad);
+            puente.setString(4, idAsistencia);
             puente.executeUpdate();
             operacion = true;
         } catch (SQLException e) {
@@ -81,14 +78,10 @@ public class NovedadDAO extends Conexion implements Crud{
     @Override
     public boolean actualizarRegistro() {
         try {
-            sql = "call actualizarNovedad(?,?,?,?,?,?)";
+            sql = "call actualizarNovedad(?,?)";
             puente = conexion.prepareStatement(sql);
-            puente.setString(1, descripcion);
-            puente.setString(2, fechaInicio);
-            puente.setString(3, fechaFin);
-            puente.setString(4, idTipoNovedad);
-            puente.setString(5, idAsistencia);
-            puente.setString(6, idNovedad);
+            puente.setString(1, descripcion);                        
+            puente.setString(2, idNovedad);
             puente.executeUpdate();
             operacion = true;
         } catch (SQLException e) {
