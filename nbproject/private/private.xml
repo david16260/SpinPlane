@@ -2,6 +2,12 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/Julian/Documents/NetBeansProjects/academia/Academia/SpinPlane/src/java/ModeloVO/UsuarioVO.java</file>
+            <file>file:/C:/Users/Julian/Documents/NetBeansProjects/academia/Academia/SpinPlane/src/java/Controlador/UsuarioControlador.java</file>
+            <file>file:/C:/Users/Julian/Documents/NetBeansProjects/academia/Academia/SpinPlane/src/java/Util/Crud.java</file>
+            <file>file:/C:/Users/Julian/Documents/NetBeansProjects/academia/Academia/SpinPlane/src/java/ModeloDAO/UsuarioDAO.java</file>
+            <file>file:/C:/Users/Julian/Documents/NetBeansProjects/academia/Academia/SpinPlane/web/consultarUsuario.jsp</file>
+        </group>
     </open-files>
 </project-private>

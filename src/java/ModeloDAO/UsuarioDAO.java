@@ -77,7 +77,6 @@ public class UsuarioDAO extends Conexion implements Crud {
         } finally {
             try {
                 this.cerrarConexion();
-
             } catch (SQLException e) {
             }
         }
