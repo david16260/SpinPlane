@@ -11,7 +11,12 @@ public class NovedadVO {
 
     public NovedadVO() {
     }        
-    
+
+    public NovedadVO(String idNovedad, String descripcion) {
+        this.idNovedad = idNovedad;
+        this.descripcion = descripcion;
+    }
+            
     public NovedadVO(String idNovedad, String descripcion, String idTipoNovedad, String tipoNovedad, String idAsistencia, String fecha, String nombreUsuario, String apellidoUsuario, String nombreGrupo) {
         this.idNovedad = idNovedad;
         this.descripcion = descripcion;

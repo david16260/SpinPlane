@@ -49,7 +49,7 @@ public class AsistenciaControlador extends HttpServlet {
         int opcion = Integer.parseInt(request.getParameter("opcion"));
 
         //paso 2- instanciar VO
-        AsistenciaVO AsiVO = new AsistenciaVO(idAsistencia, asistencia, fecha, idUsuario, idGrupo, nombreUsuario, apellidoUsuario,nombreGrupo);
+        AsistenciaVO AsiVO = new AsistenciaVO(idAsistencia, asistencia, fecha, idUsuario, nombreUsuario, apellidoUsuario,idGrupo,nombreGrupo);
 
         //instanciar DAO
         AsistenciaDAO AsisDAO = new AsistenciaDAO(AsiVO);
