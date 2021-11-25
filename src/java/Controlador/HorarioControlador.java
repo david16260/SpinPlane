@@ -50,19 +50,23 @@ public class HorarioControlador extends HttpServlet {
         String nombreClase = request.getParameter("txtNombreClase");
 
         int opcion = Integer.parseInt(request.getParameter("opcion"));
+        int opcionR = 4;
         //Instanciar el VO
         HorarioVO HorVO = new HorarioVO(idHorario, fechaInicio, fechaFin, dia, horaInicio, horaFin, estado, idGrupo, idAula, idClase, nombreGrupo, nombreAula, nombreClase);
         //Instanciar el DAO
         HorarioDAO HorDAO = new HorarioDAO(HorVO);
         switch (opcion) {
-            case 1://Agregar Registro
+            case 4://Agregar Registro
+
                 if (HorDAO.agregarRegistro()) {
-                    request.setAttribute("mensajeExito", "El Horario se registro corectamente");
+                    request.setAttribute("mensajeExito", "Se registro correctamente");
                 } else {
-                    request.setAttribute("mensajeError", "El Horario no se  corectamente");
+                    request.setAttribute("mensajeError", "El Horario no se registro corectamente");
                 }
+
                 request.getRequestDispatcher("consultarHorario.jsp").forward(request, response);
                 break;
+
             case 2://Actualizar Registro
                 if (HorDAO.actualizarRegistro()) {
                     request.setAttribute("mensajeExito", "El Horario se actualizo corectamente");
@@ -79,9 +83,7 @@ public class HorarioControlador extends HttpServlet {
                 }
                 request.getRequestDispatcher("consultarHorario.jsp").forward(request, response);
                 break;
-                
-          
-            
+
         }
     }
 
