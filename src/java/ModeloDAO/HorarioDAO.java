@@ -53,24 +53,7 @@ public class HorarioDAO extends Conexion implements Crud {
     @Override
     public boolean agregarRegistro() {
         try {
-            conexion = this.obtenerConexion();
-            sql = "SELECT fechaInicio, fechaFin FROM horario WHERE fechaInicio=? AND fechaFin=?";
-            puente = conexion.prepareStatement(sql);
-            puente.setString(1, fechaInicio);
-            puente.setString(2, fechaFin);
-            mensajero = puente.executeQuery();
-            if (mensajero.next()) {
-                operacion = true;
-                try {
-                    this.cerrarConexion();
-
-                } catch (SQLException e) {
-                }
-                return operacion;
-            } else if (mensajero.next()) {
-                operacion=false;
-            }
-                sql = "call agregarHorario(?,?,?,?,?,?,?,?,?,?)";
+            sql = "call agregarHorario(?,?,?,?,?,?,?,?,?,?)";
                 puente = conexion.prepareStatement(sql);
                 puente.setString(1, idHorario);
                 puente.setString(2, fechaInicio);
@@ -84,67 +67,96 @@ public class HorarioDAO extends Conexion implements Crud {
                 puente.setString(10, idClase);
                 puente.executeUpdate();
                 operacion = true;
-        } catch (SQLException e) {
-            Logger.getLogger(HorarioDAO.class.getName()).log(Level.SEVERE, null, e);
-        } finally {
-            try {
-                this.cerrarConexion();
-
             } catch (SQLException e) {
+                Logger.getLogger(HorarioDAO.class.getName()).log(Level.SEVERE, null, e);
+            } finally {
+                try {
+                    this.cerrarConexion();
+
+                } catch (SQLException e) {
+                }
             }
             return operacion;
-                
+            
         }
-    }
-
-    @Override
-    public boolean actualizarRegistro() {
+    public boolean validarFecha() {
         try {
-            sql = "call actualizarHorario(?,?,?,?,?,?,?,?,?)";
+            conexion = this.obtenerConexion();
+            sql = "SELECT fechaInicio, fechaFin FROM horario WHERE fechaInicio=? AND fechaFin=?";
             puente = conexion.prepareStatement(sql);
             puente.setString(1, fechaInicio);
             puente.setString(2, fechaFin);
-            puente.setString(3, dia);
-            puente.setString(4, horaInicio);
-            puente.setString(5, horaFin);
-            puente.setString(6, idGrupo);
-            puente.setString(7, idAula);
-            puente.setString(8, idClase);
-            puente.setString(9, idHorario);
-            puente.executeUpdate();
-            operacion = true;
-        } catch (SQLException e) {
-            Logger.getLogger(GrupoDAO.class.getName()).log(Level.SEVERE, null, e);
-        } finally {
+            mensajero = puente.executeQuery();
+            if (mensajero.next()) {
+                operacion = true;
+            }
+        }catch (SQLException e) {
+            Logger.getLogger(HorarioDAO.class.getName()).log(Level.SEVERE, null, e);
+        }finally {
             try {
                 this.cerrarConexion();
 
             } catch (SQLException e) {
             }
         }
-        return operacion;
-    }
+            return operacion;
+            
+        }
 
-    @Override
-    public boolean cambiarEstado() {
+        @Override
+        public boolean actualizarRegistro
+        
+            () {
         try {
-            sql = "call cambiarEstadoHorario(?,?)";
-            puente = conexion.prepareStatement(sql);
-            puente.setString(1, estado);
-            puente.setString(2, idHorario);
-            puente.executeUpdate();
-            operacion = true;
-        } catch (SQLException e) {
-            Logger.getLogger(GrupoDAO.class.getName()).log(Level.SEVERE, null, e);
-        } finally {
-            try {
-                this.cerrarConexion();
-
+                sql = "call actualizarHorario(?,?,?,?,?,?,?,?,?)";
+                puente = conexion.prepareStatement(sql);
+                puente.setString(1, fechaInicio);
+                puente.setString(2, fechaFin);
+                puente.setString(3, dia);
+                puente.setString(4, horaInicio);
+                puente.setString(5, horaFin);
+                puente.setString(6, idGrupo);
+                puente.setString(7, idAula);
+                puente.setString(8, idClase);
+                puente.setString(9, idHorario);
+                puente.executeUpdate();
+                operacion = true;
             } catch (SQLException e) {
+                Logger.getLogger(GrupoDAO.class.getName()).log(Level.SEVERE, null, e);
+            } finally {
+                try {
+                    this.cerrarConexion();
+
+                } catch (SQLException e) {
+                }
             }
+            return operacion;
         }
-        return operacion;
-    }
+
+        @Override
+        public boolean cambiarEstado
+        
+            () {
+        try {
+                sql = "call cambiarEstadoHorario(?,?)";
+                puente = conexion.prepareStatement(sql);
+                puente.setString(1, estado);
+                puente.setString(2, idHorario);
+                puente.executeUpdate();
+                operacion = true;
+            } catch (SQLException e) {
+                Logger.getLogger(GrupoDAO.class.getName()).log(Level.SEVERE, null, e);
+            } finally {
+                try {
+                    this.cerrarConexion();
+
+                } catch (SQLException e) {
+                }
+            }
+            return operacion;
+        }
+
+    
 
     public ArrayList<HorarioVO> listar() {
 

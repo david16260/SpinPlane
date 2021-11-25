@@ -95,6 +95,7 @@
 
                     <%
                         String tipoU = usuVO.getIdTipoUsuario();
+
                         if (tipoU.equals("Profesor")) {
                     %>
                     <ul class="nav">
@@ -288,6 +289,7 @@
                                 HorarioVO HorVO = new HorarioVO();
                                 HorarioDAO HorDAO = new HorarioDAO(HorVO);
                                 ArrayList<HorarioVO> listaHorario = HorDAO.listar();
+
                                 for (int i = 0; i < listaHorario.size(); i++) {
 
                                     HorVO = listaHorario.get(i);
@@ -297,56 +299,57 @@
                                 <td><%=HorVO.getNombreAula()%></td>
                                 <td><%=HorVO.getNombreClase()%></td>
                                 <td><%=HorVO.getFechaInicio()%></td>
-                                <td><%=HorVO.getFechaFin()%></td>
-                                <td><%=HorVO.getDia()%></td>
-                                <td><%=HorVO.getHoraInicio()%></td>
-                                <td><%=HorVO.getHoraFin()%></td>
-                                <td><a class="<%=HorVO.getEstado().equals("Activo") ? "btn btn-success  m-5" : "btn btn-danger  m-5"%>" style="padding-right: 10px;">
-                                        <%=HorVO.getEstado()%>
-                                    </a></td>  
+                        <input type="hidden" class="Fechas" value="<%=HorVO.getFechaInicio()%>,<%=HorVO.getFechaFin()%>">
+                        <td><%=HorVO.getFechaFin()%></td>
+                        <td><%=HorVO.getDia()%></td>
+                        <td><%=HorVO.getHoraInicio()%></td>
+                        <td><%=HorVO.getHoraFin()%></td>
+                        <td><a class="<%=HorVO.getEstado().equals("Activo") ? "btn btn-success  m-5" : "btn btn-danger  m-5"%>" style="padding-right: 10px;">
+                                <%=HorVO.getEstado()%>
+                            </a></td>  
 
-                                <%
-                                    if (tipoU.equals("Administrador")) {
-                                %>
-                                <td>
-                                    <%
-                                        if (HorVO.getEstado().equals("Activo")) {
-                                    %>
-                                    <form method="POST" action="Horario">
-                                        <input type="hidden" name="txtId" value="<%=HorVO.getIdHorario()%>">
-                                        <input type="hidden" name="txtEstado" value="Inactivo">
-                                        <button class="btn btn-info edit m-2 p-2" type="submit"><i class="fas fa-pen"></i></button>
-                                        <input type="hidden" name="opcion" value="3">
-                                    </form>
-                                    <%
-                                    } else {
-                                    %>
-                                    <form method="POST" action="Horario">
-                                        <input type="hidden" name="txtId" value="<%=HorVO.getIdHorario()%>">
-                                        <input type="hidden" name="txtEstado" value="Activo">
-                                        <button class="btn btn-info edit m-2 p-2" type="submit"><i class="fas fa-pen"></i></button>
-                                        <input type="hidden" name="opcion" value="3">
-                                    </form>
-                                    <%
-                                        }
-                                    %>
-                                </td>
-                                <td>
-                                    <a class="btn btn-info edit m-2 p-2"href="actualizarHorario.jsp?idHorario=<%=HorVO.getIdHorario()%>&fechaInicio=<%=HorVO.getFechaInicio()%>&fechaFin=<%=HorVO.getFechaFin()%>&dia=<%=HorVO.getDia()%>&horaInicio=<%=HorVO.getHoraInicio()%>&horaFin=<%=HorVO.getHoraFin()%>&idGrupo=<%=HorVO.getIdGrupo()%>&idAula=<%=HorVO.getIdAula()%>&idClase=<%=HorVO.getIdClase()%>&nomGrupo=<%=HorVO.getNombreGrupo()%>&nomClase=<%=HorVO.getNombreClase()%>&nomAula=<%=HorVO.getNombreAula()%>   "><i class="fas fa-pen"></i></a>
-                                </td>
-                                <td>   
-                                    <form action="generarReporteHorarioId.jsp" method="post" target="_blank">
+                        <%
+                            if (tipoU.equals("Administrador")) {
+                        %>
+                        <td>
+                            <%
+                                if (HorVO.getEstado().equals("Activo")) {
+                            %>
+                            <form method="POST" action="Horario">
+                                <input type="hidden" name="txtId" value="<%=HorVO.getIdHorario()%>">
+                                <input type="hidden" name="txtEstado" value="Inactivo">
+                                <button class="btn btn-info edit m-2 p-2" type="submit"><i class="fas fa-pen"></i></button>
+                                <input type="hidden" name="opcion" value="3">
+                            </form>
+                            <%
+                            } else {
+                            %>
+                            <form method="POST" action="Horario">
+                                <input type="hidden" name="txtId" value="<%=HorVO.getIdHorario()%>">
+                                <input type="hidden" name="txtEstado" value="Activo">
+                                <button class="btn btn-info edit m-2 p-2" type="submit"><i class="fas fa-pen"></i></button>
+                                <input type="hidden" name="opcion" value="3">
+                            </form>
+                            <%
+                                }
+                            %>
+                        </td>
+                        <td>
+                            <a class="btn btn-info edit m-2 p-2"href="actualizarHorario.jsp?idHorario=<%=HorVO.getIdHorario()%>&fechaInicio=<%=HorVO.getFechaInicio()%>&fechaFin=<%=HorVO.getFechaFin()%>&dia=<%=HorVO.getDia()%>&horaInicio=<%=HorVO.getHoraInicio()%>&horaFin=<%=HorVO.getHoraFin()%>&idGrupo=<%=HorVO.getIdGrupo()%>&idAula=<%=HorVO.getIdAula()%>&idClase=<%=HorVO.getIdClase()%>&nomGrupo=<%=HorVO.getNombreGrupo()%>&nomClase=<%=HorVO.getNombreClase()%>&nomAula=<%=HorVO.getNombreAula()%>   "><i class="fas fa-pen"></i></a>
+                        </td>
+                        <td>   
+                            <form action="generarReporteHorarioId.jsp" method="post" target="_blank">
 
-                                        <select name="horario" hidden="">
-                                            <option value="<%=HorVO.getIdHorario()%>"></option>
-                                        </select>
-                                        <input type="submit" value="Generar" class="btn btn-outline-info m-5">
-                                        <input type="hidden" value="Reportes/ReporteHorarioId.jasper" name="nombre">   
-                                    </form>
-                                </td>
-                                <%}%>
-                            </tr>
-                            <%}%>                             
+                                <select name="horario" hidden="">
+                                    <option value="<%=HorVO.getIdHorario()%>"></option>
+                                </select>
+                                <input type="submit" value="Generar" class="btn btn-outline-info m-5">
+                                <input type="hidden" value="Reportes/ReporteHorarioId.jasper" name="nombre">   
+                            </form>
+                        </td>
+                        <%}%>
+                        </tr>
+                        <%}%>                             
                         </tbody>
                         <tfoot>
                             <tr>     
@@ -564,8 +567,11 @@
                             <div class="formulario">
 
                                 <div class="col-md-6 ">
-                                    <%LocalDate fechaHoy = LocalDate.now();%>
-
+                                    <%LocalDate fechaHoy = LocalDate.now();
+                                        Calendar calendario = Calendar.getInstance();
+                                        int hora = calendario.get(Calendar.HOUR);
+                                        int minutos = calendario.get(Calendar.MINUTE);
+                                    %>
                                     <label for="validationTooltip04" class="col-form-label">Fecha inicio:</label>
                                     <input type="date" name="txtFechaInicio" min="<%=fechaHoy%>" required class="form-control" id="validationTooltip01">
                                     <div class="valid-feedback">
@@ -586,15 +592,46 @@
                                         Por favor registre la fecha de fin  
                                     </div>
                                 </div>
-                                    <script>
-                                        
-                                        let inicio = document.querySelector('[name="txtFechaInicio"]');                                    
-                                        let fin = document.querySelector('[name="txtFechaFin"]');
-                                         inicio.addEventListener('change',function (e){
-                                             console.log(this.value);
-                                             fin.setAttribute("min",this.value);
-                                        });
-                                    </script>
+
+                                <script>
+
+                                    let inicio = document.querySelector('[name="txtFechaInicio"]');
+                                    let fin = document.querySelector('[name="txtFechaFin"]');
+                                    let inputFechas = document.querySelectorAll(".Fechas");
+                                    let Fechas = [];
+
+                                    inputFechas.forEach(function (elemento) {
+                                        Fechas.push(elemento.value)
+                                    });
+                                    console.log(Fechas);
+                                    inicio.addEventListener('change', function (e) {
+                                        console.log(this.value);
+                                        fin.setAttribute("min", this.value);
+                                        event.preventDefault();
+
+                                    });
+                                    fin.addEventListener('change', function (e) {
+                                        let fechasTotal = inicio.value + "," + fin.value;
+                                        console.log(fechasTotal);
+                                        if (Fechas.includes(fechasTotal)) {
+                                        swal({
+                                        title: "Informacion!",
+                                                text: "Las fechas elejidas ya no estan disponibles",
+                                                type: 'info',
+                                                confirmButtonClass: "btn-primary",
+                                                confirmButtonText: "OK",
+                                                closeOnConfirm: false
+                                            },
+                                                function () {
+                                                window.location = "consultarHorario.jsp";
+                                                });
+                                        }
+                                        event.preventDefault();
+
+                                    });
+
+
+                                </script>
                                 <div class="col-md-6 ">
                                     <label for="validationCustom04" class="col-form-label">Dia:</label> 
                                     <select required id="validationCustom04" name="txtDia" class="form-control">
@@ -614,9 +651,10 @@
                                         Por favor selecciona el Dia 
                                     </div>
                                 </div>
+
                                 <div class="col-md-6 ">
                                     <label for="validationTooltip04" class="col-form-label">Hora inicio:</label>
-                                    <input type="time" name="txtHoraInicio" required class="form-control"  >
+                                    <input type="time" name="txtHoraInicio" min="" required class="form-control"  >
                                     <div class="valid-feedback">
                                         Correcto
                                     </div>
@@ -624,7 +662,7 @@
                                         Por favor registre la hora de inicio 
                                     </div>
                                 </div>
-                                    
+
                                 <div class="col-md-6 ">
                                     <label for="validationTooltip04" class="col-form-label">Hora fin:</label>
                                     <input type="time"  name="txtHoraFin" required class="form-control" id="validationTooltip01" >
@@ -718,7 +756,7 @@
                                 </div>
                                 <div class="boton">
                                     <input type="submit" id="btn" value="Registrar" class="btn btn-success">
-                                    <input type="hidden" value="1" name="opcion">
+                                    <input type="hidden" value="4" name="opcion">
                                 </div>
                             </div>
                         </div>
@@ -737,7 +775,7 @@
                         closeOnConfirm: false
                     },
                             function () {
-                                window.location = "actualizarHorario.jsp";
+                                window.location = "consultarHorario.jsp";
                             });
                 </script>
 
@@ -790,6 +828,7 @@
                                             }, false)
                                         })
                             })()
+
         </script>
     </body>
     <!--   Core JS Files   -->
