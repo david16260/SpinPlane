@@ -95,11 +95,44 @@ public class NovedadDAO extends Conexion implements Crud{
         }
         return operacion;
     }
-
+    
     @Override
     public boolean cambiarEstado() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    
+    public  ArrayList<NovedadVO> listarH(String idAsistencia){
+        
+        ArrayList<NovedadVO>listaNovedadH = new ArrayList<>();
+        
+        
+        try {
+            conexion= this.obtenerConexion();
+            sql="call novedadAsistencia(?)";
+            puente = conexion.prepareStatement(sql);
+            puente.setString(1, idAsistencia);
+            mensajero = puente.executeQuery();
+            while (mensajero.next()) {
+                
+                NovedadVO AuVO= new NovedadVO(mensajero.getString(1),mensajero.getString(2));
+                
+                   listaNovedadH.add(AuVO);
+            }
+        
+        } catch (Exception e) {
+              Logger.getLogger(NovedadDAO.class.getName()).log(Level.SEVERE, null, e);
+        }finally {
+            try {
+                this.cerrarConexion();
+                
+            } catch (SQLException e) {
+              Logger.getLogger(NovedadDAO.class.getName()).log(Level.SEVERE, null, e);
+            }
+        }
+        return listaNovedadH;
+        
+    }        
+    
     public  ArrayList<NovedadVO> listar(){
         
         ArrayList<NovedadVO>listaNovedad = new ArrayList<>();

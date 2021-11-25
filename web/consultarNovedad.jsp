@@ -262,8 +262,7 @@
                                 <th>Tipo de Novedad</th>
                                 <th>Descripcion</th>
                                 <th>Fecha</th>
-                                <th>Grupo</th>
-                                <th>Actualizar</th>
+                                <th>Grupo</th>                                
                             </tr>
                         </thead>
                         <tbody>
@@ -280,10 +279,7 @@
                                 <td><%=NovVO.getTipoNovedad()%></td>
                                 <td><%=NovVO.getDescripcion()%></td>
                                 <td><%=NovVO.getFecha()%></td>
-                                <td><%=NovVO.getNombreGrupo()%></td>                                                                                        
-                                <td>
-                                    <a class="btn btn-primary edit"href="actualizarNovedad.jsp?idnovedad=<%=NovVO.getIdNovedad()%>&descripcion=<%=NovVO.getDescripcion()%>&idtiponovedad=<%=NovVO.getIdTipoNovedad()%>&idAsistencia=<%=NovVO.getIdAsistencia()%>&nombreUsuario=<%=NovVO.getNombreUsuario()%>&apellidoUsuario=<%=NovVO.getApellidoUsuario()%>&novedad=<%=NovVO.getTipoNovedad()%>&fecha=<%=NovVO.getFecha()%>&grupo=<%=NovVO.getNombreGrupo()%>"><i class="fas fa-pen"></i></a>
-                                </td>
+                                <td><%=NovVO.getNombreGrupo()%></td>                                                                                                                        
                             </tr>
 
                             <%}%>  
@@ -295,8 +291,7 @@
                                 <th>Tipo de Novedad</th>
                                 <th>Descripcion</th>
                                 <th>Fecha</th>
-                                <th>Grupo</th>
-                                <th>Actualizar</th>
+                                <th>Grupo</th>                                
                             </tr>
                         </tfoot>
                     </table>

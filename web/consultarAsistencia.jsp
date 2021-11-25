@@ -1,9 +1,11 @@
-    <%-- 
-    Document   : conultarClase.jsp
-    Created on : 25/06/2021, 02:40:36 PM
-    Author     : Yurny
+<%-- 
+Document   : conultarClase.jsp
+Created on : 25/06/2021, 02:40:36 PM
+Author     : Yurny
 --%>
 
+<%@page import="ModeloDAO.NovedadDAO"%>
+<%@page import="ModeloVO.NovedadVO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="ModeloDAO.GrupoDAO"%>
 <%@page import="ModeloVO.GrupoVO"%>
@@ -267,9 +269,7 @@
                                 <th>Estudiante</th>
                                 <th>Grupo</th>
                                 <th>Fecha</th>
-                                <th>Asistencia</th>                                                                                                
-                                <th>Actualizar</th> 
-                                <th>Novedad</th>
+                                <th>Asistencia</th>                                                                                                                                
                             </tr>
                         </thead>
                         <tbody>
@@ -285,25 +285,7 @@
                                 <td><%=AsisVO.getNombreUsuario()%> <%=AsisVO.getApellidoUsuario()%></td>
                                 <td><%=AsisVO.getNombreGrupo()%></td>
                                 <td><%=AsisVO.getFecha()%></td>
-                                <td><%=AsisVO.getAsistencia()%></td>                                                                                               
-                                <%
-                                    if (tipoU.equals("Administrador")) {
-                                %>
-                                <td>
-                                    <a class="btn btn-info edit m-6 p-2"href="actualizarAsistencia.jsp?idAsistencia=<%=AsisVO.getIdAsistencia()%>&asistencia=<%=AsisVO.getAsistencia()%>&fecha=<%=AsisVO.getFecha()%>&usuario=<%=AsisVO.getNombreUsuario()%>&grupo=<%=AsisVO.getNombreGrupo()%>&idUsuario=<%=AsisVO.getIdUsuario()%>&idGrupo=<%=AsisVO.getIdGrupo()%>"><i class="fas fa-pen"></i></a>
-                                </td>
-                                <%
-                                    }
-                                    if (AsisVO.getAsistencia().equals("No")) {
-                                %>
-                                <td>
-                                    <a class="btn btn-info edit m-6 p-2"href="registrarNovedad.jsp?idAsistencia=<%=AsisVO.getIdAsistencia()%>&fecha=<%=AsisVO.getFecha()%>&nombreUsuario=<%=AsisVO.getNombreUsuario()%>&apellidoUsuario=<%=AsisVO.getApellidoUsuario()%>&grupo=<%=AsisVO.getNombreGrupo()%>"><i class="fas fa-pen"></i></a>
-                                </td>
-                                <%
-                                } else {
-                                %>
-                                <td></td>
-                                <%}%>
+                                <td><%=AsisVO.getAsistencia()%></td>                                                                                                                               
                             </tr>
                             <%}%>  
                         </tbody>
@@ -312,9 +294,7 @@
                                 <th>Estudiante</th>
                                 <th>Grupo</th>
                                 <th>Fecha</th>
-                                <th>Asistencia</th>                                                                                                
-                                <th>Actualizar</th> 
-                                <th>Novedad</th>                                 
+                                <th>Asistencia</th>                                                                                                                                                                
                             </tr>
                         </tfoot>
                     </table>
@@ -392,18 +372,31 @@
                                 <%
                                     if (AsisVO.getAsistencia().equals("No")) {
                                 %>
+                                <%
+                                    NovedadVO NovVO = new NovedadVO();
+                                    NovedadDAO NovDAO = new NovedadDAO(NovVO);
+                                    ArrayList<NovedadVO> listaAsistenciaH = NovDAO.listarH(AsisVO.getIdAsistencia());
+                                    if (listaAsistenciaH.size() > 0) {
+                                %>
+                                <td>                                    
+                                    <p>Ya se registro la novedad para esta Inasistencia</p>
+                                </td>                        
+                                <%} else {
+                                %>
                                 <td>
+                                    <p>Registre la Novedad</p>                                    
                                     <a class="btn btn-info edit m-6 p-2"href="registrarNovedad.jsp?idAsistencia=<%=AsisVO.getIdAsistencia()%>&fecha=<%=AsisVO.getFecha()%>&nombreUsuario=<%=AsisVO.getNombreUsuario()%>&apellidoUsuario=<%=AsisVO.getApellidoUsuario()%>&grupo=<%=AsisVO.getNombreGrupo()%>"><i class="fas fa-pen"></i></a>
                                 </td>
+                                <%
+                                    }
+                                %>                                                                                                
                                 <%
                                 } else {
                                 %>
                                 <td></td>
-                                <%
-                                    }
-                                %>
                             </tr>
-                            <%}%>  
+                            <%}
+                                }%>  
                         </tbody>
                         <tfoot>
                             <tr>
@@ -453,11 +446,16 @@
                         });
                     });
                 </script>
-
+                <%
+                    if (tipoU.equals("Profesor")) {
+                %>
                 <form method="post" action="Asistencia">
                     <input type="hidden" name="txtIdGrupo" value="<%=usuVO.getIdGrupo()%>">
                     <button class="abrir-registrar btn btn-primary" name="opcion" id="abrir-registrar" value="3">Registrar</button>
                 </form>
+                <%
+                    }
+                %>
                 <%
                     AsistenciaVO AsiVO = (AsistenciaVO) request.getAttribute("Si");
                     if (AsiVO != null) {
@@ -493,7 +491,7 @@
                         closeOnConfirm: false
                     },
                             function () {
-                                window.location = "registrarAsistencia.jsp";
+                                window.location = "consultarAsistencia.jsp";
                             });
                 </script>
 
