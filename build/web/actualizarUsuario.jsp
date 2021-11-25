@@ -69,6 +69,8 @@
     </head>
     <body>
         <%
+            String nombre = request.getParameter("nombre");
+            String apellido = request.getParameter("apellido");
             String usuid = request.getParameter("usuid");
             String tipodoc = request.getParameter("tipodoc");
             String idTipousu = request.getParameter("idTipousu");
@@ -282,7 +284,11 @@
                         <div class="cuerpo">
                             <div class="formulario">
                                 <input type="hidden" name="txtId" value="<%=usuid%>">
-
+                                
+                                <div class="col-md-6">
+                                    <label for="validationCustom04" class="col-form-label mt-0">Usuario:</label>
+                                    <input type="text" class="form-control" value="<%=nombre%> <%=apellido%>" readonly="">
+                                </div>
                                 <div class="col-md-6 ">
                                     <label for="validationTooltip01" class="col-form-label">Tipo Documento</label>          
                                     <select id="TipoDocumento" class="form-control" name="txtTipoDocumento" >

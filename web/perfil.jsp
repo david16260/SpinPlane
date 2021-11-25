@@ -283,8 +283,8 @@
                                 <!-- Column -->
                                 <div class="col-lg-4 col-xlg-3">
                                     <div class="card">
-                                        <div class="card-body">
-                                            <center class="mt-4"> <img src="images/estudiante1.jpg" class="img-circle"width="150" />
+                                        <div class="card-body">                                           
+                                            <center class="mt-4"> <img src="images/perfil.png" class="img-circle"width="150" />
                                                 <h4 class="card-title mt-2"><%=UsuVO.getNombre()%></h4>
                                                 <h6 class="card-subtitle"><%=UsuVO.getTipoUsuario()%></h6>
 

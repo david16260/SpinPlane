@@ -3,11 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Julian/Documents/NetBeansProjects/academia/Academia/SpinPlane/web/consultarHorario.jsp</file>
-            <file>file:/C:/Users/Julian/Documents/NetBeansProjects/academia/Academia/SpinPlane/src/java/Controlador/UsuarioControlador.java</file>
-            <file>file:/C:/Users/Julian/Documents/NetBeansProjects/academia/Academia/SpinPlane/src/java/ModeloDAO/HorarioDAO.java</file>
-            <file>file:/C:/Users/Julian/Documents/NetBeansProjects/academia/Academia/SpinPlane/src/java/Controlador/HorarioControlador.java</file>
-            <file>file:/C:/Users/Julian/Documents/NetBeansProjects/academia/Academia/SpinPlane/src/java/ModeloDAO/UsuarioDAO.java</file>
+            <file>file:/C:/Users/mjuan/OneDrive/Documentos/NetBeansProjects/SpinPlane/web/login.jsp</file>
+            <file>file:/C:/Users/mjuan/OneDrive/Documentos/NetBeansProjects/SpinPlane/web/consultarNovedad.jsp</file>
+            <file>file:/C:/Users/mjuan/OneDrive/Documentos/NetBeansProjects/SpinPlane/src/java/Controlador/AsistenciaControlador.java</file>
+            <file>file:/C:/Users/mjuan/OneDrive/Documentos/NetBeansProjects/SpinPlane/web/consultarAsistencia.jsp</file>
+            <file>file:/C:/Users/mjuan/OneDrive/Documentos/NetBeansProjects/SpinPlane/src/java/ModeloVO/NovedadVO.java</file>
+            <file>file:/C:/Users/mjuan/OneDrive/Documentos/NetBeansProjects/SpinPlane/src/java/ModeloDAO/NovedadDAO.java</file>
         </group>
     </open-files>
 </project-private>
