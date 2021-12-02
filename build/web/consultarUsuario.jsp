@@ -324,7 +324,7 @@
                                 </td>
 
                                 <td>
-                                    <a class="btn btn-info edit m-2 p-2"href="actualizarUsuario.jsp?usuid=<%=UsuVO.getUsuId()%>&tipodoc=<%=UsuVO.getTipoDocumento()%>&idTipousu=<%=UsuVO.getIdTipoUsuario()%>&tipoUsuario=<%=UsuVO.getTipoUsuario()%>&idGrupo=<%=UsuVO.getIdGrupo()%>&grupo=<%=UsuVO.getGrupo()%>"><i class="fas fa-pen"></i></a>
+                                    <a class="btn btn-info edit m-2 p-2"href="actualizarUsuario.jsp?usuid=<%=UsuVO.getUsuId()%>&tipodoc=<%=UsuVO.getTipoDocumento()%>&idTipousu=<%=UsuVO.getIdTipoUsuario()%>&tipoUsuario=<%=UsuVO.getTipoUsuario()%>&idGrupo=<%=UsuVO.getIdGrupo()%>&grupo=<%=UsuVO.getGrupo()%>&nombre=<%=UsuVO.getNombre()%>&apellido=<%=UsuVO.getApellido()%>"><i class="fas fa-pen"></i></a>
                                 </td>
 
                             </tr>
