@@ -320,6 +320,7 @@
                             <form method="POST" action="Horario">
                                 <input type="hidden" name="txtId" value="<%=HorVO.getIdHorario()%>">
                                 <input type="hidden" name="txtEstado" value="Inactivo">
+                                <input type="hidden" name="estadoF" value="Activo">
                                 <button class="btn btn-info edit m-2 p-2" type="submit"><i class="fas fa-pen"></i></button>
                                 <input type="hidden" name="opcion" value="3">
                             </form>
@@ -565,8 +566,34 @@
                             <a href="#" class="cerrar-registro" id="cerrar-registro"><i class="fas fa-times"></i></a>
                             <h2>Registrar Horario</h2>
                         </div>
-                        <div class="cuerpo">
-                            <div class="formulario">
+                        <div class="cuerpo">                            
+                                    <div class="col-md-6 ">
+                                    <%LocalDate fechaHoy = LocalDate.now();
+                                        Calendar calendario = Calendar.getInstance();
+                                        int hora = calendario.get(Calendar.HOUR);
+                                        int minutos = calendario.get(Calendar.MINUTE);
+                                    %>
+                                    <label for="validationTooltip04" class="col-form-label">Fecha inicio:</label>
+                                    <input type="date" name="txtFechaInicio" min="<%=fechaHoy%>" required class="form-control" id="inicio">
+                                    <div class="valid-feedback">
+                                        Correcto
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Por favor registre la fecha de inicio  
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 ">
+                                    <label for="validationTooltip04" class="col-form-label">Fecha fin:</label>
+                                    <input type="date" name="txtFechaFin" min="" required class="form-control" id="fin">
+                                    <div class="valid-feedback">
+                                        Correcto
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Por favor registre la fecha de fin  
+                                    </div>
+                                </div>
+                                
                                 <div class="col-md-6 ">
                                     <label for="validationCustom04" class="col-form-label">Dia:</label> 
                                     <select required id="dia" name="txtDia" class="form-control">
@@ -691,34 +718,8 @@
                                     </div>
                                     <div class="invalid-feedback">
                                         Por favor selecciona la clase 
-                                    </div>
-                                </div>
-                                    <div class="col-md-6 ">
-                                    <%LocalDate fechaHoy = LocalDate.now();
-                                        Calendar calendario = Calendar.getInstance();
-                                        int hora = calendario.get(Calendar.HOUR);
-                                        int minutos = calendario.get(Calendar.MINUTE);
-                                    %>
-                                    <label for="validationTooltip04" class="col-form-label">Fecha inicio:</label>
-                                    <input type="date" name="txtFechaInicio" min="<%=fechaHoy%>" required class="form-control" id="inicio">
-                                    <div class="valid-feedback">
-                                        Correcto
-                                    </div>
-                                    <div class="invalid-feedback">
-                                        Por favor registre la fecha de inicio  
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6 ">
-                                    <label for="validationTooltip04" class="col-form-label">Fecha fin:</label>
-                                    <input type="date" name="txtFechaFin" min="" required class="form-control" id="fin">
-                                    <div class="valid-feedback">
-                                        Correcto
-                                    </div>
-                                    <div class="invalid-feedback">
-                                        Por favor registre la fecha de fin  
-                                    </div>
-                                </div>
+                                    </div> 
+                                    
                                 <div class="boton">
                                     <input type="submit" id="btn" value="Registrar" class="btn btn-success">
                                     <input type="hidden" value="4" name="opcion">
@@ -735,7 +736,7 @@
                                     let Horainicio = document.querySelector('[name="txtHoraInicio"]');
                                     let Horafin = document.querySelector('[name="txtHoraFin"]');
                                     let dia = document.querySelector('[name="txtDia"]');
-                                    let estado = document.querySelector('[name="txtEstado"]');
+                                    let estado = document.querySelector('[name="estadoF"]');
                                     let IdGrupo = document.querySelector('[name="txtGrupo"]');
                                     let IdAula = document.querySelector('[name="txtAula"]');
                                     let IdClase = document.querySelector('[name="txtClase"]');
@@ -757,10 +758,10 @@
                                         event.preventDefault();
 
                                     });
-                                    fin.addEventListener('change', function (e) {
-                                        let FormularioCom=dia.value + "," + Horainicio.value + "," + Horafin.value + "," + estado.value + "," + IdGrupo.value + "," + IdAula.value + "," + IdClase.value + "," + inicio.value + "," + fin.value;
+                                    IdClase.addEventListener('change', function (e) {
+                                        let FormularioCom=inicio.value + "," + fin.value + "," + dia.value + "," + Horainicio.value + "," + Horafin.value + "," +  estado.value + "," + IdGrupo.value + "," + IdAula.value + "," + IdClase.value ;
                                         console.log(FormularioCom);
-                                        if (FormularioCom.includes(FormularioCom)) {
+                                        if (FormularioCompleto.includes(FormularioCom)) {
                                             document.getElementById("inicio").value = "";
                                             document.getElementById("fin").value = "";
                                             swal({
