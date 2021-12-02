@@ -299,13 +299,13 @@
                                 <td><%=HorVO.getNombreAula()%></td>
                                 <td><%=HorVO.getNombreClase()%></td>
                                 <td><%=HorVO.getFechaInicio()%></td>
-                                <input type="hidden" class="Fechas" value="<%=HorVO.getFechaInicio()%>,<%=HorVO.getFechaFin()%>">
-                                <td><%=HorVO.getFechaFin()%></td>
-                                <td><%=HorVO.getDia()%></td>
-                                <input type="hidden" class="FechasDia" value="<%=HorVO.getFechaInicio()%>,<%=HorVO.getFechaFin()%>,<%=HorVO.getDia()%>">
-                                <td><%=HorVO.getHoraInicio()%></td>
-                                <td><%=HorVO.getHoraFin()%></td>
-                                <td><a class="<%=HorVO.getEstado().equals("Activo") ? "btn btn-success  m-5" : "btn btn-danger  m-5"%>" style="padding-right: 10px;">
+                        <input type="hidden" class="Fechas" value="<%=HorVO.getFechaInicio()%>,<%=HorVO.getFechaFin()%>">
+                        <td><%=HorVO.getFechaFin()%></td>
+                        <td><%=HorVO.getDia()%></td>
+                        <input type="hidden" class="FechasDia" value="<%=HorVO.getFechaInicio()%>,<%=HorVO.getFechaFin()%>,<%=HorVO.getDia()%>">
+                        <td><%=HorVO.getHoraInicio()%></td>
+                        <td><%=HorVO.getHoraFin()%></td>
+                        <td><a class="<%=HorVO.getEstado().equals("Activo") ? "btn btn-success  m-5" : "btn btn-danger  m-5"%>" style="padding-right: 10px;">
                                 <%=HorVO.getEstado()%>
                                 <input type="hidden" class="FormularioCompleto" value="<%=HorVO.getFechaInicio()%>,<%=HorVO.getFechaFin()%>,<%=HorVO.getDia()%>,<%=HorVO.getHoraInicio()%>,<%=HorVO.getHoraFin()%>,<%=HorVO.getEstado()%>,<%=HorVO.getIdGrupo()%>,<%=HorVO.getIdAula()%>,<%=HorVO.getIdClase()%>">
                             </a></td>  
@@ -527,12 +527,12 @@
                             scrollY: 400,
                             language: {
                                 "sProcessing": "Procesando...",
-                                "sLengthMenu": "Mostrar _MENU_ registros",
+                                "sLengthMenu": "Mostrar MENU registros",
                                 "sZeroRecords": "No se encontraron resultados",
                                 "sEmptyTable": "NingÃºn dato disponible en esta tabla",
-                                "sInfo": "Mostrando Horarios del _START_ al _END_ de un total de _TOTAL_ Horarios",
+                                "sInfo": "Mostrando Horarios del START al END de un total de TOTAL Horarios",
                                 "sInfoEmpty": "Mostrando usuarios del 0 al 0 de un total de 0 Horarios",
-                                "sInfoFiltered": "(filtrado de un total de _MAX_ Horarios)",
+                                "sInfoFiltered": "(filtrado de un total de MAX Horarios)",
                                 "sInfoPostFix": "",
                                 "sSearch": "Buscar:",
                                 "sUrl": "",
@@ -567,159 +567,159 @@
                             <h2>Registrar Horario</h2>
                         </div>
                         <div class="cuerpo">                            
-                                    <div class="col-md-6 ">
-                                    <%LocalDate fechaHoy = LocalDate.now();
-                                        Calendar calendario = Calendar.getInstance();
-                                        int hora = calendario.get(Calendar.HOUR);
-                                        int minutos = calendario.get(Calendar.MINUTE);
+                            <div class="col-md-6 ">
+                                <%LocalDate fechaHoy = LocalDate.now();
+                                    Calendar calendario = Calendar.getInstance();
+                                    int hora = calendario.get(Calendar.HOUR);
+                                    int minutos = calendario.get(Calendar.MINUTE);
+                                %>
+                                <label for="validationTooltip04" class="col-form-label">Fecha inicio:</label>
+                                <input type="date" name="txtFechaInicio" min="<%=fechaHoy%>" required class="form-control" id="inicio">
+                                <div class="valid-feedback">
+                                    Correcto
+                                </div>
+                                <div class="invalid-feedback">
+                                    Por favor registre la fecha de inicio  
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 ">
+                                <label for="validationTooltip04" class="col-form-label">Fecha fin:</label>
+                                <input type="date" name="txtFechaFin" min="" required class="form-control" id="fin">
+                                <div class="valid-feedback">
+                                    Correcto
+                                </div>
+                                <div class="invalid-feedback">
+                                    Por favor registre la fecha de fin  
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 ">
+                                <label for="validationCustom04" class="col-form-label">Dia:</label> 
+                                <select required id="dia" name="txtDia" class="form-control">
+                                    <option selected disabled value="">Dia...</option>
+
+                                    <option value="Lunes">Lunes</option>
+                                    <option value="Martes">Martes</option>
+                                    <option value="Miercoles">Miercoles</option>
+                                    <option value="Jueves">Jueves</option>
+                                    <option value="Viernes">Viernes</option>
+
+                                </select>
+                                <div class="valid-feedback">
+                                    Correcto
+                                </div>
+                                <div class="invalid-feedback">
+                                    Por favor selecciona el Dia 
+                                </div>
+                            </div>
+
+
+
+
+
+                            <div class="col-md-6 ">
+                                <label for="validationTooltip04" class="col-form-label">Hora inicio:</label>
+                                <input type="time" name="txtHoraInicio" min="" required class="form-control"  >
+                                <div class="valid-feedback">
+                                    Correcto
+                                </div>
+                                <div class="invalid-feedback">
+                                    Por favor registre la hora de inicio 
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 ">
+                                <label for="validationTooltip04" class="col-form-label">Hora fin:</label>
+                                <input type="time"  name="txtHoraFin" required class="form-control" id="validationTooltip01" >
+                                <div class="valid-feedback">
+                                    Correcto
+                                </div>
+                                <div class="invalid-feedback">
+                                    Por favor registre la hora de fin 
+                                </div>
+                            </div>
+
+
+
+                            <div class="col-md-6 ">
+                                <input type="hidden" value="Activo" name="txtEstado">
+                            </div>
+
+                            <div class="col-md-6 ">
+                                <label for="validationCustom04" class="col-form-label">Grupo:</label> 
+                                <select required id="validationCustom04" name="txtGrupo" class="form-control">
+                                    <option selected disabled value="">Grupo</option>
+                                    <%
+                                        GrupoVO GruVO = new GrupoVO();
+                                        GrupoDAO GruDAO = new GrupoDAO(GruVO);
+                                        ArrayList< GrupoVO> listaGrupo = GruDAO.listar();
+                                        for (int i = 0; i < listaGrupo.size(); i++) {
+
+                                            GruVO = listaGrupo.get(i);
                                     %>
-                                    <label for="validationTooltip04" class="col-form-label">Fecha inicio:</label>
-                                    <input type="date" name="txtFechaInicio" min="<%=fechaHoy%>" required class="form-control" id="inicio">
-                                    <div class="valid-feedback">
-                                        Correcto
-                                    </div>
-                                    <div class="invalid-feedback">
-                                        Por favor registre la fecha de inicio  
-                                    </div>
+                                    <option value="<%=GruVO.getIdGrupo()%>"><%=GruVO.getNombre()%></option>
+                                    <%
+                                        }
+                                    %> 
+                                </select>
+                                <div class="valid-feedback">
+                                    Correcto
                                 </div>
-
-                                <div class="col-md-6 ">
-                                    <label for="validationTooltip04" class="col-form-label">Fecha fin:</label>
-                                    <input type="date" name="txtFechaFin" min="" required class="form-control" id="fin">
-                                    <div class="valid-feedback">
-                                        Correcto
-                                    </div>
-                                    <div class="invalid-feedback">
-                                        Por favor registre la fecha de fin  
-                                    </div>
+                                <div class="invalid-feedback">
+                                    Por favor selecciona el Grupo 
                                 </div>
-                                
-                                <div class="col-md-6 ">
-                                    <label for="validationCustom04" class="col-form-label">Dia:</label> 
-                                    <select required id="dia" name="txtDia" class="form-control">
-                                        <option selected disabled value="">Dia...</option>
+                            </div>
 
-                                        <option value="Lunes">Lunes</option>
-                                        <option value="Martes">Martes</option>
-                                        <option value="Miercoles">Miercoles</option>
-                                        <option value="Jueves">Jueves</option>
-                                        <option value="Viernes">Viernes</option>
+                            <div class="col-md-6 ">
+                                <label for="validationCustom04" class="col-form-label">Aula:</label>     
+                                <select required id="validationCustom04" name="txtAula" class="form-control">
+                                    <option selected disabled value="">Aula</option>
+                                    <%
+                                        AulaVO AulVO = new AulaVO();
+                                        AulaDAO AulDAO = new AulaDAO(AulVO);
+                                        ArrayList<AulaVO> listaAula = AulDAO.listar();
+                                        for (int i = 0; i < listaAula.size(); i++) {
 
-                                    </select>
-                                    <div class="valid-feedback">
-                                        Correcto
-                                    </div>
-                                    <div class="invalid-feedback">
-                                        Por favor selecciona el Dia 
-                                    </div>
+                                            AulVO = listaAula.get(i);
+                                    %>
+                                    <option value="<%=AulVO.getIdAula()%>"><%=AulVO.getNombre()%></option>
+                                    <%
+                                        }
+                                    %> 
+                                </select>
+                                <div class="valid-feedback">
+                                    Correcto
                                 </div>
-                                
-
-                               
-                                
-
-                                <div class="col-md-6 ">
-                                    <label for="validationTooltip04" class="col-form-label">Hora inicio:</label>
-                                    <input type="time" name="txtHoraInicio" min="" required class="form-control"  >
-                                    <div class="valid-feedback">
-                                        Correcto
-                                    </div>
-                                    <div class="invalid-feedback">
-                                        Por favor registre la hora de inicio 
-                                    </div>
+                                <div class="invalid-feedback">
+                                    Por favor selecciona el Aula 
                                 </div>
+                            </div>
 
-                                <div class="col-md-6 ">
-                                    <label for="validationTooltip04" class="col-form-label">Hora fin:</label>
-                                    <input type="time"  name="txtHoraFin" required class="form-control" id="validationTooltip01" >
-                                    <div class="valid-feedback">
-                                        Correcto
-                                    </div>
-                                    <div class="invalid-feedback">
-                                        Por favor registre la hora de fin 
-                                    </div>
+                            <div class="col-md-6 ">
+                                <label for="validationCustom04" class="col-form-label">Clase:</label>      
+                                <select required id="validationCustom04" name="txtClase" class="form-control">
+                                    <option selected disabled value="">Clase</option>
+                                    <%
+                                        ClaseVO ClaVO = new ClaseVO();
+                                        ClaseDAO ClaDAO = new ClaseDAO(ClaVO);
+                                        ArrayList<ClaseVO> listaclase = ClaDAO.listar();
+                                        for (int i = 0; i < listaclase.size(); i++) {
+
+                                            ClaVO = listaclase.get(i);
+                                    %>
+                                    <option value="<%=ClaVO.getIdClase()%>"><%=ClaVO.getNombre()%></option>
+                                    <%
+                                        }
+                                    %> 
+                                </select>
+                                <div class="valid-feedback">
+                                    Correcto
                                 </div>
+                                <div class="invalid-feedback">
+                                    Por favor selecciona la clase 
+                                </div> 
 
-
-
-                                <div class="col-md-6 ">
-                                    <input type="hidden" value="Activo" name="txtEstado">
-                                </div>
-
-                                <div class="col-md-6 ">
-                                    <label for="validationCustom04" class="col-form-label">Grupo:</label> 
-                                    <select required id="validationCustom04" name="txtGrupo" class="form-control">
-                                        <option selected disabled value="">Grupo</option>
-                                        <%
-                                            GrupoVO GruVO = new GrupoVO();
-                                            GrupoDAO GruDAO = new GrupoDAO(GruVO);
-                                            ArrayList< GrupoVO> listaGrupo = GruDAO.listar();
-                                            for (int i = 0; i < listaGrupo.size(); i++) {
-
-                                                GruVO = listaGrupo.get(i);
-                                        %>
-                                        <option value="<%=GruVO.getIdGrupo()%>"><%=GruVO.getNombre()%></option>
-                                        <%
-                                            }
-                                        %> 
-                                    </select>
-                                    <div class="valid-feedback">
-                                        Correcto
-                                    </div>
-                                    <div class="invalid-feedback">
-                                        Por favor selecciona el Grupo 
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6 ">
-                                    <label for="validationCustom04" class="col-form-label">Aula:</label>     
-                                    <select required id="validationCustom04" name="txtAula" class="form-control">
-                                        <option selected disabled value="">Aula</option>
-                                        <%
-                                            AulaVO AulVO = new AulaVO();
-                                            AulaDAO AulDAO = new AulaDAO(AulVO);
-                                            ArrayList<AulaVO> listaAula = AulDAO.listar();
-                                            for (int i = 0; i < listaAula.size(); i++) {
-
-                                                AulVO = listaAula.get(i);
-                                        %>
-                                        <option value="<%=AulVO.getIdAula()%>"><%=AulVO.getNombre()%></option>
-                                        <%
-                                            }
-                                        %> 
-                                    </select>
-                                    <div class="valid-feedback">
-                                        Correcto
-                                    </div>
-                                    <div class="invalid-feedback">
-                                        Por favor selecciona el Aula 
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6 ">
-                                    <label for="validationCustom04" class="col-form-label">Clase:</label>      
-                                    <select required id="validationCustom04" name="txtClase" class="form-control">
-                                        <option selected disabled value="">Clase</option>
-                                        <%
-                                            ClaseVO ClaVO = new ClaseVO();
-                                            ClaseDAO ClaDAO = new ClaseDAO(ClaVO);
-                                            ArrayList<ClaseVO> listaclase = ClaDAO.listar();
-                                            for (int i = 0; i < listaclase.size(); i++) {
-
-                                                ClaVO = listaclase.get(i);
-                                        %>
-                                        <option value="<%=ClaVO.getIdClase()%>"><%=ClaVO.getNombre()%></option>
-                                        <%
-                                            }
-                                        %> 
-                                    </select>
-                                    <div class="valid-feedback">
-                                        Correcto
-                                    </div>
-                                    <div class="invalid-feedback">
-                                        Por favor selecciona la clase 
-                                    </div> 
-                                    
                                 <div class="boton">
                                     <input type="submit" id="btn" value="Registrar" class="btn btn-success">
                                     <input type="hidden" value="4" name="opcion">
@@ -729,55 +729,55 @@
                     </form>
                     <%}%>
                 </div>
-                 <script>
-                                    
-                                    let inicio = document.querySelector('[name="txtFechaInicio"]');
-                                    let fin = document.querySelector('[name="txtFechaFin"]');
-                                    let Horainicio = document.querySelector('[name="txtHoraInicio"]');
-                                    let Horafin = document.querySelector('[name="txtHoraFin"]');
-                                    let dia = document.querySelector('[name="txtDia"]');
-                                    let estado = document.querySelector('[name="estadoF"]');
-                                    let IdGrupo = document.querySelector('[name="txtGrupo"]');
-                                    let IdAula = document.querySelector('[name="txtAula"]');
-                                    let IdClase = document.querySelector('[name="txtClase"]');
-                                    let inputFechas = document.querySelectorAll(".Fechas");
-                                    let Fechas = [];
-                                    let inputFechasDia = document.querySelectorAll(".FechasDia");
-                                    let FechasDia = [];
-                                    let inputFormularioCompleto = document.querySelectorAll(".FormularioCompleto");
-                                    let FormularioCompleto = [];
+                <script>
 
-                                    
-                                    inputFormularioCompleto.forEach(function (elemento) {
-                                        FormularioCompleto.push(elemento.value)
-                                    });
-                                    console.log(FormularioCompleto);
-                                    inicio.addEventListener('change', function (e) {
-                                        console.log(this.value);
-                                        fin.setAttribute("min", this.value);
-                                        event.preventDefault();
+                    let inicio = document.querySelector('[name="txtFechaInicio"]');
+                    let fin = document.querySelector('[name="txtFechaFin"]');
+                    let Horainicio = document.querySelector('[name="txtHoraInicio"]');
+                    let Horafin = document.querySelector('[name="txtHoraFin"]');
+                    let dia = document.querySelector('[name="txtDia"]');
+                    let estado = document.querySelector('[name="estadoF"]');
+                    let IdGrupo = document.querySelector('[name="txtGrupo"]');
+                    let IdAula = document.querySelector('[name="txtAula"]');
+                    let IdClase = document.querySelector('[name="txtClase"]');
+                    let inputFechas = document.querySelectorAll(".Fechas");
+                    let Fechas = [];
+                    let inputFechasDia = document.querySelectorAll(".FechasDia");
+                    let FechasDia = [];
+                    let inputFormularioCompleto = document.querySelectorAll(".FormularioCompleto");
+                    let FormularioCompleto = [];
 
-                                    });
-                                    IdClase.addEventListener('change', function (e) {
-                                        let FormularioCom=inicio.value + "," + fin.value + "," + dia.value + "," + Horainicio.value + "," + Horafin.value + "," +  estado.value + "," + IdGrupo.value + "," + IdAula.value + "," + IdClase.value ;
-                                        console.log(FormularioCom);
-                                        if (FormularioCompleto.includes(FormularioCom)) {
-                                            document.getElementById("inicio").value = "";
-                                            document.getElementById("fin").value = "";
-                                            swal({
-                                                title: "¡Advertencia!",
-                                                text: "Los datos elegidos ya no están disponibles",
-                                                type: 'info',
-                                                confirmButtonClass: "btn-primary",
-                                                confirmButtonText: "OK",
-                                                closeOnConfirm: false
-                                            });
 
-                                        }
-                                        event.preventDefault();
+                    inputFormularioCompleto.forEach(function (elemento) {
+                        FormularioCompleto.push(elemento.value)
+                    });
+                    console.log(FormularioCompleto);
+                    inicio.addEventListener('change', function (e) {
+                        console.log(this.value);
+                        fin.setAttribute("min", this.value);
+                        event.preventDefault();
 
-                                    });
-                                </script>
+                    });
+                    IdClase.addEventListener('change', function (e) {
+                        let FormularioCom = inicio.value + "," + fin.value + "," + dia.value + "," + Horainicio.value + "," + Horafin.value + "," + estado.value + "," + IdGrupo.value + "," + IdAula.value + "," + IdClase.value;
+                        console.log(FormularioCom);
+                        if (FormularioCompleto.includes(FormularioCom)) {
+                            document.getElementById("inicio").value = "";
+                            document.getElementById("fin").value = "";
+                            swal({
+                                title: "¡Advertencia!",
+                                text: "Los datos elegidos ya no están disponibles",
+                                type: 'info',
+                                confirmButtonClass: "btn-primary",
+                                confirmButtonText: "OK",
+                                closeOnConfirm: false
+                            });
+
+                        }
+                        event.preventDefault();
+
+                    });
+                </script>
                 <% if (request.getAttribute("mensajeError") != null) {%>
                 <script  type="text/javascript">
 
