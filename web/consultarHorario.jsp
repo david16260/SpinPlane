@@ -765,8 +765,8 @@
                                             document.getElementById("inicio").value = "";
                                             document.getElementById("fin").value = "";
                                             swal({
-                                                title: "Informacion!",
-                                                text: "Las fechas elejidas ya no estan disponibles",
+                                                title: "¡Advertencia!",
+                                                text: "Los datos elegidos ya no están disponibles",
                                                 type: 'info',
                                                 confirmButtonClass: "btn-primary",
                                                 confirmButtonText: "OK",
