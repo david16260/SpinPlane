@@ -299,13 +299,15 @@
                                 <td><%=HorVO.getNombreAula()%></td>
                                 <td><%=HorVO.getNombreClase()%></td>
                                 <td><%=HorVO.getFechaInicio()%></td>
-                        <input type="hidden" class="Fechas" value="<%=HorVO.getFechaInicio()%>,<%=HorVO.getFechaFin()%>">
-                        <td><%=HorVO.getFechaFin()%></td>
-                        <td><%=HorVO.getDia()%></td>
-                        <td><%=HorVO.getHoraInicio()%></td>
-                        <td><%=HorVO.getHoraFin()%></td>
-                        <td><a class="<%=HorVO.getEstado().equals("Activo") ? "btn btn-success  m-5" : "btn btn-danger  m-5"%>" style="padding-right: 10px;">
+                                <input type="hidden" class="Fechas" value="<%=HorVO.getFechaInicio()%>,<%=HorVO.getFechaFin()%>">
+                                <td><%=HorVO.getFechaFin()%></td>
+                                <td><%=HorVO.getDia()%></td>
+                                <input type="hidden" class="FechasDia" value="<%=HorVO.getFechaInicio()%>,<%=HorVO.getFechaFin()%>,<%=HorVO.getDia()%>">
+                                <td><%=HorVO.getHoraInicio()%></td>
+                                <td><%=HorVO.getHoraFin()%></td>
+                                <td><a class="<%=HorVO.getEstado().equals("Activo") ? "btn btn-success  m-5" : "btn btn-danger  m-5"%>" style="padding-right: 10px;">
                                 <%=HorVO.getEstado()%>
+                                <input type="hidden" class="FormularioCompleto" value="<%=HorVO.getFechaInicio()%>,<%=HorVO.getFechaFin()%>,<%=HorVO.getDia()%>,<%=HorVO.getHoraInicio()%>,<%=HorVO.getHoraFin()%>,<%=HorVO.getEstado()%>,<%=HorVO.getIdGrupo()%>,<%=HorVO.getIdAula()%>,<%=HorVO.getIdClase()%>">
                             </a></td>  
 
                         <%
@@ -565,76 +567,9 @@
                         </div>
                         <div class="cuerpo">
                             <div class="formulario">
-
-                                <div class="col-md-6 ">
-                                    <%LocalDate fechaHoy = LocalDate.now();
-                                        Calendar calendario = Calendar.getInstance();
-                                        int hora = calendario.get(Calendar.HOUR);
-                                        int minutos = calendario.get(Calendar.MINUTE);
-                                    %>
-                                    <label for="validationTooltip04" class="col-form-label">Fecha inicio:</label>
-                                    <input type="date" name="txtFechaInicio" min="<%=fechaHoy%>" required class="form-control" id="validationTooltip01">
-                                    <div class="valid-feedback">
-                                        Correcto
-                                    </div>
-                                    <div class="invalid-feedback">
-                                        Por favor registre la fecha de inicio  
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6 ">
-                                    <label for="validationTooltip04" class="col-form-label">Fecha fin:</label>
-                                    <input type="date" name="txtFechaFin" min="" required class="form-control" id="validationTooltip01">
-                                    <div class="valid-feedback">
-                                        Correcto
-                                    </div>
-                                    <div class="invalid-feedback">
-                                        Por favor registre la fecha de fin  
-                                    </div>
-                                </div>
-
-                                <script>
-
-                                    let inicio = document.querySelector('[name="txtFechaInicio"]');
-                                    let fin = document.querySelector('[name="txtFechaFin"]');
-                                    let inputFechas = document.querySelectorAll(".Fechas");
-                                    let Fechas = [];
-
-                                    inputFechas.forEach(function (elemento) {
-                                        Fechas.push(elemento.value)
-                                    });
-                                    console.log(Fechas);
-                                    inicio.addEventListener('change', function (e) {
-                                        console.log(this.value);
-                                        fin.setAttribute("min", this.value);
-                                        event.preventDefault();
-
-                                    });
-                                    fin.addEventListener('change', function (e) {
-                                        let fechasTotal = inicio.value + "," + fin.value;
-                                        console.log(fechasTotal);
-                                        if (Fechas.includes(fechasTotal)) {
-                                        swal({
-                                        title: "Informacion!",
-                                                text: "Las fechas elejidas ya no estan disponibles",
-                                                type: 'info',
-                                                confirmButtonClass: "btn-primary",
-                                                confirmButtonText: "OK",
-                                                closeOnConfirm: false
-                                            },
-                                                function () {
-                                                window.location = "consultarHorario.jsp";
-                                                });
-                                        }
-                                        event.preventDefault();
-
-                                    });
-
-
-                                </script>
                                 <div class="col-md-6 ">
                                     <label for="validationCustom04" class="col-form-label">Dia:</label> 
-                                    <select required id="validationCustom04" name="txtDia" class="form-control">
+                                    <select required id="dia" name="txtDia" class="form-control">
                                         <option selected disabled value="">Dia...</option>
 
                                         <option value="Lunes">Lunes</option>
@@ -651,6 +586,10 @@
                                         Por favor selecciona el Dia 
                                     </div>
                                 </div>
+                                
+
+                               
+                                
 
                                 <div class="col-md-6 ">
                                     <label for="validationTooltip04" class="col-form-label">Hora inicio:</label>
@@ -754,6 +693,32 @@
                                         Por favor selecciona la clase 
                                     </div>
                                 </div>
+                                    <div class="col-md-6 ">
+                                    <%LocalDate fechaHoy = LocalDate.now();
+                                        Calendar calendario = Calendar.getInstance();
+                                        int hora = calendario.get(Calendar.HOUR);
+                                        int minutos = calendario.get(Calendar.MINUTE);
+                                    %>
+                                    <label for="validationTooltip04" class="col-form-label">Fecha inicio:</label>
+                                    <input type="date" name="txtFechaInicio" min="<%=fechaHoy%>" required class="form-control" id="inicio">
+                                    <div class="valid-feedback">
+                                        Correcto
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Por favor registre la fecha de inicio  
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 ">
+                                    <label for="validationTooltip04" class="col-form-label">Fecha fin:</label>
+                                    <input type="date" name="txtFechaFin" min="" required class="form-control" id="fin">
+                                    <div class="valid-feedback">
+                                        Correcto
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Por favor registre la fecha de fin  
+                                    </div>
+                                </div>
                                 <div class="boton">
                                     <input type="submit" id="btn" value="Registrar" class="btn btn-success">
                                     <input type="hidden" value="4" name="opcion">
@@ -763,6 +728,55 @@
                     </form>
                     <%}%>
                 </div>
+                 <script>
+                                    
+                                    let inicio = document.querySelector('[name="txtFechaInicio"]');
+                                    let fin = document.querySelector('[name="txtFechaFin"]');
+                                    let Horainicio = document.querySelector('[name="txtHoraInicio"]');
+                                    let Horafin = document.querySelector('[name="txtHoraFin"]');
+                                    let dia = document.querySelector('[name="txtDia"]');
+                                    let estado = document.querySelector('[name="txtEstado"]');
+                                    let IdGrupo = document.querySelector('[name="txtGrupo"]');
+                                    let IdAula = document.querySelector('[name="txtAula"]');
+                                    let IdClase = document.querySelector('[name="txtClase"]');
+                                    let inputFechas = document.querySelectorAll(".Fechas");
+                                    let Fechas = [];
+                                    let inputFechasDia = document.querySelectorAll(".FechasDia");
+                                    let FechasDia = [];
+                                    let inputFormularioCompleto = document.querySelectorAll(".FormularioCompleto");
+                                    let FormularioCompleto = [];
+
+                                    
+                                    inputFormularioCompleto.forEach(function (elemento) {
+                                        FormularioCompleto.push(elemento.value)
+                                    });
+                                    console.log(FormularioCompleto);
+                                    inicio.addEventListener('change', function (e) {
+                                        console.log(this.value);
+                                        fin.setAttribute("min", this.value);
+                                        event.preventDefault();
+
+                                    });
+                                    fin.addEventListener('change', function (e) {
+                                        let FormularioCom=dia.value + "," + Horainicio.value + "," + Horafin.value + "," + estado.value + "," + IdGrupo.value + "," + IdAula.value + "," + IdClase.value + "," + inicio.value + "," + fin.value;
+                                        console.log(FormularioCom);
+                                        if (FormularioCom.includes(FormularioCom)) {
+                                            document.getElementById("inicio").value = "";
+                                            document.getElementById("fin").value = "";
+                                            swal({
+                                                title: "Informacion!",
+                                                text: "Las fechas elejidas ya no estan disponibles",
+                                                type: 'info',
+                                                confirmButtonClass: "btn-primary",
+                                                confirmButtonText: "OK",
+                                                closeOnConfirm: false
+                                            });
+
+                                        }
+                                        event.preventDefault();
+
+                                    });
+                                </script>
                 <% if (request.getAttribute("mensajeError") != null) {%>
                 <script  type="text/javascript">
 
