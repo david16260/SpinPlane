@@ -86,10 +86,6 @@ FROM
 	</background>
 	<title>
 		<band height="100" splitType="Stretch">
-			<image>
-				<reportElement x="602" y="0" width="200" height="100" uuid="c5f5b360-2c91-474c-82ad-bf5c5bc250ed"/>
-				<imageExpression><![CDATA["C:\\Users\\David\\OneDrive\\Documentos\\NetBeansProjects\\Academia\\web\\images\\LOGO3.gif"]]></imageExpression>
-			</image>
 			<staticText>
 				<reportElement style="Title" x="221" y="35" width="263" height="33" uuid="a085aef4-6fae-45f0-9b2a-2921e3cecb7e"/>
 				<textElement verticalAlignment="Middle"/>

@@ -62,10 +62,6 @@ WHERE grupo.idGrupo=$P{grupo};]]>
 				<textElement verticalAlignment="Middle"/>
 				<text><![CDATA[Grupo]]></text>
 			</staticText>
-			<image>
-				<reportElement x="433" y="0" width="244" height="84" uuid="92bc1c2b-39b4-44ef-a4ca-667a652428a0"/>
-				<imageExpression><![CDATA["C:\\Users\\David\\OneDrive\\Documentos\\NetBeansProjects\\Academia\\web\\images\\LOGO3.gif"]]></imageExpression>
-			</image>
 		</band>
 	</title>
 	<pageHeader>

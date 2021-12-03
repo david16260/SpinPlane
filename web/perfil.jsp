@@ -336,7 +336,7 @@
                                                     <input type="password" value="<%=UsuVO.getClave()%>"
                                                            class="form-control m-l-15 form-control-line" >                                                    
                                                 </div>                                                                                                                                              
-                                            <button class="abrir-registrar btn btn-success" id="abrir-registrar">Atualizar</button>
+                                            <button class="abrir-registrar btn btn-success" id="abrir-registrar">Actualizar</button>
                                             </div>
                                         </div>
                                     </div>
