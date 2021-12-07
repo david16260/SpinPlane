@@ -89,10 +89,6 @@ WHERE horario.idHorario=$P{horario};]]>
 				</graphicElement>
 			</line>
 			<staticText>
-				<reportElement style="Column header" x="0" y="19" width="42" height="15" uuid="b7c977fc-358e-4e12-bf04-6bad296f1c6a"/>
-				<text><![CDATA[idHorario]]></text>
-			</staticText>
-			<staticText>
 				<reportElement style="Column header" x="69" y="19" width="81" height="15" uuid="06f95f14-f061-43e4-9ae6-e6113998b954"/>
 				<text><![CDATA[Fecha Inicio]]></text>
 			</staticText>
@@ -138,10 +134,6 @@ WHERE horario.idHorario=$P{horario};]]>
 					<pen lineWidth="0.5" lineColor="#999999"/>
 				</graphicElement>
 			</line>
-			<textField>
-				<reportElement style="Detail" x="0" y="0" width="42" height="15" uuid="651cb732-77c2-4268-8666-69197797aace"/>
-				<textFieldExpression><![CDATA[$F{idHorario}]]></textFieldExpression>
-			</textField>
 			<textField>
 				<reportElement style="Detail" x="42" y="0" width="123" height="15" uuid="fc6e20c6-c0b4-4552-add0-7fc1d053d44e"/>
 				<textFieldExpression><![CDATA[$F{fechaInicio}]]></textFieldExpression>

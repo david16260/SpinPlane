@@ -41,6 +41,7 @@ public class ClaseControlador extends HttpServlet {
         String cantidadSesiones = request.getParameter("txtcantidadSesiones");
         
         
+        
         int opcion = Integer.parseInt(request.getParameter("opcion"));
         
           //paso 2- instanciar VO

@@ -267,7 +267,7 @@
                                 </div>
                                 <div class="col-md-6 ">
                                     <label for="validationTooltip01" class="col-form-label">Cantidad de sesiones:</label>     
-                                    <input id="validationTooltip01" type="number" name="txtcantidadSesiones " value="<%=cantidad %>" placeholder="Capacidad" class="form-control">
+                                    <input id="validationTooltip01" type="number" name="txtcantidadSesiones" value="<%=cantidad %>" placeholder="Capacidad" class="form-control">
                                     <div class="valid-feedback">
                                         Correcto
                                     </div>
@@ -277,7 +277,7 @@
                                 </div>
                              
                                 <div class="boton">
-                                    <input type="submit" id="btn" value="Actualizar" class="btn btn-success">
+                                    <center><input type="submit" id="btn" value="Actualizar" class="btn btn-success"></center>
                                     <input type="hidden" value="2" name="opcion">
                                 </div>
                             </div>

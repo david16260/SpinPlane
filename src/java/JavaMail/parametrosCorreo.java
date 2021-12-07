@@ -44,11 +44,10 @@ public class parametrosCorreo extends HttpServlet {
         String destino = request.getParameter("destino");
         String asunto = request.getParameter("asunto");
         String contenido = request.getParameter("contenido");
-        String imagen = request.getParameter("imagen");
         String resultadoEnvio = "";
         
         try {
-            PropiedadesCorreo.enviarCorreo(host, puerto, usuario, clave, destino, asunto, contenido, imagen);
+            PropiedadesCorreo.enviarCorreo(host, puerto, usuario, clave, destino, asunto, contenido);
             resultadoEnvio = "El mensaje se envió correctamente";
         } catch (Exception e) {
             e.printStackTrace();

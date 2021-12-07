@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="700" pageHeight="842" columnWidth="660" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9f18f867-4430-468e-8249-de8af5642fb4">
 	<property name="ireport.zoom" value="1.6105100000000057"/>
-	<property name="ireport.x" value="191"/>
+	<property name="ireport.x" value="147"/>
 	<property name="ireport.y" value="0"/>
 	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
 	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
@@ -58,7 +58,7 @@ WHERE grupo.idGrupo=$P{grupo};]]>
 	<title>
 		<band height="84" splitType="Stretch">
 			<staticText>
-				<reportElement style="Title" x="228" y="12" width="94" height="33" uuid="8543329c-c858-434c-a7f2-0077c28257f0"/>
+				<reportElement style="Title" x="280" y="11" width="94" height="33" uuid="8543329c-c858-434c-a7f2-0077c28257f0"/>
 				<textElement verticalAlignment="Middle"/>
 				<text><![CDATA[Grupo]]></text>
 			</staticText>
@@ -92,19 +92,15 @@ WHERE grupo.idGrupo=$P{grupo};]]>
 				<text><![CDATA[documento]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="280" y="19" width="69" height="15" uuid="b86f6d73-0667-4d31-ab01-00c5818c3370"/>
+				<reportElement style="Column header" x="293" y="19" width="69" height="15" uuid="b86f6d73-0667-4d31-ab01-00c5818c3370"/>
 				<text><![CDATA[Estado]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="349" y="19" width="84" height="15" uuid="c3275c98-7f83-42bc-bde0-5b7ba33525b2"/>
-				<text><![CDATA[Tipo Usuario]]></text>
-			</staticText>
-			<staticText>
-				<reportElement style="Column header" x="468" y="19" width="69" height="15" uuid="a9fa7bf8-ec71-43dc-bb89-69f130485122"/>
+				<reportElement style="Column header" x="374" y="19" width="69" height="15" uuid="a9fa7bf8-ec71-43dc-bb89-69f130485122"/>
 				<text><![CDATA[Fecha Inicio]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="589" y="19" width="69" height="15" uuid="b98818f9-9b3c-447f-b25d-46f763cf4181"/>
+				<reportElement style="Column header" x="513" y="20" width="69" height="15" uuid="b98818f9-9b3c-447f-b25d-46f763cf4181"/>
 				<text><![CDATA[Fecha Fin]]></text>
 			</staticText>
 		</band>
@@ -134,20 +130,16 @@ WHERE grupo.idGrupo=$P{grupo};]]>
 				<textFieldExpression><![CDATA[$F{documento}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement style="Detail" x="280" y="0" width="69" height="15" uuid="246c7b21-e0de-4a88-bf94-8d86204f8182"/>
-				<textFieldExpression><![CDATA[$F{estado}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement style="Detail" x="561" y="1" width="97" height="15" uuid="e746377e-7fe4-4b54-80a8-867f4bf095b8"/>
+				<reportElement style="Detail" x="513" y="1" width="145" height="15" uuid="e746377e-7fe4-4b54-80a8-867f4bf095b8"/>
 				<textFieldExpression><![CDATA[$F{fechaFin}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement style="Detail" x="448" y="1" width="105" height="15" uuid="91260b2b-c3ef-4b54-a13d-49530b16c34e"/>
+				<reportElement style="Detail" x="374" y="1" width="139" height="15" uuid="91260b2b-c3ef-4b54-a13d-49530b16c34e"/>
 				<textFieldExpression><![CDATA[$F{fechaInicio}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement style="Detail" x="364" y="0" width="69" height="15" uuid="38b3315d-9b19-4859-98e2-d5821e0ec25b"/>
-				<textFieldExpression><![CDATA[$F{tipoUsuario}]]></textFieldExpression>
+				<reportElement style="Detail" x="293" y="0" width="69" height="15" uuid="246c7b21-e0de-4a88-bf94-8d86204f8182"/>
+				<textFieldExpression><![CDATA[$F{estado}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

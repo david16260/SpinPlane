@@ -87,7 +87,7 @@ FROM
 	<title>
 		<band height="100" splitType="Stretch">
 			<staticText>
-				<reportElement style="Title" x="221" y="35" width="263" height="33" uuid="a085aef4-6fae-45f0-9b2a-2921e3cecb7e"/>
+				<reportElement style="Title" x="380" y="32" width="263" height="33" uuid="a085aef4-6fae-45f0-9b2a-2921e3cecb7e"/>
 				<textElement verticalAlignment="Middle"/>
 				<text><![CDATA[HORARIOS]]></text>
 			</staticText>
@@ -185,16 +185,6 @@ FROM
 			<textField>
 				<reportElement style="Detail" x="749" y="13" width="61" height="15" uuid="1b2e41cc-c285-4a56-b3d7-ad237ba700a6"/>
 				<textFieldExpression><![CDATA[$F{clase}]]></textFieldExpression>
-			</textField>
-			<rectangle>
-				<reportElement mode="Opaque" x="0" y="4" width="36" height="24" forecolor="#CCCCCC" backcolor="#CCCCCC" uuid="40bd3ef4-964f-437d-8599-fca43a659d18"/>
-			</rectangle>
-			<textField>
-				<reportElement style="SubTitle" x="11" y="4" width="25" height="24" forecolor="#CC0000" uuid="9ec3ee83-9140-49af-ac34-a93f187265ab"/>
-				<textElement>
-					<font isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{idHorario}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

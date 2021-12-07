@@ -409,7 +409,7 @@
                                     </div>
                                 </div> 
                                 <div class="boton">
-                                    <input type="submit" id="btn" value="Actualizar" class="btn btn-success">
+                                    <center><input type="submit" id="btn" value="Actualizar" class="btn btn-success"></center>
                                     <input type="hidden" value="2" name="opcion">
                                 </div>
                             </div>

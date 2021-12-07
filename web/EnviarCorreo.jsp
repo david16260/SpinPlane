@@ -231,10 +231,7 @@
                         <textarea class="form-control" name="contenido" id="exampleFormControlTextarea1" rows="5"></textarea>
                     </div>
                     <br>
-                    <div class="mb-3">
-                        <label for="exampleFormControlTextarea1" class="form-label">Contenido</label>
-                        <input type="file" name="imagen" id="exampleFormControlInput1" class="form-control-file">
-                    </div>
+                    
                     
                     <center> <input type="submit" class="btn btn-success" name="Enviar"> </center>
                     
